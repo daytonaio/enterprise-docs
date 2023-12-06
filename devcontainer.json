@@ -1,0 +1,16 @@
+{
+    "name": "Daytona Docs",
+    "build": {
+      "dockerfile": "Dockerfile"
+    },
+    "postCreateCommand": "pnpm install",
+    "waitFor": "postCreateCommand",
+    "customizations": {
+      "codespaces": {
+        "openFiles": ["CONTRIBUTING.md"]
+      },
+      "vscode": {
+        "extensions": ["astro-build.astro-vscode", "esbenp.prettier-vscode"]
+      }
+    }
+  }
