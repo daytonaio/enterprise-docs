@@ -1,4 +1,6 @@
 ---
-title: tmp
-description: A guide in my new Starlight docs site.
+title: Uninstall
+description: Add a brief description of the Uninstall page here
+sidebar:
+  label: Uninstall
 ---

@@ -1,4 +1,6 @@
 ---
-title: tmp
-description: A guide in my new Starlight docs site.
+title: Appearance Administration
+description: Add a brief description of the Appearance Administration page here
+sidebar:
+  label: Appearance
 ---

@@ -1,4 +1,6 @@
 ---
-title: tmp
-description: A guide in my new Starlight docs site.
+title: High Density Administration
+description: Add a brief description of the High Density Administration page here
+sidebar:
+  label: High Density
 ---

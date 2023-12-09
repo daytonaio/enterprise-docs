@@ -1,4 +1,6 @@
 ---
-title: tmp
-description: A guide in my new Starlight docs site.
+title: Cluster Installation
+description: Add a brief description of the Cluster Installation page here
+sidebar:
+  label: Cluster
 ---

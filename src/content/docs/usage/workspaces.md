@@ -1,4 +1,6 @@
 ---
-title: tmp
-description: A guide in my new Starlight docs site.
+title: Workspaces Usage
+description: Add a brief description of the Workspaces Usage page here
+sidebar:
+  label: Workspaces
 ---

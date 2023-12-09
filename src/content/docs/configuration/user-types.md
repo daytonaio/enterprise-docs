@@ -1,4 +1,6 @@
 ---
-title: tmp
-description: A guide in my new Starlight docs site.
+title: User Types Configuration
+description: Add a brief description of the User Types Configuration page here
+sidebar:
+  label: User Types
 ---

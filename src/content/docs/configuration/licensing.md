@@ -1,4 +1,6 @@
 ---
-title: tmp
-description: A guide in my new Starlight docs site.
+title: Licensing (Enterprise) Configuration
+description: Add a brief description of the Licensing (Enterprise) Configuration page here
+sidebar:
+  label: Licensing (Enterprise)
 ---

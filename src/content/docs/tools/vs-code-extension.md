@@ -1,6 +1,8 @@
 ---
-title: vsext
-description: A guide in my new Starlight docs site.
+title: VS Code Extension Tools and Resources
+description: Add a brief description of the VS Code Extension Tools and Resources page here
+sidebar:
+  label: VS Code Extension
 ---
 
 # Download Daytona VSCode Extension Today
@@ -32,16 +34,16 @@ B. Or download it directly in VSCode:
 2. Open Extension view by pressing `Ctrl+Shift+X`(Windows) or `Command+Shift+X`(MacOS). 
 3. (Optional) Search "Remote SSH" and install the Remote SSH extension in the VS Code extension market place:
 
-![remote-ssh](../../../assets/tools/remote-ssh-extension.png)
+![remote-ssh](../../../assets/tools/vsext/remote-ssh-extension.png)
 
 4. Search "Daytona", you will find: 
 
-![daytona-vscode](../../../assets/tools/daytona-vscode-2.png)
+![daytona-vscode](../../../assets/tools/vsext/daytona-vscode-2.png)
 
 
 5. Hit install button: 
 
-![hit-install](../../../assets/tools/daytona-vscode-3.png)
+![hit-install](../../../assets/tools/vsext/daytona-vscode-3.png)
 
 
 
@@ -49,7 +51,7 @@ B. Or download it directly in VSCode:
 
 Navigate back to your Daytona Dashboard in browser with your workspace URL:
 
-![dashboard-signin](../../../assets/tools/dashboard-signin.png)
+![dashboard-signin](../../../assets/tools/vsext/dashboard-signin.png)
 
 
 > Haven't install it? The link is here [Daytona Installer](https://github.com/daytonaio/installer), and make sure you updated it to the latest version for a better experience -- we update the installer very often. 
@@ -63,11 +65,11 @@ Navigate back to your Daytona Dashboard in browser with your workspace URL:
 
 After log in, you will see the dashboard
 
-![daytona-dashboard](../../../assets/tools/daytona-dashboard.png)
+![daytona-dashboard](../../../assets/tools/vsext/daytona-dashboard.png)
 
 To select a default editor, click on the `Settings` tab on left navigation bar, 
 
-![daytona-dashboard-settings](../../../assets/tools/daytona-dashboard-settings.png)
+![daytona-dashboard-settings](../../../assets/tools/vsext/daytona-dashboard-settings.png)
 
 
 You can choose VSCode or any editor from the Jetbrains group. But let's select `VS Code` for today.
@@ -84,37 +86,37 @@ Once you have the extension and default editor set up, hit `Create` on the `Work
 
 On right side of any one of your repository, click on the `...` and then `Open`
 
-![choose-open](../../../assets/tools/choose-open.png)
+![choose-open](../../../assets/tools/vsext/choose-open.png)
 
 > And then confirm the editor of choice:
 
-![editor-prompt](../../../assets/tools/editor-prompt.png)
+![editor-prompt](../../../assets/tools/vsext/editor-prompt.png)
 
 The browser will ask you
 ```
  "workspace.url" wants to open "Code"
 ```
-![browser-prompt](../../../assets/tools/browser-prompt.png)
+![browser-prompt](../../../assets/tools/vsext/browser-prompt.png)
 
 Click `Open` to continue. Once VSCode is opened, VSCode will ask you: 
 ```
 Allow 'Daytona' extension to open this URI?
 ```
-![allow-daytona-vscode](../../../assets/tools/allow-daytona-vscode.png)
+![allow-daytona-vscode](../../../assets/tools/vsext/allow-daytona-vscode.png)
 
 **Click Open** to continue. 
 
 If you are connecting for the first time, VS Code might ask you to for an access grant: 
 
-![access grant](../../../assets/tools/grant-access.png)
+![access grant](../../../assets/tools/vsext/grant-access.png)
 
 Click yes and you will be redirected to vscode:
 
-![url redirect](../../../assets/tools/url-redirect.png)
+![url redirect](../../../assets/tools/vsext/url-redirect.png)
 
 Your editor will then prompt you to enter an SSH config file, select the first one: 
 
-![ssh-config](../../../assets/tools/ssh-config.png)
+![ssh-config](../../../assets/tools/vsext/ssh-config.png)
 
 And now you are connected and ready to use Daytona in VS Code!
 
@@ -124,10 +126,10 @@ And now you are connected and ready to use Daytona in VS Code!
 
 Once you are set up, whenever you open VS Code again, click on the Daytona extension shows up on the left. You can see the repositories showed up on in VSCode are synced with your Daytona workspace.
 
-![sync-code-daytona](../../../assets/tools/sync-code-daytona.png)
+![sync-code-daytona](../../../assets/tools/vsext/sync-code-daytona.png)
 
 > When connecting to a repository, VS Code will ask you again for an SSH config file, always select the first: 
-> ![ssh-config-2](../../../assets/tools/ssh-config-2.png)
+> ![ssh-config-2](../../../assets/tools/vsext/ssh-config-2.png)
 
 
 

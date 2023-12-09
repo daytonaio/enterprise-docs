@@ -1,4 +1,6 @@
 ---
-title: tmp
-description: A guide in my new Starlight docs site.
+title: IDPs Installation
+description: Add a brief description of the IDPs Installation page here
+sidebar:
+  label: IDPs
 ---

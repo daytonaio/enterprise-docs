@@ -1,4 +1,6 @@
 ---
-title: tmp
-description: A guide in my new Starlight docs site.
+title: IDEs Usage
+description: Add a brief description of the IDEs Usage page here
+sidebar:
+  label: IDEs
 ---

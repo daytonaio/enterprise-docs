@@ -1,4 +1,6 @@
 ---
-title: tmp
-description: A guide in my new Starlight docs site.
+title: Architecture
+description: Add a brief description of the Architecture page here
+sidebar:
+  label: Architecture
 ---

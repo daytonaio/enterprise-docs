@@ -1,4 +1,6 @@
 ---
-title: tmp
-description: A guide in my new Starlight docs site.
+title: Getting Started
+description: Add a brief description of the Getting Started page here
+sidebar:
+  label: Getting Started
 ---

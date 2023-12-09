@@ -1,4 +1,6 @@
 ---
-title: tmp
-description: A guide in my new Starlight docs site.
+title: Projects Usage
+description: Add a brief description of the Projects Usage page here
+sidebar:
+  label: Projects
 ---

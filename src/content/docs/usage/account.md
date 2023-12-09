@@ -1,4 +1,6 @@
 ---
-title: tmp
-description: A guide in my new Starlight docs site.
+title: Account Usage
+description: Add a brief description of the Account Usage page here
+sidebar:
+  label: Account
 ---

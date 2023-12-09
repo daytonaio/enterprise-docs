@@ -1,4 +1,6 @@
 ---
-title: tmp
-description: A guide in my new Starlight docs site.
+title: JetBrains Gateway Tools and Resources
+description: Add a brief description of the JetBrains Gateway Tools and Resources page here
+sidebar:
+  label: JetBrains Gateway
 ---
