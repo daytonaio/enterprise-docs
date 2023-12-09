@@ -72,3 +72,8 @@ Execute these commands from the root of your project in a terminal:
 ## 👀 Looking for more information on how to structure and develop docs with Astro and Starlight?
 
 Explore [Starlight’s documentation](https://starlight.astro.build/), delve into [Astro’s docs](https://docs.astro.build), or join the vibrant [Astro Discord community](https://astro.build/chat) for support.
+
+### NOTES
+- For API we are using [Starlight OpenAPI](https://github.com/HiDeoo/starlight-openapi/)
+- Currently openapi doesn't work - render menu but breaks on content
+- OpenAPI JSON needs to be converted to YAML with https://editor.swagger.io/
