@@ -178,6 +178,8 @@ To add a language, you will need its BCP-47 tag and a label. See [“Adding a ne
   The Starlight integration is exported from [`packages/starlight/index.ts`](./packages/starlight/index.ts).
   It sets up Starlight’s routing logic, parses user config, and adds configuration to a Starlight user’s Astro project.
 
+- For tips and abilities on authoring content in Starlight follow the guide: [https://starlight.astro.build/guides/authoring-content/](https://starlight.astro.build/guides/authoring-content/)
+
 - Most pages in a Starlight project are built using a single [`packages/starlight/index.astro`](./packages/starlight/index.astro) route.
   If you’ve worked on an Astro site before, much of this should look familiar: it’s an Astro component and uses a number of other components to build a page based on user content.
 
