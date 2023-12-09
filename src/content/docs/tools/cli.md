@@ -11,7 +11,7 @@ This is the Daytona CLI used to manipulate workspaces from the command line.
 
 Usage:
   daytona [flags]
-  daytona [command]
+  daytona [command] 
  
 Available Commands:
   code              Starts the workspace in VS Code
