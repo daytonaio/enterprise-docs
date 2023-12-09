@@ -12,9 +12,10 @@ description: A guide in my new Starlight docs site.
 
 Daytona's [VS Code extension](https://marketplace.visualstudio.com/items?itemName=daytonaio.daytona) is now available for download on VS Code
 
-> [!NOTE]
+:::tip[!NOTE]
 <!-- This is a callout group intended to be formatted like this: https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax#alerts-->
-> Daytona is an environment management platform any company can install company's own infrastructure. Most of remote standardised development environments are browser based IDEs, but Daytona enable your team to work together frictionless with a unified setting.
+Daytona is an environment management platform any company can install company's own infrastructure. Most of remote standardised development environments are browser based IDEs, but Daytona enable your team to work together frictionless with a unified setting.
+:::
 
 With Daytona's VS Code extension, you will have a frictionless user experience to connect a remote SDE, by clicking on the extension icon.
 
