@@ -9,7 +9,7 @@ const {
   starlightOpenAPI
 } = await generateAPI([{
   base: 'api',
-  label: 'API',
+  label: 'OpenAPI',
   schema: 'schemas/openapi.yaml'
 }]);
 
