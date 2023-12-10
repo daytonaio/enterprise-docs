@@ -123,17 +123,16 @@ In this section, we'll cover the essential functionalities of the Daytona VS Cod
 
 The functionalities are compatible with what you able to achieve in Daytona dashboard, be it creating, managing repositories, managing teams, viewing profiles. 
 
-#### 1. Creating repositories
-
+### 1. Creating repositories
+Each repositories created are isolated in their own environment, even if they live on the same branch. In the following two sub-sections, we will talk about how to create and manage your repositories with Daytona in VS Code.
  - **Click on `+`**: Click on the "+" button when you hover over the **Workspace** tab
  - **Repository URL**: You will be asked for a repository URL, you can obtain this URL by clicking on the green button "Clone, open or download", choose "Local" -> "Clone" via HTTPS on your repository page or adding `.git` after your repository's URL string
  - **Select SSH config file**: You will also be asked "Select an SSH config file", select the first option appear in the format of `/User/name/.ssh/config`, this question will be asked whenver you open a repository
  - **Checking repositories**: Once the repository is created, you can see them under `WORKSPACES` in the Daytona VS Code extension tab. 
  - **Choosing base environment**: At the moment, if you want to create a repository with a preset template (ex: You are developing a Go project and prefer to have Go pre-installed in the environment), you will need to go to your Daytona dashboard in the `Workspaces` tab and choose one of the templates. But if you have a `devcontainer.json` file describes the specific of your development environment, they are be set up when you are creating, or opening a repository.
 
-#### 2. Managing repositories
+### 2. Managing repositories
 - **Synchronisation**: All the repositories under **[Workspace](/usage/workspace)** are synchronised with your Daytona dashboard, whether you are creating a repository by pressing "Create" on `WORKSPACES` tab in Daytona dashboard, or click "+" on `WORKSPACES` in Daytona VS Code extension, they will all sync together. 
-- **Repository isolation**: Each repositories created under the `WORKSPACES` tab are in their standalone, isolated environment. 
 - **Opening repository**: To start working on a repository, you can hover on top of the repository and click on "Open", or right click on the repository to select "Open". It will start building the development container and you can work on it locally.
 - **Copy ID**: Your repositories might be created under different environment and if they are using the same name, it will become confusing to recognise for you or your team members. To make notes or recognise different repositories, right click on one of them and click "Copy ID". Your repository's ID will always be in the format of `your-repository-name`+`random string`
 - **Stopping a repository**: Right click on the repository and select "Stop", it will stop development container and the remote connection with your Daytona instance. When you need to come back and work on it again, you just need to click "Open"
@@ -143,23 +142,52 @@ The functionalities are compatible with what you able to achieve in Daytona dash
 :::
 
 ### 3. Managing teams
-Repositories are separated between teams. Repositories created within a team only exists in that team, if you create a new team the repositories might appear empty. 
+Repositories are separated between teams. Repositories created within a team only exists in that team, if you create a new team the `WORKSPACES` will appear empty. 
 - **Team information**: Within the Daytona extension tab, you can see your team's name under `TEAMS`.
 - **Creating a team**: At the moment you can only create a new team on your Daytona dashboard. 
 - **Selecting a team**: Hover over a team's name, and click on the `Select` button. Note that if you change a team, you won't see the same repositories you can see in the previous team.
 {/* need more information related to selecting a team */}
 
-#### 4. Managing profiles
-- **Checking profile**: Under the `PROFILES` section within the extension, you can check your existing profile. Under each profile
-- **Selecting profile**: Hover over your profile's name and choose `Select`, when you choose a new profile, commit to test profile
+### 4. Managing profiles
+Profiles are equivalent to a fresh, new Daytona instance installation, however if you change your profile without changing teams, the repositories' created might appear the same under `WORKSPACES` section. But they are indeed being created in different environment when you open them.
+- **Checking profile**: Under the `PROFILES` section within the extension, you can check your existing profile. Under each profile, you can see `API URL`, `Auth URL`, `SSH Port` and `Notification URL`
+- **Selecting profile**: Hover over your profile's name and choose `Select`, when you open a repository under `WORKSPACE` after choosing a new profile, your repositories will be opened in different environment. However the previous installation and dependencies will persist.
 
-#### 3. Opening a repository
-- You can either 
 
 
 <a href="#clean-uninstall" class="content-subtitle">
 ## Clean uninstall guide
 </a>
+After installing Daytona VS Code extension, there might be a point when you update your Daytona instance's installation, or you want to start over the installation process again after a clean uninstall, here are several steps to help you: 
+<span class="content-subtitle">
+### Step 1: Uninstall Daytona VS Code extension
+</span>
+In VS Code, navigate to the Extension tab in VS Code or use the shortcut keys:
+
+Windows: `Ctrl+Shift+X`<br/>
+MacOS: `Command+Shift+X`
+
+And search for `Daytona`, select the extension with our logo and click on the blue button `Uninstall` on the `Extensions:Daytona` tab that shows up. This will only remove the extension within VS Code, for a clean uninstall you will need to continue to the next step.
+
+<span class="content-subtitle">
+### Step 2: Remove related directories and files related to Daytona
+</span>
+
+**Remove SSH configuration**<br/>
+Open your terminal and run 
+```bash
+rm -rf ~/.ssh/config
+```
+This command will remove the file reside in your current user's directory. It is where we store your SSH configuration to ensure a safe connection between your local VS Code to Daytona installation.
+
+**Remove profile related data**<br/>
+```bash
+rm -rf ~/.daytona
+```
+This command will remove the directory which we store your profile, default configurations and which website to open when you are granting permission to connect local VS Code to Daytona. 
+
+_After these two steps, you will have a clean set up and removed all files that are related to Daytona on your computer. However, if you are looking to uninstall and clean up your Daytona deployment, check [this uninstallation guide](/installation/uninstall)_
+
 
 ---
 <CardGrid>
