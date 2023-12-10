@@ -30,7 +30,7 @@ This document provides a detailed step-by-step guide for contributors, especiall
 
 3. **Create an Issue**: If you're addressing an unreported problem or proposing new content, open an issue to discuss your ideas. Provide a clear and concise description of what you want to add or change.
 
-4. **Fork and Clone**: Fork the [Daytona Docs repository][sl] to your GitHub account and clone it to your local machine. Replace `YOUR-USERNAME` with your GitHub username:
+4. **Fork and Clone**: Fork the [Daytona Docs repository][sl] to your GitHub account to create an isolated copy where you can work without affecting the original project. Then, clone it to your local machine. Replace `YOUR-USERNAME` with your GitHub username. Keep your fork up to date with the original repository by adding it as an upstream remote and regularly fetching and merging changes.
 
     ```sh
     git clone https://github.com/YOUR-USERNAME/docs.git
@@ -54,7 +54,7 @@ This document provides a detailed step-by-step guide for contributors, especiall
 8. **Test Locally**: Before pushing your changes, run the local development server to test how your changes look:
 
     ```sh
-    pnpm dev
+    pnpm dev run
     ```
 
 9. **Commit**: Once you're satisfied with your work, commit your changes with a clear and descriptive message:
