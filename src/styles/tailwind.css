@@ -1,0 +1,64 @@
+.cursor-pointer {
+    cursor: pointer;
+    pointer-events: all;
+}
+
+
+.content-subtitle h2 {
+    padding-top: 2rem;
+    padding-bottom: 1.2rem;
+    font-size:2rem;
+}
+
+.content-subtitle h3 {
+    padding-top:1.5rem;
+    padding-bottom:0.8rem;
+    padding-left:0.5rem;
+    font-size:1.2rem;
+ 
+}
+
+code {
+    border-radius: 0.2rem;
+}
+
+h3 {
+    font-size: medium;
+}
+
+.not-content details {
+    background-color: rgb(131, 48, 208, 30%) ;
+    cursor: pointer;
+    pointer-events: all;
+    border-radius: 0.5rem;
+    color:aliceblue;
+    padding:3%;
+}
+
+.not-content details > summary {
+    font-weight:500;
+    font-size:400;
+    background-color: rgb(181, 181, 226, 30%);
+    padding:0.3em 0.5em;
+    border-radius: 0.5rem;
+}
+
+.not-content details[open] > summary {
+    background-color: rgb(181, 181, 226, 30%);
+    padding:0.3em 0.5em;
+    border-radius: 0.5rem;
+    margin-bottom:0.8em;
+    font-weight:500;
+    font-size:400;
+  }
+
+.content code {
+    font-family:monospace;
+    font-weight: 400;
+    font-size:medium;
+    color: rgb(176, 170, 170);
+}
+
+div .content {
+    padding-left: 0.5em;
+}

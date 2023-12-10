@@ -1,0 +1,169 @@
+---
+
+title: VS Code Extension
+description: Daytona's VS Code extension allows you to open a repository in a standardised environment directly in VS Code
+sidebar:
+  label: VS Code Extension
+---
+import { Tabs, TabItem, LinkCard, CardGrid, Card } from '@astrojs/starlight/components';
+
+
+## What is Daytona's VS Code extension
+
+Daytona's VS Code extension integrates with Visual Studio Code and Daytona, appearing as a tab on the left-hand side alongside your default tabs in VS Code like File Explorer, Search, Source Control etc, to streamline your worklow and boost productivity.
+
+The extension allows you to have a frictionless experience of opening a standardised development environment, creating repositories and accessing your [Daytona Workspaces](/usage/workspaces). It offers convenient repository management, profile control, and instant team information access -- all directly within VS Code, removing the hassle of going to a web browser, open Daytona URL and creating projects.
+
+
+##### This guide for Daytona VS Code Extension includes 5 sections: 
+
+**[Prerequisites](#prerequisite)**: What you need to have to get Daytona's VS Code extension working as expected<br/>
+**[How to install](#how-to-install)**: How to install Daytona VS Code extension<br/>
+**[Establish a connection for the first time](#establish-connection)**: After installing Daytona VS Code extension, how to get it working<br/>
+**[Features](#features)**: Introducing what you can do with VS Code extension -- workspaces, teams, profiles<br/>
+**[Clean Uninstall](#clean-uninstall)**: What to do if you want to start over again.
+
+
+
+<a href="#prerequisite" class="content-subtitle">
+## Prerequisites
+</a>
+Before you can harness the full potential of Daytona's VS Code extension, make sure you meet the following requirements:
+
+- **[Visual Studio Code](https://code.visualstudio.com/download)**: have Visual Studio Code installed on your computer 
+- **Daytona**: Daytona's power lies in its infrastructure. If you haven't set it up yet, you can easily do so by [downloading it from the Daytona installer](https://github.com/daytonaio/installer)
+- **Daytona Dashboard URL**: To complete the setup, you'll need the URL of your Daytona dashboard, which you can obtain after setting up from installation.
+
+With these prerequisites in place, you'll be ready to use Daytona's VS Code extension.
+
+
+
+<a href="#how-to-install" class="content-subtitle">
+## How to install
+</a>
+Installing the Daytona VS Code extension is simple. You have two options to choose from to get started:
+
+
+
+<Tabs>
+<TabItem label="Download from URL">
+Install from [Daytona VS Code Extension](https://marketplace.visualstudio.com/items?itemName=daytonaio.daytona)
+</TabItem>
+<TabItem label="Download in VS Code Extension Marketplace">
+
+**Step 1**: Open VS Code, navigate to the Extension tab in VS Code or use the shortcut keys:
+
+Windows: `Ctrl+Shift+X`<br/>
+MacOS: `Command+Shift+X`
+
+**Step 2**: Search "Daytona", you will find the extension with our logo and hit `Install`
+</TabItem>
+</Tabs>
+
+_🚩 Now you should see your Daytona VS Code extension displayed on the left-hand side of VS Code. But when you click on it, nothing under "WORKSPACES", "TEAMS", "PROFILES", now what?_
+
+
+<a href="#establish-connection" class="content-subtitle">
+## Establish a connection for the first time
+</a>
+When you are using the VS Code extension for the first time, you will need to establish a safe connection between your local computer and your Daytona instance. Having this connection in place is essential whenever you are using Daytona VS Code extension in the future, it keeps your workspaces, profiles and teams sync with your Daytona installation. We will walk you through it step by step, and you will need your **Daytona dashboard URL** before we continue.
+
+<span class="content-subtitle">
+### Step 1. **Sign in and open a repository**
+</span>
+   - Visit your Daytona dashboard URL and make sure you are on the `WORKSPACES` tab.
+   - Select one of the repositories and click on the "𓈓" icon next to one of your repositories.
+   - Select "Open."
+
+{/* <Card icon="github" title="If you haven't have any repositories in your workspace">You will need to do it now by clicking "Create" in the `WORKSPACES` tab on Daytona dashboard to import a repository from your Git Provider.</Card> */}
+
+<div class="not-content">
+ <details>
+  <summary> If you don't have any repositories in this workspace</summary>
+  <div class="content">
+  You will need to do it now by clicking "Create" in the <code>WORKSPACES</code> tab on Daytona dashboard to import a repository from your Git Provider.
+</div>
+</details>
+</div>
+
+<span class="content-subtitle">
+### Step 2. **Configure code editor**
+</span>
+   - Within daytona dashboard, after you selected "Open", choose "VS Code" as your code editor in the pop up modal.
+<span class="content-subtitle">
+### Step 3. **Respond to permissions**
+</span>
+   - As you proceed, you may encounter the following prompts:
+     - "The extension 'Daytona' wants to sign in using 'your-profile-name'." Choose "Allow."
+     - "Do you want Code to open the external website?" Choose "Open."
+<span class="content-subtitle">
+### Step 4. **Authenticate with Your Git Provider**
+</span>
+   - In the browser pop-up window that appears with "id.your-daytona-url" under "Please re-authenticate to continue," click on your Git Provider.
+<span class="content-subtitle">
+### Step 5. **Open Visual Studio Code**
+</span>
+   - In your browser, the pop-up will prompt "'id.your-daytona-url' wants to open 'Visual Studio Code'," choose one of the "Open 'Visual Studio Code'" options.
+<span class="content-subtitle">
+### Step 6. **Allow Daytona Extension**
+</span>
+   - When VS Code is opened, you will be asked, "Allow 'Daytona' extension to open this URI?" Choose "Open".
+<span class="content-subtitle">
+### Step 7. **Select SSH Configuration File**
+</span>
+   - Finally, in your VS Code, when prompted to "Select the SSH config file to update," choose the first option, in the format of `/User/name/.ssh/config`.
+
+_Your selected repository should be up and running in Visual Studio Code 🚀._
+
+<a href="#features" class="content-subtitle">
+## Features
+</a>
+
+In this section, we'll cover the essential functionalities of the Daytona VS Code extension. These features are designed to simplify your development process, allowing for ease of cloud-based development, effortless repository creation and synchronization, viewing team information and creating profiles. 
+
+The functionalities are compatible with what you able to achieve in Daytona dashboard, be it creating, managing repositories, managing teams, viewing profiles. 
+
+#### 1. Creating repositories
+
+ - **Click on `+`**: Click on the "+" button when you hover over the **Workspace** tab
+ - **Repository URL**: You will be asked for a repository URL, you can obtain this URL by clicking on the green button "Clone, open or download", choose "Local" -> "Clone" via HTTPS on your repository page or adding `.git` after your repository's URL string
+ - **Select SSH config file**: You will also be asked "Select an SSH config file", select the first option appear in the format of `/User/name/.ssh/config`, this question will be asked whenver you open a repository
+ - **Checking repositories**: Once the repository is created, you can see them under `WORKSPACES` in the Daytona VS Code extension tab. 
+ - **Choosing base environment**: At the moment, if you want to create a repository with a preset template (ex: You are developing a Go project and prefer to have Go pre-installed in the environment), you will need to go to your Daytona dashboard in the `Workspaces` tab and choose one of the templates. But if you have a `devcontainer.json` file describes the specific of your development environment, they are be set up when you are creating, or opening a repository.
+
+#### 2. Managing repositories
+- **Synchronisation**: All the repositories under **[Workspace](/usage/workspace)** are synchronised with your Daytona dashboard, whether you are creating a repository by pressing "Create" on `WORKSPACES` tab in Daytona dashboard, or click "+" on `WORKSPACES` in Daytona VS Code extension, they will all sync together. 
+- **Repository isolation**: Each repositories created under the `WORKSPACES` tab are in their standalone, isolated environment. 
+- **Opening repository**: To start working on a repository, you can hover on top of the repository and click on "Open", or right click on the repository to select "Open". It will start building the development container and you can work on it locally.
+- **Copy ID**: Your repositories might be created under different environment and if they are using the same name, it will become confusing to recognise for you or your team members. To make notes or recognise different repositories, right click on one of them and click "Copy ID". Your repository's ID will always be in the format of `your-repository-name`+`random string`
+- **Stopping a repository**: Right click on the repository and select "Stop", it will stop development container and the remote connection with your Daytona instance. When you need to come back and work on it again, you just need to click "Open"
+
+:::caution
+- **Destroy a repository**: When you right click on a repository and select "Destroy", this behavior is irreversible. It removes the development container completely. If you have previous installation or set up that wasn't specified in [devcontainer.json](https://www.daytona.io/dotfiles/guide-create-devcontainer-json-file), you will lose them. When you recreate the repository from your Git provider, you will have to set them up, or reinstall them again. 
+:::
+
+### 3. Managing teams
+Repositories are separated between teams. Repositories created within a team only exists in that team, if you create a new team the repositories might appear empty. 
+- **Team information**: Within the Daytona extension tab, you can see your team's name under `TEAMS`.
+- **Creating a team**: At the moment you can only create a new team on your Daytona dashboard. 
+- **Selecting a team**: Hover over a team's name, and click on the `Select` button. Note that if you change a team, you won't see the same repositories you can see in the previous team.
+{/* need more information related to selecting a team */}
+
+#### 4. Managing profiles
+- **Checking profile**: Under the `PROFILES` section within the extension, you can check your existing profile. Under each profile
+- **Selecting profile**: Hover over your profile's name and choose `Select`, when you choose a new profile 
+
+#### 3. Opening a repository
+- You can either 
+
+
+<a href="#clean-uninstall" class="content-subtitle">
+## Clean uninstall guide
+</a>
+
+---
+<CardGrid>
+  <LinkCard title="⭐️ Give us a star" href="https://github.com/daytonaio/installer" />
+  <LinkCard title="📝 Contribute to this doc" href="https://github.com/daytonaio/docs/pulls?q=is:pr+is:open+sort:updated-desc" /> 
+  <LinkCard title="🙋 Join our Slack community" href="https://join.slack.com/t/daytonacommunity/shared_invite/zt-273yohksh-Q5YSB5V7tnQzX2RoTARr7Q" />
+</CardGrid>

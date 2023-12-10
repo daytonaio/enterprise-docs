@@ -1,16 +1,11 @@
 ---
 title: VS Code Extension Tools and Resources
-description: Add a brief description of the VS Code Extension Tools and Resources page here
+description: Download Daytona VSCode Extension for a Github Codespaces-like experience
 sidebar:
   label: VS Code Extension
 ---
 
-# Download Daytona VSCode Extension Today
 
-<!--Two subtitles to select for article description section-->
-#### Subtitle 1: Never leave your editor for a standardised developement environment
-
-#### Subtitle 2: Download Daytona VSCode Extension for a Github Codespaces-like experience
 
 Daytona's [VS Code extension](https://marketplace.visualstudio.com/items?itemName=daytonaio.daytona) is now available for download on VS Code
 
