@@ -1,89 +1,125 @@
 import { defineConfig } from 'astro/config';
 import starlight from '@astrojs/starlight';
-import { generateAPI } from 'starlight-openapi'
+import { generateAPI } from 'starlight-openapi';
 
 // Generate the documentation and get the associated sidebar groups.
-const { openAPISidebarGroups, starlightOpenAPI } = await generateAPI([
-    {
-      base: 'api',
-      label: 'API',
-      schema: 'schemas/openapi.yaml',
-    },
-  ])
+
+const {
+  openAPISidebarGroups,
+  starlightOpenAPI
+} = await generateAPI([{
+  base: 'api',
+  label: 'API',
+  schema: 'schemas/openapi.yaml'
+}]);
+
 
 // https://astro.build/config
 export default defineConfig({
-	integrations: [
-		starlight({
-			title: 'Daytona',
-			social: {
-				github: 'https://github.com/daytonaio',
-			},
-            "sidebar": [
-                {
-                    "label": "Getting Started",
-                    link: 'getting-started',
-                },
-                {
-                    "label": "Architecture",
-                    link: 'architecture',
-                },
-                {
-                    "label": "Installation",
-                    "items": [
-                        { "label": "Single Node", "link": "/installation/single-node/" },
-                        { "label": "Cluster", "link": "/installation/cluster/" },
-                        { "label": "IDPs", "link": "/installation/idps/" },
-                        { "label": "Domains", "link": "/installation/domains/" },
-                        { "label": "Uninstall", "link": "/installation/uninstall/" }
-                    ]
-                },
-                {
-                    "label": "Configuration",
-                    "items": [
-                        { "label": "User Types", "link": "/configuration/user-types/" },
-                        { "label": "Git Providers", "link": "/configuration/git-providers/" },
-                        { "label": "Teams", "link": "/configuration/teams/" },
-                        { "label": "Templates", "link": "/configuration/templates/" },
-                        { "label": "Licensing (Enterprise)", "link": "/configuration/licensing/" }
-                    ]
-                },
-                {
-                    "label": "Usage",
-                    "items": [
-                        { "label": "Workspaces", "link": "/usage/workspaces/" },
-                        { "label": "IDEs", "link": "/usage/ides/" },
-                        { "label": "Account", "link": "/usage/account/" },
-                        { "label": "Projects", "link": "/usage/projects/" }
-                    ]
-                },
-                {
-                    "label": "Administration",
-                    "items": [
-                        { "label": "Application Logs", "link": "/administration/application-logs/" },
-                        { "label": "Audit Logs", "link": "/administration/audit-logs/" },
-                        { "label": "High Density", "link": "/administration/high-density/" },
-                        { "label": "Telemetry", "link": "/administration/telemetry/" },
-                        { "label": "Appearance", "link": "/administration/appearance/" }
-                    ]
-                },
-                {
-                    "label": "Tools and Resources",
-                    "items": [
-                        { "label": "API", "link": "/tools/api/" },
-                        { "label": "CLI", "link": "/tools/cli/" },
-                        { "label": "VS Code Extension", "link": "/tools/vs-code-extension/" },
-                        { "label": "JetBrains Gateway", "link": "/tools/jetbrains-gateway/" }
-                    ]
-                },
-                {
-                    label: 'API',
-                    items: openAPISidebarGroups.slice(0, 3),
-                },
-            ],
-		}),
-        // Add the Starlight OpenAPI integration.
-        starlightOpenAPI(),
-	],
+  integrations: [starlight({
+    title: 'Daytona',
+    social: {
+      github: 'https://github.com/daytonaio'
+    },
+    "sidebar": [{
+      "label": "Getting Started",
+      link: 'getting-started'
+    }, {
+      "label": "Architecture",
+      link: 'architecture'
+    }, {
+      "label": "Installation",
+      "items": [{
+        "label": "Single Node",
+        "link": "/installation/single-node/"
+      }, {
+        "label": "Cluster",
+        "link": "/installation/cluster/"
+      }, {
+        "label": "IDPs",
+        "link": "/installation/idps/"
+      }, {
+        "label": "Domains",
+        "link": "/installation/domains/"
+      }, {
+        "label": "Uninstall",
+        "link": "/installation/uninstall/"
+      }]
+    }, {
+      "label": "Configuration",
+      "items": [{
+        "label": "User Types",
+        "link": "/configuration/user-types/"
+      }, {
+        "label": "Git Providers",
+        "link": "/configuration/git-providers/"
+      }, {
+        "label": "Teams",
+        "link": "/configuration/teams/"
+      }, {
+        "label": "Templates",
+        "link": "/configuration/templates/"
+      }, {
+        "label": "Licensing (Enterprise)",
+        "link": "/configuration/licensing/"
+      }]
+    }, {
+      "label": "Usage",
+      "items": [{
+        "label": "Workspaces",
+        "link": "/usage/workspaces/"
+      }, {
+        "label": "IDEs",
+        "link": "/usage/ides/"
+      }, {
+        "label": "Account",
+        "link": "/usage/account/"
+      }, {
+        "label": "Projects",
+        "link": "/usage/projects/"
+      }]
+    }, {
+      "label": "Administration",
+      "items": [{
+        "label": "Application Logs",
+        "link": "/administration/application-logs/"
+      }, {
+        "label": "Audit Logs",
+        "link": "/administration/audit-logs/"
+      }, {
+        "label": "High Density",
+        "link": "/administration/high-density/"
+      }, {
+        "label": "Telemetry",
+        "link": "/administration/telemetry/"
+      }, {
+        "label": "Appearance",
+        "link": "/administration/appearance/"
+      }]
+    }, {
+      "label": "Tools and Resources",
+      "items": [{
+        "label": "API",
+        "link": "/tools/api/"
+      }, {
+        "label": "CLI",
+        "link": "/tools/cli/"
+      }, {
+        "label": "VS Code Extension",
+        "link": "/tools/vs-code"
+      }, {
+        "label": "VS Code Extension",
+        "link": "/tools/vs-code-extension/"
+      }, {
+        "label": "JetBrains Gateway",
+        "link": "/tools/jetbrains-gateway/"
+      }]
+    }, {
+      label: 'API',
+      items: openAPISidebarGroups.slice(0, 3)
+    }],
+    customCss: ["./src/styles/tailwind.css"]
+  }),
+  // Add the Starlight OpenAPI integration.
+  starlightOpenAPI()]
 });
-
