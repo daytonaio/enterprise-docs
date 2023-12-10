@@ -5,138 +5,136 @@ sidebar:
   label: VS Code Extension
 ---
 
-# Download Daytona VSCode Extension Today
+## Prerequisites
 
-<!--Two subtitles to select for article description section-->
-#### Subtitle 1: Never leave your editor for a standardised developement environment
-
-#### Subtitle 2: Download Daytona VSCode Extension for a Github Codespaces-like experience
-
-Daytona's [VS Code extension](https://marketplace.visualstudio.com/items?itemName=daytonaio.daytona) is now available for download on VS Code
-
-:::tip[!NOTE]
-<!-- This is a callout group intended to be formatted like this: https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax#alerts-->
-Daytona is an environment management platform any company can install company's own infrastructure. Most of remote standardised development environments are browser based IDEs, but Daytona enable your team to work together frictionless with a unified setting.
-:::
-
-With Daytona's VS Code extension, you will have a frictionless user experience to connect a remote SDE, by clicking on the extension icon.
-
-## To install the Daytona extension in VSCode: 
-
-A. From URL: 
-
-You can click on this link to install [Daytona VSCode Extension](https://marketplace.visualstudio.com/items?itemName=daytonaio.daytona) and also make sure you have the [Remote SSH Extention](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-ssh) in your VS Code
+- [Visual Studio Code](https://code.visualstudio.com/download) installed
+- Have Daytona installed on your infrastructure (If you haven't done it yet, [Download the Daytona Installer](https://github.com/daytonaio/installer))
+- Your Daytona dashboard URL from installer
 
 
-B. Or download it directly in VSCode:
+## Installation 
 
-1. Go to VSCode
-2. Open Extension view by pressing `Ctrl+Shift+X`(Windows) or `Command+Shift+X`(MacOS). 
-3. (Optional) Search "Remote SSH" and install the Remote SSH extension in the VS Code extension market place:
+You can choose one of the options from below to install the VS Code extension
 
-![remote-ssh](../../../assets/tools/vsext/remote-ssh-extension.png)
-
-4. Search "Daytona", you will find: 
-
-![daytona-vscode](../../../assets/tools/vsext/daytona-vscode-2.png)
-
-
-5. Hit install button: 
-
-![hit-install](../../../assets/tools/vsext/daytona-vscode-3.png)
-
-
-
-### Using it the first time
-
-Navigate back to your Daytona Dashboard in browser with your workspace URL:
-
-![dashboard-signin](../../../assets/tools/vsext/dashboard-signin.png)
-
-
-> Haven't install it? The link is here [Daytona Installer](https://github.com/daytonaio/installer), and make sure you updated it to the latest version for a better experience -- we update the installer very often. 
-
-**If you need help, join our Slack community.**
-
-[Join Daytona Slack Community](https://join.slack.com/t/daytonacommunity/shared_invite/zt-273yohksh-Q5YSB5V7tnQzX2RoTARr7Q)
-
-
-### Default IDE configuration in dashboard
-
-After log in, you will see the dashboard
-
-![daytona-dashboard](../../../assets/tools/vsext/daytona-dashboard.png)
-
-To select a default editor, click on the `Settings` tab on left navigation bar, 
-
-![daytona-dashboard-settings](../../../assets/tools/vsext/daytona-dashboard-settings.png)
-
-
-You can choose VSCode or any editor from the Jetbrains group. But let's select `VS Code` for today.
-
-<figure class="video_container">
-  <video controls="true" allowfullscreen="true" poster="../../../video-poster.png">
-    <source src="../../../pic-code-editor.mp4" type="video/mp4">
-  </video>
-</figure>
-
-> On this dashboard, you can set the environment variables for this workspace, or set your public SSH keys to allow a secure connection with your Daytona workspace,or manageing your team settings and usage information. 
-
-Once you have the extension and default editor set up, hit `Create` on the `Workspaces` page and import a repository. 
-
-On right side of any one of your repository, click on the `...` and then `Open`
-
-![choose-open](../../../assets/tools/vsext/choose-open.png)
-
-> And then confirm the editor of choice:
-
-![editor-prompt](../../../assets/tools/vsext/editor-prompt.png)
-
-The browser will ask you
-```
- "workspace.url" wants to open "Code"
-```
-![browser-prompt](../../../assets/tools/vsext/browser-prompt.png)
-
-Click `Open` to continue. Once VSCode is opened, VSCode will ask you: 
-```
-Allow 'Daytona' extension to open this URI?
-```
-![allow-daytona-vscode](../../../assets/tools/vsext/allow-daytona-vscode.png)
-
-**Click Open** to continue. 
-
-If you are connecting for the first time, VS Code might ask you to for an access grant: 
-
-![access grant](../../../assets/tools/vsext/grant-access.png)
-
-Click yes and you will be redirected to vscode:
-
-![url redirect](../../../assets/tools/vsext/url-redirect.png)
-
-Your editor will then prompt you to enter an SSH config file, select the first one: 
-
-![ssh-config](../../../assets/tools/vsext/ssh-config.png)
-
-And now you are connected and ready to use Daytona in VS Code!
-
-
-
-## A Github Codespaces-like experience
-
-Once you are set up, whenever you open VS Code again, click on the Daytona extension shows up on the left. You can see the repositories showed up on in VSCode are synced with your Daytona workspace.
-
-![sync-code-daytona](../../../assets/tools/vsext/sync-code-daytona.png)
-
-> When connecting to a repository, VS Code will ask you again for an SSH config file, always select the first: 
-> ![ssh-config-2](../../../assets/tools/vsext/ssh-config-2.png)
-
-
-
-## Install Daytona Extension Today
+**Option 1: Install from URL**
 
 [Daytona VS Code Extension](https://marketplace.visualstudio.com/items?itemName=daytonaio.daytona)
 
+**Option 2: Download it directly in VS Code**
 
----
-Need help? [Join Daytona Slack Community](https://join.slack.com/t/daytonacommunity/shared_invite/zt-273yohksh-Q5YSB5V7tnQzX2RoTARr7Q)
+Step 1: Open VS Code, navigate to the Extension tab in VS Code or use the shortcut keys:
+
+Windows: `Ctrl+Shift+X`
+
+MacOS: `Command+Shift+X`
+
+
+Step 2: Search "Daytona", you will find the extension with our logo and hit `Install`
+
+## Getting Started with Daytona in VS Code
+
+Follow these steps to establish a connection between your Daytona installation and your local Visual Studio Code for the first time:
+
+1. **Sign In and Open a Repository:**
+   - Visit your Daytona dashboard URL.
+   - Click on the "𓈓" icon next to one of your repositories.
+   - Select "Open."
+
+   > If you don't have any repositories in your workspace:
+   > - Click "Create" in the workspace tab to import a repository from your Git Provider.
+
+2. **Configure Code Editor:**
+   - Choose "VS Code" as your code editor.
+
+3. **Respond to Permission:**
+   - As you proceed, you may encounter the following prompts:
+     - "The extension 'Daytona' wants to sign in using 'your-profile-name'." Choose "Allow."
+     - "Do you want Code to open the external website?" Choose "Open."
+
+4. **Authenticate with Your Git Provider:**
+   - In the browser pop-up that appears with "id.your-daytona-url" under "Please re-authenticate to continue," click on your Git Provider.
+
+5. **Open Visual Studio Code:**
+   - In the pop-up prompt "'id.your-daytona-url' wants to open 'Visual Studio Code'," choose one of the "Open 'Visual Studio Code'" options.
+
+6. **Allow Daytona Extension:**
+   - When asked, "Allow 'Daytona' extension to open this URI?" Choose "Open."
+
+7. **Select SSH Configuration File:**
+   - Finally, when prompted to "Select the SSH config file to update," choose the first option, like "/User/name/.ssh/config."
+
+Your selected repository should now be up and running in Visual Studio Code.
+
+
+
+## Features
+
+Once you have the Daytona extension installed and connected, you will unlock a range of powerful features:
+
+### 1. Cloud-Based Development in VS Code
+
+Open cloud-based development within Visual Studio Code. It remove the limitations of browser-based development environments. The Daytona VS Code extension offers an experience similar to GitHub Codespaces, eliminating the need to remember Daytona workspace URLs or deal with SSH configuration for remote connections.
+
+### 2. Seamless Repository Integration
+
+Adding repositories to your workspace:
+   - Simply click the `+` button in the "WORKSPACES" section.
+   - You'll be prompted to enter a GitHub URL for the repository you want to add.
+   - Once created, the repository will appear in the Daytona extension tab.
+   - Select an SSH config file, and you'll be working in an isolated environment within seconds.
+
+### 3. Repository Synchronization
+
+Repositories set up in Daytona VS Code extension and Daytona dashboard are synchronised. If you've already imported repositories into your Daytona dashboard, you'll see them reside in Visual Studio Code, and vice versa.
+
+### 4. Standardized Development Environments
+
+All repositories opened with Daytona adhere to a standardized development environment. If you've set up a `.devcontainer` file and `.devcontainer.json`, your workspace will align with the environment specified in `.devcontainer.json`. This solves the age-old "it works on my machine" problem often encountered in engineering teams.
+
+Learn more about Daytona's development environment standardization [here](https://www.daytona.io/dotfiles/inside-the-dev-container-specification) and advanced configuration techniques [here](https://www.daytona.io/dotfiles/advanced-configuration-techniques-for-dev-container).
+
+
+
+
+## How Daytona VS Code extension works with a Daytona installation
+
+
+### 1. Fast Cloud-Based Development Environments set up
+
+Simplify the setup of standardized cloud-based development environments:
+   - Without Daytona, creating a development container often involves understanding Docker, writing your own Docker files, and configuring devcontainer.json files. It can be time-consuming, error-prone and with a steep learning curve.
+   - With Daytona, repositories opened are automatically within a container, preserving dependencies and environment configurations within the workspace.
+   
+   > For instance, consider the common issue of the `node-gyp` package behaving differently on Mac OS and Windows. Daytona ensures consistent behavior by installing this package globally within a repository. Your team benefits from standardized packages and environments, reducing the need to troubleshoot cross-platform issues.
+
+   - Optionally, you can still [create devcontainer.json file](https://www.daytona.io/dotfiles/guide-create-devcontainer-json-file) to make a repository's environment replicable and portable, although [Daytona helps you automate the process](https://www.daytona.io/dotfiles/power-of-automation-in-software-development).
+
+### 2. Daytona Dashboard: Your Command Center
+
+After installing Daytona (from the installer link), your Daytona dashboard becomes the central hub for configuring and managing IDE connections to cloud-based development environments:
+   - Keep your Daytona dashboard URL accessible, especially when configuring IDEs for the first time. It serves as the control center for your development workflow.
+
+### 3. Multiple Environments for a Single Repository
+
+   - Repositories set up on Daytona are contained within their own isolated environments.
+   - This flexibility allows you to create multiple instances of the same repository in different environments over time, even while working on the same branch.
+
+### 4. Regulatory Compliance
+
+Ensure regulatory compliance with Daytona's deployment approach:
+   - Unlike many cloud-based development environments where deployment details are opaque, Daytona operates on your infrastructure within your chosen region.
+   - This ensures full compliance with regulatory requirements, meeting the needs in data security and governance.
+
+## Clean uninstall guide
+
+If you want to do a clean uninstall and start over again: 
+
+1. Uninstall Daytona extension from VS Code;
+2. In your terminal, run: 
+   ```
+   rm -rf ~/.ssh/config
+   ```
+   and then run 
+   ```
+   rm -rf ~/.daytona
+   ```
