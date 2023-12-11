@@ -104,6 +104,4 @@ export default defineConfig({
     },],
     customCss: ["./src/styles/tailwind.css"]
   }),
-  // Add the Starlight OpenAPI integration.
-  starlightOpenAPI()]
 });
