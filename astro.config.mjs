@@ -1,18 +1,5 @@
 import { defineConfig } from 'astro/config';
 import starlight from '@astrojs/starlight';
-import { generateAPI } from 'starlight-openapi';
-
-// Generate the documentation and get the associated sidebar groups.
-
-const {
-  openAPISidebarGroups,
-  starlightOpenAPI
-} = await generateAPI([{
-  base: 'api',
-  label: 'OpenAPI',
-  schema: 'schemas/openapi.yaml'
-}]);
-
 
 // https://astro.build/config
 export default defineConfig({
@@ -114,12 +101,8 @@ export default defineConfig({
         "label": "JetBrains Gateway",
         "link": "/tools/jetbrains-gateway/"
       }]
-    }, {
-      label: 'API',
-      items: openAPISidebarGroups.slice(0, 3)
-    }],
+    },],
     customCss: ["./src/styles/tailwind.css"]
   }),
-  // Add the Starlight OpenAPI integration.
-  starlightOpenAPI()]
+]
 });
