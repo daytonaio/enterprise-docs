@@ -104,4 +104,5 @@ export default defineConfig({
     },],
     customCss: ["./src/styles/tailwind.css"]
   }),
+]
 });
