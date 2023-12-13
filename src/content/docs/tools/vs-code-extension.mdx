@@ -179,12 +179,30 @@ And search for `Daytona` in the extension marketplace, select the extension with
 ### Step 2: Remove related directories and files related to Daytona
 </span>
 
-**Remove SSH configuration**<br/>
-Open your terminal and run 
+<span class="content-subtitle">
+### Step 2: Remove related directories and files related to Daytona
+</span>
+
+**Remove SSH configuration entries**<br/>
+To remove Daytona-specific entries from your SSH configuration without deleting the entire file, you will need to manually edit the file:
+
+1. Open the SSH configuration file in a text editor:
+
 ```bash
-rm -rf ~/.ssh/config
+nano ~/.ssh/config
 ```
-This command will remove the file reside in your current user's directory. It is where we store your SSH configuration to ensure a safe connection between your local VS Code to Daytona installation.
+Or if you prefer using VS Code as your editor:
+```bash
+code ~/.ssh/config
+```
+
+2. Locate the `Host` entries related to Daytona, which might be marked with comments such as `# START DAYTONA` and `# END DAYTONA`.
+3. Carefully remove only those lines related to Daytona.
+4. Save the changes and close the text editor.
+
+:::Note 
+Be very cautious not to remove other SSH configurations that are unrelated to Daytona, as they may be important for your other connections.
+:::
 
 **Remove profile related data**<br/>
 ```bash
