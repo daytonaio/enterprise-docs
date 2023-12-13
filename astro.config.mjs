@@ -93,9 +93,6 @@ export default defineConfig({
         "link": "/tools/cli/"
       }, {
         "label": "VS Code Extension",
-        "link": "/tools/vs-code"
-      }, {
-        "label": "VS Code Extension",
         "link": "/tools/vs-code-extension/"
       }, {
         "label": "JetBrains Gateway",
