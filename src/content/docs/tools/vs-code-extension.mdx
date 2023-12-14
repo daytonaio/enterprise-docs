@@ -23,7 +23,7 @@ Before you can harness the full potential of Daytona's VS Code extension, make s
 - **Daytona**: Daytona's power lies in its infrastructure. If you haven't set it up yet, you can easily do so by [downloading it from the Daytona installer](https://github.com/daytonaio/installer)
 - **Daytona Dashboard URL**: To complete the setup, you'll need the URL of your Daytona dashboard, which you can obtain from installing from [Daytona installer](https://github.com/daytonaio/installer).
 
-With these prerequisites in place, you'll be ready to set up Daytona's VS Code extension.
+_With these prerequisites in place, you'll be ready to set up Daytona's VS Code extension._
 
 
 <a href="#how-to-install" class="content-subtitle">
@@ -35,19 +35,22 @@ Installing the Daytona VS Code extension is simple. You have two options to choo
 
 <Tabs>
 <TabItem label="Download from URL">
-1. **Navigate to browser**: In your browser, navigate to [Daytona VS Code Extension](https://marketplace.visualstudio.com/items?itemName=daytonaio.daytona) in VS Code extension market place. 
-2. **Click on install**: Click on the green button `Install` on the website from the last step
-3. **Continue to VS Code**: Once you click on `Install`, the browser will have a pop up window "Visual Studio Code is required to install this extension.", if you have everything listed in <a href="#prerequisites">prerequisites</a> just choose "Continue".
-4. **Open "Code":** In the browser, the pop up window will ask 'marketplace.visualstudio.com' wants to open "Code", choose 'Open "Code"'.
+1. **Navigate to browser:** In your browser, navigate to [Daytona VS Code Extension](https://marketplace.visualstudio.com/items?itemName=daytonaio.daytona) in VS Code extension market place. 
+2. **Click on install:** Click on the green button `Install` on the website from the last step
+3. **Continue to VS Code:** Once you click on `Install`, the browser will have a pop up window "Visual Studio Code is required to install this extension.", if you have everything listed in <a href="#prerequisites">prerequisites</a> just choose "Continue".
+4. **Open "Code":** In the browser, the pop up window will ask 'marketplace.visualstudio.com' wants to open "Code", choose 'Open "Code"'. Next you will be redirected to VS Code.
+5. **Choose `Install`:** On the tab `Extensions: Daytona`, click on the `Install` button.
+
 </TabItem>
 <TabItem label="Download in VS Code Extension Marketplace">
 
-**Step 1**: Open VS Code, navigate to the Extension tab in VS Code or use the shortcut keys:
+1. **Open VS Code:** Within VS Code, navigate to the Extension tab in VS Code or use the shortcut keys:
+   - Windows: `Ctrl+Shift+X`<br/>
+   - MacOS: `Command+Shift+X`
 
-Windows: `Ctrl+Shift+X`<br/>
-MacOS: `Command+Shift+X`
+2. **Search "Daytona":** Within VS Code's extension tab, search "Daytona" in the extension market place, you will find the extension with our logo. 
 
-**Step 2**: Search "Daytona" in the extension market place, you will find the extension with our logo. Hit `Install` either on the extension or on the window `Extensions: Daytona`
+3. **Click "Install":** Within VS Code, hit `Install` either on the extension or on the window `Extensions: Daytona`
 </TabItem>
 </Tabs>
 
@@ -119,11 +122,7 @@ Each repositories created are isolated in their own environment, even if they li
 ### Managing repositories
 - **Synchronisation**: All the repositories under **[WORKSPACES](/usage/workspace)** in VS Code extension are synchronised with your Daytona dashboard, whether you are creating a repository by pressing "Create" on `WORKSPACES` tab in Daytona dashboard, or click `+` on `WORKSPACES` in Daytona VS Code extension, they will all sync together under the same team. 
 - **Opening repository**: To start working on a repository, you can hover on top of the repository's name and click on "Open", or right click on the repository to select "Open". It will start building the development container remotely. Upon finishing, you can work on it locally.
-- **Copy ID**: The same repositories might be created under different environment and if they are using the same name, it will become confusing to recognise for you or your team members. To make notes or recognise different repositories, right click on one of them and click "Copy ID". Your repository's ID will always be in the format of 
-
-```
-your-repository-name + random string
-```
+- **Copy ID**: The same repositories might be created under different environment and if they are using the same name, it will become confusing to recognise for you or your team members. To make notes or recognise different repositories, right click on one of them and click "Copy ID". Your repository's ID will always be in the format of `your-repository-name + random string`
 
 
 - **Stopping a repository**: Right click on the repository and select "Stop", it will stop development container and the remote connection with your Daytona instance. When you need to come back and work on it again, you just need to click "Open"
@@ -148,8 +147,10 @@ Profiles are equivalent to a fresh, new Daytona instance installation, however i
 
 ## Clean Uninstall Guide
 After installing Daytona VS Code extension, there might be a point when you update your Daytona instance's installation, or you want to start over the installation process again after a clean uninstall, here are several steps to help you to start fresh again: 
+
+
 <span class="content-subtitle">
-### Step 1: Uninstall Daytona VS Code extension
+### Uninstall Daytona VS Code extension
 </span>
 In VS Code, navigate to the Extension tab in VS Code or use the shortcut keys:
 
@@ -159,15 +160,15 @@ MacOS: `Command+Shift+X`
 And search for `Daytona` in the extension marketplace, select the extension with our logo and click on the blue button `Uninstall` on the `Extensions:Daytona` tab that shows up. This will only remove the extension within VS Code, for a clean uninstall you will need to continue to the next step.
 
 <span class="content-subtitle">
-### Step 2: Remove related directories and files related to Daytona
+### Remove Daytona related files
 </span>
 
 
 
-**Remove SSH configuration entries**<br/>
+**Remove SSH configuration entries:**
 To remove Daytona-specific entries from your SSH configuration without deleting the entire file, you will need to manually edit the file:
 
-1. Open the SSH configuration file in a text editor:
+**a. Open the SSH configuration file in a text editor:**
 
 ```bash
 nano ~/.ssh/config
@@ -179,15 +180,17 @@ Or if you prefer using VS Code as your editor:
 code ~/.ssh/config
 ```
 
-2. Locate the `Host` entries related to Daytona, which might be marked with comments such as `# START DAYTONA` and `# END DAYTONA`.
-3. If you use `nano` might notice that you mouse is not working here and that's **expected in terminal**. You can only move around with Carefully remove only those lines related to Daytona.
-4. Save the changes and close the text editor.
+**b. Find content related to Daytona:** Locate the `Host` entries related to Daytona, which might be marked with comments, start with `# START DAYTONA` and ended with `# END DAYTONA`.
+
+Carefully remove only those lines related to Daytona.
+
+**c. Save changes:**. Save the changes and close the text editor.
 
 :::caution
 Be very cautious not to remove other SSH configurations that are unrelated to Daytona, as they may be important for your other remote connections.
 :::
 
-**Remove profile related data**<br/>
+##### Remove profile related data
 ```bash
 rm -rf ~/.daytona
 ```
