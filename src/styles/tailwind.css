@@ -1,3 +1,5 @@
+
+
 .cursor-pointer {
     cursor: pointer;
     pointer-events: all;
@@ -11,6 +13,14 @@
 }
 
 .content-subtitle h3 {
+    padding-top:1.5rem;
+    padding-bottom:0.8rem;
+    /* padding-left:0.5rem; */
+    font-size:1.2rem;
+ 
+}
+
+.content-subtitle h4 {
     padding-top:1.5rem;
     padding-bottom:0.8rem;
     /* padding-left:0.5rem; */
@@ -35,6 +45,14 @@ h3 {
     border-radius: 0.5rem;
     color:aliceblue;
     padding:3%;
+}
+
+:root[data-theme="light"].not-content details {
+    color: rgb(26, 26, 26)
+}
+
+:root[data-theme="dark"].not-content details {
+    color: aliceblue;
 }
 
 .not-content details > summary {

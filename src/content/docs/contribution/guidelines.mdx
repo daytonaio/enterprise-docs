@@ -1,0 +1,121 @@
+---
+
+title: Contribution Guidelines(TBC)
+description: This guide will walk you through how to install and set up Daytona's VS Code extension, discuss features included with VS Code extension, and a clean uninstall guide is also included
+sidebar:
+  label: Guidelines
+---
+import {Tabs, TabItem, CardGrid, LinkCard } from "@astrojs/starlight/components"
+
+Welcome to Daytona's documentation contribution guideline, where we believe that well-crafted documentation is essential to building a vibrant and collaborative open-source community. Your contribution to our documentation plays a pivotal role in helping developers, users, and enthusiasts understand, use, and contribute to Daytona effectively. 
+
+This guide serves as a comprehensive resource to help you contribute in a meaningful way, covering the **fundamental principles of documentation**, **the recommended structure for content**, **best practices in content writing**, and guidance on using **consistent terminologies**. Whether you're a seasoned technical writer or just getting started, your efforts in improving our documentation are invaluable. Before you begin, thank you for considering to be a part of the Daytona's journey.
+
+## Principals
+
+In our documentation, we follow several principals:
+- **Simplicity is a virtue**
+
+Only keeps the **ABSOLUTE NECESSITY**. If things can be described by words, you don't need images. If a title can be in 2 words, don't make it 4. Overloading a documentation with images tend to overwhelm readers, so as long titles on the right sidebar. **Avoid redundancy** whereas possible but make sure readers understand when they are performing an action, what they might see, where this action should be and what's next for them. Simplicity should not lead to confusion. If the right sidebar already render the subtitle, you don't need to put `<a href="#content"> content </a>` to highlight it again in the content body.
+- **Straight to the point**
+
+If a title can't correctly capture what the content is discussing, rewrite it. If an action is too simple which carries too little information, add more information to make sure users know where they are at and make it clear. 
+- **Visually pleasing**
+
+If there are options of the same action, try to use a `Tab` component: 
+
+<Tabs>
+<TabItem label="Option 1">
+Option 1 content
+</TabItem>
+<TabItem label="Option 2">
+Option 2 content
+</TabItem>
+</Tabs>
+
+If there are things that `Readers might need to know`, try to use a togglable component. 
+
+<div class="not-content">
+<details >
+<summary>Togglable summary title</summary>
+<div class="content">
+Toggalable content
+</div>
+</details>
+</div>
+
+If there is a dangerous action which might lead to destructive result(for example, deleting a configuration file on a user's local machine), make sure you double check the facts and try to use a caution callout card. 
+:::caution
+Things should be paid extra attention 
+:::
+
+
+__To write good documentation, you can follow these steps:__
+> 1. Draft. On the first draft, write them as detailed as possible
+> 2. Research and fact-check
+> 3. Polishing facts and write more. Don't trust anyone but your own testing and research.
+> 4. Double check 
+> 5. Mercilessly trim redundant content
+> 6. Leave it for a while and come back again to make sure everything is logical
+> 7. Repeat from step 2 to step 5.
+> 8. Test locally `pnpm run dev` (although some might prefer to have live view from step 1)
+> 9. Create PR<br/>
+
+## Structure
+---
+### Best practices for SEO 
+When you are creating a sub-section in a documentation. By default the top level is two hash symbol. Do follow a top-down approach and starting with two hash symbols like `##` and then add more hash symbols under each section. On rendering, two hash symbols will be resolved to `<h2>` element in the browser and vice versa. It will help search engines understand how the website is structured and it's content.
+
+### Adding documentation
+All the documentation related content sit in the folder `/src/content/docs`. A [folder] will be resolved to a togglable button on the left, and an [*.md] or [*.mdx] file will be resolved to its respective sub sections.
+
+### Left sidebar
+To correctly rendering all documentations, you will need to go to the file `astro.config.mjs` in the root directory and add the `label` and `link` to the respective directory under `siderbar`: 
+
+```javascript
+
+"sidebar": [{
+      "label": "Getting Started",
+      link: 'getting-started'
+    }, {
+      "label": "Architecture",
+      link: 'architecture'
+    }, {
+      "label": "Installation",
+      "items": [{
+        "label": "Single Node",
+        "link": "/installation/single-node/"
+      }, {
+        "label": "Cluster",
+        "link": "/installation/cluster/"
+      },
+        ...
+
+```
+
+### Right sidebar
+The right sidebar helps readers navigate within the current content, and only `##` and `###` will be rendered on the right sidebar. 
+
+**Keep the title short**: Long title is not great for reading. If a title can be `Establishing a connection`, you don't need `Establishing a connection with VS Code and Daytona installation for the first time` as your title. If a sub-section can be `Creating repository`, you don't need to number it like `1. Creating repository`. 
+
+**Avoid long actions**: If it is an action including multiple steps (say more than 3), don't include the steps in the right sidebar but use asterisk `**` to **highlight it in the content**. Long steps may overwhelm readers. If there are sub-steps included in steps of actions, separating the step and sub-step's bulleting by `1, 2, 3...` and `a, b, c...` to avoid confusion.
+
+
+
+
+## Content
+
+
+
+## Terminologies
+
+Some useful terms when you are considering contributing and help you align with our semantics.
+
+**Workspace**: Repositories created within Daytona are called `Workspace`. Whenever you want to refer to the usage of repository, use `Workspace`
+
+---
+<CardGrid>
+  <LinkCard title="⭐️ Give us a star" href="https://github.com/daytonaio/installer" />
+  <LinkCard title="📝 Contribute to this doc" href="https://github.com/daytonaio/docs/pulls?q=is:pr+is:open+sort:updated-desc" /> 
+  <LinkCard title="🙋 Join our Slack community" href="https://join.slack.com/t/daytonacommunity/shared_invite/zt-273yohksh-Q5YSB5V7tnQzX2RoTARr7Q" />
+</CardGrid>
