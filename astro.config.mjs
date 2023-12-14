@@ -98,7 +98,15 @@ export default defineConfig({
         "label": "JetBrains Gateway",
         "link": "/tools/jetbrains-gateway/"
       }]
-    },],
+    },
+    {
+      "label": "Contribution",
+      "items": [{
+        "label": "Guideline",
+        "link": "/contribution/guidelines",
+      }]
+    }
+  ],
     customCss: ["./src/styles/tailwind.css"]
   }),
 ]
