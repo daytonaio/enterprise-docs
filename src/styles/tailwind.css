@@ -89,6 +89,7 @@ div .content {
    justify-content: center;
    align-items: center;
    padding:0.5rem 2rem;
+   margin: 2rem 2rem 5rem;
 }
 
 
@@ -103,7 +104,6 @@ div .content {
     border-radius: 8px;
     padding: 16px;
     max-width: 600px;
-    margin: 30px auto;
   }
   .notification-header {
     display: flex;
@@ -186,6 +186,7 @@ div .content {
     color:#ffffff;
     width: 600px;
     border-left: 1px solid #282828;
+    position:relative;
   }
 
   .webstorm-heading {
@@ -206,7 +207,7 @@ div .content {
   }
 
   .webstorm-local-button {
-    border-bottom: 2px solid rgb(168, 166, 166);
+    border-bottom: 2px solid rgb(63, 99, 243);
     display:flex;
     justify-content:center;
     align-items: center;
@@ -214,12 +215,43 @@ div .content {
   }
 
   .webstorm-ports {
-    padding: 10px 20px;
+    padding: 0 20px;
     display:flex;
     align-items: center;
+    font-size:small;
     gap:10px;
   }
 
   .dropdown-port {
+   padding: 10px;
+   align-items: center;
+   display:flex;
+   gap:5px;
+   cursor: pointer;
+  }
 
+  .port-number {
+    color:#57a1ef;
+  }
+
+  .dropdown-menu {
+    position:absolute;
+    z-index: 10;
+    top:90%;
+    background-color: rgb(63,62,62);
+    padding:5px 10px;
+    border:1px solid #6c757d;
+    box-shadow: 0.5px 0.5px 0.5px 0.5px #262728b0;
+    border-radius: 5px;
+  }
+
+  .dropdown-menu-button {
+    cursor: pointer;
+    padding: 2px 8px;
+    font-size: small;
+  }
+
+  .selected {
+    background-color: #1a72a2;
+    border-radius: 3px;
   }
