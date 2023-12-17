@@ -95,6 +95,7 @@ div .content {
 
 .notification-link {
     color: cornflowerblue;
+    cursor: pointer;
 }
 
 
@@ -161,6 +162,7 @@ div .content {
     padding:12px;
     width:600px;
     margin: 3px auto;
+    cursor: pointer;
   }
 
   .theia-notification-message {

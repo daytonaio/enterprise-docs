@@ -5,6 +5,9 @@ sidebar:
   label: Miscellaneous
 ---
 import { Tabs, TabItem, LinkCard, CardGrid, Card, Icon } from '@astrojs/starlight/components';
+import VscodeNotification from "../../../components/VscodeNotification.astro"
+import TheiaNotification from "../../../components/TheiaNotification.astro"
+import JetbrainsPortForwarding from "../../../components/JetbrainsPortForwarding.astro"
 
 {/* TODO: Expand the introduction paragraph as more features introduce*/}
 Other than useful features like managing [workspaces](/usage/workspaces), installing Daytona on a [cluster](/installation/cluster), monitoring via [telemetry](/administration/telemetry) and integrations with different IDEs including [VS Code](/tools/vs-code-extension) and [Jetbrains products](/tools/jetbrains-gateway), Daytona also offers a number of add-on features when you are working in an IDE. This section will discuss useful features that Daytona offers, regardless which IDEs you are using.
@@ -13,105 +16,62 @@ You could create a shareable live preview link when a forwarded port is opened.
 
 ## Live preview link
 
-{/* TODO: Need more confirmation from Zoran about webhooks not consumed properly but being redirected with 302 Response*/}
 
-If you happened to be working on a website or webapp, you will be able to share a live preview link for others to view changes. This section will introduce how you can do so.
+
+If you happened to be working on a website or webapp that you need open live preview in the browser while developing, you need to access the port on a target environment by port forwarding. You will also be able to share a live preview link for others to view changes. This section will introduce how you can do so.
 
 :::note
 This feature currently doesn't support webhook consumption.
 :::
+{/* TODO: Need more confirmation from Zoran about webhooks not consumed properly but being redirected with 302 Response*/}
+Jetbrain link: https://www.jetbrains.com/remote-development/gateway/
+Gateway link: https://download.daytona.io/jetbrains/gateway/latest/jetbrains-gateway-daytona-plugin-latest.jar
+
+In order to open a workspace, you need to have the Daytona Plugin installed in the JetBrains Gateway.
+
+Install JetBrains Gateway
+You can find the installation instructions here.
+Install the Daytona Gateway Plugin
+The package is available for download here.
+Open JetBrains Gateway
+Expand the menu in the bottom left corner, then click Settings
+Select the Plugins section in the sidebar
+Click on the gear icon found in the panel navigation, then click Install Plugin from Disk, and choose the downloaded package
+Restart JetBrains Gateway
+Don't show this message again
 
 ### Opening ports 
 
-When an application has a local development server, which is usually spun up by `npm run dev` or `pnpm run dev`, a port will open for yourself to preview locally via an URL like `https://localhost:<port-number>`. If you are using VS Code or Theia, a window on the bottom right corner will pop up, displaying `Your application running on port <port-number> is avaiable. <u>See all forwarded ports</u>` and two buttons `Open in Browser` and `Preview in Editor`. 
+When an application has a local development server, which is usually spun up by running `npm run dev` or `pnpm run dev` within the terminal of IDEs, a port will open for yourself to preview locally via an URL like `https://localhost:<port-number>` or `https://127.0.0.1:<port-number>`
+
+
  
 
-##### How it is displayed
+##### How it is displayed in different IDEs
+
 <Tabs>
-<TabItem label="VS Code">
-<div class="not-content">
-<div class="modal-layout">
-<div class="vscode-notification-container">
-  <div class="notification-header">
-    <div class="notification-title">
-      <Icon name="information" color="cornflowerblue" size="2em"/>
-        <div class="notification-message">
-    Your application running on port 4321 is available.
-    <a href="#opening-ports" class="notification-link">See all forwarded ports</a>
-  </div>
-    </div>
-    <button class="close-button">
-     <Icon name="setting" color="gray" size="1.5em"/>
-    </button>
-    <button class="close-button">
-    <Icon name="close" color="gray" size="1.5em"/>
-    </button>
-  </div>
- 
-  <div class="notification-actions">
-    <a href="#opening-ports" class="vscode-notification-button open-in-browser">Open in Browser</a>
-    <a href="#opening-ports" class="vscode-notification-button preview-in-editor">Preview in Editor</a>
-  </div>
-</div>
-</div>
-</div>
-</TabItem>
-<TabItem label="Theia">
-<div class="not-content">
-<div class="modal-layout">
-<div class="theia-notification-container">
-  <div class="notification-header">
-    <div class="notification-title">
-      <Icon name="information" color="cornflowerblue" size="1.5em"/>
-        <div class="theia-notification-message">
-    Process is listening on 4321.
- 
-  </div>
-    </div>
- 
-    <button class="close-button">
-    <Icon name="close" color="gray" size="1em"/>
-    </button>
-  </div>
- 
-  <div class="notification-actions">
-    <a href="#" class="theia-notification-button">Open Preview</a>
-    <a href="#" class="theia-notification-button ">Open Browser</a>
-  </div>
-</div>
-</div>
-</div>
-</TabItem>
-<TabItem label="Jetbrains(Webstorm)">
-<div class="not-content">
-  <div class="modal-layout">
-    <div class="webstorm-container">
-      <div class="webstorm-heading">
-        <span class="webstorm-terminal-button webstorm-button">Terminal</span>
-        <div class="webstorm-local-button webstorm-button">
-          <span>Local</span>
-          <Icon name="close" color="gray" size="0.8em" />
-        </div>
-      </div>
-      <div class="webstorm-ports">
-        <div>Your application is listening on ports:</div>
-        <div class="dropdown-port">
-          <p class="port-number">4321</p>
-          <Icon name="down-caret" size="0.8em" color="azure" />
-          <div class="dropdown-menu">
-            <div class="dropdown-menu-button">Forward Port</div>
-            <div class="dropdown-menu-button selected">
-              Forward Port and Open Browser
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
+  <TabItem label="VS Code">
+    At the bottom right corner, you will see a pop up window:
+  
+  <VscodeNotification/>
 
-</TabItem>
+    - Clicking on `Open in Browser` button will open the local development URL in your default browser.
+    - Clicking on `Preview in Editor` button will open the live preview in VS Code.
+  </TabItem>
+  <TabItem label="Theia">
+    At the bottom right corner, you will see a pop up window:
+  
+  <TheiaNotification />
+
+    - Clicking on `Open Preview` will open the live preview on the right side within the IDE, although the URL being opened will be a shareable link which you can send to your colleagues or others to preview.
+    - Clicking on `Open Browser` will open the live preview in another tab in your default browser, and the URL will also be shareable.
+  </TabItem>
+  <TabItem label="Jetbrains(Webstorm)">
+  - To forward a port on Jetbrains IDE, you 
+  <JetbrainsPortForwarding />
+  </TabItem>
 </Tabs>
+
 
 
 Take this documentation as an example, if you create a workspace based on this documentation ([give us a star ⭐️ btw](https://github.com/daytonaio/docs))

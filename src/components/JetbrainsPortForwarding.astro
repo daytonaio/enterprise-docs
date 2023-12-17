@@ -1,0 +1,29 @@
+---
+import {Icon} from "@astrojs/starlight/components"
+---
+<div class="not-content">
+    <div class="modal-layout">
+      <div class="webstorm-container">
+        <div class="webstorm-heading">
+          <span class="webstorm-terminal-button webstorm-button">Terminal</span>
+          <div class="webstorm-local-button webstorm-button">
+            <span>Local</span>
+            <Icon name="close" color="gray" size="0.8em" />
+          </div>
+        </div>
+        <div class="webstorm-ports">
+          <div>Your application is listening on ports:</div>
+          <div class="dropdown-port">
+            <p class="port-number">4321</p>
+            <Icon name="down-caret" size="0.8em" color="azure" />
+            <div class="dropdown-menu">
+              <div class="dropdown-menu-button">Forward Port</div>
+              <div class="dropdown-menu-button selected">
+                Forward Port and Open Browser
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
