@@ -1,0 +1,122 @@
+---
+title: Miscellaneous
+description: Add a brief description of the miscellaneous here
+sidebar:
+  label: Miscellaneous
+---
+import { Tabs, TabItem, LinkCard, CardGrid, Card, Icon } from '@astrojs/starlight/components';
+
+{/* TODO: Expand the introduction paragraph as more features introduce*/}
+Other than useful features like managing [workspaces](/usage/workspaces), installing Daytona on a [cluster](/installation/cluster), monitoring via [telemetry](/administration/telemetry) and integrations with different IDEs including [VS Code](/tools/vs-code-extension) and [Jetbrains products](/tools/jetbrains-gateway), Daytona also offers a number of add-on features when you are working in an IDE. This section will discuss useful features that Daytona offers, regardless which IDEs you are using.
+
+You could create a shareable live preview link when a forwarded port is opened.
+
+## Live preview link
+
+{/* TODO: Need more confirmation from Zoran about webhooks not consumed properly but being redirected with 302 Response*/}
+
+If you happened to be working on a website or webapp, you will be able to share a live preview link for others to view changes. This section will introduce how you can do so.
+
+:::note
+This feature currently doesn't support webhook consumption.
+:::
+
+### Opening ports 
+
+When an application has a local development server, which is usually spun up by `npm run dev` or `pnpm run dev`, a port will open for yourself to preview locally via an URL like `https://localhost:<port-number>`. If you are using VS Code or Theia, a window on the bottom right corner will pop up, displaying `Your application running on port <port-number> is avaiable. <u>See all forwarded ports</u>` and two buttons `Open in Browser` and `Preview in Editor`. 
+ 
+
+<div class="not-content">
+<div class="modal-layout">
+<div class="webstorm-container">
+<div class="webstorm-heading">
+<span class="webstorm-terminal-button webstorm-button">Terminal</span>
+<div class="webstorm-local-button webstorm-button">
+<span>Local</span>
+<Icon name="close" color="gray" size="0.8em"/>
+</div>
+</div>
+<div class="webstorm-ports">
+<span>Your application is listening on ports:</span>
+<div class=""> <span>4321</span>
+<Icon name="down-caret" size="0.8em" color="gray"/>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+##### How it is displayed
+<Tabs>
+<TabItem label="VS Code">
+<div class="not-content">
+<div class="modal-layout">
+<div class="vscode-notification-container">
+  <div class="notification-header">
+    <div class="notification-title">
+      <Icon name="information" color="cornflowerblue" size="2em"/>
+        <div class="notification-message">
+    Your application running on port \<port-number\> is available.
+    <a href="#opening-ports" class="notification-link">See all forwarded ports</a>
+  </div>
+    </div>
+    <button class="close-button">
+     <Icon name="setting" color="gray" size="1.5em"/>
+    </button>
+    <button class="close-button">
+    <Icon name="close" color="gray" size="1.5em"/>
+    </button>
+  </div>
+ 
+  <div class="notification-actions">
+    <a href="#opening-ports" class="vscode-notification-button open-in-browser">Open in Browser</a>
+    <a href="#opening-ports" class="vscode-notification-button preview-in-editor">Preview in Editor</a>
+  </div>
+</div>
+</div>
+</div>
+</TabItem>
+<TabItem label="Theia">
+<div class="not-content">
+<div class="modal-layout">
+<div class="theia-notification-container">
+  <div class="notification-header">
+    <div class="notification-title">
+      <Icon name="information" color="cornflowerblue" size="1.5em"/>
+        <div class="theia-notification-message">
+    Process is listening on \<port-number\>.
+ 
+  </div>
+    </div>
+ 
+    <button class="close-button">
+    <Icon name="close" color="gray" size="1em"/>
+    </button>
+  </div>
+ 
+  <div class="notification-actions">
+    <a href="#" class="theia-notification-button">Open Preview</a>
+    <a href="#" class="theia-notification-button ">Open Browser</a>
+  </div>
+</div>
+</div>
+</div>
+</TabItem>
+<TabItem label="Jetbrains(Webstorm)">
+<div class="not-content">
+<div class="modal-layout">
+<div class="webstorm-container">
+<div class="webstorm-heading">
+Webstorm heading
+</div>
+<div class="webstorm-ports">
+Webstorm ports
+</div>
+</div>
+</div>
+</div>
+</TabItem>
+</Tabs>
+
+
+Take this documentation as an example, if you create a workspace based on this documentation ([give us a star ⭐️ btw](https://github.com/daytonaio/docs))

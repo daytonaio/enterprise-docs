@@ -17,9 +17,15 @@ In our documentation, we follow several principals:
 - **Simplicity is a virtue**
 
 Only keeps the **ABSOLUTE NECESSITY**. If things can be described by words, you don't need images. If a title can be in 2 words, don't make it 4. Overloading a documentation with images tend to overwhelm readers, so as long titles on the right sidebar. **Avoid redundancy** whereas possible but make sure readers understand when they are performing an action, what they might see, where this action should be and what's next for them. Simplicity should not lead to confusion. If the right sidebar already render the subtitle, you don't need to put `<a href="#content"> content </a>` to highlight it again in the content body.
+
+- **Consistency is key**
+
+Align with terminologies, content structure, and make sure you check the <a href="#terminologies">terminologies</a> section below to sync with our semantics. As little as using back tick \` to highlight the usage of `Button` and `Commands`. If you want to use a hyperlink to reference a subtitle within the same article, make sure the subtitle's style is not affected by wrapping the content with an element contains `not-content` and rewrite the style in `/src/styles/tailwind.css`. If there is a subtitle requires internal linking within the same article, check their id tag in html using `Inspect` in the browsre and link it within the content like `<a href="#link">This link to the element with id called "link"</a>`. You don't need to do the extra work to create a new element just to add id. [Starlight Astro](https://starlight.astro.build/) has done the work for us.
+
 - **Straight to the point**
 
 If a title can't correctly capture what the content is discussing, rewrite it. If an action is too simple which carries too little information, add more information to make sure users know where they are at and make it clear. 
+
 - **Visually pleasing**
 
 If there are options of the same action, try to use a `Tab` component: 
@@ -56,10 +62,11 @@ __To write good documentation, you can follow these steps:__
 > 3. Polishing facts and write more. Don't trust anyone but your own testing and research.
 > 4. Double check 
 > 5. Mercilessly trim redundant content
-> 6. Leave it for a while and come back again to make sure everything is logical
-> 7. Repeat from step 2 to step 5.
-> 8. Test locally `pnpm run dev` (although some might prefer to have live view from step 1)
-> 9. Create PR<br/>
+> 6. Leave it for a while and take a deep breathe
+> 8. Come back again to make sure everything is logical
+> 9. Repeat from step 2 to step 5.
+> 10. Test locally `pnpm run dev` (although some might prefer to have live view from step 1)
+> 11. Create PR<br/>
 
 ## Structure
 ---
