@@ -111,7 +111,9 @@ export default defineConfig({
       Header: './src/components/Header.astro',
       PageSidebar: './src/components/PageSidebar.astro',
       PageFrame: './src/components/PageFrame.astro',
-      Sidebar: './src/components/Sidebar.astro'
-    }
+      Sidebar: './src/components/Sidebar.astro',
+      TwoColumnContent: './src/components/TwoColumnContent.astro',
+      TableOfContents:'./src/components/TableOfContents.astro',
+    },
   })]
 });

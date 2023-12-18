@@ -7,7 +7,7 @@ function flattenSidebar(sidebar: any): any {
     return sidebar.flatMap((entry) =>
     entry.type === 'group' ? flattenSidebar(entry.entries) : entry
     );
-    }
+}
 
 const { sublist, nested } = Astro.props;
 ---
@@ -20,7 +20,7 @@ const { sublist, nested } = Astro.props;
                             <a
                                     href={entry.href}
                                     aria-current={entry.isCurrent && 'page'}
-                                    class:list={[{ large: !nested }, entry.attrs.class]}
+                                    class:list={[ entry.attrs.class]}
                                     {...entry.attrs}
                             >
                                 <span>{entry.label}</span>
@@ -32,12 +32,6 @@ const { sublist, nested } = Astro.props;
                                 <summary>
                                     <div class="group-label">
                                         <span class="large">{entry.label}</span>
-                                        {entry.badge && (
-                                                <>
-                                                    {' '}
-                                                    <Badge text={entry.badge.text} variant={entry.badge.variant} />
-                                                </>
-                                        )}
                                     </div>
                                 </summary>
                                 <Astro.self sublist={entry.entries} nested />
@@ -60,9 +54,13 @@ const { sublist, nested } = Astro.props;
     }
 
     .large {
-        font-size: var(--sl-text-lg);
-        font-weight: 600;
-        color: var(--sl-color-white);
+        font-family: 'Berkeley Mono', monospace;
+        font-size: 0.75rem;
+        font-weight: 400;
+        line-height: 1;
+        letter-spacing: -0.12px;
+        text-transform: uppercase;
+        color: var(--secondary-text-color);
     }
 
     .top-level > li + li {
@@ -94,26 +92,29 @@ const { sublist, nested } = Astro.props;
         transform: rotateZ(90deg);
     }
 
-    a {
+    li > a {
         display: block;
-        border-radius: 0.25rem;
-        text-decoration: none;
-        color: var(--sl-color-gray-2);
-        padding: 0.3em var(--sl-sidebar-item-padding-inline);
+        font-family: 'Berkeley Mono', monospace;
+        font-size: 1rem;
+        font-style: normal;
+        font-weight: 400;
         line-height: 1.4;
+        letter-spacing: -0.04rem;
+        text-decoration: none;
+        color: var(--primary-text-color);
+        padding: 0.3em var(--sl-sidebar-item-padding-inline);
     }
 
     a:hover,
     a:focus {
-        color: var(--sl-color-white);
+        color: var(--hover-color);
     }
 
     [aria-current='page'],
     [aria-current='page']:hover,
     [aria-current='page']:focus {
         font-weight: 600;
-        color: var(--sl-color-text-invert);
-        background-color: var(--sl-color-text-accent);
+        color: var(--hover-color);
     }
 
     a > *:not(:last-child),
@@ -121,15 +122,4 @@ const { sublist, nested } = Astro.props;
         margin-inline-end: 0.25em;
     }
 
-    @media (min-width: 50rem) {
-        .top-level > li + li {
-            margin-top: 0.5rem;
-        }
-        .large {
-            font-size: var(--sl-text-base);
-        }
-        a {
-            font-size: var(--sl-text-sm);
-        }
-    }
 </style>

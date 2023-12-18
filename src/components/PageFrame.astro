@@ -5,7 +5,7 @@ const { hasSidebar, labels } = Astro.props;
 ---
 
 <div class="page sl-flex">
-    <header class="header"><slot name="header" /></header>
+    <div class="header-wrapper"><slot name="header" /></div>
     {
         hasSidebar && (
                     <nav class="sidebar" aria-label={labels['sidebarNav.accessibleLabel']}>
@@ -23,21 +23,20 @@ const { hasSidebar, labels } = Astro.props;
 
 <style>
     .page {
+        display: flex;
         flex-direction: column;
         min-height: 100vh;
         margin: 0 auto;
         max-width: 1248px;
     }
 
-    .header {
+    .header-wrapper {
+        position: fixed;
         z-index: var(--sl-z-index-navbar);
         inset-inline-start: 0;
         inset-block-start: 0;
         width: 100%;
-        height: var(--sl-nav-height);
-        border-bottom: 1px solid var(--sl-color-hairline-shade);
-        padding: var(--sl-nav-pad-y) var(--sl-nav-pad-x);
-        padding-inline-end: var(--sl-nav-pad-x);
+        border-bottom: var(--border);
         background-color:  var(--bg-color);
     }
 
@@ -50,7 +49,6 @@ const { hasSidebar, labels } = Astro.props;
         position: fixed;
         z-index: var(--sl-z-index-menu);
         inset-block: 0;
-        //inset-inline-start: 0;
         padding-top: var(--sl-nav-height);
         width: 100%;
         background-color: var(--bg-color);
@@ -88,7 +86,6 @@ const { hasSidebar, labels } = Astro.props;
             --sl-sidebar-visibility: visible;
             width: var(--sl-sidebar-width);
             background-color: var(--bg-color);
-            border-inline-end: 1px solid var(--sl-color-hairline-shade);
         }
     }
 </style>
