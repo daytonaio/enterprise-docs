@@ -1,0 +1,121 @@
+.markdown-content {
+  > * {
+    margin-bottom: 40px;
+  }
+
+  a {
+    color: var(--primary-text-color);
+    font-weight: 600;
+    text-decoration: underline;
+
+    @include for-hover-state {
+      &:hover {
+        opacity: 0.6;
+      }
+    }
+
+    &:visited {
+      color: var(--secondary-text-color) !important;
+    }
+  }
+
+  > blockquote {
+    margin: 59px 0 64px;
+    border-left: 2px solid var(--hover-color);
+    padding-left: 30px;
+
+    @include for-tablet-screen-sizes {
+      margin: 63px 0 40px;
+      padding-left: 30px;
+    }
+
+    @include for-mobile-screen-sizes {
+      margin: 43px 0 39px;
+    }
+
+    & svg path {
+      fill: var(--hover-color);
+    }
+
+    p {
+      margin-top: 11px;
+      letter-spacing: -0.14px;
+      padding-right: 4px;
+
+      @include for-tablet-screen-sizes {
+        font-size: 1.25rem;
+        line-height: 1.4;
+        margin-top: 10px;
+        letter-spacing: -0.0125rem;
+      }
+
+      @include for-mobile-screen-sizes {
+        letter-spacing: -0.25px;
+        padding-right: 0;
+        margin-top: 7px;
+      }
+    }
+
+    .author-handle {
+      font-size: 1rem;
+      font-weight: 400;
+      line-height: 1.4;
+      letter-spacing:  -0.01rem;
+      color: var(--secondary-text-color);
+      display: flex;
+      gap: 15px;
+      text-transform: uppercase;
+      font-family: 'Berkeley Mono', monospace;
+      padding-top: 4px;
+
+      @include for-tablet-screen-sizes {
+        margin-top: 14px;
+      }
+    }
+  }
+
+  > ul {
+    list-style: none;
+    background: var(--block-bg-color);
+    padding: 30px;
+    margin-bottom: 60px;
+    margin-top: 0;
+
+    @include for-mobile-screen-sizes {
+      margin-bottom: 40px;
+    }
+
+    li {
+
+      &::before {
+        //content: url(/src/assets/img/icons/facts.svg);
+        padding-top: 3px;
+        margin-right: 10px;
+      }
+
+      p {
+        margin: 0 0 10px;
+        color: var(--primary-text-color);
+        font-weight: 500;
+      }
+
+      a {
+        color: var(--primary-text-color);
+
+        @include for-mobile-screen-sizes {
+          font-size: 1rem;
+        }
+      }
+    }
+
+    li > ul {
+      padding: 0 15px;
+      margin: 0;
+
+      li:before {
+        content: '-';
+        color: var(--primary-text-color);
+      }
+    }
+  }
+}

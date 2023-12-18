@@ -1,0 +1,55 @@
+---
+import config from 'virtual:starlight/user-config';
+
+import { Image } from 'astro:assets';
+import daytonaLogo from '@assets/icons/daytona-logo.svg'
+import documentationIcon from '@assets/icons/documentation-icon.svg'
+import {
+    LanguageSelect,
+    Search,
+    SiteTitle,
+    SocialIcons,
+    ThemeSelect,
+} from 'virtual:starlight/components';
+
+
+const shouldRenderSearch =
+    config.pagefind || config.components.Search !== '@astrojs/starlight/components/Search.astro';
+---
+
+<header class="navbar">
+    <nav class="desktop-only">
+        <div class="logo-divider">
+            <a href="https://www.daytona.io/" aria-label="Daytona" class="daytona-logo">
+                <Image src={daytonaLogo} alt="daytona logo"/>
+            </a>
+        </div>
+        <a href='/' class="dotfiles-logo"
+        ><Image src={documentationIcon} alt="documentation icon"/>Documentation
+        </a>
+        <!--<DesktopSideMenu />-->
+    </nav>
+
+    <nav class="mobile-navigation">
+        <div class="logo-divider blur-section">
+            <a href="https://www.daytona.io/"  aria-label="Daytona" class="daytona-logo blur-section">
+                <Image src={daytonaLogo} alt="daytona logo"/>
+            </a>
+        </div>
+
+        <a href='/' class="dotfiles-logo blur-section"
+        ><Image src={documentationIcon} alt="documentation icon"/>Documentation
+        </a>
+
+        <div class="nav__items_side_menu">
+            <!--<div class="nav__item nav__item_hamburger__menu">-->
+            <!--    {showMobileMainMenu && <MobileMainMenu extraLinks={extraLinks} client:load />}-->
+            <!--    <slot name="mobileMenu" />-->
+            <!--</div>-->
+        </div>
+    </nav>
+
+    <!--<div class="search-form-tab">-->
+    <!--    <SearchForm client:load />-->
+    <!--</div>-->
+</header>

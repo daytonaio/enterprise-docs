@@ -15,7 +15,7 @@
     padding-bottom:0.8rem;
     /* padding-left:0.5rem; */
     font-size:1.2rem;
- 
+
 }
 
 code {
@@ -38,8 +38,7 @@ h3 {
 }
 
 .not-content details > summary {
-    font-weight:500;
-    font-size:400;
+    font-weight: 500;
     background-color: rgb(181, 181, 226, 30%);
     padding:0.3em 0.5em;
     border-radius: 0.5rem;
@@ -51,7 +50,6 @@ h3 {
     border-radius: 0.5rem;
     margin-bottom:0.8em;
     font-weight:500;
-    font-size:400;
   }
 
 .content code {
@@ -63,4 +61,17 @@ h3 {
 
 div .content {
     padding-left: 0.5em;
+}
+
+h1 {
+    font-family: 'Berkeley Mono', monospace;
+    font-weight: 400;
+    font-size: 2.25rem;
+    line-height: 1.2;
+    letter-spacing: -0.135rem;
+
+}
+
+.content-panel {
+    border-top: none !important;
 }

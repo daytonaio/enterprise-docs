@@ -1,9 +1,13 @@
 import { defineConfig } from 'astro/config';
 import starlight from '@astrojs/starlight';
+import mdx from "@astrojs/mdx";
+
+import expressiveCode from "astro-expressive-code";
 
 // https://astro.build/config
 export default defineConfig({
   integrations: [starlight({
+    favicon: '/favicon.ico',
     title: 'Daytona',
     social: {
       github: 'https://github.com/daytonaio'
@@ -98,8 +102,16 @@ export default defineConfig({
         "label": "JetBrains Gateway",
         "link": "/tools/jetbrains-gateway/"
       }]
-    },],
-    customCss: ["./src/styles/tailwind.css"]
-  }),
-]
+    }],
+    customCss: ["./src/styles/tailwind.css", './src/fonts/font-face.css', './src/styles/style.scss'],
+    components: {
+      Footer: './src/components/Footer.astro',
+      MarkdownContent: './src/components/MarkdownContent.astro',
+      Pagination: './src/components/Pagination.astro',
+      Header: './src/components/Header.astro',
+      PageSidebar: './src/components/PageSidebar.astro',
+      PageFrame: './src/components/PageFrame.astro',
+      Sidebar: './src/components/Sidebar.astro'
+    }
+  })]
 });

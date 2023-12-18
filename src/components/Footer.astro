@@ -1,0 +1,40 @@
+---
+import { Image } from 'astro:assets';
+import textArrowIcon from '@assets/icons/text-arrow.svg'
+import Default from '@astrojs/starlight/components/Footer.astro';
+
+---
+
+<Default {...Astro.props}>
+    <slot />
+</Default>
+<footer class="docs-footer__container">
+    <div class="docs-footer__container__support-links">
+        <p>
+            <Image class="dark" src={textArrowIcon} alt="Text arrow" />Need help? - <a
+                href="#">Reach support</a>
+        </p>
+        <p>
+            <Image class="dark" src={textArrowIcon} alt="Text arrow" />Latest product
+            updates? - <a href="#">View Changelog</a>
+        </p>
+        <p>
+            <Image class="dark" src={textArrowIcon} alt="Text arrow" />Dotfiles Insider
+            - <a href="#">Read our blog</a>
+        </p>
+    </div>
+
+    <div class="docs-footer__container__bottom-bar">
+        <div class="copyright">
+            <p>© {new Date().getFullYear()} Daytona Platform Inc.</p>
+        </div>
+
+        <div class="menu-list">
+            <a href="https://www.daytona.io/company/privacy-policys">Privacy policy</a
+            >
+            <a href="https://www.daytona.io/company/terms-of-service"
+            >Terms of Service</a
+            >
+        </div>
+    </div>
+</footer>
