@@ -101,9 +101,20 @@ export default defineConfig({
       }, {
         "label": "JetBrains Gateway",
         "link": "/tools/jetbrains-gateway/"
+      }, {
+        "label": "Miscellaneous",
+        "link": "/tools/miscellaneous/"
       }]
-    }],
-    customCss: ["./src/styles/tailwind.css", './src/fonts/font-face.css', './src/styles/style.scss'],
+    },
+    {
+      "label": "Contribution",
+      "items": [{
+        "label": "Guideline",
+        "link": "/contribution/guidelines",
+      }]
+    }
+  ],
+      customCss: ["./src/styles/tailwind.css", './src/fonts/font-face.css', './src/styles/style.scss'],
     components: {
       Footer: './src/components/Footer.astro',
       MarkdownContent: './src/components/MarkdownContent.astro',
