@@ -37,25 +37,46 @@ When an application has a local development server, which is usually spun up by 
   <TabItem label="VS Code">
     At the bottom right corner, you will see a pop up window:
   
-  <VscodeNotification/>
+      <VscodeNotification/>
 
     - Clicking on `Open in Browser` button will open the local development URL in your default browser.
     - Clicking on `Preview in Editor` button will open the live preview in VS Code.
   </TabItem>
   <TabItem label="Theia">
+
     At the bottom right corner, you will see a pop up window:
   
-  <TheiaNotification />
+      <TheiaNotification />
 
     - Clicking on `Open Preview` will open the live preview on the right side within the IDE, although the URL being opened will be a shareable link which you can send to your colleagues or others to preview.
     - Clicking on `Open Browser` will open the live preview in another tab in your default browser, and the URL will also be shareable.
+
   </TabItem>
   <TabItem label="Jetbrains(Webstorm)">
-  - To forward a port on Jetbrains IDE, you 
-  <JetbrainsPortForwarding />
+
+  - **Open terminal**: To forward a port on Jetbrains IDE, you will need to open the terminal, by clicking on the terminal icon  on the bottom left corner, or by using the shortcut: 
+
+    - Windows: `Alt + F12`
+    - Mac: `Ctrl + ~`
+
+  - **Click on `<port-number>`**: Once the port is opened by running `npm run dev`, or `pnpm run dev`, you will see the port number being displayed on top of the terminal, and you can click on the port number to open a dropdown menu:
+
+      <JetbrainsPortForwarding />
+
+  - **Forward Port and Open Browser**: Clicking on `Forward Port and Open Browser` will open the live preview in your default browser. 
   </TabItem>
 </Tabs>
 
+### Shareable link
+
+When a port is opened, you will be able to share a live preview link with others to view the changes you made.
+
+{/*TODO: Ask Toma how to fix this why sometimes it works sometimes it doesn't*/}
 
 
-Take this documentation as an example, if you create a workspace based on this documentation ([give us a star ⭐️ btw](https://github.com/daytonaio/docs))
+---
+<CardGrid>
+  <LinkCard title="⭐️ Give us a star" href="https://github.com/daytonaio/installer" />
+  <LinkCard title="📝 Contribute to this doc" href="https://github.com/daytonaio/docs/pulls?q=is:pr+is:open+sort:updated-desc" /> 
+  <LinkCard title="🙋 Join our Slack community" href="https://join.slack.com/t/daytonacommunity/shared_invite/zt-273yohksh-Q5YSB5V7tnQzX2RoTARr7Q" />
+</CardGrid>
