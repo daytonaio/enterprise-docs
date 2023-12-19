@@ -13,6 +13,10 @@
     margin: 0;
   }
 
+  nav {
+    border-bottom: var(--border);
+  }
+
   .logo-divider {
     display: flex;
     &:after {

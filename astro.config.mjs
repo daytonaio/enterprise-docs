@@ -114,6 +114,7 @@ export default defineConfig({
       Sidebar: './src/components/Sidebar.astro',
       TwoColumnContent: './src/components/TwoColumnContent.astro',
       TableOfContents:'./src/components/TableOfContents.astro',
+      MobileMenuToggle: './src/components/MobileMenuToggle.astro'
     },
   })]
 });

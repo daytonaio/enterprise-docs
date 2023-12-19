@@ -71,7 +71,7 @@ const { sublist, nested } = Astro.props;
         display: flex;
         align-items: center;
         justify-content: space-between;
-        padding: 0.2em var(--sl-sidebar-item-padding-inline);
+        padding: 0.2em 0;
         line-height: 1.4;
         cursor: pointer;
         user-select: none;
@@ -102,7 +102,7 @@ const { sublist, nested } = Astro.props;
         letter-spacing: -0.04rem;
         text-decoration: none;
         color: var(--primary-text-color);
-        padding: 0.3em var(--sl-sidebar-item-padding-inline);
+        padding: 0.3em 0;
     }
 
     a:hover,
@@ -113,7 +113,6 @@ const { sublist, nested } = Astro.props;
     [aria-current='page'],
     [aria-current='page']:hover,
     [aria-current='page']:focus {
-        font-weight: 600;
         color: var(--hover-color);
     }
 
