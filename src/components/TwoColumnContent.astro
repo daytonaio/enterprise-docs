@@ -1,7 +1,7 @@
 ---
 ---
 
-<div class="lg:sl-flex">
+<div class="main-pane-wrapper">
     {
         Astro.props.toc && (
                     <aside class="right-sidebar-container">
@@ -18,14 +18,19 @@
     .main-pane {
         isolation: isolate;
     }
+    .main-pane-wrapper {
+        display: grid;
+        grid-template-columns: 7fr 2fr;
+        column-gap: 48px;
+        @media (max-width: 1024px) {
+            grid-template-columns: 100%;
+        }
+    }
 
-    @media (min-width: 72rem) {
+    @media (min-width: 1024px) {
         .right-sidebar-container {
             order: 2;
             position: relative;
-            width: calc(
-                    var(--sl-sidebar-width) + (100% - var(--sl-content-width) - var(--sl-sidebar-width)) / 2
-            );
         }
 
         .right-sidebar {
@@ -44,11 +49,7 @@
 
         :global([data-has-sidebar][data-has-toc]) .main-pane {
             --sl-content-margin-inline: auto 0;
-
             order: 1;
-            width: calc(
-                    var(--sl-content-width) + (100% - var(--sl-content-width) - var(--sl-sidebar-width)) / 2
-            );
         }
     }
 </style>

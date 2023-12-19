@@ -8,7 +8,6 @@ const { labels } = Astro.props;
 		aria-expanded="false"
 		aria-label={labels['menuButton.accessibleLabel']}
 		aria-controls="starlight__sidebar"
-		class="sl-flex lg:sl-hidden"
 	>
 		<Fragment set:html={menuIcon} />
 	</button>
@@ -60,7 +59,11 @@ const { labels } = Astro.props;
 		background-color: unset;
 		border: var(--border);
 		cursor: pointer;
-		right: 40px
+		right: 40px;
+		display: flex;
+		@media (min-width: 1024px) {
+			display: none;
+		}
 	}
 
 	[aria-expanded='true'] button {

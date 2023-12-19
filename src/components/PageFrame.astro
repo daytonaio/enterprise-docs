@@ -6,6 +6,7 @@ const { hasSidebar, labels } = Astro.props;
 
 <div class="page sl-flex">
     <div class="header-wrapper"><slot name="header" /></div>
+    <div class="grid-template">
     {
         hasSidebar && (
                     <nav class="sidebar" aria-label={labels['sidebarNav.accessibleLabel']}>
@@ -19,9 +20,18 @@ const { hasSidebar, labels } = Astro.props;
         )
     }
     <div class="main-frame"><slot /></div>
+    </div>
 </div>
 
 <style>
+    .grid-template {
+        display: grid;
+        grid-template-columns: 1fr 3fr;
+        column-gap: 48px;
+        @media (max-width: 1024px) {
+            grid-template-columns: 100%;
+        }
+    }
     .header-wrapper {
         position: fixed;
         z-index: var(--sl-z-index-navbar);
@@ -67,10 +77,6 @@ const { hasSidebar, labels } = Astro.props;
 
     .main-frame {
         padding-top: calc(var(--sl-nav-height) + var(--sl-mobile-toc-height));
-        padding-inline-start: 18.75rem;
-        @media (max-width: 1024px) {
-            padding-inline-start: 0;
-        }
     }
 
     @media (min-width: 1024px) {
@@ -79,7 +85,7 @@ const { hasSidebar, labels } = Astro.props;
         }
         .sidebar-pane {
             --sl-sidebar-visibility: visible;
-            width: var(--sl-sidebar-width);
+            width: inherit;
             background-color: var(--bg-color);
         }
     }
