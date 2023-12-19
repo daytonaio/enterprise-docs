@@ -305,10 +305,6 @@ $hamburger-types: (
     padding: 20px 0;
     align-items: center;
   }
-
-  @include for-mobile-screen-sizes {
-    padding: 20px;
-  }
 }
 
 .mobile-menu.show-menu {

@@ -58,7 +58,7 @@ const { hasSidebar, labels } = Astro.props;
         gap: 1rem;
     }
 
-    @media (min-width: 1100px) {
+    @media (min-width: 1024px) {
         .sidebar-content::after {
             content: '';
             padding-bottom: 1px;
@@ -68,12 +68,12 @@ const { hasSidebar, labels } = Astro.props;
     .main-frame {
         padding-top: calc(var(--sl-nav-height) + var(--sl-mobile-toc-height));
         padding-inline-start: 18.75rem;
-        @media (max-width: 1100px) {
+        @media (max-width: 1024px) {
             padding-inline-start: 0;
         }
     }
 
-    @media (min-width: 1100px) {
+    @media (min-width: 1024px) {
         :global([data-has-sidebar]) .header {
             padding-inline-end: var(--sl-nav-pad-x);
         }
