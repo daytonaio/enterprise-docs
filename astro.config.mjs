@@ -126,7 +126,8 @@ export default defineConfig({
       TwoColumnContent: './src/components/TwoColumnContent.astro',
       TableOfContents:'./src/components/TableOfContents.astro',
       MobileMenuToggle: './src/components/MobileMenuToggle.astro',
-      ContentPanel: './src/components/ContentPanel.astro'
+      ContentPanel: './src/components/ContentPanel.astro',
+      PageTitle: './src/components/PageTitle.astro'
     },
   })]
 });

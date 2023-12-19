@@ -76,7 +76,10 @@ const { hasSidebar, labels } = Astro.props;
     }
 
     .main-frame {
-        padding-top: calc(var(--sl-nav-height) + var(--sl-mobile-toc-height));
+        padding-top: var(--sl-nav-height);
+        @media (max-width: 1024px) {
+            padding-top: calc(var(--sl-nav-height) + var(--sl-mobile-toc-height));
+        }
     }
 
     @media (min-width: 1024px) {
