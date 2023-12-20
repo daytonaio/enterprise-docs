@@ -127,7 +127,10 @@ export default defineConfig({
       TableOfContents:'./src/components/TableOfContents.astro',
       MobileMenuToggle: './src/components/MobileMenuToggle.astro',
       ContentPanel: './src/components/ContentPanel.astro',
-      PageTitle: './src/components/PageTitle.astro'
+      PageTitle: './src/components/PageTitle.astro',
+      Hero: './src/components/Hero.astro',
+      CardGrid: '.src/components/CardGrid.astro',
+      Card: './src/components/Card.astro'
     },
   })]
 });
