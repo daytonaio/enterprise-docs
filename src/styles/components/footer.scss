@@ -1,7 +1,8 @@
 .docs-footer__container {
   font-family: 'Inter', sans-serif;
 
-  &__support-links, &__bottom-bar {
+  &__support-links,
+  &__bottom-bar {
     grid-column-start: 2;
     margin: 0;
 
@@ -34,7 +35,7 @@
 
         @include for-hover-state {
           &:hover {
-            opacity: .6;
+            opacity: 0.6;
           }
         }
       }

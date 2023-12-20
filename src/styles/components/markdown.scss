@@ -60,7 +60,7 @@
       font-size: 1rem;
       font-weight: 400;
       line-height: 1.4;
-      letter-spacing:  -0.01rem;
+      letter-spacing: -0.01rem;
       color: var(--secondary-text-color);
       display: flex;
       gap: 15px;
@@ -86,7 +86,6 @@
     }
 
     li {
-
       &::before {
         //content: url(/src/assets/img/icons/facts.svg);
         padding-top: 3px;
