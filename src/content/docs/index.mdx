@@ -1,9 +1,9 @@
 ---
-title: Welcome to Starlight
+title: "~ cd daytona/docs"
 description: Get started building your docs site with Starlight.
-template: splash
+template: doc
 hero:
-  tagline: Congrats on setting up a new Starlight project!
+  tagline: The Docs contains guidance and best practices that can help you get the best out of Daytona. From setting up your first workspace to the most advanced team collab.
   image:
     file: ../../assets/houston.webp
   actions:
@@ -19,9 +19,9 @@ hero:
 
 import { Card, CardGrid } from '@astrojs/starlight/components';
 
-## Next steps
+## Get Started
 
-<CardGrid stagger>
+<CardGrid>
 	<Card title="Update content" icon="pencil">
 		Edit `src/content/docs/index.mdx` to see this page change.
 	</Card>
@@ -35,3 +35,22 @@ import { Card, CardGrid } from '@astrojs/starlight/components';
 		Learn more in [the Starlight Docs](https://starlight.astro.build/).
 	</Card>
 </CardGrid>
+
+## Installation
+
+<CardGrid>
+	<Card title="Single Node" icon="pencil">
+		Edit `src/content/docs/index.mdx` to see this page change.
+	</Card>
+	<Card title="Cluster" icon="add-document">
+		Add Markdown or MDX files to `src/content/docs` to create new pages.
+	</Card>
+	<Card title="IDPs" icon="setting">
+		Edit your `sidebar` and other config in `astro.config.mjs`.
+	</Card>
+	<Card title="Domains" icon="open-book">
+		Learn more in [the Starlight Docs](https://starlight.astro.build/).
+	</Card>
+</CardGrid>
+
+If you found a bug on this website, please open a new issue with as much detail as possible, including steps to replicate the bug, screenshots, links, and expected results.
