@@ -73,30 +73,39 @@
       }
     }
   }
+  > ol {
+    padding-inline-start: 18px;
+    li {
+      &::marker {
+        color: var(--secondary-text-color);
+      }
+
+      p {
+        margin: 0;
+      }
+    }
+
+    @include for-tablet-screen-sizes {
+      font-size: 1rem;
+    }
+  }
 
   > ul {
-    list-style: none;
     background: var(--block-bg-color);
-    padding: 30px;
+    padding: 30px 30px 30px 45px;
     margin-bottom: 60px;
     margin-top: 0;
+    list-style-image: url(/src/assets/icons/facts.svg);
 
     @include for-mobile-screen-sizes {
       margin-bottom: 40px;
     }
 
     li {
-      &::before {
-        //content: url(/src/assets/img/icons/facts.svg);
-        padding-top: 3px;
-        margin-right: 10px;
-      }
-
-      p {
-        margin: 0 0 10px;
-        color: var(--primary-text-color);
-        font-weight: 500;
-      }
+      padding-left: 10px;
+      margin: 0 0 10px;
+      color: var(--primary-text-color);
+      font-weight: 500;
 
       a {
         color: var(--primary-text-color);
@@ -110,6 +119,7 @@
     li > ul {
       padding: 0 15px;
       margin: 0;
+      list-style: none;
 
       li:before {
         content: '-';

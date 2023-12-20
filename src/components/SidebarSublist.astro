@@ -63,16 +63,12 @@ const { sublist, nested } = Astro.props;
         color: var(--secondary-text-color);
     }
 
-    .top-level > li + li {
-        margin-top: 0.75rem;
-    }
-
     summary {
         display: flex;
         align-items: center;
         justify-content: space-between;
-        padding: 0.2em 0;
-        line-height: 1.4;
+        padding: 24px 0 8px 0;
+        line-height: 1;
         cursor: pointer;
         user-select: none;
     }
@@ -102,7 +98,7 @@ const { sublist, nested } = Astro.props;
         letter-spacing: -0.04rem;
         text-decoration: none;
         color: var(--primary-text-color);
-        padding: 0.3em 0;
+        padding: 8px 0;
     }
 
     a:hover,

@@ -34,3 +34,7 @@ section {
 a {
   text-decoration: unset;
 }
+pre > code {
+  text-wrap: wrap !important;
+  white-space: pre-wrap;
+}

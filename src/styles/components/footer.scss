@@ -82,6 +82,11 @@
         letter-spacing: 0.015rem;
         font-weight: 500;
         color: var(--secondary-text-color);
+        @include for-hover-state {
+          &:hover {
+            opacity: 0.6;
+          }
+        }
       }
     }
   }
