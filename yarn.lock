@@ -957,7 +957,7 @@ astro-expressive-code@^0.30.1:
   dependencies:
     remark-expressive-code "^0.30.1"
 
-astro@^3.0.0, "astro@^3.0.0 || ^4.0.0", "astro@^3.3.0 || ^4.0.0-beta", astro@^4.0.0, astro@^4.0.6, astro@>=3.2.0:
+astro@^3.0.0, "astro@^3.0.0 || ^4.0.0", "astro@^3.3.0 || ^4.0.0-beta", astro@^4.0.0, astro@^4.0.7, astro@>=3.2.0:
   version "4.0.7"
   resolved "https://registry.npmjs.org/astro/-/astro-4.0.7.tgz"
   integrity sha512-K+Ms2AAQvi6yERPuglcI69tnHyTT44JCjzqprSjw3uOwFX7N9obpLgbhmLMH1fPFTgzt3ZD7APjmtDPN51makw==
