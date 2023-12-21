@@ -9,7 +9,6 @@ export default defineConfig({
   site: 'https://docs.daytona.io',
   integrations: [starlight({
     favicon: '/favicon.ico',
-
     title: 'Daytona',
     social: {
       github: 'https://github.com/daytonaio'
@@ -116,6 +115,7 @@ export default defineConfig({
       }]
     }
   ],
+    tableOfContents: { minHeadingLevel: 2, maxHeadingLevel: 2 },
     customCss: ["./src/styles/tailwind.css", './src/fonts/font-face.css', './src/styles/style.scss'],
     components: {
       Footer: './src/components/Footer.astro',
