@@ -6,8 +6,10 @@ import expressiveCode from "astro-expressive-code";
 
 // https://astro.build/config
 export default defineConfig({
+  site: 'https://docs.daytona.io',
   integrations: [starlight({
     favicon: '/favicon.ico',
+
     title: 'Daytona',
     social: {
       github: 'https://github.com/daytonaio'
