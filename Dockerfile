@@ -23,7 +23,6 @@ FROM node:20.10.0-slim
 
 WORKDIR /usr/src/app
 
-COPY server ./server
 COPY --link --from=build /usr/src/app/dist ./dist
 COPY --link --from=deps /usr/src/app/node_modules ./node_modules
 
