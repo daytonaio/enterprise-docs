@@ -1,0 +1,17 @@
+---
+
+const { gridNumber, mobileGridNumber } = Astro.props;
+---
+
+<div class:list={'card-grid'}><slot /></div>
+
+<style define:vars={{ gridNumber, mobileGridNumber }}>
+    .card-grid {
+        display: grid;
+        grid-template-columns: repeat(var(--gridNumber), 1fr);
+        gap: 1rem;
+        @media (max-width: 1024px) {
+            grid-template-columns: repeat(var(--mobileGridNumber), 1fr);
+        }
+    }
+</style>

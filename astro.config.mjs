@@ -131,8 +131,6 @@ export default defineConfig({
       ContentPanel: './src/components/ContentPanel.astro',
       PageTitle: './src/components/PageTitle.astro',
       Hero: './src/components/Hero.astro',
-      CardGrid: '.src/components/CardGrid.astro',
-      Card: './src/components/Card.astro',
       MobileMenuFooter: './src/components/MobileMenuFooter.astro'
     },
   })]
