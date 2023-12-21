@@ -28,9 +28,19 @@
  
 }
 
+.keyboard-shortcut {
+  background-color: ghostwhite;
+  border:1px solid rgb(230, 217, 200);
+  border-radius: 4px;
+  box-shadow: 0.5px 0.5px 1px 1px gray;
+  padding: 2px 6px;
+  color:#282828;
+}
+
 
 code {
     border-radius: 0.2rem;
+    background-color: transparent;
 }
 
 h3 {
@@ -256,4 +266,16 @@ div .content {
   .selected {
     background-color: #1a72a2;
     border-radius: 3px;
+  }
+
+  .container {
+    padding: 0px 40px;
+    margin: auto;
+    margin-top:-1rem;
+    margin-bottom: -0.5rem;
+    display:flex;
+  }
+
+  .tr {
+    padding: 5px 0px;
   }

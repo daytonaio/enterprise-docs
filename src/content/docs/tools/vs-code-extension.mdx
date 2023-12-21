@@ -1,24 +1,28 @@
 ---
 
 title: VS Code Extension
-description: This guide will walk you through how to install and set up Daytona's VS Code extension, discuss features included with VS Code extension, and a clean uninstall guide is also included
+description: This guide will walk you through how to install and set up Daytona's VS Code extension, discuss features included with VS Code extension. A clean uninstall guide is also included
 sidebar:
   label: VS Code Extension
 ---
 import { Tabs, TabItem, LinkCard, CardGrid, Card } from '@astrojs/starlight/components';
+import Keyboard from "../../../components/Keyboard.astro"
 
-
-## What is Daytona's VS Code extension
+<div class="not-content">
+Some stuff
+</div>
 
 Daytona's VS Code extension integrates Visual Studio Code, appearing as a tab on the left-hand side alongside your default tabs in VS Code like File Explorer, Search, Source Control etc, to streamline your worklow and boost productivity.
 
-The extension allows you to have a frictionless experience of opening a standardised development environment, creating and accessing your [Daytona Workspaces](/usage/workspaces) based on git repositories. It offers convenient [workspace](/usage/workspaces) management, profile control, and instant team information access -- all directly within VS Code, removing the hassle of going to a web browser, open Daytona URL and creating projects upon initial configuration.
+The extension allows you to have a frictionless experience of opening a standardised development environment, creating and accessing your [Daytona Workspaces](/usage/workspaces) based on git repositories. It offers convenient [workspace](/usage/workspaces) management, profile control, and instant team information access -- all directly within VS Code, removing the hassle of going to a web browser, open Daytona URL and creating projects upon initial configuration. 
+
+
 
 ## Prerequisites
 
 Before you can harness the full potential of Daytona's VS Code extension, make sure you meet the following prerequisites to allow a smooth installation process:
 
-- **[Visual Studio Code](https://code.visualstudio.com/download)**: have Visual Studio Code installed on your computer. 
+- **Visual Studio Code**: have [Visual Studio Code](https://code.visualstudio.com/download) installed on your computer. 
 
 - **Daytona Installation**: Daytona's power lies in its infrastructure. If you haven't set it up yet, you can easily do so by [downloading it from the Daytona installer](https://github.com/daytonaio/installer) on your infrastructure.
 
@@ -48,9 +52,19 @@ Installing the Daytona VS Code extension is simple. You have two options to choo
 <TabItem label="Download in VS Code Extension Marketplace">
 
 1. **Open VS Code**: Within VS Code, navigate to the Extension tab in VS Code or use the shortcut keys:
+<div class=" not-content">
+<table class="container">
+<tr>
+<td> Windows: </td>
+<td><Keyboard shortcuts={["Ctrl ^", "Shift ⇧", "X"]}/></td>
+</tr>
+<tr>
+<td> MacOS: </td> 
+<td> <Keyboard shortcuts={["Command ⌘", "Shift ⇧", "X"]}/> </td>
+</tr>
+</table>
+</div>
 
-   - Windows: `Ctrl` + `Shift` + `X`
-   - MacOS: `Command` + `Shift` + `X`
 2. **Search "Daytona"**: Within VS Code's extension tab, search "Daytona" in the extension market place, you will find the extension with our logo. 
 
 3. **Click `Install`**: On the extension that opened, hit `Install` either on the extension or on the window `Extensions: Daytona`.

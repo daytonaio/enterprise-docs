@@ -1,0 +1,19 @@
+---
+import TableHeader from './TableHeader.astro'
+type Index = number
+type Content = string | string[] | HTMLElement | HTMLElement[]
+
+interface Props {
+  headers?: Content
+  rowNames: Index & Content
+  rowContents: Index & Content
+  className?: string
+}
+
+const { headers, rowNames, rowContents, className } = Astro.props
+---
+
+<table>
+    <TableHeader headers={headers}/>
+
+</table>
