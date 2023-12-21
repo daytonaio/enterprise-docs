@@ -1,11 +1,13 @@
+import { loadEnv } from 'vite'
 import { defineConfig } from 'astro/config';
 import starlight from '@astrojs/starlight';
-import mdx from "@astrojs/mdx";
+import node from '@astrojs/node'
 
-import expressiveCode from "astro-expressive-code";
+const { PUBLIC_WEB_URL } = loadEnv(import.meta.env.MODE, process.cwd(), '')
 
 // https://astro.build/config
 export default defineConfig({
+  site: PUBLIC_WEB_URL,
   integrations: [starlight({
     favicon: '/favicon.ico',
     title: 'Daytona',
@@ -113,8 +115,8 @@ export default defineConfig({
         "link": "/contribution/guidelines",
       }]
     }
-  ],
-      customCss: ["./src/styles/tailwind.css", './src/fonts/font-face.css', './src/styles/style.scss'],
+    ],
+    customCss: ["./src/styles/tailwind.css", './src/fonts/font-face.css', './src/styles/style.scss'],
     components: {
       Footer: './src/components/Footer.astro',
       MarkdownContent: './src/components/MarkdownContent.astro',
@@ -132,5 +134,14 @@ export default defineConfig({
       CardGrid: '.src/components/CardGrid.astro',
       Card: './src/components/Card.astro'
     },
-  })]
+  })],
+  output: 'hybrid',
+  adapter: node({
+    mode: 'middleware',
+  }),
+  vite: {
+    ssr: {
+      noExternal: ['path-to-regexp'],
+    },
+  },
 });
