@@ -114,7 +114,7 @@ export default defineConfig({
       }]
     }
   ],
-      customCss: ["./src/styles/tailwind.css", './src/fonts/font-face.css', './src/styles/style.scss'],
+    customCss: ["./src/styles/tailwind.css", './src/fonts/font-face.css', './src/styles/style.scss'],
     components: {
       Footer: './src/components/Footer.astro',
       MarkdownContent: './src/components/MarkdownContent.astro',
@@ -130,7 +130,8 @@ export default defineConfig({
       PageTitle: './src/components/PageTitle.astro',
       Hero: './src/components/Hero.astro',
       CardGrid: '.src/components/CardGrid.astro',
-      Card: './src/components/Card.astro'
+      Card: './src/components/Card.astro',
+      MobileMenuFooter: './src/components/MobileMenuFooter.astro'
     },
   })]
 });
