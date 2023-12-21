@@ -8,6 +8,7 @@ RUN yarn --prod
 
 FROM node:20.10.0 as build
 
+ARG PUBLIC_WEB_URL
 
 ENV PUBLIC_WEB_URL=${PUBLIC_WEB_URL}
 
