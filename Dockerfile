@@ -26,4 +26,4 @@ WORKDIR /usr/src/app
 COPY --link --from=build /usr/src/app/dist ./dist
 COPY --link --from=deps /usr/src/app/node_modules ./node_modules
 
-CMD [ "node" ]
+CMD [ "node", "server/index.mjs" ]
