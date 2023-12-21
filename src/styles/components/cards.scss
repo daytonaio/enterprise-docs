@@ -16,6 +16,7 @@
       object-fit: scale-down;
       width: 100%;
       max-width: 52px;
+      height: 100%;
       transition: .6s;
 
       @include for-hover-state {
