@@ -8,7 +8,6 @@ RUN yarn --prod
 
 FROM node:20.10.0 as build
 
-ARG PUBLIC_WEB_URL
 
 ENV PUBLIC_WEB_URL=${PUBLIC_WEB_URL}
 
@@ -23,6 +22,7 @@ FROM node:20.10.0-slim
 
 WORKDIR /usr/src/app
 
+COPY server ./server
 COPY --link --from=build /usr/src/app/dist ./dist
 COPY --link --from=deps /usr/src/app/node_modules ./node_modules
 
