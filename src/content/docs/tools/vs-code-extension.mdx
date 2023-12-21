@@ -7,10 +7,9 @@ sidebar:
 ---
 import { Tabs, TabItem, LinkCard, CardGrid, Card } from '@astrojs/starlight/components';
 import Keyboard from "../../../components/Keyboard.astro"
+import Table from "../../../components/Table/Table.astro"
+import TableRow from "../../../components/Table/TableRow.astro"
 
-<div class="not-content">
-Some stuff
-</div>
 
 Daytona's VS Code extension integrates Visual Studio Code, appearing as a tab on the left-hand side alongside your default tabs in VS Code like File Explorer, Search, Source Control etc, to streamline your worklow and boost productivity.
 
@@ -52,18 +51,16 @@ Installing the Daytona VS Code extension is simple. You have two options to choo
 <TabItem label="Download in VS Code Extension Marketplace">
 
 1. **Open VS Code**: Within VS Code, navigate to the Extension tab in VS Code or use the shortcut keys:
-<div class=" not-content">
-<table class="container">
-<tr>
-<td> Windows: </td>
-<td><Keyboard shortcuts={["Ctrl ^", "Shift ⇧", "X"]}/></td>
-</tr>
-<tr>
-<td> MacOS: </td> 
-<td> <Keyboard shortcuts={["Command ⌘", "Shift ⇧", "X"]}/> </td>
-</tr>
-</table>
-</div>
+
+
+<Table>
+<TableRow contents="Windows :" >
+<Keyboard shortcuts={["Ctrl ^", "Shift ⇧", "X"]} slot="html"/>
+</TableRow>
+<TableRow contents="MacOS: ">
+<Keyboard shortcuts={["Command ⌘", "Shift ⇧", "X"]} slot="html"/>
+</TableRow>
+</Table>
 
 2. **Search "Daytona"**: Within VS Code's extension tab, search "Daytona" in the extension market place, you will find the extension with our logo. 
 
@@ -72,7 +69,7 @@ Installing the Daytona VS Code extension is simple. You have two options to choo
 </TabItem>
 </Tabs>
 
-_🚩 Now you should see your Daytona VS Code extension displayed on the left-hand side of VS Code. But when you click on it, nothing is displayed under `WORKSPACES`, `TEAMS`, `PROFILES`, now what?_
+_Now you should see your Daytona VS Code extension displayed on the left-hand side of VS Code. But when you click on it, nothing is displayed under `WORKSPACES`, `TEAMS`, `PROFILES`, now what?_
 
 
 ### Establish a connection
