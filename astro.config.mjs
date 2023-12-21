@@ -116,6 +116,7 @@ export default defineConfig({
       }]
     }
     ],
+    tableOfContents: { minHeadingLevel: 2, maxHeadingLevel: 2 },
     customCss: ["./src/styles/tailwind.css", './src/fonts/font-face.css', './src/styles/style.scss'],
     components: {
       Footer: './src/components/Footer.astro',
@@ -131,8 +132,7 @@ export default defineConfig({
       ContentPanel: './src/components/ContentPanel.astro',
       PageTitle: './src/components/PageTitle.astro',
       Hero: './src/components/Hero.astro',
-      CardGrid: '.src/components/CardGrid.astro',
-      Card: './src/components/Card.astro'
+      MobileMenuFooter: './src/components/MobileMenuFooter.astro'
     },
   })],
   output: 'hybrid',

@@ -1,0 +1,10 @@
+---
+import { Image } from 'astro:assets';
+const { imageDark, imageAlt, title, link } = Astro.props;
+---
+<a href={link} class="title-card">
+    <figure class="dark">
+        <Image src={imageDark} alt={imageAlt} />
+    </figure>
+    <h6 class="dark">{title}</h6>
+</a>
