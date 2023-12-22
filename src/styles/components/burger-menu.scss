@@ -367,6 +367,11 @@ $hamburger-types: (
   gap: 10px;
   margin-top: 16px;
   margin-bottom: 28px;
+  margin-left: unset;
+
+  @media (min-width: #{$screen-lg}) {
+    display: none;
+  }
 
   .github {
     background: #161616;
