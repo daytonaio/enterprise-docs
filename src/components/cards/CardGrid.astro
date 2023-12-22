@@ -10,7 +10,7 @@ const { gridNumber, mobileGridNumber } = Astro.props;
         display: grid;
         grid-template-columns: repeat(var(--gridNumber), 1fr);
         gap: 1rem;
-        @media (max-width: 1024px) {
+        @media (max-width: 650px) {
             grid-template-columns: repeat(var(--mobileGridNumber), 1fr);
         }
     }
