@@ -1,9 +1,15 @@
+import { loadEnv } from 'vite'
 import { defineConfig } from 'astro/config';
 import starlight from '@astrojs/starlight';
+import node from '@astrojs/node'
+
+const { PUBLIC_WEB_URL } = loadEnv(import.meta.env.MODE, process.cwd(), '')
 
 // https://astro.build/config
 export default defineConfig({
+  site: PUBLIC_WEB_URL,
   integrations: [starlight({
+    favicon: '/favicon.ico',
     title: 'Daytona',
     social: {
       github: 'https://github.com/daytonaio'
@@ -109,8 +115,33 @@ export default defineConfig({
         "link": "/contribution/guidelines",
       }]
     }
-  ],
-    customCss: ["./src/styles/tailwind.css"]
+    ],
+    tableOfContents: { minHeadingLevel: 2, maxHeadingLevel: 2 },
+    customCss: ["./src/styles/tailwind.css", './src/fonts/font-face.css', './src/styles/style.scss'],
+    components: {
+      Footer: './src/components/Footer.astro',
+      MarkdownContent: './src/components/MarkdownContent.astro',
+      Pagination: './src/components/Pagination.astro',
+      Header: './src/components/Header.astro',
+      PageSidebar: './src/components/PageSidebar.astro',
+      PageFrame: './src/components/PageFrame.astro',
+      Sidebar: './src/components/Sidebar.astro',
+      TwoColumnContent: './src/components/TwoColumnContent.astro',
+      TableOfContents:'./src/components/TableOfContents.astro',
+      MobileMenuToggle: './src/components/MobileMenuToggle.astro',
+      ContentPanel: './src/components/ContentPanel.astro',
+      PageTitle: './src/components/PageTitle.astro',
+      Hero: './src/components/Hero.astro',
+      ThemeProvider: './src/components/ThemeProvider.astro'
+    },
+  })],
+  output: 'hybrid',
+  adapter: node({
+    mode: 'middleware',
   }),
-]
+  vite: {
+    ssr: {
+      noExternal: ['path-to-regexp'],
+    },
+  },
 });

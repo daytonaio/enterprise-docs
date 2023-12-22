@@ -1,0 +1,22 @@
+---
+---
+
+<div class="content-panel">
+	<div class="sl-container"><slot /></div>
+</div>
+
+<style>
+	.content-panel {
+		margin-top: 40px;
+	}
+
+	.sl-container > :global(* + *) {
+		margin-top: 1.5rem;
+	}
+
+	@media (min-width: 1024px) {
+		.sl-container {
+			margin-inline: var(--sl-content-margin-inline, auto);
+		}
+	}
+</style>
