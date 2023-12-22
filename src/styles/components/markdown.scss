@@ -3,19 +3,21 @@
     margin-bottom: 40px;
   }
 
-  a {
-    color: var(--primary-text-color);
-    font-weight: 600;
-    text-decoration: underline;
+  > p, ol, ul {
+     a {
+      color: var(--primary-text-color);
+      font-weight: 600;
+      text-decoration: underline;
 
-    @include for-hover-state {
-      &:hover {
-        opacity: 0.6;
+      @include for-hover-state {
+        &:hover {
+          opacity: 0.6;
+        }
       }
-    }
 
-    &:visited {
-      color: var(--secondary-text-color) !important;
+      &:visited {
+        color: var(--secondary-text-color) !important;
+      }
     }
   }
 
