@@ -5,6 +5,11 @@
   align-items: center;
   background: var(--block-bg-color);
   max-width: 106px;
+  @include for-hover-state {
+    &:hover {
+      opacity: .6;
+    }
+  }
 
   figure {
     display: flex;
@@ -18,12 +23,6 @@
       max-width: 52px;
       height: 100%;
       transition: .6s;
-
-      @include for-hover-state {
-        &:hover {
-          opacity: .6;
-        }
-      }
     }
   }
 }
@@ -31,6 +30,7 @@
 .title-card {
   text-decoration: none !important;
   @include for-hover-state {
+    opacity: 1;
     &:hover h6 {
       color: var(--hover-color);
     }
@@ -96,6 +96,9 @@
 
   @include for-hover-state {
     &:hover {
+      a {
+        opacity: 1;
+      }
       h6 {
         color: var(--hover-color);
       }
