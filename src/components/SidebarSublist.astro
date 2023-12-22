@@ -3,11 +3,6 @@ interface Props {
     sublist: any
     nested?: boolean;
 }
-function flattenSidebar(sidebar: any): any {
-    return sidebar.flatMap((entry) =>
-    entry.type === 'group' ? flattenSidebar(entry.entries) : entry
-    );
-}
 
 const { sublist, nested } = Astro.props;
 ---
@@ -26,8 +21,7 @@ const { sublist, nested } = Astro.props;
                                 <span>{entry.label}</span>
                             </a>
                     ) : (
-                            <details
-                                    open={flattenSidebar(entry.entries).some((i) => i.isCurrent) || !entry.collapsed}
+                            <div
                             >
                                 <summary>
                                     <div class="group-label">
@@ -35,7 +29,7 @@ const { sublist, nested } = Astro.props;
                                     </div>
                                 </summary>
                                 <Astro.self sublist={entry.entries} nested />
-                            </details>
+                            </div>
                     )}
                 </li>
         ))
@@ -69,7 +63,6 @@ const { sublist, nested } = Astro.props;
         justify-content: space-between;
         padding: 24px 0 8px 0;
         line-height: 1;
-        cursor: pointer;
         user-select: none;
     }
     summary::marker,
