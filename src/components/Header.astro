@@ -1,7 +1,7 @@
 ---
 import config from 'virtual:starlight/user-config';
 
-import DesktopSideMenu from './menu/DesktopSideMenu.astro'
+import SideNavLinks from './menu/SideNavLinks.astro'
 import daytonaLogo from '@assets/icons/daytona-logo.svg?raw'
 import daytonaLogoIcon from '@assets/icons/logo-icon.svg?raw'
 import documentationIcon from '@assets/icons/documentation-icon.svg?raw'
@@ -21,7 +21,9 @@ const shouldRenderSearch =
         <a href='/' class="dotfiles-logo"
         ><Fragment set:html={documentationIcon} />Documentation
         </a>
-        <DesktopSideMenu />
+        <div class="nav__items_side_menu">
+            <SideNavLinks />
+        </div>
     </nav>
 
     <nav class="mobile-navigation">
@@ -34,13 +36,6 @@ const shouldRenderSearch =
         <a href='/' class="dotfiles-logo blur-section"
         ><Fragment set:html={documentationIcon} />Documentation
         </a>
-
-        <div class="nav__items_side_menu">
-            <!--<div class="nav__item nav__item_hamburger__menu">-->
-            <!--    {showMobileMainMenu && <MobileMainMenu extraLinks={extraLinks} client:load />}-->
-            <!--    <slot name="mobileMenu" />-->
-            <!--</div>-->
-        </div>
     </nav>
 
     <!--<div class="search-form-tab">-->
