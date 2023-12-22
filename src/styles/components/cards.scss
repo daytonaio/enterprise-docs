@@ -5,6 +5,8 @@
   align-items: center;
   background: var(--block-bg-color);
   max-width: 106px;
+  transition: 0.6s;
+
   @include for-hover-state {
     &:hover {
       opacity: .6;
@@ -146,6 +148,7 @@
     font-size: 1rem;
     text-transform: none;
     transition: .6s;
+    margin-bottom: 5px;
   }
 }
 
