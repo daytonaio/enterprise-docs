@@ -10,5 +10,10 @@
         gap: 16px;
         justify-items: center;
         flex-wrap: wrap;
+
+        @media (max-width: 650px) {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+        }
     }
 </style>
