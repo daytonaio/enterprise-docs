@@ -13,6 +13,10 @@
     }
   }
 
+  @include for-tablet-screen-sizes {
+    width: 106px;
+  }
+
   figure {
     display: flex;
     padding: 14px;
@@ -31,6 +35,7 @@
 
 .title-card {
   text-decoration: none !important;
+
   @include for-hover-state {
     opacity: 1;
     &:hover h6 {
@@ -40,16 +45,11 @@
 
   figure {
     width: 100%;
-    height: 120px;
     background: var(--block-bg-color);
     justify-content: center;
     align-items: center;
     margin-bottom: 10px;
-
-    @include for-mobile-screen-sizes {
-      width: 106px;
-      height: 120px;
-    }
+    aspect-ratio: 15/8;
 
     @include for-mobile-screen-sizes {
       display: grid;
@@ -122,7 +122,6 @@
 
   figure {
     width: 100%;
-    height: 160px;
     background: var(--block-bg-color);
     display: grid;
     justify-content: center;
@@ -130,7 +129,7 @@
     margin-bottom: 16px;
     border: 1px solid var(--block-bg-color);
     transition: .6s;
-
+    aspect-ratio: 2/1;
     .dark {
       display: block;
     }
