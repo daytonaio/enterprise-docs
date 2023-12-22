@@ -110,7 +110,7 @@ export default defineConfig({
       }]
     }
   ],
-    customCss: ["./src/styles/tailwind.css"]
+    customCss: ["./src/styles/tailwind.css", "./src/components/component.css"]
   }),
 ]
 });

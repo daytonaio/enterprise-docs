@@ -76,13 +76,13 @@ _Now you should see your Daytona VS Code extension displayed on the left-hand si
 
 When you are using the VS Code extension for the first time, you will need to establish a secure connection between your local computer and your Daytona instance. Having this connection in place is essential whenever you are using Daytona VS Code extension in the future, it keeps your workspaces, profiles and teams sync with your Daytona installation. We will walk you through it step by step, and you will need your **[Daytona dashboard URL](#prerequisite)** before we continue.
 
-1. **Sign in to dashboard and select a [workspace](/usage/workspaces)**
+<span class="content-subtitle not-content">
+1. **Sign in to dashboard and select a workspace**
 
-   - Visit your Daytona dashboard URL and make sure you are on the `Workspaces` tab.
-   
+   - Visit your Daytona dashboard URL and make sure you are on the `Workspaces` tab. 
    - Select one of the workspaces and click on the `𓈓` icon on it.
    - Under the dropdown menu, select `Open`.
-
+</span>
 {/* <Card icon="github" title="If you haven't have any repositories in your workspace">You will need to do it now by clicking "Create" in the `WORKSPACES` tab on Daytona dashboard to import a repository from your Git Provider.</Card> */}
 
 <div class="not-content">
@@ -94,40 +94,42 @@ When you are using the VS Code extension for the first time, you will need to es
 </details>
 </div>
 
-
+<span class="content-subtitle">
 2. **Configure default code editor and open workspace**
-
    - On Daytona dashboard, click on `Settings` on the left-hand side menu. At the **Default Editor** section, select `VS Code`. 
-
    - Click on the `Workspaces` tab and select one of the workspaces. One the right side of the workspace, click on `𓈓` and at the dropdown menu, select `Open`. 
-
    - After you selected `Open`, choose `VS Code` as your code editor in the pop up modal (You may choose others, but in this guide we will need VS Code). And then click on the green button `Open` on the pop up window with title "Open \<your-selected-workspace's-name\>".
+</span>
 
+<span class="content-subtitle">
 3. **Respond to permissions**
-
    - As you proceed, you may encounter the following prompts within VS Code:
-
      - "The extension 'Daytona' wants to sign in using \<your-profile-name\>." Choose the blue button with `Allow`.
-     
      - "Do you want Code to open the external website?" Choose `Open`.
+</span>
 
+<span class="content-subtitle">
 4. **Authenticate Daytona with Your Git provider**
-
    - In the browser pop-up window that appears with `id.<your-daytona-url>`, under "Please re-authenticate to continue," click on your Git provider.
+</span>
 
+<span class="content-subtitle">
 5. **Open Visual Studio Code**
-
    - In your browser, the pop-up will prompt "id.\<your-daytona-url\> wants to open "Visual Studio Code"," choose `Open 'Visual Studio Code'` or `Always open 'Visual Studio Code'`.
+</span>
 
+<span class="content-subtitle">
 6. **Allow Daytona Extension**
-
    - When VS Code is opened, you will be asked, "Allow 'Daytona' extension to open this URI?" Choose the blue button `Open`.
-   
+</span>
+
+<span class="content-subtitle">
 7. **Select SSH Configuration File**
-
    - Finally, in your VS Code, when prompted to "Select the SSH config file to update," choose the first option, usually in the format of `/User/name/.ssh/config`.
+</span>
 
-_Congrats! You established a secure connection between VS Code and your Daytona installation. Behind the scenes, we are also setting up the configuration files in your local computer. Your selected workspace should be up and running in Visual Studio Code 🚀._
+_Congrats! You established a secure connection between VS Code and your Daytona installation. Behind the scenes, we are also setting up the configuration files in your local computer. Your selected workspace should be up and running in Visual Studio Code ._
+
 
 ## Features
 
@@ -196,8 +198,14 @@ After installing Daytona VS Code extension, there might be a point when you upda
 
 In VS Code, navigate to the Extension tab or use the shortcut keys:
 
-- Windows: `Ctrl+Shift+X`
-- MacOS: `Command+Shift+X`
+<Table>
+<TableRow contents="Windows :" >
+<Keyboard shortcuts={["Ctrl ^", "Shift ⇧", "X"]} slot="html"/>
+</TableRow>
+<TableRow contents="MacOS: ">
+<Keyboard shortcuts={["Command ⌘", "Shift ⇧", "X"]} slot="html"/>
+</TableRow>
+</Table>
 
 And search for `Daytona` in the extension marketplace, select the extension with our logo and click on the button `Uninstall` on the `Extensions:Daytona` tab that shows up. This will only remove the extension within VS Code, for a clean uninstall you will need to continue to the next step.
 
@@ -214,7 +222,7 @@ To remove Daytona-specific entries from your SSH configuration without deleting 
    ```
 
    :::tip
-   If you use [nano](https://www.nano-editor.org/), you might notice that you mouse is not working here and that's **expected in a terminal**. You can only move cursor around with arrow keys ⬆️⬇️⬅️➡️, and delete content using `Delete` key.
+   If you use [nano](https://www.nano-editor.org/), you might notice that you mouse is not working here and that's **expected in a terminal**. You can only move cursor around with arrow keys <Keyboard shortcuts="←"/> <Keyboard shortcuts="→"/> <Keyboard shortcuts="↑"/> <Keyboard shortcuts="↓"/> , and delete content using <Keyboard shortcuts="Delete"/> key.
    :::
 
    Or if you prefer using VS Code as your editor:
@@ -244,9 +252,3 @@ To remove Daytona-specific entries from your SSH configuration without deleting 
 _After these two steps, you will have a clean set up and have removed all files that are related to Daytona on your computer. However, if you are looking to uninstall and clean up your Daytona deployment, check [this uninstallation guide](/installation/uninstall)._
 
 
----
-<CardGrid>
-  <LinkCard title="⭐️ Give us a star" href="https://github.com/daytonaio/installer" />
-  <LinkCard title="📝 Contribute to this doc" href="https://github.com/daytonaio/docs/pulls?q=is:pr+is:open+sort:updated-desc" /> 
-  <LinkCard title="🙋 Join our Slack community" href="https://join.slack.com/t/daytonacommunity/shared_invite/zt-273yohksh-Q5YSB5V7tnQzX2RoTARr7Q" />
-</CardGrid>
