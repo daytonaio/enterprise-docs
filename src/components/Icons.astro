@@ -7,6 +7,7 @@ import { readFileSync } from"fs";
 export interface Props {
   icon: string;
   alt: string;
+  className?: string;
 }
 
 // this gives the file path
@@ -46,7 +47,7 @@ function getSVG(name: string) {
 
 }
 
-const { icon, alt, ...attributes } = Astro.props as Props;
+const { icon, className, alt, ...attributes } = Astro.props as Props;
 const { attributes: baseAttributes, innerHTML } = getSVG(icon);
 
 const svgAttributes = { ...baseAttributes, ...attributes };
@@ -57,5 +58,6 @@ const svgAttributes = { ...baseAttributes, ...attributes };
   {...svgAttributes}
   set:html={innerHTML}
   aria-label={alt}
+  class={className && className}
   role="img"
 ></svg>

@@ -140,7 +140,21 @@
     gap:1.4px;
     display: flex;
    }
+   .icon {
+    display: revert-layer;
+    vertical-align: bottom;
+   }
 
+   .vscode-panel-explain tr, td{
+    text-align: left;
+    border-collapse: collapse;
+    color:black;
+   }
+
+   .vscode-panel-explain tr > td:nth-child(1) {
+    justify-content: center;
+    height: 100%;
+   }
    .highlighted-panel {
     color: rgb(245, 245, 245);
     border-bottom: 2px solid antiquewhite;

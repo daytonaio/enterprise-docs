@@ -11,6 +11,8 @@ import Table from "../../../components/Table/Table.astro"
 import TableRow from "../../../components/Table/TableRow.astro"
 import VscodePanel from "../../../components/VscodePanel.astro"
 import VscodeNotification from "../../../components/VscodeNotification.astro"
+import VscodePanelExplain from "../../../components/VscodePanelExplain.astro"
+
 
 
 Daytona's VS Code extension integrates Visual Studio Code, appearing as a tab on the left-hand side alongside your default tabs in VS Code like File Explorer, Search, Source Control etc, to streamline your workflow and boost productivity.
@@ -206,6 +208,8 @@ To create a shareable live preview link, you will need Daytona's VS Code extensi
 <span class="content-subtitle">
 2. **Install Daytona extension**: Within the opened workspace(where you should be seeing `<repository-name> [SSH:<workspace-id>.ssh.<dashboard-url>:30000]` on top of the editor groups, indicating you are connected to a workspace), you will need to install the Daytona extension following the [installation](#how-to-install) guide. To confirm the installation is successful in this workspace, check if you can see `DAYTONA PORTS` next to the `TERMINAL` and `PORTS` tab in the panel section(below the editor group). This button will only show when you are working and connected to a workspace.
 <VscodePanel/>
+
+
 </span>
 
 <span class="content-subtitle">
@@ -215,16 +219,20 @@ To create a shareable live preview link, you will need Daytona's VS Code extensi
 
    - **Local preview link**: If you click on `Open in Browser` it will open the live preview link in your default browser, or you can open it within the editor by clicking `Preview in Editor`. 
    - **Shareable preview link**: On the notification that shows `Source: Daytona (Extension)`, click on `Open in Browser` button and your default browser will open with a shareable link, or you can open it in the editor by clicking on `Preview in Editor`. 
+:::tip 
+   By default, whoever opens this link will need to sign in to your Daytona dashboard URL to access it, until you make the URL public. We will walk you through how to do so in the next step in **DAYTONA PORTS**.
+:::
    - **Configure trusted domain**: Upon the first time, you might be asked "Do you want Code to open the external website?". The available options are `Open`, `Copy`, `Configure Trusted Domains`. If you'd prefer the website to be opened every time, you can click on `Configure Trusted Domains`. VS Code will then prompt you for several options to choose from. If you prefer all the applications developed on this Daytona installation to be opened automatically whenever you click on `Open in Browser`,  select `Trust all <your-dashboard-url> and all its subdomains`. If you only want to auto-open the application you are currently working on in the browser, select the option `Trust https://<port>-<workspace-id>.<dashboard-url>`
 
-   :::tip 
-   Whoever opens this link will need to sign in to your Daytona dashboard URL to access it.
-   :::
+ 
 </span>
 
 <span class="content-subtitle">
-4. **Create shareable link**: In case you forget to click on the popup notification and miss the link, you can click on the `DAYTONA PORTS` after the port is opened locally, and you should see the public address of the port. 
+4. **DAYTONA PORTS**: In case you forget to click on the popup notification and miss the link, you can also click on the `DAYTONA PORTS` after the port is opened locally, and you should see the public address of the port. 
 <VscodePanel panelExists="true"/>
+
+   
+<VscodePanelExplain />
 </span>
 
 ### Connect via SSH
@@ -282,7 +290,7 @@ To remove Daytona-specific entries from your SSH configuration without deleting 
    :::
 
 
-2. **Remove profile related data**
+2. **Remove profile-related data**
 
    ```bash
    rm -rf ~/.daytona
