@@ -137,6 +137,7 @@
 
    .vscode-panel-button-group {
     justify-content: center;
+    gap:1.4px;
     display: flex;
    }
 

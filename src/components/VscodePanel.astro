@@ -55,13 +55,16 @@ const {name, panelExists, panelProperties} = Astro.props;
                 </tr>
                 <tr>
                     <td><div class="green-light"/></td>
-                    <td>3000</td>
+                    <td>4321</td>
                     <td class="port-url">
-                        <u>3000-workspace-id.dashboard-url</u>
+                        <u>4321-workspace-id.dashboard-url</u>
                         <div class="vscode-panel-button-group">
-                       <Icon icon="vscode-copy"/>
-                         
-                            </div>
+                            <Icon icon="vscode-copy" alt="Copy URL"/>
+                            <Icon icon="vscode-globe" alt="Open in Browser"/>
+                            <Icon icon="vscode-preview-editor" alt="Preview in Editor"/>
+                            <Icon icon="vscode-lock" alt="Make Public"/>
+
+                        </div>
                         </td>
                     <td>Private</td>
                 </tr>
