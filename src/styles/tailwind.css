@@ -29,7 +29,7 @@
 }
 .content-subtitle ol {
   margin-top: 1.38rem;
-  /* margin-bottom: -10px; */
+  margin-bottom: 1rem;
 }
 
 .content-subtitle ul > li {
@@ -107,6 +107,7 @@ div .content {
     display:flex;
   }
 
-  .tr {
-    padding: 5px 0px;
+  .table-row td {
+    padding: 5px 5px;
+    color:black
   }

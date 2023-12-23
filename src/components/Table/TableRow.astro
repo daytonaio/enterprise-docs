@@ -7,7 +7,7 @@ const {contents} = Astro.props
 ---
 
 {!Array.isArray(contents) ? 
-(<tr>
+(<tr class="table-row">
     <td>{contents ? contents : <slot/>}</td>
    {<slot name="html"/> && <td><slot name="html"/></td> }
     </tr>)

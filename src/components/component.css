@@ -1,9 +1,10 @@
+
+/* general config */
 .modal-layout {
     display:flex;
     justify-content: center;
     align-items: center;
-    padding:0.5rem 2rem;
-    margin: 2rem 2rem 5rem;
+    padding:0.1rem 2rem;
  }
  
  
@@ -12,12 +13,12 @@
      cursor: pointer;
  }
  
- 
+ /* vscode component config */
  .vscode-notification-container {
      background-color: rgb(63, 62, 62);
      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
      border-radius: 8px;
-     padding: 16px;
+     padding:16px;
      max-width: 600px;
    }
    .notification-header {
@@ -35,24 +36,113 @@
      margin-right: 8px;
    }
    .notification-message {
-     margin-top: 8px;
      font-size: 14px;
      color: azure;
    }
-   .notification-actions {
+   .vscode-notification-actions {
      margin-top: 16px;
      display: flex;
-     justify-content: end;
+     align-items: center;
+     justify-content:space-between;
+   }
+
+   .vscode-notification-source {
+    font-size:0.85rem;
+    min-width: 30%;
+    padding: 0px 1.2rem 0px 0.6rem;
+    color:whitesmoke;
+   }
+
+   .vscode-notification-button-group {
+    display:flex;
+    justify-content: end;
    }
    .vscode-notification-button {
      text-decoration: none;
-     padding: 8px 16px;
+     padding: 6px 14px;
      border-radius: 4px;
      color: #ffffff;
-     font-size: 14px;
+     font-size: 12px;
      margin-right: 8px;
      text-align: center;
      cursor: pointer;
+   }
+
+   .vscode-panel-modal-layout {
+    justify-content: center;
+    background-color: rgb(63, 62, 62);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    align-items: center;
+    padding: 0 0 10px 0;
+   }
+
+   .vscode-panel-title {
+    display:flex;
+    padding: 16px;
+    gap: 0.98rem;
+   }
+
+   .vscode-panel-number {
+    margin-left:2px;
+    aspect-ratio: 1/1;
+    color:whitesmoke;
+    padding: 0.2rem 0.48rem;
+    background-color:#6c757d; 
+    border-radius: 10rem;
+}
+
+
+   .vscode-panel-text {
+    color: rgb(207, 205, 205);
+    font-weight: 500;
+    font-size:0.8rem;
+    cursor: pointer;
+
+   }
+
+   .vscode-panel table {
+    border-collapse: collapse;
+    width: 100%;
+    border-radius: 8px;
+   }
+
+   .vscode-panel th, td {
+    color:whitesmoke;
+    text-align:left;
+    padding: 0 10px;
+   }
+
+   .vscode-panel tr:nth-child(even){
+    background-color: #6c757d93;
+   }
+
+   .vscode-panel td {
+    color: whitesmoke;
+    cursor: pointer;
+   }
+
+   .green-light {
+    background-color: rgb(2, 175, 2);
+    width: 6px;
+    height: 6px;
+    border-radius: 2rem;
+   }
+
+   .port-url {
+    justify-content: space-between;
+    display: flex;
+    align-items: center;
+   }
+
+   .vscode-panel-button-group {
+    justify-content: center;
+    display: flex;
+   }
+
+   .highlighted-panel {
+    color: rgb(245, 245, 245);
+    border-bottom: 2px solid antiquewhite;
    }
    .open-in-browser {
      background-color: #007bff;
@@ -68,7 +158,9 @@
    .close-button svg {
      fill: #6c757d;
    }
- 
+
+
+ /* theia related config */
    .theia-notification-container {
      background-color: rgb(63,62,62);
      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
@@ -95,7 +187,8 @@
      text-align: center;
      cursor:pointer;
    }
- 
+
+ /* webstorm related config */
    .webstorm-container {
      background-color: rgb(63,62,62);
      border-radius:5px;

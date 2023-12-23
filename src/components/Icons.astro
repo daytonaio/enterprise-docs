@@ -1,0 +1,46 @@
+---
+import { parse } from 'node-html-parser';
+import { readFileSync } from"fs";
+
+export interface Props {
+  icon: string;
+}
+
+function getSVG(name: string) {
+  const filepath = `../assets/icons/${name}.svg`;
+  const files = import.meta.glob<string>('../assets/icons/*.svg', {
+    as: 'raw',
+  });
+  
+
+  if (!(filepath in (files))) {
+    throw new Error(`${filepath} not found`);
+  }
+  console.log("files:", files)
+
+  const root = parse(files[filepath]);
+//   console.log("root:", root)
+
+  const svg = root.querySelector('svg');
+
+  if (!svg) {
+    throw new Error(`SVG element not found in ${filepath}`);
+  }
+  const { attributes, innerHTML } = svg;
+
+  return {
+    attributes,
+    innerHTML,
+  };
+}
+
+const { icon, ...attributes } = Astro.props as Props;
+const { attributes: baseAttributes, innerHTML } = getSVG(icon);
+
+const svgAttributes = { ...baseAttributes, ...attributes };
+---
+
+<svg
+  {...svgAttributes}
+  set:html={innerHTML}
+></svg>

@@ -13,9 +13,14 @@
     "@astrojs/starlight": "^0.14.0",
     "@astrojs/starlight-tailwind": "^2.0.1",
     "@astrojs/tailwind": "^5.0.3",
+    "@astropub/icons": "^0.2.0",
+    "@vscode/codicons": "^0.0.35",
     "astro": "^4.0.1",
     "sharp": "^0.32.5",
     "starlight-openapi": "^0.3.1",
     "tailwindcss": "^3.0.24"
+  },
+  "devDependencies": {
+    "node-html-parser": "^6.1.11"
   }
 }
