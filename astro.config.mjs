@@ -117,7 +117,7 @@ export default defineConfig({
     }
     ],
     tableOfContents: { minHeadingLevel: 2, maxHeadingLevel: 2 },
-    customCss: ["./src/styles/tailwind.css", './src/styles/components/component.css', './src/fonts/font-face.css', './src/styles/style.scss'],
+    customCss: ["./src/styles/tailwind.css", './src/fonts/font-face.css', './src/styles/style.scss'],
     components: {
       Footer: './src/components/Footer.astro',
       MarkdownContent: './src/components/MarkdownContent.astro',
@@ -138,7 +138,8 @@ export default defineConfig({
   output: 'hybrid',
   adapter: node({
     mode: 'middleware',
-
+  ],
+    customCss: ["./src/styles/tailwind.css", "./src/components/component.css"]
   }),
   vite: {
     ssr: {
