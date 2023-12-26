@@ -153,6 +153,8 @@
    }
 
    .vscode-panel-explain tr > td:nth-child(1) {
+    width: 20%;
+    text-align: center;
     justify-content: center;
     height: 100%;
    }

@@ -28,12 +28,12 @@
  
 }
 .content-subtitle ol {
-  margin-top: 1.38rem;
-  margin-bottom: 1rem;
+  padding-top: 1.8rem;
+  padding-bottom: 0.2rem;
 }
 
-.content-subtitle ul > li {
-  padding-bottom: 0.2rem;
+.content-subtitle ul {
+  padding-bottom: 0.6rem;
   display:block;
 }
 
@@ -111,4 +111,9 @@ div .content {
   .table-row td {
     padding: 5px 5px;
     color:black
+  }
+
+svg.icon-display {
+    display: inline;
+    vertical-align: middle;
   }

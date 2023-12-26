@@ -5,29 +5,32 @@ interface Props {
 	icon: keyof typeof IconAssets;
 	label?: string;
 	color?: string;
+	viewBox?: string;
 	size?: string;
 	class?: string;
+	strokeWidth?: number;
 }
 
-const {  icon, label, size = '1em', color } = Astro.props;
+const {  icon, label, size = '1em', color,viewBox, strokeWidth } = Astro.props;
 const a11yAttrs = label ? ({ 'aria-label': label } as const) : ({ 'aria-hidden': 'true' } as const);
 ---
 
 <svg
 	{...a11yAttrs}
-	class={Astro.props.class}
+	class={Astro.props.class ?? ""}
 	width="24"
 	height="24"
-	viewBox="0 0 16 16"
+	viewBox={viewBox ?? "0 0 16 16"}
 	fill="currentColor"
 	set:html={IconAssets[icon]}
 />
 
-<style define:vars={{ 'sl-icon-color': color, 'sl-icon-size': size }}>
+<style define:vars={{ 'sl-icon-color': color, 'sl-icon-size': size, 'sl-icon-width': strokeWidth }}>
 	svg {
-		color: var(--sl-icon-color);
+		stroke: var(--sl-icon-color);
 		font-size: var(--sl-icon-size, 1em);
 		width: 1em;
 		height: 1em;
+		stroke-width: var(--sl-icon-width);
 	}
 </style>
