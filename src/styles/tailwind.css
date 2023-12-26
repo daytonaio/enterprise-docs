@@ -28,12 +28,12 @@
  
 }
 .content-subtitle ol {
-  padding-top: 1.8rem;
+  padding-top: 0.8rem;
   padding-bottom: 0.2rem;
 }
 
 .content-subtitle ul {
-  padding-bottom: 0.6rem;
+  padding-bottom: 0.2rem;
   display:block;
 }
 
@@ -42,14 +42,27 @@
   border:1px solid rgb(230, 217, 200);
   border-radius: 4px;
   box-shadow: 0.5px 0.5px 1px 1px gray;
-  padding: 2px 6px;
+  padding: 0.8px 6px;
   color:#282828;
 }
 
 
 code {
     border-radius: 0.2rem;
-    background-color: transparent;
+    padding: 0.6px 5.6px;
+    margin: 0 2px;
+    font-size: 0.88rem;
+    font-weight: 200;
+    background-color: rgba(240, 248, 255, 0.321);
+    box-shadow: 0 0.32px 0 0.32px #ffffffb5 ;
+}
+
+p > code {
+   color: antiquewhite;
+}
+
+em > code {
+  color:antiquewhite;
 }
 
 h3 {
@@ -101,7 +114,7 @@ div .content {
 
 
   .container {
-    padding: 0px 40px;
+    padding: 20px 40px;
     margin: auto;
     margin-top:-1rem;
     margin-bottom: -0.5rem;
@@ -110,7 +123,7 @@ div .content {
 
   .table-row td {
     padding: 5px 5px;
-    color:black
+    color:#fff;
   }
 
 svg.icon-display {

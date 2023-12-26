@@ -4,7 +4,7 @@
     display:flex;
     justify-content: center;
     align-items: center;
-    padding:0.1rem 2rem;
+    padding: 1.34rem 0 0rem 2rem;
  }
  
  
@@ -74,7 +74,8 @@
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
     align-items: center;
-    padding: 0 0 10px 0;
+    margin: 1rem 0;
+    padding: 0 0 16px 0;
    }
 
    .vscode-panel-title {
@@ -148,13 +149,19 @@
 
    .vscode-panel-explain tr, td{
     text-align: left;
+    border: 1px;
+    border-color: #ffffff;
     border-collapse: collapse;
-    color:black;
+    color: #fff;
+   }
+
+   .vscode-panel-explain tr:nth-child(even) {
+     background-color: #161616;
    }
 
    .vscode-panel-explain tr > td:nth-child(1) {
     width: 20%;
-    text-align: center;
+    text-align: left;
     justify-content: center;
     height: 100%;
    }
