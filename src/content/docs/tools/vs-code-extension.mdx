@@ -1,7 +1,7 @@
 ---
 
 title: VS Code Extension
-description: This guide will walk you through how to install and set up Daytona's VS Code extension, discuss features included with VS Code extension. A clean uninstall guide is also included
+description: This guide will walk you through how to install and set up Daytona's VS Code extension, the features included with VS Code extension. A clean uninstall guide is also included
 sidebar:
   label: VS Code Extension
 ---
@@ -16,9 +16,9 @@ import Icon  from "../../../components/Icons.astro"
 
 
 
-Daytona's VS Code extension integrates Visual Studio Code, appearing as a tab on the left-hand side alongside your default tabs in VS Code like File Explorer, Search, Source Control etc, to streamline your workflow and boost productivity.
+Daytona's VS Code extension integrates Visual Studio Code, appearing as a tab on the left-hand side alongside your default tabs in VS Code like File Explorer, Search, Source Control, etc, to streamline your workflow and boost productivity.
 
-The extension allows you to have a frictionless experience of opening a standardised development environment, creating and accessing your [Daytona Workspaces](/usage/workspaces) based on git repositories. It offers convenient [workspace](/usage/workspaces) management, profile control, and instant team information access -- all directly within VS Code, removing the hassle of going to a web browser, open the Daytona URL and creating projects upon initial configuration. 
+The extension allows you to have a frictionless experience of opening a standardised development environment, creating and accessing your [Daytona Workspaces](/usage/workspaces) based on git repositories. It offers convenient [workspace](/usage/workspaces) management, profile control, and instant team information access -- all directly within VS Code, removing the hassle of going to a web browser, opening the Daytona URL and creating projects upon initial configuration. 
 
 
 
@@ -246,7 +246,7 @@ To create a shareable live preview link, you will need Daytona's VS Code extensi
 Using the [SSH protocol(Secure Shell Protocol)](https://en.wikipedia.org/wiki/Secure_Shell), you can connect and authenticate to your Daytona installation without supplying your username and personal access token at each visit. When you set up SSH, you will need to generate a new private SSH key and add it to the SSH agent, or check for existing SSH keys. You must also add the public SSH key to your Daytona dashboard before you use the key to authenticate or connect to your Daytona installation.
 
 
-The supported SSH keys for Daytona connections begins with: 
+The supported SSH keys for Daytona connections begin with: 
 - `ssh-rsa`
 - `ssh-dss`
 - `ssh-ed25519`
@@ -255,27 +255,27 @@ The supported SSH keys for Daytona connections begins with:
 - `ecdsa-sha2-nistp521`
 
 :::caution
-Only workspaces that are `Started` can be connected via SSH. To `Start` a workspace, you can either right click on the selected workspace on Daytona VS Code extension tab and select `Start`, or go to your Daytona dashboard to select a workspace, click on `𓈓` and select `Start` on the dropdown menu.
+Only workspaces that are `Started` can be connected via SSH. To `Start` a workspace, you can either right-click on the selected workspace on the Daytona VS Code extension tab and select `Start`, or go to your Daytona dashboard to select a workspace, click on `𓈓` and select `Start` on the dropdown menu.
 ::: 
 
-On the Daytona dashboard, you can add multiple SSH keys. All the SSH keys added will be used in all your workspaces and help different computers of yours to connect to workspaces via SSH. In this section, we will walk you through how to connect to your Daytona Installation via SSH in VS Code. 
+On the Daytona dashboard, you can add multiple SSH keys. All the SSH keys added will be used in all your workspaces and help different computers of yours connect to workspaces via SSH. In this section, we will walk you through how to connect to your Daytona Installation via SSH in VS Code. 
 
 
 <span class="content-subtitle">
-1. **Find existing SSH keys**: Open terminal, enter below command to see if existing SSH keys are present.
+1. **Find existing SSH keys**: Open the terminal, and enter the below command to see if existing SSH keys are present.
 
 ```bash
 ls -al ~/.ssh/*.pub
 
 ```
 - This command will return all your public SSH key's location.
-Example return: `/Users/username/.ssh/id_ed25519.pub`, `/Users/username/.ssh/id_rsa.pub`, etc, depending on your SSH key type, with a suffix `pub` at the end of the file path indicating this is a public key.
+The suffix `pub` at the end of the file path indicates this is a public key.
 </span>
 :::tip
 If you receive an error that `~/.ssh` doesn't exist, you do not have an existing SSH pair in the default location. You can create a new SSH key pair in the [next step: Generate SSH Key](#generate-ssh-key).
 :::
 
-- **Copy SSH Key**: Use <Keyboard shortcuts={["Ctrl ^", "C"]}/> to copy one of the returned path and then use <Keyboard shortcuts={["Ctrl ^", "V"]}/> to run this command in the your terminal and also pasting the returned path:
+- **Copy SSH Key**: Use <Keyboard shortcuts={["Ctrl ^", "C"]}/> to copy one of the returned paths and then use <Keyboard shortcuts={["Ctrl ^", "V"]}/> to run this command in your terminal and also pasting the returned path:
 
 
 <Tabs>
@@ -294,15 +294,15 @@ type <path-from-preview-step>
 </TabItem>
 </Tabs>
 
-- This command will return your public SSH key. Copy paste it to somewhere safe and you can continue to [Step 3: Adding SSH key to Daytona dashboard](#add-ssh-to-dashboard) below.
+- This command will return your public SSH key. Copy it and save it to somewhere safe and you can continue to [Step 3: Adding SSH key to Daytona dashboard](#add-ssh-to-dashboard) below.
 
 
 <span class="content-subtitle" id="generate-ssh-key">
 2. **Generating SSH Keys**
 </span>
-- In the previous step, if you happened to not having SSH key on your local machine, you can generate a new SSH key on your local machine. 
+- In the previous step, if you happen to not have an SSH key on your local machine, you can generate a new SSH key on your local machine. 
 
-- Open your terminal and paste the text below, replacing the email used in the example with the same email address you used with the [identity provider](/installation/idps) you have used for Daytona installation.
+- Open your terminal and paste the text below, replacing the email used in the example with the same email address you used with the [identity provider](/installation/idps) you have used for your Daytona installation.
 
 ```bash
 ssh-keygen -t ed25519 -C "your_email@example.com"
@@ -319,7 +319,7 @@ If you are using a legacy sytem that doesn't support the `ed25519` algorithm, us
 > Generating public/private rsa key pair.
 > Enter a file in which to save the key (/Users/YOU/.ssh/id_ALGORITHM): [Press enter]
 ```
-- **Copy public key path**: When you're prompted to "Enter a file in which to save the key", you can press Enter to accept the default file location. An example return will looks like: 
+- **Copy public key path**: When you're prompted to "Enter a file in which to save the key", you can press Enter to accept the default file location. An example return will look like: 
 ```bash
 Generating public/private rsa key pair.
 Enter file in which to save the key (/Users/username/.ssh/id_rsa):
@@ -370,12 +370,12 @@ type <path-from-preview-step>
 </TabItem>
 </Tabs>
 
-- After running this command, an example output will contain three parts. First is the algorithm used to generate your SSH key, second part is a long, encrypted result of your SSH key ending with `==`, and the third part is the email you used to generate your SSH key. 
+- After running this command, an example output will contain three parts. First is the algorithm used to generate your SSH key, the second part is a long, encrypted result of your SSH key ending with `==`, and the third part is the email you used to generate your SSH key. 
 ```bash
 ssh-rsa LongRandomStringWithSlash/slash/randomString== your_email@example.com
 ## This is a much shorter example, real id_rsa.pub output is a lot longer
 ```
-- **Copy the returned result** and move to the next step. 
+- **Copy the full returned result** and move to the next step. 
 
 
 <span id="add-ssh-to-dashboard" class="content-subtitle">
@@ -408,7 +408,7 @@ ssh-rsa LongRandomStringWithSlash/slash/randomString== your_email@example.com
 4. **Obtain SSH Connection Command**
 </span>
 - Within your Daytona dashboard, navigate to the `WORKSPACES` tab, select a workspace and click on `𓈓`, select `Start` on the dropdown menu to make sure the workspace is up and running. 
-- Again on the same dropdown menu, select `Connect via SSH`. The browser will open a popup window with title `Connect to <workspace-id> via SSH`. You have two options below: `Public Key` and `Access Token`. Copy the value under the tab `Public Key`. 
+- Again on the same dropdown menu, select `Connect via SSH`. The browser will open a popup window with the title `Connect to <workspace-id> via SSH`. You have two options below: `Public Key` and `Access Token`. Copy the value under the tab `Public Key`. 
 
 <span class="content-subtitle">
 5. **Connect Via SSH in VS Code**
@@ -429,17 +429,17 @@ ssh-rsa LongRandomStringWithSlash/slash/randomString== your_email@example.com
 :::note
 If you already installed the Daytona VS Code extension, `Remote - SSH` extension is already been installed on your VS Code as it is one of the dependencies. 
 :::
-- After installation, you should be able to see the `Remote Explorer` icon <Icon icon="remote-explorer" color="black" viewBox="0 0 24 24" class="icon-display" strokeWidth="0.1"/> on the left panel within VS Code. If you are not seeing it, right-click on the panel, on the dropdown menu, select `Remote Explorer` to display the tab on the panel.  
+- After installation, you should be able to see the `Remote Explorer` icon <Icon icon="vscode-remote-explorer" color="black" viewBox="0 0 24 24" class="icon-display" strokeWidth="0.1"/> on the left panel within VS Code. If you are not seeing it, right-click on the panel, on the dropdown menu, select `Remote Explorer` to display the tab on the panel.  
 
 - **Remotes (Tunnel/SSH)**: While the `Remote Explore` tab is opened, make sure the type of Remote Explorer is set to `Remotes (Tunnel/SSH)` (The dropdown menu next to `REMOTE EXPLORER`)
 
-- **Adding connection**: Hover on top of the section `SSH` under `REMOTES (TUNNEL/SSH)`, you should see a `+` icon. Click on the `+` icon, you should see a prompt for input `Enter SSH Connection Command` on the top of VS Code. Paste the value you obtained from last step, [obtain SSH Connection Command](#obtain-ssh-connection) and press enter. 
+- **Adding connection**: Hover on top of the section `SSH` under `REMOTES (TUNNEL/SSH)`, you should see a <Icon icon="vscode-add" color="black" class="icon-display" strokeWidth="0.1"/> icon. Click on that icon, and you should see a prompt for input `Enter SSH Connection Command` on the top of VS Code. Paste the value you obtained from the last step, [obtain SSH Connection Command](#obtain-ssh-connection) and press enter. 
 
-- **Select SSH Config file**: Next, you will be prompted to `Select an SSH configuration file to update`, select the first configuration file look like `/Users/username/.ssh/config`. 
+- **Select SSH Config file**: Next, you will be prompted to `Select an SSH configuration file to update`, then select the first configuration file that looks like `/Users/username/.ssh/config`. 
 
-- **Open workspace folder**: After selecting the configuration file, a new VS Code window will open. By default, after you connecting to a Daytona workspace, you are located in the root of the workspace. If you hit <Keyboard shortcuts={["Command ⌘", "O"]}/> or click on `Open Folder` under the `File Explorer` tab, you will see all the files, including dotfiles in this workspace, and a prompt asking for directory's path. To open the files you need to work on, type in `/workspaces/repository-name` to enter the folder by hitting <Keyboard shortcuts="Enter ⏎"/> or click on `OK` on the right side of the prompt. 
+- **Open workspace folder**: After selecting the configuration file, a new VS Code window will open. By default, after you connect to a Daytona workspace, you are located in the root of the workspace. If you hit <Keyboard shortcuts={["Command ⌘", "O"]}/> or click on `Open Folder` under the `File Explorer` tab, you will see all the files, including dotfiles in this workspace, and a prompt asking for directory's path. To open the files you need to work on, type in `/workspaces/repository-name` to enter the folder by hitting keyboard <Keyboard shortcuts="Enter ⏎"/> or click on `OK` on the right side of the prompt. 
 
-__At this stage, you established an SSH connection with your Daytona installation and are ready to work in this workspace.__
+_After the steps above, you established an SSH connection with your Daytona installation and are ready to work in this workspace._
 
 
 ## Clean Uninstall Guide
@@ -460,7 +460,7 @@ In VS Code, navigate to the Extension tab or use the shortcut keys:
 </TableRow>
 </Table>
 
-Search for `Daytona` in the extension marketplace, select the extension with our logo, and click on the button `Uninstall` on the `Extensions:Daytona` tab that shows up. This will only remove the extension within VS Code, for a clean uninstall you will need to continue to the next step.
+Search for `Daytona` in the extension marketplace, select the extension with our logo, and click on the button `Uninstall` on the `Extensions: Daytona` tab that shows up. This will only remove the extension within VS Code, for a clean uninstall you will need to continue to the next step.
 
 
 ### Remove Daytona-related files
@@ -501,9 +501,9 @@ To remove Daytona-specific entries from your SSH configuration without deleting 
    rm -rf ~/.daytona
    ```
 
-   This command will remove the directory which we store your profile, default configurations, which url and redirect url to open when you are granting permission to connect local VS Code to Daytona. 
+   This command will remove the directory in which we store your profile, default configurations, URL and redirect URL to open when you are granting permission to connect local VS Code to Daytona. 
    
 
-_After these two steps, you will have a clean set up and have removed all files that are related to Daytona on your computer. However, if you are looking to uninstall and clean up your Daytona deployment, check [this uninstallation guide](/installation/uninstall)._
+_After these two steps, you will have a clean setup and have removed all files that are related to Daytona on your computer. However, if you are looking to uninstall and clean up your Daytona deployment, check [this uninstallation guide](/installation/uninstall)._
 
 
