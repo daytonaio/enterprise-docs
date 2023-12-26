@@ -102,7 +102,7 @@ When you are using the VS Code extension for the first time, you will need to es
 2. **Configure default code editor and open workspace**
 </span>
    - On Daytona dashboard, click on `Settings` on the left-hand side menu. At the **Default Editor** section, select `VS Code`. 
-   - Click on the `Workspaces` tab and select one of the workspaces. On the right side of the workspace, click on `𓈓` and at the dropdown menu, select `Open`. 
+   - Click on the `Workspaces` tab and select one of the workspaces. On the right side of the workspace, click on the `𓈓` icon and at the dropdown menu, select `Open`. 
    - After you select `Open`, choose `VS Code` as your code editor in the popup modal (You may choose others, but in this guide we will need VS Code). And then click on the green button `Open` on the popup window with the title "Open \<your-selected-workspace's-name\>".
 
 <span class="content-subtitle">
@@ -193,7 +193,6 @@ Workspaces are separated between teams. Workspaces created within a team only ex
 Profiles are equivalent to a fresh, new Daytona instance installation, however, if you change your profile without changing teams, workspaces created associated with that profile will appear the same under `WORKSPACES` section. But they are indeed being created in different environments when you open them.
 
 - **Checking a profile**: Under the `PROFILES` section within the extension, you can check your existing profile. `API URL`, `Auth URL`, `SSH Port`， and `Notification URL` are displayed under each profile.
-{/*TODO: Ask Toma will user have anything to do with them*/}
 
 - **Selecting a profile**: If you want to change your profile, you can do so by hovering over your profile's name and choosing `Select`, when you open a workspace under the `WORKSPACE` section after choosing a new profile, your workspaces will be opened in different environments. Different from clicking on `Destroy` on a workspace, the previous installation and dependencies within the same workspace will persist.
 {/*TODO: Tested it is like this, confirm with Toma if this is expected.*/}
@@ -233,13 +232,14 @@ To create a shareable live preview link, you will need Daytona's VS Code extensi
    - **Configure trusted domain**: Upon the first time, you might be asked "Do you want Code to open the external website?". The available options are `Open`, `Copy`, `Configure Trusted Domains`. If you'd prefer the website to be opened every time, you can click on `Configure Trusted Domains`. VS Code will then prompt you for several options to choose from. If you prefer all the applications developed on this Daytona installation to be opened automatically whenever you click on `Open in Browser`,  select `Trust all <your-dashboard-url> and all its subdomains`. If you only want to auto-open the application you are currently working on in the browser, select the option `Trust https://<port>-<workspace-id>.<dashboard-url>`
  
 
-<span class="content-subtitle">
-4. **DAYTONA PORTS**: In case you forget to click on the popup notification and miss the link, you can also click on the `DAYTONA PORTS` after the port is opened locally, and you should see the public address of the port. 
+
+4. **DAYTONA PORTS**: In case you forget to click on the popup notification and miss the link, you can also click on the `DAYTONA PORTS` after the port is opened locally, and you should see the public address of the port. You can click on the <Icon icon="vscode-lock" class="icon-display" /> icon to make the URL publicly available.
+
 <VscodePanel panelExists="true"/>
 
    
 <VscodePanelExplain />
-</span>
+
 
 ### Connect via SSH
 
@@ -255,13 +255,13 @@ The supported SSH keys for Daytona connections begin with:
 - `ecdsa-sha2-nistp521`
 
 :::caution
-Only workspaces that are `Started` can be connected via SSH. To `Start` a workspace, you can either right-click on the selected workspace on the Daytona VS Code extension tab and select `Start`, or go to your Daytona dashboard to select a workspace, click on `𓈓` and select `Start` on the dropdown menu.
+Only workspaces that are `Started` can be connected via SSH. To `Start` a workspace, you can either right-click on the selected workspace on the Daytona VS Code extension tab and select `Start`, or go to your Daytona dashboard to select a workspace, click on `𓈓` button and select `Start` on the dropdown menu.
 ::: 
 
 On the Daytona dashboard, you can add multiple SSH keys. All the SSH keys added will be used in all your workspaces and help different computers of yours connect to workspaces via SSH. In this section, we will walk you through how to connect to your Daytona Installation via SSH in VS Code. 
 
 
-<span class="content-subtitle">
+
 1. **Find existing SSH keys**: Open the terminal, and enter the below command to see if existing SSH keys are present.
 
 ```bash
@@ -270,7 +270,7 @@ ls -al ~/.ssh/*.pub
 ```
 - This command will return all your public SSH key's location.
 The suffix `pub` at the end of the file path indicates this is a public key.
-</span>
+
 :::tip
 If you receive an error that `~/.ssh` doesn't exist, you do not have an existing SSH pair in the default location. You can create a new SSH key pair in the [next step: Generate SSH Key](#generate-ssh-key).
 :::
@@ -297,9 +297,9 @@ type <path-from-preview-step>
 - This command will return your public SSH key. Copy it and save it to somewhere safe and you can continue to [Step 3: Adding SSH key to Daytona dashboard](#add-ssh-to-dashboard) below.
 
 
-<span class="content-subtitle" id="generate-ssh-key">
+
 2. **Generating SSH Keys**
-</span>
+
 - In the previous step, if you happen to not have an SSH key on your local machine, you can generate a new SSH key on your local machine. 
 
 - Open your terminal and paste the text below, replacing the email used in the example with the same email address you used with the [identity provider](/installation/idps) you have used for your Daytona installation.
@@ -346,8 +346,7 @@ The key's randomart image is:
 
 
 - **Passphrase**: At the prompt, you will be asked to type a secure **passphrase**. You can either leave it empty or enter a passphrase for your SSH keys to prevent some edge cases (ex: Your computer is stolen and attackers can gain access to every system that uses that key)
-
-> If you choose to enter a passphrase, you will be prompted to enter the passphrase when you use your key for the first time. If you choose to save the passphrase with your keychain, you won't have to enter it again. 
+- If you choose to enter a passphrase, you will be prompted to enter the passphrase when you use your key for the first time. If you choose to save the passphrase with your keychain, you won't have to enter it again. 
 
 - **Copy your SSH key:** Once you have your public key path from the previous step, in your terminal, run
 
@@ -375,15 +374,15 @@ type <path-from-preview-step>
 ssh-rsa LongRandomStringWithSlash/slash/randomString== your_email@example.com
 ## This is a much shorter example, real id_rsa.pub output is a lot longer
 ```
-- **Copy the full returned result** and move to the next step. 
+- <b>Copy the full returned result</b> and move to the next step. 
 
 
-<span id="add-ssh-to-dashboard" class="content-subtitle">
+<div id="add-ssh-to-dashboard">
 3. **Adding SSH key to Daytona dashboard**
-</span>
+</div>
 
 - **Navigate to the `SSH Keys` page**: On your Daytona dashboard, select the `SSH Keys` tab on the left side of the panel. On this page, click on `Add`. 
-- **Add SSH Key**: After clicking on `Add`, you will see a popup window with three input fields, `Name`, `Key`, and `Expiration Date`. 
+- **Add SSH Key**: After clicking on `Add`, you will see a popup window with three input fields, `Name`, `Key`, and `Expiration Date`. We detailed the usage of each input fields below. 
 
 <table class="container vscode-panel-explain">
 <tr>
@@ -404,26 +403,16 @@ ssh-rsa LongRandomStringWithSlash/slash/randomString== your_email@example.com
 </tr>
 </table>
 
-<span class="content-subtitle" id="obtain-ssh-connection">
+<div id="obtain-ssh-connection">
 4. **Obtain SSH Connection Command**
-</span>
+</div>
 - Within your Daytona dashboard, navigate to the `WORKSPACES` tab, select a workspace and click on `𓈓`, select `Start` on the dropdown menu to make sure the workspace is up and running. 
 - Again on the same dropdown menu, select `Connect via SSH`. The browser will open a popup window with the title `Connect to <workspace-id> via SSH`. You have two options below: `Public Key` and `Access Token`. Copy the value under the tab `Public Key`. 
 
-<span class="content-subtitle">
-5. **Connect Via SSH in VS Code**
-</span>
-- **Install `Remote - SSH` Extension**: To connect via SSH in VS Code, you need to make sure you have the extension `Remote - SSH` installed on your VS Code. You can either navigate to the extension tab in VS Code or use the shortcut keys to open the Extension tab:  
-<Table>
-<TableRow contents="Windows :" >
-<Keyboard shortcuts={["Ctrl ^", "Shift ⇧", "X"]} slot="html"/>
-</TableRow>
-<TableRow contents="MacOS: ">
-<Keyboard shortcuts={["Command ⌘", "Shift ⇧", "X"]} slot="html"/>
-</TableRow>
-</Table>
 
- - Or download it from the `Remote - SSH` extension via browser through [URL link](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-ssh)
+5. **Connect Via SSH in VS Code**
+
+- **Install `Remote - SSH` Extension**: To connect via SSH in VS Code, you need to make sure you have the extension `Remote - SSH` installed on your VS Code. You can either navigate to the extension tab in VS Code and search for "Remote - SSH", or download it from the `Remote - SSH` extension via browser through [URL link](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-ssh)
 
 
 :::note
@@ -431,7 +420,7 @@ If you already installed the Daytona VS Code extension, `Remote - SSH` extension
 :::
 - After installation, you should be able to see the `Remote Explorer` icon <Icon icon="vscode-remote-explorer" color="black" viewBox="0 0 24 24" class="icon-display" strokeWidth="0.1"/> on the left panel within VS Code. If you are not seeing it, right-click on the panel, on the dropdown menu, select `Remote Explorer` to display the tab on the panel.  
 
-- **Remotes (Tunnel/SSH)**: While the `Remote Explore` tab is opened, make sure the type of Remote Explorer is set to `Remotes (Tunnel/SSH)` (The dropdown menu next to `REMOTE EXPLORER`)
+- **Select Remotes (Tunnel/SSH)**: While the `Remote Explore` tab is opened, make sure the type of Remote Explorer is set to `Remotes (Tunnel/SSH)` (The dropdown menu next to `REMOTE EXPLORER`)
 
 - **Adding connection**: Hover on top of the section `SSH` under `REMOTES (TUNNEL/SSH)`, you should see a <Icon icon="vscode-add" color="black" class="icon-display" strokeWidth="0.1"/> icon. Click on that icon, and you should see a prompt for input `Enter SSH Connection Command` on the top of VS Code. Paste the value you obtained from the last step, [obtain SSH Connection Command](#obtain-ssh-connection) and press enter. 
 
@@ -470,38 +459,39 @@ Search for `Daytona` in the extension marketplace, select the extension with our
 1. **Remove SSH configuration entries**:
 To remove Daytona-specific entries from your SSH configuration without deleting the entire file, you will need to manually edit the file:
 
-   a. **Open the SSH configuration file in a text editor**:
+- **Open the SSH configuration file in a text editor**:
 
-   ```bash
-   nano ~/.ssh/config
-   ```
+```bash
+nano ~/.ssh/config
+# TODO: Confirm with Toma is this file being permanently moved to ~/.ssh/daytona_config
+```
 
-   :::tip
-   If you use [nano](https://www.nano-editor.org/), you might notice that your mouse is not working here and that's **expected in a terminal**. You can only move cursor around with arrow keys <Keyboard shortcuts="←"/> <Keyboard shortcuts="→"/> <Keyboard shortcuts="↑"/> <Keyboard shortcuts="↓"/> , and delete content using <Keyboard shortcuts="Delete"/> key.
-   :::
+:::tip
+If you use [nano](https://www.nano-editor.org/), you might notice that your mouse is not working here and that's **expected in a terminal**. You can only move cursor around with arrow keys <Keyboard shortcuts="←"/> <Keyboard shortcuts="→"/> <Keyboard shortcuts="↑"/> <Keyboard shortcuts="↓"/> , and delete content using <Keyboard shortcuts="Delete ⌫"/> key.
+:::
 
-   Or if you prefer using VS Code as your editor:
+Or if you prefer using VS Code as your editor:
    
-   ```bash
-   code ~/.ssh/config
-   ```
+```bash
+code ~/.ssh/config
+```
 
-   b. **Find content related to Daytona**: Locate the `Host` entries related to Daytona, which might be marked with comments, starting with `# START DAYTONA` and ending with `# END DAYTONA`. <u>Carefully remove only those lines related to Daytona.</u>
+- **Find content related to Daytona**: Locate the `Host` entries related to Daytona, which might be marked with comments, starting with `# START DAYTONA` and ending with `# END DAYTONA`. <u>Carefully remove only those lines related to Daytona.</u>
 
-   c. **Save changes**: Save the changes and close the text editor.
+- **Save changes**: Save the changes and close the text editor.
 
-   :::caution
-   Be cautious not to remove other SSH configurations that are unrelated to Daytona, as they may be important for your other remote connections.
-   :::
+:::caution
+Be cautious not to remove other SSH configurations that are unrelated to Daytona, as they may be important for your other remote connections.
+:::
 
 
 2. **Remove profile-related data**
 
-   ```bash
-   rm -rf ~/.daytona
-   ```
+```bash
+rm -rf ~/.daytona
+```
 
-   This command will remove the directory in which we store your profile, default configurations, URL and redirect URL to open when you are granting permission to connect local VS Code to Daytona. 
+This command will remove the directory in which we store your profile, default configurations, URL and redirect URL to open when you are granting permission to connect local VS Code to Daytona. 
    
 
 _After these two steps, you will have a clean setup and have removed all files that are related to Daytona on your computer. However, if you are looking to uninstall and clean up your Daytona deployment, check [this uninstallation guide](/installation/uninstall)._
