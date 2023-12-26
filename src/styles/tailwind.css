@@ -114,15 +114,15 @@ div .content {
 
 
   .container {
-    padding: 20px 40px;
     margin: auto;
+    border:1px solid #2ecc71;
     margin-top:-1rem;
     margin-bottom: -0.5rem;
     display:flex;
   }
 
-  .table-row td {
-    padding: 5px 5px;
+  .container td, th {
+    padding: 6px 10px;
     color:#fff;
   }
 
