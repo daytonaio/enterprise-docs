@@ -167,6 +167,8 @@ Each [workspace](/usage/workspaces) created is isolated in its environment, even
 
 - **Opening workspaces**: You can hover on top of the selected workspace's name and click on the <Icon icon="arrow-right" class="icon-display" color="black" strokeWidth="0.1"/> button, or right-click on the workspace to select `Open` from the dropdown menu. It will start building the development container remotely. You will be able to work on it upon finishing. If you want to open this workspace in a new window, click on the <Icon icon="new-folder" class="icon-display" color="black" strokeWidth="0.1"/>button when you hover on top of a workspace, or right-click on a workspace and select `Open in New Window`. 
 
+- **Granting access to Git provider's organisation access**: Organization members can always request that an owner approve access to organization resources for Daytona, and organization owners receive notification of pending requests. For further information, check [here](https://docs.github.com/en/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-your-membership-in-organizations/requesting-organization-approval-for-oauth-apps). After you added additional organisation, their
+
 - **Connecting via SSH**: Alternatively, if you want to connect to a workspace via SSH, you can start a workspace on the Daytona dashboard(select the workspace, click on `𓈓` and select `Start` on the dropdown menu), select the workspace and click on `
 
 - **Copy ID**: The same repositories might be created under different environments in different workspaces, and if they are using the same name, it will become confusing to recognise for you or your team members. To take notes of different workspaces, right-click on one of them and click `Copy ID`. Your workspace's ID will always be in the format of `your-repository-name + random string`.
@@ -454,7 +456,6 @@ Search for `Daytona` in the extension marketplace, select the extension with our
 
 ### Remove Daytona-related files
 
-{/* TODO: confirm with Daytona if all the config files moved to ~/.ssh/daytona_config */}
 
 1. **Remove SSH configuration entries**:
 To remove Daytona-specific entries from your SSH configuration without deleting the entire file, you will need to manually edit the file:
@@ -483,6 +484,13 @@ code ~/.ssh/config
 :::caution
 Be cautious not to remove other SSH configurations that are unrelated to Daytona, as they may be important for your other remote connections.
 :::
+
+- **Remove Daytona SSH config**: In your terminal, run this command: 
+
+```bash
+rm -rf ~/.ssh/daytona_config
+```
+This command will remove other SSH configurations related to Daytona and created by Daytona. 
 
 
 2. **Remove profile-related data**

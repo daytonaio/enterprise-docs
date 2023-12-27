@@ -49,6 +49,7 @@
 
 code {
     border-radius: 0.2rem;
+    color: whitesmoke;
     padding: 0.6px 5.6px;
     margin: 0 2px;
     font-size: 0.88rem;
@@ -58,11 +59,11 @@ code {
 }
 
 p > code {
-   color: antiquewhite;
+   color: whitesmoke;
 }
 
 em > code {
-  color:antiquewhite;
+  color:whitesmoke;
 }
 
 h3 {
@@ -116,8 +117,8 @@ div .content {
   .container {
     margin: auto;
     border:1px solid #2ecc71;
-    margin-top:-1rem;
-    margin-bottom: -0.5rem;
+    margin-top: 1.2rem;
+    margin-bottom: 0.6rem;
     display:flex;
   }
 
@@ -130,3 +131,7 @@ svg.icon-display {
     display: inline;
     vertical-align: middle;
   }
+
+svg.rotate-30 {
+  transform: rotate(30deg);
+}
