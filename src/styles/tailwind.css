@@ -122,9 +122,23 @@ div .content {
     display:flex;
   }
 
+  /* TODO: Table row is not taking over the full table body */
+  .container tbody, tr {
+    width: 100%;
+  }
+
   .container td, th {
-    padding: 6px 10px;
+    padding: 6px 16px;
+    text-align: center;
     color:#fff;
+  }
+
+  .table-color tr:nth-child(even) {
+    background-color: #161616;
+  }
+
+  .table-color tr > td:nth-child(1) {
+   height: 100%;
   }
 
 svg.icon-display {
@@ -134,4 +148,11 @@ svg.icon-display {
 
 svg.rotate-30 {
   transform: rotate(30deg);
+}
+
+.bitbucket-button {
+  background-color: dodgerblue;
+  border-radius: 0.2rem;
+  display: inline-flex;
+  padding: 2.4px;
 }
