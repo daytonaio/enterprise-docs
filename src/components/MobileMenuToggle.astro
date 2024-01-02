@@ -61,6 +61,9 @@ const { labels } = Astro.props;
 		cursor: pointer;
 		right: 40px;
 		display: flex;
+		> svg path {
+			fill: var(--primary-text-color)
+		}
 		@media (min-width: 1024px) {
 			display: none;
 		}
@@ -73,14 +76,6 @@ const { labels } = Astro.props;
 		box-shadow: none;
 	}
 
-	:global([data-theme='light']) button {
-		background-color: var(--sl-color-black);
-		color: var(--sl-color-white);
-	}
-
-	:global([data-theme='light']) [aria-expanded='true'] button {
-		background-color: var(--sl-color-gray-5);
-	}
 </style>
 
 <style is:global>
