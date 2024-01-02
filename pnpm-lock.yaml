@@ -23,6 +23,9 @@ dependencies:
   '@astropub/icons':
     specifier: ^0.2.0
     version: 0.2.0(astro@4.0.7)
+  add:
+    specifier: ^2.0.6
+    version: 2.0.6
   astro:
     specifier: ^4.0.7
     version: 4.0.7(sass@1.69.5)
@@ -38,6 +41,12 @@ dependencies:
   express:
     specifier: ^4.18.2
     version: 4.18.2
+  nanostores:
+    specifier: ^0.9.5
+    version: 0.9.5
+  pnpm:
+    specifier: ^8.13.1
+    version: 8.13.1
   sass:
     specifier: ^1.69.5
     version: 1.69.5
@@ -1490,6 +1499,10 @@ packages:
     resolution: {integrity: sha512-nc0Axzp/0FILLEVsm4fNwLCwMttvhEI263QtVPQcbpfZZ3ts0hLsZGOpE6czNlid7CJ9MlyH8reXkpsf3YUY4w==}
     engines: {node: '>=0.4.0'}
     hasBin: true
+    dev: false
+
+  /add@2.0.6:
+    resolution: {integrity: sha512-j5QzrmsokwWWp6kUcJQySpbG+xfOBqqKnup3OIk1pz+kB/80SLorZ9V8zHFLO92Lcd+hbvq8bT+zOGoPkmBV0Q==}
     dev: false
 
   /ajv-draft-04@1.0.0(ajv@8.12.0):
@@ -4426,6 +4439,11 @@ packages:
     hasBin: true
     dev: false
 
+  /nanostores@0.9.5:
+    resolution: {integrity: sha512-Z+p+g8E7yzaWwOe5gEUB2Ox0rCEeXWYIZWmYvw/ajNYX8DlXdMvMDj8DWfM/subqPAcsf8l8Td4iAwO1DeIIRQ==}
+    engines: {node: ^16.0.0 || ^18.0.0 || >=20.0.0}
+    dev: false
+
   /napi-build-utils@1.0.2:
     resolution: {integrity: sha512-ONmRUqK7zj7DWX0D9ADe03wbwOBZxNAfF20PlGfCWQcD3+/MakShIHrMqx9YwPTfxDdF1zLeL+RGZiR9kGMLdg==}
     dev: false
@@ -4752,6 +4770,12 @@ packages:
     engines: {node: '>=8'}
     dependencies:
       find-up: 4.1.0
+    dev: false
+
+  /pnpm@8.13.1:
+    resolution: {integrity: sha512-dYvrxpictkYsUTgSmEAZOxDCWN3NsKtD7g753Yd4S8IY1uQctb7qw2K4zjPx+LCAJbWZkzwLzoIFCpo2uEdNQw==}
+    engines: {node: '>=16.14'}
+    hasBin: true
     dev: false
 
   /postcss-import@15.1.0(postcss@8.4.32):
