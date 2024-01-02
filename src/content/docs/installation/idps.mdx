@@ -9,6 +9,8 @@ import Icon from "../../../components/Icons.astro"
 import Table from "../../../components/Table/Table.astro"
 import Keyboard from "../../../components/Keyboard.astro"
 
+{/*TODO: All these shit should be just a link click away to set up?*/}
+
 To enable IDPs(Identity Providers) on your Daytona installation, we utilise an open source identity and access managemenet application [KeyCloak](https://www.keycloak.org/) to add multiple different identities providers. It will allow you to log into your Daytona dashboard via different IDPs, create [workspaces](/usage/workspace) from different Git providers, managing access scope, permissions, session, events and monitoring and manage users within your organisation with Daytona.
 
  In this guide, we will guide you through how to add, manage, configure, disable different IDPs via KeyCloak. 
@@ -67,11 +69,17 @@ read:user user:email repo
 
 ### Confirm Github is working properly
 
-**First time sign in**: When you are signing in via Github for the first time, you will be asked to `Authorize <your-oauth-app-name>`, you will need click `Authorize <username>`. At the authorization page you can also grant access(organisations you own) or request access(organisation owned by others) by clicking on respective `Grant` and `Request`. If you don't want to add extra authorization other than yourself for now you can always add them back later. 
+#### First time sign in
+When you are signing in via Github for the first time, you will be asked to `Authorize <your-oauth-app-name>`, you will need click `Authorize <username>`. At the authorization page you can also grant access(organisations you own) or request access(organisation owned by others) by clicking on respective `Grant` and `Request`. If you don't want to add extra authorization other than yourself for now you can always add them back later. 
 
-**Full confirmation**: To confirm Github is working properly with Daytona, open your Daytona dashboard URL and check if you can see the button <Icon icon="github-logo" class="icon-display" viewBox="0 0 26 26" /> `Github` on the login page, login via Github and on the `Workspaces` page(selec on left sidebar), click on <Icon icon="daytona-plus" class="icon-display" viewBox="0 0 20 20" /> `Create`. Select a worksapce and click on `Create` to see if you can create a workspace based on the repository in Github.
+#### Full confirmation
+To confirm Github is working properly with Daytona, open your Daytona dashboard URL and check if you can see the button <Icon icon="github-logo" class="icon-display" viewBox="0 0 26 26" /> `Github` on the login page, login via Github and on the `Workspaces` page(selec on left sidebar), click on <Icon icon="daytona-plus" class="icon-display" viewBox="0 0 20 20" /> `Create`. Select a worksapce and click on `Create` to see if you can create a workspace based on the repository in Github.
 
-### Github and KeyCloak configuration details
+{/*TODO: make this share the state with the link to here, if the link gets clicked, it should auto open*/}
+
+<details id="github-and-keycloak-configuration-details">
+<summary>Github and KeyCloak configuration details</summary>
+<content>
 <table class="table-color container">
 <tbody>
 <tr>
@@ -99,62 +107,84 @@ read:user user:email repo
 <td>No extra configuration required</td>
 <td style="text-align:left">`read:user user:email repo`</td>
 </tr>
+</tbody>
+</table>
+
+{/*TODO: Replace the on and off fields with real checkbox component + label for quick view*/}
+<table class="table-color container">
+<tbody>
+<tr>
+<th>KeyCloak Advance Settings</th>
+<th> Details </th>
+</tr>
+
 <tr>
 <td>Store tokens</td>
-<td></td>
+
 <td>On</td>
 </tr>
 <tr>
 <td>Accepts prompt=none forward from client</td>
-<td></td>
+
 <td>Off</td>
 </tr>
 <tr>
 <td>Disable user info</td>
-<td></td>
+
 <td>Off</td>
 </tr>
 <tr>
 <td>Trust Email</td>
-<td></td>
+
 <td>On</td>
 </tr>
 <tr>
 <td>Hide on login page</td>
-<td></td>
+
 <td>Off</td>
 </tr>
 <tr>
 <td>Verify essential claim</td>
-<td></td>
+
 <td>Off</td>
 </tr>
 <tr>
 <td>First login flow (dropdown)</td>
-<td></td>
+
 <td>first broker login</td>
 </tr>
 <tr>
 <td>Post login flow</td>
-<td></td>
+
 <td>None</td>
 </tr>
 <tr>
 <td>Sync mode</td>
-<td></td>
+
 <td>Import</td>
 </tr>
 </tbody>
 </table>
+</content>
+</details>
 
 _At this stage, you have successfully configure all the necessary information to enable Github as your identity provider for your Daytona installation. If you open your Daytona URL, you should be seeing the button `Github` on the login page. If not, scan through the table above and confirm if all the inputting information are correct._
 
 ### Organisation access 
 
-**First time sign in**: When you are signing in for the first time, you can `Grant` or `Request` for the organisation you are in to give your Daytona installation access repositories within the organisation. If you select none but click `Authorize <username>` directly, you will only be able to access your own repositories(both public and private) and other public repositories(owned by organisation or individuals) initially unless further access are granted. 
+#### First time sign in
+ When you are signing in for the first time, you can `Grant` or `Request` for the organisation you are in to give your Daytona installation access repositories within the organisation. If you select none but click `Authorize <username>` directly, you will only be able to access your own repositories(both public and private) and other public repositories(owned by organisation or individuals) initially unless further access are granted. 
 
-**Adding organisation access**: 
+#### Request organisation access
 
+1. On the upper-right corner of any page, click on your profile and scroll down on the dropdown menu, select <Icon icon="github-settings" class="icon-display" /> `Settings`.
+2. In the `Integration` section of the sidebar, click <Icon icon="github-applications" class="icon-display" /> `Application`.
+3. On the top of the page, click the `Authorized OAuth Apps` tab. 
+4. In the list of applications, click the name of the OAuth app you have set up Daytona access for.
+5. Next to the organization you'd like the OAuth app to access, click `Request access`. 
+6. After you review the information about requesting OAuth app access, click `Request approval from owners`. 
+
+<hr/>
 
 ## Gitlab 
 
@@ -434,10 +464,5 @@ To confirm BitBucket is working properly with Daytona, open your Daytona dashboa
 
 
 
-
-## Common questions
-
-###### 1. What if I accidentally delete my initial identity provider(during installation process)?
-Try not to. At the moment, due to KeyCloak's security policy, if you delete the identity provider you have used during initial setup(installation process), we won't be able to help you recover it. The only option at the moment is to [reinstall Daytona](https://github.com/daytonaio/installer). If your login details on other identity provider(emails or you used OAuth to sign up) are identical to the initial identity provider, you won't be able to log in through them too.
 
 ## Remove identity provider
