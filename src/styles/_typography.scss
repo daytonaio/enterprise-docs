@@ -50,6 +50,7 @@ h4 {
   line-height: 1.3;
   color: var(--primary-text-color);
   letter-spacing: -0.04em;
+  margin-top: 2rem;
   @include for-tablet-screen-sizes {
     font-size: 1.25rem;
   }
