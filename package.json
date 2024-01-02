@@ -10,12 +10,12 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/mdx": "^2.0.1",
-    "@astrojs/node": "^7.0.2",
+    "@astrojs/mdx": "2.0.3",
+    "@astrojs/node": "7.0.3",
     "@astrojs/starlight": "^0.15.1",
     "@astrojs/starlight-tailwind": "^2.0.1",
-    "@astrojs/tailwind": "^5.0.3",
-    "astro": "^4.0.7",
+    "@astrojs/tailwind": "5.1.0",
+    "astro": "4.0.8",
     "astro-expressive-code": "^0.30.1",
     "dotenv": "^16.3.1",
     "envalid": "^8.0.0",
