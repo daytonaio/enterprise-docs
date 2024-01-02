@@ -131,7 +131,8 @@ export default defineConfig({
       MobileMenuToggle: './src/components/MobileMenuToggle.astro',
       ContentPanel: './src/components/ContentPanel.astro',
       PageTitle: './src/components/PageTitle.astro',
-      Hero: './src/components/Hero.astro'
+      Hero: './src/components/Hero.astro',
+      ThemeProvider: './src/components/ThemeProvider.astro'
     },
   })],
   output: 'hybrid',
