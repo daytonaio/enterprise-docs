@@ -14,7 +14,6 @@ import Card from '@components/cards/Card.astro';
 import TitleCard from '@components/cards/TitleCard.astro';
 import ImageCard from '@components/cards/ImageCard.astro';
 import CardGrid from '@components/cards/CardGrid.astro';
-import CardFlex from '@components/cards/CardFlex.astro';
 import VSlogo from '@assets/index/icons/VS.svg';
 import PClogo from '@assets/index/images/pycharm.png';
 import vimlogo from '@assets/index/images/vim.png';
@@ -34,7 +33,7 @@ import IPIllustration from '@assets/index/icons/LocalHost.svg';
 
 Discover how to connect Daytona to your favorite IDE and get coding in just a few minutes.
 
-<CardFlex gridNumber={9} mobileGridNumber={3}>
+<CardGrid gridNumber={9} mobileGridNumber={2} colsMinWidth='64px' colsMinWidthMobile='106px'>
 	<ImageCard imageDark={VSlogo} link="#" imageAlt="Visual Studio logo" />
 	<ImageCard  imageDark={PClogo} link="#" imageAlt="PyCharm logo" />
 	<ImageCard  imageDark={vimlogo} link="#" imageAlt="Vim logo" />
@@ -44,12 +43,12 @@ Discover how to connect Daytona to your favorite IDE and get coding in just a fe
     <ImageCard  imageDark={CLlogo} link="#" imageAlt="CLion logo" />
     <ImageCard  imageDark={RDlogo} link="#" imageAlt="Rider logo" />
     <ImageCard  imageDark={RMlogo} link="#" imageAlt="RubyMine logo"/>
-</CardFlex>
+</CardGrid>
 
 
 ###### GIT system
 
-<CardGrid gridNumber={3} mobileGridNumber={3}>
+<CardGrid gridNumber={3} mobileGridNumber={2} colsMinWidth='160px' colsMinWidthMobile='160px'>
     <TitleCard imageDark={BitbucketLogo} title="Bitbucket" link="#" imageAlt="BitBucket logo"/>
     <TitleCard imageDark={GithubLogo} title="GitHub" link="#" imageAlt="'GitHub logo"/>
     <TitleCard imageDark={GitlabLogo} title="GitLab" link="#" imageAlt="GitLab logo"/>
@@ -57,7 +56,7 @@ Discover how to connect Daytona to your favorite IDE and get coding in just a fe
 
 ###### Hosting
 
-<CardGrid gridNumber={2} mobileGridNumber={1}>
+<CardGrid gridNumber={2} mobileGridNumber={1} colsMinWidth='300px' colsMinWidthMobile='300px'>
     <Card imageDark={IPIllustration} imageLight="" title="Setup your Localhost" link="#" imageAlt="IP illustration">
         Run a Daytona workspace from the comfort and safety of your very own machine
     </Card>

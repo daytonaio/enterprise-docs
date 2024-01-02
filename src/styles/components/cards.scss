@@ -1,20 +1,15 @@
 .image-card {
-  width: 64px;
+width: 100%;
   aspect-ratio: 1;
   justify-content: center;
   align-items: center;
   background: var(--block-bg-color);
-  max-width: 106px;
   transition: 0.6s;
 
   @include for-hover-state {
     &:hover {
       opacity: .6;
     }
-  }
-
-  @include for-tablet-screen-sizes {
-    width: 106px;
   }
 
   figure {
@@ -35,6 +30,7 @@
 
 .title-card {
   text-decoration: none !important;
+  width: 100%;
 
   @include for-hover-state {
     opacity: 1;
