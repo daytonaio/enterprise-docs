@@ -4,8 +4,6 @@ const { imageDark, imageAlt, link } = Astro.props;
 ---
 <a href={link} class="image-card">
     <figure>
-        <picture>
         <Image src={imageDark} alt={imageAlt} />
-        </picture>
     </figure>
 </a>

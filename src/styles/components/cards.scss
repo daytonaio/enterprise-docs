@@ -40,26 +40,21 @@ width: 100%;
   }
 
   figure {
+    display: flex;
     width: 100%;
     background: var(--block-bg-color);
     justify-content: center;
     align-items: center;
     margin-bottom: 10px;
-    aspect-ratio: 15/8;
+    aspect-ratio: 15 / 8;
+    > svg path {
+      fill: var(--primary-text-color);
+    }
 
     @include for-mobile-screen-sizes {
       display: grid;
       justify-content: center;
     }
-
-    &.dark {
-      display: grid;
-    }
-
-    &.light {
-      display: none;
-    }
-
   }
 
   h6 {
@@ -72,13 +67,6 @@ width: 100%;
     text-transform: none;
     transition: .6s;
 
-    &.dark {
-      display: block;
-    }
-
-    &.light {
-      display: none;
-    }
   }
 }
 
@@ -126,12 +114,10 @@ width: 100%;
     border: 1px solid var(--block-bg-color);
     transition: .6s;
     aspect-ratio: 2/1;
-    .dark {
-      display: block;
-    }
-
-    .light {
-      display: none;
+    > svg {
+      rect,line {
+        stroke: var(--primary-text-color);
+      }
     }
   }
 

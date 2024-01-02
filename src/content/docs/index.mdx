@@ -23,11 +23,11 @@ import GOlogo from '@assets/index/images/goLand.png';
 import CLlogo from '@assets/index/images/clion.png';
 import RDlogo from '@assets/index/images/rider.png';
 import RMlogo from '@assets/index/images/rubyMine.png';
-import BitbucketLogo from '@assets/index/icons/Bitbucket.svg';
-import GithubLogo from '@assets/index/icons/GitHub.svg';
-import GitlabLogo from '@assets/index/icons/GitLab.svg';
-import hostIllustration from '@assets/index/icons/BareMetal.svg';
-import IPIllustration from '@assets/index/icons/LocalHost.svg';
+import bitbucketLogo from '@assets/index/icons/Bitbucket.svg?raw';
+import githubLogo from '@assets/index/icons/GitHub.svg?raw';
+import gitlabLogo from '@assets/index/icons/GitLab.svg?raw';
+import hostIllustration from '@assets/index/icons/BareMetal.svg?raw';
+import IPIllustration from '@assets/index/icons/LocalHost.svg?raw';
 
 ###### Get Started
 
@@ -49,18 +49,18 @@ Discover how to connect Daytona to your favorite IDE and get coding in just a fe
 ###### GIT system
 
 <CardGrid gridNumber={3} mobileGridNumber={2} colsMinWidth='160px' colsMinWidthMobile='160px'>
-    <TitleCard imageDark={BitbucketLogo} title="Bitbucket" link="#" imageAlt="BitBucket logo"/>
-    <TitleCard imageDark={GithubLogo} title="GitHub" link="#" imageAlt="'GitHub logo"/>
-    <TitleCard imageDark={GitlabLogo} title="GitLab" link="#" imageAlt="GitLab logo"/>
+    <TitleCard icon={bitbucketLogo} title="Bitbucket" link="#" imageAlt="BitBucket logo"/>
+    <TitleCard icon={githubLogo} title="GitHub" link="#" imageAlt="'GitHub logo"/>
+    <TitleCard icon={gitlabLogo} title="GitLab" link="#" imageAlt="GitLab logo"/>
 </CardGrid>
 
 ###### Hosting
 
 <CardGrid gridNumber={2} mobileGridNumber={1} colsMinWidth='300px' colsMinWidthMobile='300px'>
-    <Card imageDark={IPIllustration} imageLight="" title="Setup your Localhost" link="#" imageAlt="IP illustration">
+    <Card icon={IPIllustration}  title="Setup your Localhost" link="#" imageAlt="IP illustration">
         Run a Daytona workspace from the comfort and safety of your very own machine
     </Card>
-    <Card imageDark={hostIllustration} imageLight="" title="Bare Metal" link="#" imageAlt="host server illustration">
+    <Card icon={hostIllustration} title="Bare Metal" link="#" imageAlt="host server illustration">
         Host your daytona setup at Jeff’s, he is great and that certainly possible.
     </Card>
 </CardGrid>
