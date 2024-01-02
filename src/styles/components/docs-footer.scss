@@ -43,17 +43,16 @@
     }
   }
 
-  &__bottom-bar {
+  &__bottom {
     display: flex;
-    align-items: center;
+    flex-direction: column;
     margin-bottom: 20px;
 
-    @include for-mobile-screen-sizes {
-      display: grid;
-      row-gap: 16px;
-    }
-
-    .copyright {
+    &-block {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 16px;
       p {
         font-family: 'Berkeley Mono', monospace;
         font-size: 0.75rem;
@@ -61,15 +60,6 @@
         text-transform: uppercase;
         color: var(--secondary-text-color);
         line-height: 1;
-
-        &::after {
-          content: '/';
-          padding: 0 16px;
-
-          @include for-mobile-screen-sizes {
-            content: none;
-          }
-        }
       }
     }
 
