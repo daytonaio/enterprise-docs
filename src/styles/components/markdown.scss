@@ -94,17 +94,25 @@
 
   > ul {
     background: var(--block-bg-color);
-    padding: 30px 30px 30px 45px;
+    padding: 30px;
     margin-bottom: 60px;
     margin-top: 0;
-    list-style-image: url(/src/assets/icons/facts.svg);
+
 
     @include for-mobile-screen-sizes {
       margin-bottom: 40px;
     }
 
     li {
-      padding-left: 10px;
+      display: flex;
+      align-items: center;
+
+      &::before {
+        content: url(/src/assets/icons/facts.svg);
+        margin-right: 10px;
+        line-height: 0;
+      }
+
       margin: 0 0 10px;
       color: var(--primary-text-color);
       font-weight: 500;
