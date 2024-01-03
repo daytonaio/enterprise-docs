@@ -94,6 +94,7 @@
 
   > ul {
     background: var(--block-bg-color);
+    list-style-type: none;
     padding: 30px;
     margin-bottom: 60px;
     margin-top: 0;
@@ -104,13 +105,17 @@
     }
 
     li {
-      display: flex;
-      align-items: center;
+      position: relative;
+      padding-left: 25px;
 
       &::before {
+        position: absolute;
         content: url(/src/assets/icons/facts.svg);
         margin-right: 10px;
         line-height: 0;
+        top: 50%;
+        left: 0;
+        transform: translate(0, -50%);
       }
 
       margin: 0 0 10px;
