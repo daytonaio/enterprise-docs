@@ -21,6 +21,27 @@
     }
   }
 
+  > h2 {
+    position: relative;
+    &:before {
+      content: '#';
+      position: absolute;
+      color: var(--hover-color);
+      font-family: 'Berkeley Mono', monospace;
+      font-weight: 400;
+      letter-spacing: -0.06rem;
+      transform: translate(-100%, 0);
+      left: -12px;
+    }
+    @include for-tablet-screen-sizes {
+      &:before {
+        content: '';
+      }
+    }
+  }
+
+
+
   > blockquote {
     margin: 59px 0 64px;
     border-left: 2px solid var(--hover-color);
