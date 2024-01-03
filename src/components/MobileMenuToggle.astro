@@ -4,6 +4,7 @@ const { labels } = Astro.props;
 ---
 
 <starlight-menu-button>
+	<div id="blur-overlay"></div>
 	<button
 		aria-expanded="false"
 		aria-label={labels['menuButton.accessibleLabel']}
@@ -61,9 +62,11 @@ const { labels } = Astro.props;
 		cursor: pointer;
 		right: 40px;
 		display: flex;
+
 		> svg path {
 			fill: var(--primary-text-color)
 		}
+
 		@media (min-width: 1024px) {
 			display: none;
 		}
@@ -71,9 +74,19 @@ const { labels } = Astro.props;
 			right: 20px;
 		}
 	}
-
 	[aria-expanded='true'] button {
 		box-shadow: none;
+	}
+
+	[aria-expanded='true'] #blur-overlay {
+		position: fixed;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		z-index: 4;
+		background-color: rgba(22, 22, 22, 0.80);
+		backdrop-filter: blur(2px)
 	}
 
 </style>
