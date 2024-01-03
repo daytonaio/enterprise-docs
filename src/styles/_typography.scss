@@ -92,8 +92,10 @@ ol {
 }
 
 hr {
-  border-color: var(--border-color);
-  margin-bottom: 20px;
+  border: none;
+  height: 1px;
+  color: var(--border-color);
+  background-color: var(--border-color);
 }
 
 strong {
