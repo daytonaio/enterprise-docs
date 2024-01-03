@@ -374,7 +374,7 @@ $hamburger-types: (
   }
 
   .github {
-    background: #161616;
+    background: var(--block-bg-color);
     border-radius: 3px;
 
     a {
