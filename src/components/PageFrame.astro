@@ -43,10 +43,14 @@ const { hasSidebar, labels } = Astro.props;
     }
 
     :global([data-has-sidebar]) .header {
-        padding-inline-end: calc(var(--sl-nav-gap) + var(--sl-nav-pad-x) + var(--sl-menu-button-size));
+        padding-inline-end: var(--sl-nav-pad-x);
+        @media (max-width: 1024px) {
+            padding-inline-end: calc(var(--sl-nav-gap) + var(--sl-nav-pad-x) + var(--sl-menu-button-size));
+        }
     }
 
     .sidebar-pane {
+        --sl-sidebar-visibility: visible;
         visibility: var(--sl-sidebar-visibility, hidden);
         position: sticky;
         max-height: 100vh;
@@ -62,6 +66,8 @@ const { hasSidebar, labels } = Astro.props;
             display: none;
         }
         @media (max-width: 1024px) {
+            display: none;
+            --sl-sidebar-visibility: hidden;
             z-index: 5;
             padding-top: 55px;
             position: fixed;
@@ -75,6 +81,7 @@ const { hasSidebar, labels } = Astro.props;
 
     :global([aria-expanded='true']) ~ .sidebar-pane {
         --sl-sidebar-visibility: visible;
+        display: block
     }
 
     .sidebar-content {
@@ -83,15 +90,15 @@ const { hasSidebar, labels } = Astro.props;
         padding-top: 30px;
         flex-direction: column;
         gap: 1rem;
-        @media (max-width: 1024px) {
-            padding-top: 20px;
-        }
-    }
-
-    @media (min-width: 1024px) {
-        .sidebar-content::after {
+        &:after {
             content: '';
             padding-bottom: 1px;
+        }
+        @media (max-width: 1024px) {
+            padding-top: 20px;
+            &:after {
+                content: unset;
+            }
         }
     }
 
@@ -99,16 +106,6 @@ const { hasSidebar, labels } = Astro.props;
         padding-top: 74px;
         @media (max-width: 1024px) {
             padding-top: calc(74px + var(--sl-mobile-toc-height));
-        }
-    }
-
-    @media (min-width: 1024px) {
-        :global([data-has-sidebar]) .header {
-            padding-inline-end: var(--sl-nav-pad-x);
-        }
-        .sidebar-pane {
-            --sl-sidebar-visibility: visible;
-            background-color: var(--bg-color);
         }
     }
 </style>
