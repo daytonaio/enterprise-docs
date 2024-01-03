@@ -54,6 +54,7 @@ const { labels } = Astro.props;
 
 <style>
 	button {
+		display: none;
 		position: fixed;
 		top: calc((74px - var(--sl-menu-button-size)) / 2);
 		inset-inline-end: var(--sl-nav-pad-x);
@@ -63,18 +64,17 @@ const { labels } = Astro.props;
 		border: var(--border);
 		cursor: pointer;
 		right: 40px;
-		display: flex;
 
 		> svg:last-child {
 			display: none;
 		}
 
 		> svg path {
-			fill: var(--primary-text-color)
+			fill: var(--primary-text-color);
 		}
 
-		@media (min-width: 1024px) {
-			display: none;
+		@media (max-width: 1024px) {
+			display: flex;
 		}
 		@media (max-width: 650px) {
 			right: 20px;
@@ -105,12 +105,12 @@ const { labels } = Astro.props;
 
 <style is:global>
 	[data-mobile-menu-expanded] {
-		overflow: hidden;
+		overflow: auto;
 	}
 
-	@media (min-width: 1024px) {
+	@media (max-width: 1024px) {
 		[data-mobile-menu-expanded] {
-			overflow: auto;
+			overflow: hidden;
 		}
 	}
 </style>
