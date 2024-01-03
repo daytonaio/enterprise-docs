@@ -54,6 +54,7 @@ width: 100%;
     @include for-mobile-screen-sizes {
       display: grid;
       justify-content: center;
+      aspect-ratio: 4 / 3;
     }
   }
 
