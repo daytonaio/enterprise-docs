@@ -1,5 +1,6 @@
 ---
 import menuIcon from '@assets/icons/menu.svg?raw'
+import closeXIcon from '@assets/icons/closeX.svg?raw'
 const { labels } = Astro.props;
 ---
 
@@ -11,6 +12,7 @@ const { labels } = Astro.props;
 		aria-controls="starlight__sidebar"
 	>
 		<Fragment set:html={menuIcon} />
+		<Fragment set:html={closeXIcon} />
 	</button>
 </starlight-menu-button>
 
@@ -63,6 +65,10 @@ const { labels } = Astro.props;
 		right: 40px;
 		display: flex;
 
+		> svg:last-child {
+			display: none;
+		}
+
 		> svg path {
 			fill: var(--primary-text-color)
 		}
@@ -76,6 +82,12 @@ const { labels } = Astro.props;
 	}
 	[aria-expanded='true'] button {
 		box-shadow: none;
+		> svg:first-child {
+			display: none;
+		}
+		> svg:last-child {
+			display: block;
+		}
 	}
 
 	[aria-expanded='true'] #blur-overlay {
