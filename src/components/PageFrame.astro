@@ -35,7 +35,7 @@ const { hasSidebar, labels } = Astro.props;
     }
     .header-wrapper {
         position: fixed;
-        z-index: var(--sl-z-index-navbar);
+        z-index: 4;
         inset-inline-start: 0;
         inset-block-start: 0;
         width: 100%;
@@ -50,9 +50,9 @@ const { hasSidebar, labels } = Astro.props;
         visibility: var(--sl-sidebar-visibility, hidden);
         position: sticky;
         max-height: 100vh;
-        z-index: var(--sl-z-index-menu);
+        z-index: 5;
         inset-block: 0;
-        padding-top: 74px;
+        padding-top: 55px;
         width: 100%;
         background-color: var(--bg-color);
         overflow-y: auto;
@@ -78,7 +78,7 @@ const { hasSidebar, labels } = Astro.props;
     .sidebar-content {
         height: 100%;
         min-height: max-content;
-        padding-top: 30px;
+        padding-top: 20px;
         flex-direction: column;
         gap: 1rem;
     }
