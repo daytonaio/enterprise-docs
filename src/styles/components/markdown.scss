@@ -100,6 +100,64 @@
       }
     }
   }
+  > .table-wrapper {
+    position: relative;
+
+    @include for-mobile-screen-sizes {
+
+      &:after {
+        content: '';
+        position: absolute;
+        width: 90px;
+        background: linear-gradient(270deg, var(--bg-color) 12.5%, rgba(10, 10, 10, 0.00) 100%);
+        right: 0;
+        bottom: 0;
+        height: 100%;
+        pointer-events: none;
+      }
+    }
+
+    > table {
+      border-collapse: collapse;
+      color: var(--primary-text-color);
+      width: 100%;
+
+      @include for-mobile-screen-sizes {
+        display: block;
+        max-width: fit-content;
+        overflow-x: auto;
+        white-space: nowrap;
+        padding-right: 25px;
+      }
+
+      th, td {
+        padding: 0.5rem;
+        text-align: left;
+        word-break: break-word;
+      }
+
+      td {
+        font-family: 'Inter', sans-serif;
+        font-size: 1rem;
+        font-weight: 400;
+        line-height: 1.6;
+        letter-spacing: -0.01rem;
+        border-bottom: 1px solid var(--border-extra);
+
+      }
+
+      th {
+        font-family: 'Berkeley Mono', monospace;
+        font-size: 0.75rem;
+        font-weight: 400;
+        line-height: 1;
+        letter-spacing: -0.0075rem;
+        text-transform: uppercase;
+        border-bottom: 3px solid var(--border-extra);
+      }
+    }
+  }
+
   > ol {
     padding-inline-start: 18px;
     li {
