@@ -60,6 +60,7 @@ const { hasSidebar, labels } = Astro.props;
         width: 100%;
         background-color: var(--bg-color);
         overflow-y: auto;
+        overscroll-behavior: contain;
         -ms-overflow-style: none;
         scrollbar-width: none;
         &::-webkit-scrollbar {
