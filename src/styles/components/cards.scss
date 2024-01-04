@@ -5,6 +5,7 @@
   align-items: center;
   background: var(--block-bg-color);
   transition: 0.6s;
+  border-radius: 3px;
 
   @include for-hover-state {
     &:hover {
@@ -31,6 +32,7 @@
 .title-card {
   text-decoration: none !important;
   width: 100%;
+  border-radius: 3px;
 
   @include for-hover-state {
     opacity: 1;
@@ -74,6 +76,7 @@
 
 .description-card {
   text-decoration: none !important;
+  border-radius: 3px;
 
   @include for-mobile-screen-sizes {
     font-size: 0.75rem;
