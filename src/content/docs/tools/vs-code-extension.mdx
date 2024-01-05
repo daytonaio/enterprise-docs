@@ -81,19 +81,35 @@ _Now you should see your Daytona VS Code extension displayed on the left-hand si
 
 ### Establish a connection
 
-When you are using the VS Code extension for the first time, you will need to establish a secure connection between your local computer and your Daytona instance. Having this connection in place is essential whenever you are using the Daytona VS Code extension in the future, it keeps your workspaces, profiles and teams to sync with your Daytona installation. We will walk you through it step by step, and you will need your **[Daytona dashboard URL](#prerequisite)** before we continue.
+When you are using the VS Code extension for the first time, you will need to establish a secure connection between your local computer and your Daytona instance. Having this connection in place is essential whenever you are using the Daytona VS Code extension in the future, it keeps your workspaces, profiles and teams in sync with your Daytona installation. We will walk you through it step by step, and you will need your **[Daytona dashboard URL](#prerequisite)** before we continue.
 
+At this stage, if you click on your Daytona extension tab, you will see the sections under <Button text="WORKSPACES" tool="vscode" font="bold" type="normal" icon="chevron-down-dark"/> and <Button text="TEAMS" tool="vscode" font="bold" type="normal" icon="chevron-down-dark"/> are empty but a loading status. 
+
+#### Option 1: connection from VS Code
+
+Once you have Daytona extension installed on your VS Code, you can click on the extension(on the side panel of your VS Code) and then hover on <Button text="PROFILES" tool="vscode" font="bold" type="normal" icon="chevron-down-dark"/> to click on <Icon icon="vscode-add" class="icon-display" /> to establish your first connection. 
+
+1. Hover on <Button text="PROFILES" tool="vscode" font="bold" type="normal" icon="chevron-down-dark"/> and click on the <Icon icon="vscode-add" class="icon-display"/>. You will be first asked for a profile name on top of VS Code(enter a recognizable name, we'd recommend using the domain name), and then a Base URL(enter your Daytona dashboard URL). Both of which require you to hit <Keyboard shortcuts="Space ␣" /> to continue. 
+
+2. A pop-up window `The extension 'Daytona' wants to sign in using <your-domain-name>` will show up. Click `Allow`. Then you will be asked `Do you want Code to open the external website?`, click `Open` to continue. Your default browser will open a Daytona authentication page asking you `Please re-authenticate to continue`, and choose one of the identity providers.
+
+3. On the next page where it shows `Grant Access to Visual Studio Code`, click on `Yes` after you confirm the access privileges shown on the page(typically email address, user profile and user roles). Choose `Open "Visual Studio Code"` on the pop-up window `"id.<your-dashboard-url>" wants to open "Visual Studio Code"` and then choose `Open` when asked `Allow 'Daytona' extension to open this URI?`(your notification at the bottom right might show `Getting user info`, `Sign in successful` indicating the process of creating a profile/connecting to an installation)
+
+#### Option 2: connect from Daytona dashboard
 <span class="content-subtitle not-content">
 1. **Sign in to the dashboard and select a workspace**
 </span>
-   - Visit your Daytona dashboard URL and make sure you are on the `Workspaces` tab. 
-   - Select one of the workspaces and click on the `…` icon on it.
-   - Under the dropdown menu, select `Open`.
+
+- Visit your Daytona dashboard URL and make sure you are on the `Workspaces` tab. 
+
+- Select one of the workspaces and click on the `…` icon on it.
+
+- Under the dropdown menu, select `Open`.
 {/* <Card icon="github" title="If you haven't have any repositories in your workspace">You will need to do it now by clicking "Create" in the `WORKSPACES` tab on Daytona dashboard to import a repository from your Git Provider.</Card> */}
 
 <div class="not-content small">
  <details>
-  <summary> If you don't have any repositories imported in this workspace</summary>
+  <summary> If you don't have any workspaces yet</summary>
   <content class="content">
   You will need to do it now by clicking `+ Create` on the `Workspaces` page on the Daytona dashboard to import a repository from your Git provider.
 </content>
@@ -103,40 +119,40 @@ When you are using the VS Code extension for the first time, you will need to es
 <span class="content-subtitle">
 2. **Configure default code editor and open workspace**
 </span>
-   - On Daytona dashboard, click on `Settings` on the left-hand side menu(under the `Account` section). Then at the main page, under `Default Editor` section, select `VS Code`. 
-   - Click on the `Workspaces` tab and select one of the workspaces. On the right side of the workspace, click on the `…` icon, at the dropdown menu, select `Open`. 
-   - After you select `Open`, confirm `VS Code` is your code editor in the popup modal (If not set, click on the dropdown menu to select it. You may choose others, but in this guide we will need VS Code). And then click on the button `Open` on the popup window with the title "Open \<your-selected-workspace's-name\>".
 
+- On Daytona dashboard, click on `Settings` on the left-hand side menu(under the `Account` section). Then at the main page, under `Default Editor` section, select `VS Code`. 
+
+- Click on the `Workspaces` tab and select one of the workspaces. On the right side of the workspace, click on the `…` icon, at the dropdown menu, select `Open`. 
+
+- After you select `Open`, confirm `VS Code` is your code editor in the popup modal (If not set, click on the dropdown menu to select it. You may choose others, but in this guide we will need VS Code). And then click on the button `Open "Code"` on the popup window with the title `<your-dashboard-url\> wants to open "Code"`.
+
+{/*TODO: Why the fuck font colors so inconsistent*/}
 <span class="content-subtitle">
 3. **Respond to permissions**
 </span>
+
 - As you proceed, you may encounter the following prompts within VS Code:
-- 1. "The extension 'Daytona' wants to sign in using \<your-profile-name\>." Choose the blue button with `Allow`.
-- 2. "Do you want Code to open the external website?" Choose `Open`.
+
+- 1. "Allow 'Daytona' extension to open this URI?" Choose the blue button with `Open`.
+
+- 2. When you are connecting for the first time, you might be prompted with `No profile found for https://api.<your-dashboard-url>. Would you like to create one?`. Choose `Yes`. Then on top of VS Code, you will be asked to enter a profile name, enter a recognisable name then press `Enter`. 
+
+- 3. Depending on how many workspaces you have created on your Daytona dashboard, it might take a minute or two to establish the connection and finish setting up the Extension panel(the panel on the side of VS Code once you click on the Daytona extension tab. If you don't see the Daytona extension with logo, right click on the side panel and tick `Daytona` to display it).
 
 
 <span class="content-subtitle">
 4. **Authenticate Daytona with Your Git provider**
 </span>
-   - In the browser pop-up window that appears with `id.<your-daytona-url>`, under "Please re-authenticate to continue," click on your Git provider.
+
+- You may see the browser pop-up window that appears with `id.<your-daytona-url>`, under "Please authenticate to continue," click on your Git provider.
 
 
 <span class="content-subtitle">
 5. **Open Visual Studio Code**
 </span>
-   - In your browser, the pop-up will prompt "id.\<your-daytona-url\> wants to open "Visual Studio Code"," choose `Open 'Visual Studio Code'` or `Always open 'Visual Studio Code'`.
 
+- In your browser, the pop-up will prompt "id.\<your-daytona-url\> wants to open "Visual Studio Code"," choose `Open 'Visual Studio Code'` or `Always open 'Visual Studio Code'`.
 
-<span class="content-subtitle">
-6. **Allow Daytona Extension**
-</span>
-   - When VS Code is opened, you will be asked, "Allow 'Daytona' extension to open this URI?" Choose the blue button `Open`.
-
-
-<span class="content-subtitle">
-7. **Select SSH Configuration File**
-</span>
-   - Finally, in your VS Code, when prompted to "Select the SSH config file to update," choose the first option, usually in the format of `/User/name/.ssh/config`.
 
 
 _Congrats! You established a secure connection between VS Code and your Daytona installation. Behind the scenes, we are also setting up the configuration files on your local computer. Your selected workspace should be up and running in Visual Studio Code ._
@@ -144,61 +160,73 @@ _Congrats! You established a secure connection between VS Code and your Daytona 
 
 ## Features
 
-In this section, we'll cover the essential functionalities of the Daytona VS Code extension. The functionalities are comparable with what you were able to achieve in the Daytona dashboard, be it creating, managing workspaces, managing teams, or viewing profiles. 
+In this section, we'll cover the essential functionalities of the Daytona VS Code extension. The functionalities are comparable with what you were able to achieve in the Daytona dashboard, be it creating, managing workspaces, managing teams, or viewing profiles. All the workspaces under <Button text="WORKSPACES" tool="vscode" font="bold" type="normal" icon="chevron-down-dark"/> section within the Daytona extension tab are synchronized with your Daytona dashboard. 
 
-These features are designed to simplify your development process, allowing for ease of cloud-based development environment creation based on repositories from git providers and synchronization, viewing team information, and creating profiles. 
+Whether you are creating a workspace in the Daytona dashboard(by pressing `+ Create` on the `Workspaces` page) to import a repository from git providers, or in Daytona VS Code extension(click `+` on <Button text="WORKSPACES" tool="vscode" font="bold" type="normal" icon="chevron-down-dark"/>), they will all sync together under the same team. In the following sections, we will talk about how to create and manage your workspaces with Daytona in VS Code and other functionalities.
+
 
 ### Creating workspaces
 
-Each [workspace](/usage/workspaces) created is isolated in its environment, even if they are based on the same repository. In the following two sub-sections, we will talk about how to create and manage your workspaces with Daytona in VS Code.
 
- - **Create a workspace in VS Code**: To create a workspace, first you will need to click on the `+` button when you hover over the **Workspace** tab.
+ - **Create a workspace in VS Code**: To create a workspace, first you will need to click on the `+` button(hover over the <Button text="WORKSPACES" tool="vscode" font="bold" type="normal" icon="chevron-down-dark"/> section, assuming you have clicked on the Daytona extension and seen the side pannel from Daytona).
 
- - **Repository URL**: You will be asked for a repository URL. On Github, you can obtain this URL by clicking on the green button `< >`(Clone, open or download), choosing `Local` -> `Clone` via HTTPS on your repository page, copying the URL displayed, or adding `.git` after your repository's URL string.
+ - **Repository URL**: You will be asked for a repository URL during creation. On Github, you can obtain this URL by clicking on the green button `< >`(Clone, open or download), choosing `Local` -> `Clone` via HTTPS on your repository page, copying the URL displayed, or adding `.git` after your repository's URL string.
 
- - **Select SSH config file**: Within VS Code, you will also be asked "Select an SSH config file", select the first option that appears in the format of `/User/name/.ssh/config`, this question will be asked whenever you open a workspace.
+ - **Checking workspaces**: Once the workspace is created, you can see them under <Button text="WORKSPACES" tool="vscode" font="bold" type="normal" icon="chevron-down-dark"/> in the Daytona VS Code extension tab. We will talk about how to manage them in the next part. 
 
- - **Checking workspaces**: Once the workspace is created, you can see them under `WORKSPACES` in the Daytona VS Code extension tab. We will talk about how to manage them in the next part. 
-
- - **Choosing templates**: At the moment, if you want to create a workspace with a preset template (ex: You are developing a [Go](https://go.dev/) project and prefer to have [Golang](https://go.dev/) related dependencies set up in the environment, you will need to go to your Daytona dashboard in the `Workspaces` tab and choose one of the templates). But if you have a `devcontainer.json` file that describes the specifics of your development environment, they will be set up as specified whenever you are creating, or opening a workspace.
+ - **Choosing templates**: At the moment, if you want to create a workspace with a preset template (ex: You are developing a [Go](https://go.dev/) project and prefer to have [Golang](https://go.dev/) related dependencies set up in the environment, you will need to go to your Daytona dashboard in the `Workspaces` tab and choose one of the templates). 
+ 
+ - **devcontainer.json**: If you have a `devcontainer.json` file that specify your development environment(in your workspace), they can be set up as specified whenever you are creating, or opening a workspace.
 
 
 ### Managing workspaces
 
-- **Synchronisation**: All the workspaces under **[WORKSPACES](/usage/workspace)** section within the Daytona extension tab are synchronised with your Daytona dashboard. Whether you are creating a workspace in the Daytona dashboard(by pressing `Create` on the `WORKSPACES` tab) to import a repository from git providers, or in Daytona VS Code extension(click `+` on `WORKSPACES`), they will all sync together under the same team. 
+ 
 
-- **Opening workspaces**: You can hover on top of the selected workspace's name and click on the <Icon icon="arrow-right" class="icon-display" color="black" strokeWidth="0.1"/> button, or right-click on the workspace to select `Open` from the dropdown menu. It will start building the development container remotely. You will be able to work on it upon finishing. If you want to open this workspace in a new window, click on the <Icon icon="new-folder" class="icon-display" color="black" strokeWidth="0.1"/>button when you hover on top of a workspace, or right-click on a workspace and select `Open in New Window`. 
+- **Opening workspaces**: You can hover on top of the selected workspace's name and click on the <Icon icon="arrow-right" class="icon-display" color="black" strokeWidth="0.1"/> button, or right-click on the workspace to select `Open` from the dropdown menu. It will take a minute to connect and set up the environment remotely. If you want to open this workspace in a new window, click on the <Icon icon="vscode-new-folder" class="icon-display" color="black" strokeWidth="0.1"/>button when you hover on top of a workspace, or right-click on a workspace and select `Open in New Window`. 
 
-- **Granting access to Git provider's organization access**: Organization members can always request that an owner approve access to organization resources for Daytona, and organization owners receive notification of pending requests. For further information, check [here](https://docs.github.com/en/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-your-membership-in-organizations/requesting-organization-approval-for-oauth-apps). After you added additional organization, their
+- **Granting access to Git provider's organization access**: Organization members can always request that an owner approve access to organization resources for Daytona, and organization owners receive notification of pending requests. For further information, check [here](/installation/idps). After additional organizations are authenticated, you can create workspaces based on repositories in organizations.
 
-- **Connecting via SSH**: Alternatively, if you want to connect to a workspace via SSH, you can start a workspace on the Daytona dashboard(select the workspace, click on `𓈓` and select `Start` on the dropdown menu), select the workspace and click on `
+- **Connecting via SSH**: Alternatively, if you want to connect to a workspace via SSH, you can start a workspace on the Daytona dashboard(select the workspace, click on `𓈓` and select `Start` on the dropdown menu), select the workspace and click on `Connect via SSH`. For more information, check the [Connect via SSH](#connect-via-ssh) section below.
 
 - **Copy ID**: The same repositories might be created under different environments in different workspaces, and if they are using the same name, it will become confusing to recognize for you or your team members. To take notes of different workspaces, right-click on one of them and click `Copy ID`. Your workspace's ID will always be in the format of `your-repository-name + random string`.
 
-- **Stopping a workspace**: Right-click on the workspace and select `Stop`, it will stop a workspace(its environment) and the remote connection with your Daytona instance. When you need to come back and work on it again, you need to click `Open`.
+- **Starting a workspace**: You can start a remote workspace by right click on a workspace under <Button text="WORKSPACES" tool="vscode" font="bold" type="normal" icon="chevron-down-dark"/>, select `Start` from the dropdown menu. 
+
+- **Stopping a workspace**: Right-click on the workspace and select `Stop`, it will stop a workspace(pause its environment, assuming this workspace has started) and the remote connection with your Daytona instance. When you need to come back and work on it again, you can click on `Open` from the dropdown menu(right click on a workspace), or <Icon icon="arrow-right" class="icon-display" color="black" strokeWidth="0.1"/> to open in the current window, or <Icon icon="vscode-new-folder" class="icon-display" color="black" strokeWidth="0.1"/> to open in a new window(hover on a workspace).
 
 :::caution
-- **Destroy a workspace**: When you right-click on a workspace and select `Destroy`, this behavior is irreversible. It deletes the workspace and removes the development container completely. If you have a previous installation or set up that wasn't specified in [devcontainer.json](https://www.daytona.io/dotfiles/guide-create-devcontainer-json-file), you will lose them. When you recreate a workspace from the same repository, you will have to set them up or reinstall them. 
+- **Destroy a workspace**: When you right-click on a workspace and select `Destroy`, this behavior is irreversible. It deletes the workspace and removes the development container completely. If you have a previous installation or set up that wasn't specified in [devcontainer.json](https://www.daytona.io/dotfiles/guide-create-devcontainer-json-file), you will lose them. When you recreate a workspace from the same repository, you will have to repeat the setup process again.  
 :::
 
 ### Managing teams
-Workspaces are separated between teams. Workspaces created within a team only exist in that team. If you create a new team, the `WORKSPACES` will appear empty. 
+Workspaces are separated between teams. Workspaces created within a team only exist in that team. If you create a new team, the section under <Button text="WORKSPACES" tool="vscode" font="bold" type="normal" icon="chevron-down-dark"/> will appear empty. 
 
-- **Team information**: Within the Daytona extension tab, you can see your team's name under `TEAMS`.
+- **Team information**: Within the Daytona extension tab, you can see your team's name under <Button text="TEAMS" tool="vscode" font="bold" type="normal" icon="chevron-down-dark"/>.
 
-- **Creating a team**: At the moment you can only create new teams on your Daytona dashboard. 
+- **Creating a team**: At the moment you can only create new teams on your Daytona dashboard.
 
 - **Selecting a team**: If you want to change a team -- hover over a team's name, and click on the `Select` button. Note that if you change a team, you won't see the same workspace from the previous team.
 {/* need more information related to selecting a team */}
 
-
+{/*TODO: This seems wrong/doesn't align with the Jetbrains one, I am connected to dem.mobi and I can create multiple profiles all from the same installation, but jetbrains one creating new profile == new installation?*/}
 ### Managing profiles
 
-Profiles are equivalent to a fresh, new Daytona instance installation, however, if you change your profile without changing teams, workspaces created associated with that profile will appear the same under `WORKSPACES` section. But they are indeed being created in different environments when you open them.
+Profiles are equivalent to a fresh, new Daytona instance installation. If you change your profile, workspaces under <Button text="WORKSPACES" tool="vscode" font="bold" type="normal" icon="chevron-down-dark"/> section won't be the same. 
 
-- **Checking a profile**: Under the `PROFILES` section within the extension, you can check your existing profile. `API URL`, `Auth URL`, `SSH Port`， and `Notification URL` are displayed under each profile.
+- **Creating a profile**: 
+This process is similar to creating a connection with a Daytona installation.
+- 1. Hover on <Button text="PROFILES" tool="vscode" font="bold" type="normal" icon="chevron-down-dark"/> and click on the <Icon icon="vscode-add" class="icon-display"/>. You will be first asked for a profile name on top of VS Code(enter a recognizable name, we'd recommend using the domain name), and then a Base URL(enter your Daytona dashboard URL). 
 
-- **Selecting a profile**: If you want to change your profile, you can do so by hovering over your profile's name and choosing `Select`, when you open a workspace under the `WORKSPACE` section after choosing a new profile, your workspaces will be opened in different environments. Different from clicking on `Destroy` on a workspace, the previous installation and dependencies within the same workspace will persist.
+- 2. After you hit <Keyboard shortcuts="Space ␣" /> two times, a pop-up window `The extension 'Daytona' wants to sign in using <your-domain-name>` will show up. Click `Allow`. Then you will be asked `Do you want Code to open the external website?`, click `Open` to continue. Your default browser will open a Daytona authentication page asking you `Please re-authenticate to continue`, and choose one of the identity providers.
+
+- 3. On the next page where it shows `Grant Access to Visual Studio Code`, click on `Yes` after you confirm the access privileges shown on the page(typically email address, user profile and user roles). Choose `Open "Visual Studio Code"` on the pop-up window `"id.<your-dashboard-url>" wants to open "Visual Studio Code"` and then choose `Open` when asked `Allow 'Daytona' extension to open this URI?`(your notification at the bottom right might show `Getting user info`, `Sign in successful` indicating the process of creating a profile/connecting to an installation)
+
+- **Checking a profile**: Under the <Button text="PROFILES" tool="vscode" font="bold" type="normal" icon="chevron-down-dark"/> section within the extension, you can check your existing profile. `API URL`, `Auth URL`, `SSH Port`， and `Notification URL` are displayed under each profile.
+
+- **Selecting a profile**: If you want to change your profile, you can do so by hovering over your profile's name and choosing `Select`
+
+- **Editing profiles**: Hover on one of the profiles and click on `Edit`(from the dropdown menu), a `config.json` file will show up in VS Code. You can edit your profile-related information in JSON format. Try to edit one of your profiles' name and its name will change under <Button text="PROFILES" tool="vscode" font="bold" type="normal" icon="chevron-down-dark"/>.
 {/*TODO: Tested it is like this, confirm with Toma if this is expected.*/}
 
 ### Shareable Live Preview Link
@@ -259,7 +287,7 @@ The supported SSH keys for Daytona connections begin with:
 - `ecdsa-sha2-nistp521`
 
 :::caution
-Only workspaces that are `Started` can be connected via SSH. To `Start` a workspace, you can either right-click on the selected workspace on the Daytona VS Code extension tab and select `Start`, or go to your Daytona dashboard to select a workspace, click on `𓈓` button and select `Start` on the dropdown menu.
+Only workspaces that are started can be connected via SSH. To start a workspace, you can either right-click on the selected workspace on the Daytona VS Code extension tab and select `Start`, or go to your Daytona dashboard to select a workspace, click on `𓈓` button and select `Start` on the dropdown menu.
 ::: 
 
 On the Daytona dashboard, you can add multiple SSH keys. All the SSH keys added will be used in all your workspaces and help different computers of yours connect to workspaces via SSH. In this section, we will walk you through how to connect to your Daytona Installation via SSH in VS Code. 
@@ -298,10 +326,10 @@ type <path-from-preview-step>
 </TabItem>
 </Tabs>
 
-- This command will return your public SSH key. Copy it and save it to somewhere safe and you can continue to [Step 3: Adding SSH key to Daytona dashboard](#add-ssh-to-dashboard) below.
+- This command will return your public SSH key. Copy it and save it somewhere safe and you can continue to [Step 3: Adding SSH key to Daytona dashboard](#add-ssh-to-dashboard) below.
 
 
-
+<div id="generate-ssh-key"/>
 2. **Generating SSH Keys**
 
 - In the previous step, if you happen to not have an SSH key on your local machine, you can generate a new SSH key on your local machine. 
@@ -407,9 +435,10 @@ ssh-rsa LongRandomStringWithSlash/slash/randomString== your_email@example.com
 </tr>
 </table>
 
-<div id="obtain-ssh-connection">
+
+<div id="obtain-ssh-connection"/>
 4. **Obtain SSH Connection Command**
-</div>
+
 - Within your Daytona dashboard, navigate to the `WORKSPACES` tab, select a workspace and click on `𓈓`, select `Start` on the dropdown menu to make sure the workspace is up and running. 
 - Again on the same dropdown menu, select `Connect via SSH`. The browser will open a popup window with the title `Connect to <workspace-id> via SSH`. You have two options below: `Public Key` and `Access Token`. Copy the value under the tab `Public Key`. 
 
