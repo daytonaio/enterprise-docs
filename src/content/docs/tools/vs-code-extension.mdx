@@ -30,9 +30,9 @@ Before you can harness the full potential of Daytona's VS Code extension, make s
 
 - **Visual Studio Code**: have [Visual Studio Code](https://code.visualstudio.com/download) installed on your computer. 
 
-- **Daytona Installation**: Daytona's power lies in its infrastructure. If you haven't set it up yet, you can easily do so by [downloading it from the Daytona installer](https://github.com/daytonaio/installer) on your infrastructure.
+- **Daytona Installation**: You will need Daytona installed on your infrastructure. If you haven't set it up yet, you can easily do so by [installing it from the Daytona installer](https://github.com/daytonaio/installer).
 
-- **Daytona Dashboard URL**: To complete the setup, you'll need the URL of your Daytona dashboard, which you can obtain by running [Daytona installer](https://github.com/daytonaio/installer).
+- **Daytona Dashboard URL**: To complete the setup in this guide, you'll need the URL of your Daytona dashboard, which you can obtain by installing the [Daytona installer](https://github.com/daytonaio/installer).
 
 _With these prerequisites in place, you'll be ready to set up Daytona's VS Code extension._
 
@@ -46,13 +46,13 @@ Installing the Daytona VS Code extension is simple. You have two options to choo
 
 1. **Navigate to browser**: In your browser, navigate to [Daytona VS Code Extension](https://marketplace.visualstudio.com/items?itemName=daytonaio.daytona) in the VS Code extension marketplace.
 
-2. **Click on install**: Click on the <Button text="Install" tool="vscode" type="green"/> on the website from the last step
+2. **Click on install**: Click on the `Install` button on the website from the last step.
 
-3. **Continue to VS Code**: Once you click on <Button text="Install" tool="vscode" type="green"/>, the browser will have a popup window showing you "Visual Studio Code is required to install this extension.", if you have everything listed in <a href="#prerequisites">prerequisites</a> choose <Button text='Continue' tool="vscode" type="primary"/>.
+3. **Continue to VS Code**: Once you click on `Install`, the browser will have a popup window showing you "Visual Studio Code is required to install this extension.", choose `Continue`(assuming you have everything listed in the [prerequisites](#prerequisites)).
 
-4. **Open <Button text="Code" tool="vscode" type="primary"/>**: In the browser, the popup window will ask "marketplace.visualstudio.com wants to open "Code" ", choose <Button text='Open "Code"' tool="vscode" type="primary"/>. Next you will be redirected to VS Code.
+4. **Redirected to VS Code**: In the browser, the popup window will ask "marketplace.visualstudio.com wants to open "Code" ", choose `Open "Code"`. Next you will be redirected to VS Code.
 
-5. **Choose <Button text='Install' tool="vscode" type="primary"/>**: On the tab `Extensions: Daytona`, click on the button <Button text='Install' tool="vscode" type="primary"/>.
+5. **Choose `Install`**: On the tab `Extensions: Daytona`, click on the button `Install`.
 
 </TabItem>
 <TabItem label="Download in VS Code Extension Marketplace">
@@ -71,7 +71,7 @@ Installing the Daytona VS Code extension is simple. You have two options to choo
 
 2. **Search "Daytona"**: Within VS Code's extension tab, search "Daytona" in the extension marketplace, you will find the extension with our logo. 
 
-3. **Click <Button text='Install' tool="vscode" type="primary"/>**: On the extension that opened, hit <Button text='Install' tool="vscode" type="primary"/> either on the extension or on the window `Extensions: Daytona`.
+3. **Click `Install`**: On the extension that opened, hit `Install` either on the extension(under search result) or on the window `Extensions: Daytona`.
 
 </TabItem>
 </Tabs>
@@ -86,16 +86,16 @@ When you are using the VS Code extension for the first time, you will need to es
 <span class="content-subtitle not-content">
 1. **Sign in to the dashboard and select a workspace**
 </span>
-   - Visit your Daytona dashboard URL and make sure you are on the <Button tool="daytona" type="primary" icon="daytona-workspace" iconSize="1.2rem" viewBox="0 0 22 22"  text="Workspaces"/> tab. 
-   - Select one of the workspaces and click on the <Button icon="daytona-options" tool="daytona" iconSize="1rem"/> icon on it.
-   - Under the dropdown menu, select <Button tool="daytona" icon="daytona-browser" text="Open" iconSize="1.2rem" color="gray"/>.
+   - Visit your Daytona dashboard URL and make sure you are on the `Workspaces` tab. 
+   - Select one of the workspaces and click on the `…` icon on it.
+   - Under the dropdown menu, select `Open`.
 {/* <Card icon="github" title="If you haven't have any repositories in your workspace">You will need to do it now by clicking "Create" in the `WORKSPACES` tab on Daytona dashboard to import a repository from your Git Provider.</Card> */}
 
 <div class="not-content small">
  <details>
   <summary> If you don't have any repositories imported in this workspace</summary>
   <content class="content">
-  You will need to do it now by clicking <Button text="Create" icon="daytona-plus" viewBox="0 0 22 22" iconSize="1rem" tool="daytona"/> in the <Button tool="daytona" type="primary" icon="daytona-workspace" viewBox="0 0 20 20" text="Workspaces" iconSize="1rem"/> tab on the Daytona dashboard to import a repository from your Git provider.
+  You will need to do it now by clicking `+ Create` on the `Workspaces` page on the Daytona dashboard to import a repository from your Git provider.
 </content>
 </details>
 </div>
@@ -103,16 +103,16 @@ When you are using the VS Code extension for the first time, you will need to es
 <span class="content-subtitle">
 2. **Configure default code editor and open workspace**
 </span>
-   - On Daytona dashboard, click on <Button tool="daytona" text="Settings"/> on the left-hand side menu(under the <Button tool="daytona" text="Account" icon="daytona-account" viewBox="0 0 22 22" iconSize="1rem"/> section). Then at the main page, under <Button tool="daytona" text="Default Editor" font="bold"/> section, select <Button tool="daytona" text="VS Code" icon="vscode-logo" viewBox="0 0 128 128" rightIcon="chevron-down-light"/>. 
-   - Click on the <Button tool="daytona" type="primary" icon="daytona-workspace" viewBox="0 0 20 20" text="Workspaces" iconSize="1rem"/> tab and select one of the workspaces. On the right side of the workspace, click on the <Button icon="daytona-options" tool="daytona" iconSize="1rem"/> icon and at the dropdown menu, select `Open`. 
-   - After you select <Button tool="daytona" icon="daytona-browser" text="Open" iconSize="1.2rem" color="gray"/>, choose <Button tool="daytona" text="VS Code" icon="vscode-logo" viewBox="0 0 128 128" rightIcon="chevron-down-light"/> as your code editor in the popup modal (You may choose others, but in this guide we will need VS Code). And then click on the button <Button tool="vscode" text="Open"/> on the popup window with the title "Open \<your-selected-workspace's-name\>".
+   - On Daytona dashboard, click on `Settings` on the left-hand side menu(under the `Account` section). Then at the main page, under `Default Editor` section, select `VS Code`. 
+   - Click on the `Workspaces` tab and select one of the workspaces. On the right side of the workspace, click on the `…` icon, at the dropdown menu, select `Open`. 
+   - After you select `Open`, confirm `VS Code` is your code editor in the popup modal (If not set, click on the dropdown menu to select it. You may choose others, but in this guide we will need VS Code). And then click on the button `Open` on the popup window with the title "Open \<your-selected-workspace's-name\>".
 
 <span class="content-subtitle">
 3. **Respond to permissions**
 </span>
-   - As you proceed, you may encounter the following prompts within VS Code:
-     - "The extension 'Daytona' wants to sign in using \<your-profile-name\>." Choose the blue button with `Allow`.
-     - "Do you want Code to open the external website?" Choose `Open`.
+- As you proceed, you may encounter the following prompts within VS Code:
+- 1. "The extension 'Daytona' wants to sign in using \<your-profile-name\>." Choose the blue button with `Allow`.
+- 2. "Do you want Code to open the external website?" Choose `Open`.
 
 
 <span class="content-subtitle">
