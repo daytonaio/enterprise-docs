@@ -13,10 +13,12 @@ import VscodePanel from "../../../components/VscodePanel.astro"
 import VscodeNotification from "../../../components/VscodeNotification.astro"
 import VscodePanelExplain from "../../../components/VscodePanelExplain.astro"
 import Icon  from "../../../components/Icons.astro"
+import Button from "../../../components/buttons/IdeButton.astro"
 
 
 
-Daytona's VS Code extension integrates Visual Studio Code, appearing as a tab on the left-hand side alongside your default tabs in VS Code like File Explorer, Search, Source Control, etc, to streamline your workflow and boost productivity.
+
+Daytona's VS Code extension integrates Visual Studio Code, appearing as a tab on the left-hand side alongside your default tabs in VS Code like File Explorer, Search, Source Control, etc,  to streamline your workflow and boost productivity.
 
 The extension allows you to have a frictionless experience of opening a standardised development environment, creating and accessing your [Daytona Workspaces](/usage/workspaces) based on git repositories. It offers convenient [workspace](/usage/workspaces) management, profile control, and instant team information access -- all directly within VS Code, removing the hassle of going to a web browser, opening the Daytona URL and creating projects upon initial configuration. 
 
@@ -44,13 +46,13 @@ Installing the Daytona VS Code extension is simple. You have two options to choo
 
 1. **Navigate to browser**: In your browser, navigate to [Daytona VS Code Extension](https://marketplace.visualstudio.com/items?itemName=daytonaio.daytona) in the VS Code extension marketplace.
 
-2. **Click on install**: Click on the green button `Install` on the website from the last step
+2. **Click on install**: Click on the <Button text="Install" tool="vscode" type="green"/> on the website from the last step
 
-3. **Continue to VS Code**: Once you click on `Install`, the browser will have a popup window showing you "Visual Studio Code is required to install this extension.", if you have everything listed in <a href="#prerequisites">prerequisites</a> choose `Continue`.
+3. **Continue to VS Code**: Once you click on <Button text="Install" tool="vscode" type="green"/>, the browser will have a popup window showing you "Visual Studio Code is required to install this extension.", if you have everything listed in <a href="#prerequisites">prerequisites</a> choose <Button text='Continue' tool="vscode" type="primary"/>.
 
-4. **Open `Code`**: In the browser, the popup window will ask "marketplace.visualstudio.com wants to open "Code" ", choose `Open "Code"`. Next you will be redirected to VS Code.
+4. **Open <Button text="Code" tool="vscode" type="primary"/>**: In the browser, the popup window will ask "marketplace.visualstudio.com wants to open "Code" ", choose <Button text='Open "Code"' tool="vscode" type="primary"/>. Next you will be redirected to VS Code.
 
-5. **Choose `Install`**: On the tab `Extensions: Daytona`, click on the button `Install`.
+5. **Choose <Button text='Install' tool="vscode" type="primary"/>**: On the tab `Extensions: Daytona`, click on the button <Button text='Install' tool="vscode" type="primary"/>.
 
 </TabItem>
 <TabItem label="Download in VS Code Extension Marketplace">
@@ -69,12 +71,12 @@ Installing the Daytona VS Code extension is simple. You have two options to choo
 
 2. **Search "Daytona"**: Within VS Code's extension tab, search "Daytona" in the extension marketplace, you will find the extension with our logo. 
 
-3. **Click `Install`**: On the extension that opened, hit `Install` either on the extension or on the window `Extensions: Daytona`.
+3. **Click <Button text='Install' tool="vscode" type="primary"/>**: On the extension that opened, hit <Button text='Install' tool="vscode" type="primary"/> either on the extension or on the window `Extensions: Daytona`.
 
 </TabItem>
 </Tabs>
 
-_Now you should see your Daytona VS Code extension displayed on the left-hand side of VS Code. But when you click on it, nothing is displayed under `WORKSPACES`, `TEAMS`, `PROFILES`, now what?_
+_Now you should see your Daytona VS Code extension displayed on the left-hand side of VS Code. But when you click on it, nothing is displayed under <Button text="WORKSPACES" tool="vscode" font="bold" type="normal" icon="chevron-down"/>, <Button text="TEAMS" tool="vscode" font="bold" type="normal" icon="chevron-down"/>, <Button text="PROFILES" tool="vscode" font="bold" type="normal" icon="chevron-down"/>, now what?_
 
 
 ### Establish a connection
@@ -84,26 +86,26 @@ When you are using the VS Code extension for the first time, you will need to es
 <span class="content-subtitle not-content">
 1. **Sign in to the dashboard and select a workspace**
 </span>
-   - Visit your Daytona dashboard URL and make sure you are on the `Workspaces` tab. 
-   - Select one of the workspaces and click on the `𓈓` icon on it.
-   - Under the dropdown menu, select `Open`.
+   - Visit your Daytona dashboard URL and make sure you are on the <Button tool="daytona" type="primary" icon="daytona-workspace" iconSize="1.2rem" viewBox="0 0 22 22"  text="Workspaces"/> tab. 
+   - Select one of the workspaces and click on the <Button icon="daytona-options" tool="daytona" iconSize="1rem"/> icon on it.
+   - Under the dropdown menu, select <Button tool="daytona" icon="daytona-browser" text="Open" iconSize="1.2rem" color="gray"/>.
 {/* <Card icon="github" title="If you haven't have any repositories in your workspace">You will need to do it now by clicking "Create" in the `WORKSPACES` tab on Daytona dashboard to import a repository from your Git Provider.</Card> */}
 
-<div class="not-content">
+<div class="not-content small">
  <details>
   <summary> If you don't have any repositories imported in this workspace</summary>
-  <div class="content">
-  You will need to do it now by clicking `Create` in the <code>WORKSPACES</code> tab on the Daytona dashboard to import a repository from your Git provider.
-</div>
+  <content class="content">
+  You will need to do it now by clicking <Button text="Create" icon="daytona-plus" viewBox="0 0 22 22" iconSize="1rem" tool="daytona"/> in the <Button tool="daytona" type="primary" icon="daytona-workspace" viewBox="0 0 20 20" text="Workspaces" iconSize="1rem"/> tab on the Daytona dashboard to import a repository from your Git provider.
+</content>
 </details>
 </div>
 
 <span class="content-subtitle">
 2. **Configure default code editor and open workspace**
 </span>
-   - On Daytona dashboard, click on `Settings` on the left-hand side menu. At the **Default Editor** section, select `VS Code`. 
-   - Click on the `Workspaces` tab and select one of the workspaces. On the right side of the workspace, click on the `𓈓` icon and at the dropdown menu, select `Open`. 
-   - After you select `Open`, choose `VS Code` as your code editor in the popup modal (You may choose others, but in this guide we will need VS Code). And then click on the green button `Open` on the popup window with the title "Open \<your-selected-workspace's-name\>".
+   - On Daytona dashboard, click on <Button tool="daytona" text="Settings"/> on the left-hand side menu(under the <Button tool="daytona" text="Account" icon="daytona-account" viewBox="0 0 22 22" iconSize="1rem"/> section). Then at the main page, under <Button tool="daytona" text="Default Editor" font="bold"/> section, select <Button tool="daytona" text="VS Code" icon="vscode-logo" viewBox="0 0 128 128" rightIcon="chevron-down-light"/>. 
+   - Click on the <Button tool="daytona" type="primary" icon="daytona-workspace" viewBox="0 0 20 20" text="Workspaces" iconSize="1rem"/> tab and select one of the workspaces. On the right side of the workspace, click on the <Button icon="daytona-options" tool="daytona" iconSize="1rem"/> icon and at the dropdown menu, select `Open`. 
+   - After you select <Button tool="daytona" icon="daytona-browser" text="Open" iconSize="1.2rem" color="gray"/>, choose <Button tool="daytona" text="VS Code" icon="vscode-logo" viewBox="0 0 128 128" rightIcon="chevron-down-light"/> as your code editor in the popup modal (You may choose others, but in this guide we will need VS Code). And then click on the button <Button tool="vscode" text="Open"/> on the popup window with the title "Open \<your-selected-workspace's-name\>".
 
 <span class="content-subtitle">
 3. **Respond to permissions**
