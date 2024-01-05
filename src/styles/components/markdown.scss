@@ -253,7 +253,7 @@
     pre {
       border: none;
     }
-    .expressive-code pre > code {
+     pre > code {
       padding: 16px 0;
     }
     .ec-line {
@@ -262,6 +262,33 @@
       font-weight: 400;
       line-height: 1.6;
       letter-spacing: -0.035rem;
+    }
+    .copy {
+      background: unset;
+      opacity: 1;
+      button {
+        opacity: 1;
+        background-color: var(--block-bg-color);
+
+        &:after {
+          background-color: var(--secondary-text-color);
+          mask-image: url('/src/assets/icons/copy.svg');
+        }
+
+        &:before {
+          border: none;
+          opacity: 1;
+        }
+
+        &:hover {
+          div {
+            opacity: 0;
+          }
+          &:after {
+            background-color: var(--hover-color);
+          }
+        }
+      }
     }
   }
 }
