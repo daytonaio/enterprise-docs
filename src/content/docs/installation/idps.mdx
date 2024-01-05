@@ -331,6 +331,11 @@ To confirm the identity provider is working properly, open your Daytona dashboar
 </content>
 </details>
 
+### Organisation access
+No further configuration is required. 
+
+On Gitlab, organisations are referred to as `Groups`(where users can manage members with shared repositories). No extra configuration is needed to access `Groups` on Gitlab when you are using Daytona. Once you are signed in to your Daytona dashboard via Gitlab account, you can access all the `Groups`.
+
 
 <hr/>
 
@@ -510,12 +515,16 @@ To confirm BitBucket is working properly with Daytona, open your Daytona dashboa
 
 _These permissions will allow Daytona to authenticate your BitBucket account during account creation and log in process,  access your workspace membership, find team members, access your repositories to create workspace whenever you are using Daytona._
 
+### Organisation access
+No further configuration is required. 
+
+In BitBucket, organizations are referred to as `Workspace` and workspace members are managed under `Access management`(in workspace settings). When you log in to a BitBucket account and start to work on a repository by default you will be working in a `Workspace`(in BitBucket). Once you added BitBucket as an identity provider and configured it as above, your Daytona installation will be able to access all your workspaces.
 
 
 
 ## Disable identity provider
 
-In this section, we will walk you through how to disable identity provider on Keycloak for your Daytona installation. 
+In this section, we will walk you through how to disable an identity provider on Keycloak for your Daytona installation. 
 
 1. **Log into Keycloak**: Go onto `https://id.<your-dashboard-url>` in the browser and click on `Administration Console`, then log in with the credentials you've obtained while installing Daytona on your infrastructure.
 
