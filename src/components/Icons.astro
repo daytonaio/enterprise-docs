@@ -11,7 +11,7 @@ interface Props {
 	strokeWidth?: number;
 }
 
-const {  icon, label, size = '1em', color,viewBox, strokeWidth } = Astro.props;
+const {  icon, label, size, color,viewBox, strokeWidth } = Astro.props;
 const a11yAttrs = label ? ({ 'aria-label': label } as const) : ({ 'aria-hidden': 'true' } as const);
 ---
 

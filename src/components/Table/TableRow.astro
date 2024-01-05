@@ -8,15 +8,15 @@ const {contents} = Astro.props
 
 {!Array.isArray(contents) ? 
 (<tr class="table-row">
-    <td>{contents ? contents : <slot/>}</td>
+    <td class="table-data">{contents ? contents : <slot/>}</td>
    {<slot name="html"/> && <td><slot name="html"/></td> }
     </tr>)
 :
 
-(<tr>
+(<tr class="table-row">
     
    {contents ? (contents.map((content) => {
-    <td>{content}</td>
+    <td class="table-data">{content}</td>
    })) : (<slot/>)}
 </tr>)
 }
