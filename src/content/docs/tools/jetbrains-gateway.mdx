@@ -1,6 +1,6 @@
 ---
 title: JetBrains Gateway Tools and Resources
-description: Add a brief description of the JetBrains Gateway Tools and Resources page here
+description: Using JetBrains Gateway with Daytona installation 
 sidebar:
   label: JetBrains Gateway
 ---
@@ -52,9 +52,9 @@ This package will help you connect with JetBrains Gateway. If you click on it di
 
 4. **Select the Daytona Gateway Plugin Package**: After you click on <Icon icon="jetbrains-plugin" class="icon-display"/> `Install Plugin from Disk`, your default File Explorer will pop up. You will need to locate where the [Daytona JetBrains Gateway Plugin Package](https://download.daytona.io/jetbrains/gateway/latest/jetbrains-gateway-daytona-plugin-latest.jar) is to install it on to JetBrains Gateway Client. Find the Daytona Gateway Plugin Package you downloaded(in the pop-up file explorer) earlier to open it. JetBrains Gateway will install the package automatically.
 
-5. **Finish installation**: JetBrains Gateway will navigate you back to the `Plugins` page. You will see the Daytona Gateway Plugin Package is installed (under the search bar `/downloaded`). Click on the blue `OK` button at the bottom right to close the plugin window. 
+5. **Finish installation**: JetBrains Gateway will navigate you back to the `Plugins` screen. You will see the Daytona Gateway Plugin Package is installed (under the search bar `/downloaded`). Click on the blue `OK` button at the bottom right to close the plugin window. 
 
-_After you click on the `OK` button, JetBrains will bring you back to the `Welcome to JetBrains Gateway` page. You are now ready to connect to your Daytona workspace._
+_After you click on the `OK` button, JetBrains will bring you back to the `Welcome to JetBrains Gateway` screen. You are now ready to connect to your Daytona workspace._
 
 ### Establishing a connection 
 
@@ -184,11 +184,11 @@ ssh <username>@<host> -p <port-number> -o StrictHostKeyChecking=no
 </TabItem> 
 </Tabs>
 
-_After these steps, your Daytona installation with JetBrains Gateway is established. you will be navigated to Daytona's configuration page on JetBrains Gateway, which includes your team name, GitHub username etc. We will talk about them in the next section._
+_After these steps, your Daytona installation with JetBrains Gateway is established. you will be navigated to Daytona's configuration screen on JetBrains Gateway, which includes your team name, GitHub username, etc. We will talk about them in the next section._
 
 ## Features
 
-Now that you have established the connection between your Daytona installation and JetBrains Gateway, you can navigate to Daytona's configuration page by clicking on the `Connect` button under Daytona on the welcome page. In this section, we will walk you through the features of Daytona's JetBrains Gateway Plugin, including how to create, manage, and use your [workspace](/usage/workspaces), how to manage team, profile information and more.
+Now that you have established the connection between your Daytona installation and JetBrains Gateway, you can navigate to Daytona's configuration screen by clicking on the `Connect` button under Daytona on the welcome screen. In this section, we will walk you through the features of Daytona's JetBrains Gateway Plugin, including how to create, manage, and use your [workspace](/usage/workspaces), how to manage team, profile information and more.
 
 ### Creating workspaces
 
@@ -196,8 +196,8 @@ Each [workspace](/usage/workspaces) created on Daytona is isolated in their own 
 
 {/*TODO: Second tier ordered list font colors are not correct, this spacing error will disappear if this comment is removed*/}
 
-- **Create a workspace**: 
-Within the Daytona configuration screen in JetBrains Gateway (the screen that shows up after you click on `Connect to Daytona` on the welcome screen), there are two ways to create a workspaces:
+- **Create a workspace** <br/>
+Within the Daytona configuration screen in JetBrains Gateway (the screen that shows up after you click on `Connect to Daytona` on the welcome screen), there are two ways to create a workspace:
 
 - 1. **Create via repository URL**: In the input field `or enter a public repository URL`, you can paste in a repository you have access to, be it a public repository or private repository you own. Then click on `New Workspace` to create a workspace.
 
@@ -233,9 +233,9 @@ Within the Daytona configuration screen in JetBrains Gateway (the screen that sh
 
 ### Managing profiles
 
-Different profiles are equivalent to different Daytona installations, which might associated with your organization, or be personal, identifiable by your Daytona URL. Profile related configuration is located next to `Profile:` on JetBrains Gateway's Daytona configuration screen. 
+Different profiles are equivalent to different Daytona installations, which might associated with your organization, or be personal, identifiable by your Daytona URL. profile-related configuration is located next to `Profile:` on JetBrains Gateway's Daytona configuration screen. 
 
-- **Checking profiles**: Next to the `Profiles:`, click on the dropdown menu, you will see all your available profiles. Note that workspaces are correlated to your Daytona installation(aka profile), if you switch your profile you won't see the same workspace on previous selected profile. 
+- **Checking profiles**: Next to the `Profiles:`, click on the dropdown menu, you will see all your available profiles. Note that workspaces are correlated to your Daytona installation(aka profile), if you switch your profile you won't see the same workspace on previously selected profile. 
 
 - **Adding a profile**:
 
@@ -252,7 +252,7 @@ Different profiles are equivalent to different Daytona installations, which migh
 
 ### Managing teams
 
-At the moment, you can only manage team-related information on your Daytona dashboard. Note that your workspaces are correlated to your team. If you switch to another team (say Team B), you won't be seeing workspaces created on previous team(say Team A).
+At the moment, you can only manage team-related information on your Daytona dashboard. Note that your workspaces are correlated to your team. If you switch to another team (say Team B), you won't be seeing workspaces created on the previous team(say Team A).
 
 - **Switching team**: You can see all the teams on the Daytona configuration screen on JetBrains Gateway. Next to the field `Teams:`, click on the dropdown menu to check what team exists with your account, or switch to another team. 
 
@@ -260,3 +260,8 @@ At the moment, you can only manage team-related information on your Daytona dash
 
 ## Remove Daytona from JetBrains Gateway
 
+1. Open JetBrains Gateway, on the welcome screen, select the <Icon icon="jetbrains-inline-setting" class="icon-display" /> setting icon at the bottom left corner and choose `Manage Providers` from the dropdown menu. 
+
+2. On the plugins screen, you should be able to see `Daytona Gateway` under the search result `/downloaded`, click on it. On the right side of the screen, you should see a <Icon icon="chevron-down-dark" class="icon-display"/> button next to `Disable` (you can click on `Disable` to disable it). Click on <Icon icon="chevron-down-dark" class="icon-display" /> and choose `Uninstall` from the dropdown menu. 
+
+3. A pop-up window `Uninstall Plugin` will show up asking you "Are you sure you want to uninstall the plugin 'Daytona Gateway'?", select `Yes`. After you click on `Yes`, you will be back to the plugins screen, click on the bottom right `OK`. Then JetBrains Gateway will ask you "Restart JetBrains Gateway to apply changes in plugins?", click on `Restart` to take effect of the uninstallation. 
