@@ -224,4 +224,44 @@
       }
     }
   }
+  .expressive-code {
+    border: 1px solid var(--border-extra);
+    border-radius: 3px;
+
+    .frame.is-terminal .header {
+
+      border: none;
+      background: var(--block-bg-color);
+      border-bottom: 1px solid var(--border-extra);
+      color: var(--secondary-text-color);
+
+      &:before {
+        left: 8px;
+        height: 8px;
+        opacity: 1;
+        background-color: var(--border-extra);
+      }
+
+      &:after {
+        content: none;
+      }
+    }
+
+    .frame pre {
+      background: var(--block-bg-color);
+    }
+    pre {
+      border: none;
+    }
+    .expressive-code pre > code {
+      padding: 16px 0;
+    }
+    .ec-line {
+      font-family: 'Berkeley Mono', monospace;
+      font-size: 0.875rem;
+      font-weight: 400;
+      line-height: 1.6;
+      letter-spacing: -0.035rem;
+    }
+  }
 }

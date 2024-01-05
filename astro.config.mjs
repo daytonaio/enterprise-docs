@@ -1,9 +1,16 @@
+import fs from 'node:fs';
 import { loadEnv } from 'vite'
 import { defineConfig } from 'astro/config';
 import starlight from '@astrojs/starlight';
 import node from '@astrojs/node'
+import { ExpressiveCodeTheme } from '@astrojs/starlight/expressive-code';
 
 const { PUBLIC_WEB_URL } = loadEnv(import.meta.env.MODE, process.cwd(), '')
+
+const jsonDarkString = fs.readFileSync(new URL(`src/assets/themes/daytona-code-dark.json`, import.meta.url), 'utf-8');
+const jsonLightString = fs.readFileSync(new URL(`src/assets/themes/daytona-code-light.json`, import.meta.url), 'utf-8');
+const myThemeDark = ExpressiveCodeTheme.fromJSONString(jsonDarkString);
+const myThemeLight = ExpressiveCodeTheme.fromJSONString(jsonLightString);
 
 // https://astro.build/config
 export default defineConfig({
@@ -210,6 +217,9 @@ export default defineConfig({
       ThemeProvider: './src/components/ThemeProvider.astro',
       ThemeSelect: './src/components/ThemeSelect.astro'
     },
+    expressiveCode: {
+      themes: [myThemeDark, myThemeLight],
+    }
   })],
   output: 'hybrid',
   adapter: node({
