@@ -169,11 +169,11 @@ Each [workspace](/usage/workspaces) created is isolated in its environment, even
 
 - **Opening workspaces**: You can hover on top of the selected workspace's name and click on the <Icon icon="arrow-right" class="icon-display" color="black" strokeWidth="0.1"/> button, or right-click on the workspace to select `Open` from the dropdown menu. It will start building the development container remotely. You will be able to work on it upon finishing. If you want to open this workspace in a new window, click on the <Icon icon="new-folder" class="icon-display" color="black" strokeWidth="0.1"/>button when you hover on top of a workspace, or right-click on a workspace and select `Open in New Window`. 
 
-- **Granting access to Git provider's organisation access**: Organization members can always request that an owner approve access to organization resources for Daytona, and organization owners receive notification of pending requests. For further information, check [here](https://docs.github.com/en/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-your-membership-in-organizations/requesting-organization-approval-for-oauth-apps). After you added additional organisation, their
+- **Granting access to Git provider's organization access**: Organization members can always request that an owner approve access to organization resources for Daytona, and organization owners receive notification of pending requests. For further information, check [here](https://docs.github.com/en/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-your-membership-in-organizations/requesting-organization-approval-for-oauth-apps). After you added additional organization, their
 
 - **Connecting via SSH**: Alternatively, if you want to connect to a workspace via SSH, you can start a workspace on the Daytona dashboard(select the workspace, click on `𓈓` and select `Start` on the dropdown menu), select the workspace and click on `
 
-- **Copy ID**: The same repositories might be created under different environments in different workspaces, and if they are using the same name, it will become confusing to recognise for you or your team members. To take notes of different workspaces, right-click on one of them and click `Copy ID`. Your workspace's ID will always be in the format of `your-repository-name + random string`.
+- **Copy ID**: The same repositories might be created under different environments in different workspaces, and if they are using the same name, it will become confusing to recognize for you or your team members. To take notes of different workspaces, right-click on one of them and click `Copy ID`. Your workspace's ID will always be in the format of `your-repository-name + random string`.
 
 - **Stopping a workspace**: Right-click on the workspace and select `Stop`, it will stop a workspace(its environment) and the remote connection with your Daytona instance. When you need to come back and work on it again, you need to click `Open`.
 
@@ -395,7 +395,7 @@ ssh-rsa LongRandomStringWithSlash/slash/randomString== your_email@example.com
 </tr>
 <tr>
 <td>Name</td>
-<td>Required input. You can create a unique name in this field and it is not correlated to the value of the key. This field will be displayed on the `SSH Keys` page to help you recognise which key was added. Recommend naming it by machine name, user name, and algorithm for better recognition, ex: `MacOs-James-rsa`.</td>
+<td>Required input. You can create a unique name in this field and it is not correlated to the value of the key. This field will be displayed on the `SSH Keys` page to help you recognize which key was added. Recommend naming it by machine name, user name, and algorithm for better recognition, ex: `MacOs-James-rsa`.</td>
 </tr>
 <tr>
 <td>Key</td>
@@ -403,7 +403,7 @@ ssh-rsa LongRandomStringWithSlash/slash/randomString== your_email@example.com
 </tr>
 <tr>
 <td>Expiration Date</td>
-<td>Optional input. If your organisation requires you to [rotate your SSH keys](https://cheatsheetseries.owasp.org/cheatsheets/Secrets_Management_Cheat_Sheet.html#272-rotation) with a certain expiration date, you can set it here and it will expire timely. </td>
+<td>Optional input. If your organization requires you to [rotate your SSH keys](https://cheatsheetseries.owasp.org/cheatsheets/Secrets_Management_Cheat_Sheet.html#272-rotation) with a certain expiration date, you can set it here and it will expire timely. </td>
 </tr>
 </table>
 
@@ -501,7 +501,7 @@ This command will remove other SSH configurations related to Daytona and created
 rm -rf ~/.daytona
 ```
 
-This command will remove the directory in which we store your profile, default configurations, URL and redirect URL to open when you are granting permission to connect local VS Code to Daytona. 
+This command will remove the directory in which we store your profile, default configurations, URL, and redirect URL to open when you are granting permission to connect local VS Code to Daytona. 
    
 
 _After these two steps, you will have a clean setup and have removed all files that are related to Daytona on your computer. However, if you are looking to uninstall and clean up your Daytona deployment, check [this uninstallation guide](/installation/uninstall)._
