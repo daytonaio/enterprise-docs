@@ -266,6 +266,7 @@
     .copy {
       background: unset;
       opacity: 1;
+      inset-block-start: 0.7rem;
       button {
         opacity: 1;
         background-color: var(--block-bg-color);
