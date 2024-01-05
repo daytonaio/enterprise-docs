@@ -104,8 +104,8 @@ export default defineConfig({
         "label": "JetBrains Gateway",
         "link": "/tools/jetbrains-gateway/"
       }, {
-        "label": "Miscellaneous",
-        "link": "/tools/miscellaneous/"
+        "label": "Neovim",
+        "link": "/tools/neovim/"
       }]
     },
     {
