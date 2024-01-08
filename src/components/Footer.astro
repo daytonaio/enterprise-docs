@@ -27,9 +27,11 @@ import ThemeSelect from "./ThemeSelect.astro";
 
     <div class="docs-footer__container__bottom">
         <div class="docs-footer__container__bottom-block">
-            <p>© {new Date().getFullYear()} Daytona Platform Inc.</p>
-            <ThemeSelect />
+            <div><p>© {new Date().getFullYear()} Daytona Platform Inc.</p></div>
+            <div class="divider"></div>
         </div>
+
+        <ThemeSelect />
 
         <div class="menu-list">
             <a href="https://www.daytona.io/company/privacy-policys">Privacy policy</a
