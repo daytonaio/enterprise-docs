@@ -251,27 +251,33 @@
     border: 1px solid var(--border-extra);
     border-radius: 3px;
 
-    .frame.is-terminal .header {
+    .frame.is-terminal {
+      .header {
 
-      border: none;
-      background: var(--block-bg-color);
-      border-bottom: 1px solid var(--border-extra);
-      color: var(--secondary-text-color);
+        border: none;
+        background: var(--bg-color);
+        border-bottom: 1px solid var(--border-extra);
+        color: var(--secondary-text-color);
 
-      &:before {
-        left: 8px;
-        height: 8px;
-        opacity: 1;
-        background-color: var(--border-extra);
+        &:before {
+          left: 8px;
+          height: 8px;
+          opacity: 1;
+          background-color: var(--border-extra);
+        }
+
+        &:after {
+          content: none;
+        }
       }
 
-      &:after {
-        content: none;
+      .copy {
+        --button-spacing: 44px;
       }
     }
 
     .frame pre {
-      background: var(--block-bg-color);
+      background: var(--bg-color);
     }
     pre {
       border: none;
@@ -289,10 +295,10 @@
     .copy {
       background: unset;
       opacity: 1;
-      inset-block-start: 0.7rem;
+      --button-spacing: 0.5rem;
       button {
         opacity: 1;
-        background-color: var(--block-bg-color);
+        background-color: var(--bg-color);
 
         &:after {
           background-color: var(--secondary-text-color);
