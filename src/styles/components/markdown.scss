@@ -2,7 +2,7 @@
   > * {
     margin-bottom: 60px;
     @include for-mobile-screen-sizes {
-      margin: 40px
+      margin-bottom: 40px
     }
   }
 
@@ -63,7 +63,7 @@
     margin-bottom: 60px;
 
     @include for-mobile-screen-sizes {
-      margin: 40px
+      margin-bottom: 40px
     }
   }
 
