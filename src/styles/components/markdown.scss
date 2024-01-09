@@ -275,6 +275,12 @@
         --button-spacing: 44px;
       }
     }
+    .copy .feedback {
+      background-color: var(--hover-color);
+      &:after {
+        border-inline-start-color: var(--hover-color);
+      }
+    }
 
     .frame pre {
       background: var(--bg-color);
