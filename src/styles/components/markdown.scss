@@ -1,5 +1,5 @@
 .markdown-content {
-  > * {
+  > :not(h1,h2,h3,h4,h5,h6,p){
     margin-bottom: 60px;
     @include for-mobile-screen-sizes {
       margin-bottom: 40px
@@ -23,13 +23,9 @@
       }
     }
   }
-  > h1 {
-    margin-bottom: 60px;
-  }
 
   > h2 {
     position: relative;
-    margin-bottom: 32px;
     &:before {
       content: '#';
       position: absolute;
@@ -45,14 +41,6 @@
         content: '';
       }
     }
-  }
-
-  > h3 {
-    margin-bottom: 20px;
-  }
-
-  > h5 {
-    margin-bottom: 16px;
   }
 
   > h6 + p {
