@@ -8,13 +8,14 @@ sidebar:
 import { Tabs, TabItem, LinkCard, CardGrid, Card } from '@astrojs/starlight/components';
 import Icon  from "../../../components/Icons.astro"
 import Button from "../../../components/buttons/IdeButton.astro"
-
-
+import VscodePanel from "../../../components/VscodePanel.astro"
+import VscodeNotification from "../../../components/VscodeNotification.astro"
+import VscodePanelExplain from "../../../components/VscodePanelExplain.astro"
 
 
 Daytona's VS Code extension integrates Visual Studio Code, appearing as a tab on the left-hand side alongside your default tabs in VS Code like File Explorer, Search, Source Control, etc,  to streamline your workflow and boost productivity.
 
-The extension allows you to have a frictionless experience of opening a standardised development environment, creating and accessing your [Daytona Workspaces](/usage/workspaces) based on git repositories. It offers convenient [workspace](/usage/workspaces) management, profile control, and instant team information access -- all directly within VS Code, removing the hassle of going to a web browser, opening the Daytona URL and creating projects upon initial configuration. 
+The extension allows you to have a frictionless experience of opening a standardized development environment, creating and accessing your [Daytona Workspaces](/usage/workspaces) based on git repositories. It offers convenient [workspace](/usage/workspaces) management, profile control, and instant team information access -- all directly within VS Code, removing the hassle of going to a web browser, opening the Daytona URL and creating projects upon initial configuration. 
 
 
 
@@ -92,9 +93,7 @@ Once you have Daytona extension installed on your VS Code, you can click on the 
 3. On the next page where it shows `Grant Access to Visual Studio Code`, click on `Yes` after you confirm the access privileges shown on the page(typically email address, user profile and user roles). Choose `Open "Visual Studio Code"` on the pop-up window `"id.<your-dashboard-url>" wants to open "Visual Studio Code"` and then choose `Open` when asked `Allow 'Daytona' extension to open this URI?`(your notification at the bottom right might show `Getting user info`, `Sign in successful` indicating the process of creating a profile/connecting to an installation)
 
 #### Option 2: connect from Daytona dashboard
-<span class="content-subtitle not-content">
 1. **Sign in to the dashboard and select a workspace**
-</span>
 
 - Visit your Daytona dashboard URL and make sure you are on the `Workspaces` tab. 
 
@@ -236,11 +235,16 @@ This feature currently doesn't support webhook consumption.
 To create a shareable live preview link, you will need Daytona's VS Code extension installed within a workspace. We will walk you through it step by step below. Before we start, make sure you have gone through the [installation guide](#how-to-install) and know how to [open a workspace](#managing-workspaces) above. 
 
 1. **Starting a workspace**: To start a workspace, hover under one of the workspaces under the `WORKSPACES` section and click on `→` or the file icon. You will also need to sign in to your Daytona dashboard and grant permissions if you haven't done so.
-2. **Install Daytona extension**: Within the opened workspace(where you should be seeing `<repository-name> [SSH:<workspace-id>.ssh.<dashboard-url>:30000]` on top of the editor groups, indicating you are connected to a workspace), you will need to install the Daytona extension following the [installation](#how-to-install) guide. To confirm the installation is successful in this workspace, check if you can see `DAYTONA PORTS` next to the `TERMINAL` and `PORTS` tab in the panel section(below the editor group). This button will only show when you are working and connected to a workspace.
 
+2. **Install Daytona extension**: Within the opened workspace(where you should be seeing `<repository-name> [SSH:<workspace-id>.ssh.<dashboard-url>:30000]` on top of the editor groups, indicating you are connected to a workspace), you will need to install the Daytona extension following the [installation](#how-to-install) guide. To confirm the installation is successful in this workspace, check if you can see `DAYTONA PORTS` next to the `TERMINAL` and `PORTS` tab in the panel section(below the editor group). This button will only show when you are working and connected to a workspace.
+<VscodePanel/>
 
 
 3. **Starting a port**: Depending on your application, you will need to run `npm run dev` or `pnpm run dev` to start a local development server. When the port is opened, two notifications will pop up for a **local live preview**: 
+
+<VscodeNotification notification="Port 4321 is now available." source="Daytona (Extension)" />
+<VscodeNotification notification="Your application running on port 4321 is available" notificationLink="See all forwarded ports"/>
+
 
    - **Local preview link**: If you click on `Open in Browser` it will open the live preview link in your default browser, or you can open it within the editor by clicking `Preview in Editor`. 
    - **Shareable preview link**: On the notification that shows `Source: Daytona (Extension)`, click on `Open in Browser` button and your default browser will open with a shareable link, or you can open it in the editor by clicking on `Preview in Editor`. 
@@ -253,7 +257,10 @@ To create a shareable live preview link, you will need Daytona's VS Code extensi
 
 4. **DAYTONA PORTS**: In case you forget to click on the popup notification and miss the link, you can also click on the `DAYTONA PORTS` after the port is opened locally, and you should see the public address of the port. You can click on the <Icon icon="vscode-lock" class="icon-display" /> icon to make the URL publicly available.
 
+<VscodePanel panelExists="true"/>
 
+   
+<VscodePanelExplain />
    
 
 
