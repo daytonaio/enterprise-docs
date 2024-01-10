@@ -108,13 +108,7 @@ export default defineConfig({
         "link": "/tools/neovim/"
       }]
     },
-    {
-      "label": "Contribution",
-      "items": [{
-        "label": "Guideline",
-        "link": "/contribution/guidelines",
-      }]
-    }
+    
     ],
     tableOfContents: { minHeadingLevel: 2, maxHeadingLevel: 2 },
     customCss: ['./src/fonts/font-face.css', './src/styles/style.scss'],
