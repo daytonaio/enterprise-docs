@@ -215,7 +215,7 @@ Within the Daytona configuration screen in JetBrains Gateway (the screen that sh
 - **Working in a workspace**
 
 - 1. **Linux terminal**: Once you are working on a workspace in an IDE and start a terminal session within the IDE, you can treat it like a Linux terminal (because it is one). You can install software, or use Docker within the terminal. 
-- 2. **Debugging**: On the top right side of the IDE, you can click on the debug button <Icon icon="jetbrains-debug" class="icon-display"/> to debug your code. The debug panel at the bottom will show you the debugging log, the same as how you'd do it locally. If any extension is suggested to install within the IDE, you can also install them on the workspace and they will be persisted.
+- 2. **Debugging**: On the top right side of the IDE, you can click on the debug button <Icon icon="jetbrains-debug" class="icon-display"/> (on the top right side of code editor window) to debug your code. The debug panel at the bottom will show you the debugging log, the same as how you'd do it locally. If any extension is suggested to install within the IDE, you can also install them on the workspace and they will be persisted.
 - 3. **Live preview link**: If you are working on a web application (port forwarding is supported), you can run `npm run dev` (or other commands) to start the local development server. Once the server is up and running, you can either click on the URL that shows up in the terminal to see the application locally (you can only see live change if your application enabled hot module replacement([HMR](https://webpack.js.org/concepts/hot-module-replacement/)), if not, you can only see changes after restarting the server).
 
 {/*TODO: This feature isn't yet built, put this back after it is built*/}
@@ -239,7 +239,7 @@ Different profiles are equivalent to different Daytona installations, which migh
 
 - **Adding a profile**:
 
-- 1. Click on the <Icon icon="jetbrains-add-profile" class="icon-display"/> button next to the <Icon icon="jetbrains-edit" class="icon-display"/>. On the pop-up window, you will need to input `Name`(being displayed on Daytona's JetBrains Gateway configuration page, use a domain name for ease of recognition) and `Base Api URL`(your Daytona dashboard URL, no subdomain required. For example: if your Daytona dashboard URL is `https://daytona.com`, the input for this field would be `daytona.com`). 
+- 1. Click on the <Icon icon="jetbrains-add-profile" class="icon-display"/> button next to the <Icon icon="jetbrains-edit" class="icon-display" />. On the pop-up window, you will need to input `Name`(being displayed on Daytona's JetBrains Gateway configuration page, use a domain name for ease of recognition) and `Base Api URL`(your Daytona dashboard URL, no subdomain required. For example: if your Daytona dashboard URL is `https://daytona.com`, the input for this field would be `daytona.com`). 
 
 - 2. After inputting the information, click on `New`. You will then be redirected to your Daytona dashboard's signin page to select an identity provider to sign in. Depending on whether you have a session that exists(that you are signed in) with your identity provider, you may be redirected to your identity provider(Github, Gitlab, BitBucket) to sign in. 
 

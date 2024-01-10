@@ -6,12 +6,6 @@ sidebar:
   label: VS Code Extension
 ---
 import { Tabs, TabItem, LinkCard, CardGrid, Card } from '@astrojs/starlight/components';
-import Keyboard from "../../../components/Keyboard.astro"
-import Table from "../../../components/Table/Table.astro"
-import TableRow from "../../../components/Table/TableRow.astro"
-import VscodePanel from "../../../components/VscodePanel.astro"
-import VscodeNotification from "../../../components/VscodeNotification.astro"
-import VscodePanelExplain from "../../../components/VscodePanelExplain.astro"
 import Icon  from "../../../components/Icons.astro"
 import Button from "../../../components/buttons/IdeButton.astro"
 
@@ -60,14 +54,16 @@ Installing the Daytona VS Code extension is simple. You have two options to choo
 1. **Open VS Code**: Within VS Code, navigate to the Extension tab in VS Code or use the shortcut keys:
 
 
-<Table>
-<TableRow contents="Windows :" >
-<Keyboard shortcuts={["Ctrl ^", "Shift ⇧", "X"]} slot="html"/>
-</TableRow>
-<TableRow contents="MacOS: ">
-<Keyboard shortcuts={["Command ⌘", "Shift ⇧", "X"]} slot="html"/>
-</TableRow>
-</Table>
+<table>
+<tr>
+<td> WIndows : </td>
+<td> `Ctrl ^` + `Shift ⇧` + `X`</td>
+</tr>
+<tr>
+<td>MacOS: </td>
+<td> `Command ⌘` + `Shift ⇧` + `X`</td>
+</tr>
+</table>
 
 2. **Search "Daytona"**: Within VS Code's extension tab, search "Daytona" in the extension marketplace, you will find the extension with our logo. 
 
@@ -89,7 +85,7 @@ At this stage, if you click on your Daytona extension tab, you will see the sect
 
 Once you have Daytona extension installed on your VS Code, you can click on the extension(on the side panel of your VS Code) and then hover on <Button text="PROFILES" tool="vscode" font="bold" type="normal" icon="chevron-down-dark"/> to click on <Icon icon="vscode-add" class="icon-display" /> to establish your first connection. 
 
-1. Hover on <Button text="PROFILES" tool="vscode" font="bold" type="normal" icon="chevron-down-dark"/> and click on the <Icon icon="vscode-add" class="icon-display"/>. You will be first asked for a profile name on top of VS Code(enter a recognizable name, we'd recommend using the domain name), and then a Base URL(enter your Daytona dashboard URL). Both of which require you to hit <Keyboard shortcuts="Space ␣" /> to continue. 
+1. Hover on <Button text="PROFILES" tool="vscode" font="bold" type="normal" icon="chevron-down-dark"/> and click on the <Icon icon="vscode-add" class="icon-display"/>. You will be first asked for a profile name on top of VS Code(enter a recognizable name, we'd recommend using the domain name), and then a Base URL(enter your Daytona dashboard URL). Both of which require you to hit `Space ␣` to continue. 
 
 2. A pop-up window `The extension 'Daytona' wants to sign in using <your-domain-name>` will show up. Click `Allow`. Then you will be asked `Do you want Code to open the external website?`, click `Open` to continue. Your default browser will open a Daytona authentication page asking you `Please re-authenticate to continue`, and choose one of the identity providers.
 
@@ -218,7 +214,7 @@ Profiles are equivalent to a fresh, new Daytona instance installation. If you ch
 This process is similar to creating a connection with a Daytona installation.
 - 1. Hover on <Button text="PROFILES" tool="vscode" font="bold" type="normal" icon="chevron-down-dark"/> and click on the <Icon icon="vscode-add" class="icon-display"/>. You will be first asked for a profile name on top of VS Code(enter a recognizable name, we'd recommend using the domain name), and then a Base URL(enter your Daytona dashboard URL). 
 
-- 2. After you hit <Keyboard shortcuts="Space ␣" /> two times, a pop-up window `The extension 'Daytona' wants to sign in using <your-domain-name>` will show up. Click `Allow`. Then you will be asked `Do you want Code to open the external website?`, click `Open` to continue. Your default browser will open a Daytona authentication page asking you `Please re-authenticate to continue`, and choose one of the identity providers.
+- 2. After you hit `Space ␣` two times, a pop-up window `The extension 'Daytona' wants to sign in using <your-domain-name>` will show up. Click `Allow`. Then you will be asked `Do you want Code to open the external website?`, click `Open` to continue. Your default browser will open a Daytona authentication page asking you `Please re-authenticate to continue`, and choose one of the identity providers.
 
 - 3. On the next page where it shows `Grant Access to Visual Studio Code`, click on `Yes` after you confirm the access privileges shown on the page(typically email address, user profile and user roles). Choose `Open "Visual Studio Code"` on the pop-up window `"id.<your-dashboard-url>" wants to open "Visual Studio Code"` and then choose `Open` when asked `Allow 'Daytona' extension to open this URI?`(your notification at the bottom right might show `Getting user info`, `Sign in successful` indicating the process of creating a profile/connecting to an installation)
 
@@ -239,22 +235,12 @@ This feature currently doesn't support webhook consumption.
 
 To create a shareable live preview link, you will need Daytona's VS Code extension installed within a workspace. We will walk you through it step by step below. Before we start, make sure you have gone through the [installation guide](#how-to-install) and know how to [open a workspace](#managing-workspaces) above. 
 
-<span class="content-subtitle">
 1. **Starting a workspace**: To start a workspace, hover under one of the workspaces under the `WORKSPACES` section and click on `→` or the file icon. You will also need to sign in to your Daytona dashboard and grant permissions if you haven't done so.
-</span>
-
-<span class="content-subtitle">
 2. **Install Daytona extension**: Within the opened workspace(where you should be seeing `<repository-name> [SSH:<workspace-id>.ssh.<dashboard-url>:30000]` on top of the editor groups, indicating you are connected to a workspace), you will need to install the Daytona extension following the [installation](#how-to-install) guide. To confirm the installation is successful in this workspace, check if you can see `DAYTONA PORTS` next to the `TERMINAL` and `PORTS` tab in the panel section(below the editor group). This button will only show when you are working and connected to a workspace.
-<VscodePanel/>
 
 
-</span>
 
-<span class="content-subtitle">
 3. **Starting a port**: Depending on your application, you will need to run `npm run dev` or `pnpm run dev` to start a local development server. When the port is opened, two notifications will pop up for a **local live preview**: 
-</span>
-<VscodeNotification notification="Port 4321 is now available." source="Daytona (Extension)" />
-<VscodeNotification notification="Your application running on port 4321 is available" notificationLink="See all forwarded ports"/>
 
    - **Local preview link**: If you click on `Open in Browser` it will open the live preview link in your default browser, or you can open it within the editor by clicking `Preview in Editor`. 
    - **Shareable preview link**: On the notification that shows `Source: Daytona (Extension)`, click on `Open in Browser` button and your default browser will open with a shareable link, or you can open it in the editor by clicking on `Preview in Editor`. 
@@ -267,10 +253,8 @@ To create a shareable live preview link, you will need Daytona's VS Code extensi
 
 4. **DAYTONA PORTS**: In case you forget to click on the popup notification and miss the link, you can also click on the `DAYTONA PORTS` after the port is opened locally, and you should see the public address of the port. You can click on the <Icon icon="vscode-lock" class="icon-display" /> icon to make the URL publicly available.
 
-<VscodePanel panelExists="true"/>
 
    
-<VscodePanelExplain />
 
 
 ### Connect via SSH
@@ -307,7 +291,7 @@ The suffix `pub` at the end of the file path indicates this is a public key.
 If you receive an error that `~/.ssh` doesn't exist, you do not have an existing SSH pair in the default location. You can create a new SSH key pair in the [next step: Generate SSH Key](#generate-ssh-key).
 :::
 
-- **Copy SSH Key**: Use <Keyboard shortcuts={["Ctrl ^", "C"]}/> to copy one of the returned paths and then use <Keyboard shortcuts={["Ctrl ^", "V"]}/> to run this command in your terminal and also pasting the returned path:
+- **Copy SSH Key**: Use `Ctrl ^` + `C` to copy one of the returned paths and then use `Ctrl ^` + `V` to run this command in your terminal and also pasting the returned path:
 
 
 <Tabs>
@@ -459,7 +443,7 @@ If you already installed the Daytona VS Code extension, `Remote - SSH` extension
 
 - **Select SSH Config file**: Next, you will be prompted to `Select an SSH configuration file to update`, then select the first configuration file that looks like `/Users/username/.ssh/config`. 
 
-- **Open workspace folder**: After selecting the configuration file, a new VS Code window will open. By default, after you connect to a Daytona workspace, you are located in the root of the workspace. If you hit <Keyboard shortcuts={["Command ⌘", "O"]}/> or click on `Open Folder` under the `File Explorer` tab, you will see all the files, including dotfiles in this workspace, and a prompt asking for directory's path. To open the files you need to work on, type in `/workspaces/repository-name` to enter the folder by hitting keyboard <Keyboard shortcuts="Enter ⏎"/> or click on `OK` on the right side of the prompt. 
+- **Open workspace folder**: After selecting the configuration file, a new VS Code window will open. By default, after you connect to a Daytona workspace, you are located in the root of the workspace. If you hit `Command ⌘` + `O` or click on `Open Folder` under the `File Explorer` tab, you will see all the files, including dotfiles in this workspace, and a prompt asking for directory's path. To open the files you need to work on, type in `/workspaces/repository-name` to enter the folder by hitting keyboard `Enter ⏎` or click on `OK` on the right side of the prompt. 
 
 _After the steps above, you established an SSH connection with your Daytona installation and are ready to work in this workspace._
 
@@ -473,14 +457,16 @@ After installing the Daytona VS Code extension, there might be a point when you 
 
 In VS Code, navigate to the Extension tab or use the shortcut keys:
 
-<Table>
-<TableRow contents="Windows :" >
-<Keyboard shortcuts={["Ctrl ^", "Shift ⇧", "X"]} slot="html"/>
-</TableRow>
-<TableRow contents="MacOS: ">
-<Keyboard shortcuts={["Command ⌘", "Shift ⇧", "X"]} slot="html"/>
-</TableRow>
-</Table>
+<table>
+<tr>
+<td> WIndows : </td>
+<td> `Ctrl ^` + `Shift ⇧` + `X`</td>
+</tr>
+<tr>
+<td>MacOS: </td>
+<td> `Command ⌘` + `Shift ⇧` + `X`</td>
+</tr>
+</table>
 
 Search for `Daytona` in the extension marketplace, select the extension with our logo, and click on the button `Uninstall` on the `Extensions: Daytona` tab that shows up. This will only remove the extension within VS Code, for a clean uninstall you will need to continue to the next step.
 
@@ -499,7 +485,7 @@ nano ~/.ssh/config
 ```
 
 :::tip
-If you use [nano](https://www.nano-editor.org/), you might notice that your mouse is not working here and that's **expected in a terminal**. You can only move cursor around with arrow keys <Keyboard shortcuts="←"/> <Keyboard shortcuts="→"/> <Keyboard shortcuts="↑"/> <Keyboard shortcuts="↓"/> , and delete content using <Keyboard shortcuts="Delete ⌫"/> key.
+If you use [nano](https://www.nano-editor.org/), you might notice that your mouse is not working here and that's **expected in a terminal**. You can only move cursor around with arrow keys `←``→` `↑` `↓`, and delete content using `Delete ⌫` key.
 :::
 
 Or if you prefer using VS Code as your editor:

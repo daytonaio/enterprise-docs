@@ -6,10 +6,9 @@ sidebar:
 ---
 
 import Icon from "../../../components/Icons.astro"
-import Table from "../../../components/Table/Table.astro"
-import Keyboard from "../../../components/Keyboard.astro"
 
-{/*TODO: All these shit should be just a link click away to set up no? Related excalidraw: https://link.excalidraw.com/l/7LItosJ86GN/2bnFDQd3mNq*/}
+
+
 
 To enable IDPs(Identity Providers) on your Daytona installation, we utilize an open-source identity and access management application [Keycloak](https://www.Keycloak.org/) to add multiple identity providers. It will allow you to sign into your Daytona dashboard via different IDPs, create [workspaces](/usage/workspace) from different Git providers, and manage access scope, permissions, sessions, and events. Also, monitor and manage users within your organization with Daytona.
 
@@ -63,7 +62,7 @@ read:user user:email repo
 ```
 > - These three scopes will allow users to sign in via email, read GitHub users' information, and access signed-in users' repositories to gain read, write, and admin rights. 
 > - Toggle the fields `Store tokens` and `Trust Email` to turn them on. You can compare your information to the [table below](#github-and-Keycloak-configuration-details) to make sure the details are correctly configured. 
-> - If you want to type in scopes by yourself, remember to use <Keyboard shortcuts="Space ␣" /> to separate different scopes and not comma <Keyboard shortcuts="," />.
+> - If you want to type in scopes by yourself, remember to use `Space ␣` to separate different scopes instead of a comma `,`.
 
 7. **Save and enable GitHub**: After inputting all the information, click on `Save` at the bottom of Keycloak's Provider details page, then toggle `Disabled` on the top right side of the page to change it to `Enabled`. 
 
@@ -74,7 +73,7 @@ read:user user:email repo
 2. Then you will be redirected to a Daytona dashboard registration page to complete your profile setup, where you will need a username, email, first name, and last name. Once you confirm the submission, you will be able to sign in to your Daytona dashboard using Github as an identity provider and create workspaces using repositories in Github. 
 
 #### Full confirmation
-To confirm Github is working properly with Daytona, open your Daytona dashboard URL and check if you can see the button <Icon icon="github-logo" class="icon-display" viewBox="0 0 26 26" /> `Github` on the sign-in page, sign in via Github and on the `Workspaces` page (select on the left sidebar), click on <Icon icon="daytona-plus" class="icon-display" viewBox="0 0 20 20" /> `Create`. Select a workspace and click on `Create` to see if you can create a workspace based on the repository in Github.
+To confirm Github is working properly with Daytona, open your Daytona dashboard URL and check if you can see the button <Icon icon="github-logo" class="icon-display" viewBox="0 0 26 26" /> `Github` on the sign-in page, sign in via Github and on the `Workspaces` page (select on the left sidebar), click on <Icon icon="daytona-plus" class="icon-display" viewBox="0 0 20 20" /> `Create`. Select a repository, hover on top and click on `Create` (on the repository) to see if you can create a workspace based on that.
 
 {/*TODO: make this share the state with the link to here, if the link gets clicked, it should auto open*/}
 
@@ -196,7 +195,7 @@ If you choose another identity provider during the installation stage, you can s
 
 ### Configure GitLab in Keycloak
 
-1. **Log into GitLab**: Sign into Gitlab via this [link](https://gitlab.com/users/sign_in). After signing in, click on your profile at your home page on the top of the left sidebar next to the <Icon icon="gitlab-sidebar-visible" class="icon-display" />(keep sidebar visible) and <Icon icon="gitlab-plus" class="icon-display" /> (create new...) button. Under the dropdown menu, select `Preferences`.
+1. **Log into GitLab**: Sign into Gitlab via this [link](https://gitlab.com/users/sign_in). After signing in, click on your profile icon at your home page on the top of the left sidebar next to the <Icon icon="gitlab-sidebar-visible" class="icon-display" />(keep sidebar visible) and <Icon icon="gitlab-plus" class="icon-display" /> (create new...) button. Under the dropdown menu, select `Preferences`.
 
 2. **Create OAuth application**: Once you are on the `Preferences` page (make sure the sidebar is opened) in GitLab, click on <Icon icon="gitlab-applications" class="icon-display" /> `Applications` on the left sidebar. On the `Applications` page, click on `Add new application` under the `Your applications` page. 
 
@@ -215,7 +214,7 @@ profile email read_user write_repository read_repository openid api read_api
 ```
 > - These scopes will allow your Daytona installation to access the signed-in user's profile, email, and respective repository(allow Daytona to create [workspace](/usage/workspaces)), use OpenID to authenticate users during sign-in, read and access [GitLab's API](https://docs.gitlab.com/ee/api/api_resources.html) to work with workspaces. 
 > - Toggle the fields `Store tokens` and `Trust Email` to turn them on. You can compare your information to the [table below](#gitlab-and-keycloak-configuration-details) to make sure the details are correctly configured.
-> - If you want to type in scopes by yourself, remember to use <Keyboard shortcuts="Space ␣" /> to separate different scopes instead of a comma <Keyboard shortcuts="," />.
+> - If you want to type in scopes by yourself, remember to use `Space ␣` to separate different scopes instead of a comma `,`.
 
 9. **Enable GitLab**: After finishing the above steps, on Keycloak, click `Save` at the bottom of the page (on Keycloak), and then enable the identity provider (toggle the `Disabled` switch on the top right side of the page). 
 
@@ -346,7 +345,7 @@ In this section, we will guide you through how to configure BitBucket as your ad
 
 ### Configure BitBucket in Keycloak
 
-1. **Create OAuth Consumer on BitBucket**: You can sign into BitBucket with [this link](https://id.atlassian.com/login?application=bitbucket&continue=https://bitbucket.org/account/signin/?next%3D%252F%26redirectCount%3D1). After you sign in, click on the settings button <Icon icon="bitbucket-settings" class="icon-display" viewBox="0 0 24 24" /> on the top right, then in the dropdown menu select <span class="bitbucket-button"> <Icon icon="bitbucket-workspace-settings" class="icon-display" stroke="whitesmoke" strokeWidth="0.2" viewBox="0 0 24 24"/> </span> `Workspace settings`. On the `Workspace settings` page, scroll down and find `APPS AND FEATURES` section in the left sidebar. Under this section, click on `OAuth consumers` and then click on `Add consumer` on this page. 
+1. **Create OAuth Consumer on BitBucket**: You can sign into BitBucket with [this link](https://id.atlassian.com/login?application=bitbucket&continue=https://bitbucket.org/account/signin/?next%3D%252F%26redirectCount%3D1). After you sign in, click on the settings button <Icon icon="bitbucket-settings" class="icon-display" viewBox="0 0 24 24" /> on the top right, then in the dropdown menu select  <Icon icon="bitbucket-workspace-settings" class="icon-display" stroke="whitesmoke" strokeWidth="0.2" viewBox="0 0 20 20"/> `Workspace settings`. On the `Workspace settings` page, scroll down and find `APPS AND FEATURES` section in the left sidebar. Under this section, click on `OAuth consumers` and then click on `Add consumer` on this page. 
 
 2. **Log into Keycloak**: Open `https://id.<your-daytona-url>` and click on `Administration Console` on the front page, then sign in with the credentials you obtained from your installation (if you followed the [prerequisites](#prerequisites), you should have it by now). 
 
