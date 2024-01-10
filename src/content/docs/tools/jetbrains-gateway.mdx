@@ -5,7 +5,7 @@ sidebar:
   label: JetBrains Gateway
 ---
 import { Tabs, TabItem, LinkCard, CardGrid, Card } from '@astrojs/starlight/components';
-import Icon from "../../../components/Icons.astro"
+
 
 
 
@@ -46,11 +46,11 @@ This package will help you connect with JetBrains Gateway. If you click on it di
 
 
 
-2. **Select Managing Providers in JetBrains Gateway**: Open the JetBrains Gateway application, at the bottom left corner of the welcome screen, click on the <Icon class="icon-display" icon="jetbrains-inline-setting" strokeWidth="0.1"/>  settings button. At the dropdown menu after you click on the <Icon class="icon-display" icon="jetbrains-inline-setting" strokeWidth="0.1"/>  settings button, select `Managing Providers`.  
+2. **Select Managing Providers in JetBrains Gateway**: Open the JetBrains Gateway application, at the bottom left corner of the welcome screen, click on the settings button. At the dropdown menu after you click on the settings button, select `Managing Providers`.  
 
-3. **Install Plugin from Disk**: At the pop-up window `Plugins`(after you click on `Managing Providers`), click on the <Icon class="icon-display" icon="jetbrains-inline-setting" strokeWidth="0.1"/> settings button on the top next to `Installed`. At the dropdown menu, click on <Icon icon="jetbrains-plugin" class="icon-display"/>`Install Plugin from Disk` right below the option `Manage Plugin Certificates`.
+3. **Install Plugin from Disk**: At the pop-up window `Plugins`(after you click on `Managing Providers`), click on the settings button on the top next to `Installed`. At the dropdown menu, click on `Install Plugin from Disk` right below the option `Manage Plugin Certificates`.
 
-4. **Select the Daytona Gateway Plugin Package**: After you click on <Icon icon="jetbrains-plugin" class="icon-display"/> `Install Plugin from Disk`, your default File Explorer will pop up. You will need to locate where the [Daytona JetBrains Gateway Plugin Package](https://download.daytona.io/jetbrains/gateway/latest/jetbrains-gateway-daytona-plugin-latest.jar) is to install it on to JetBrains Gateway Client. Find the Daytona Gateway Plugin Package you downloaded (in the pop-up file explorer) earlier to open it. JetBrains Gateway will install the package automatically.
+4. **Select the Daytona Gateway Plugin Package**: After you click on `Install Plugin from Disk`, your default File Explorer will pop up. You will need to locate where the [Daytona JetBrains Gateway Plugin Package](https://download.daytona.io/jetbrains/gateway/latest/jetbrains-gateway-daytona-plugin-latest.jar) is to install it on to JetBrains Gateway Client. Find the Daytona Gateway Plugin Package you downloaded (in the pop-up file explorer) earlier to open it. JetBrains Gateway will install the package automatically.
 
 5. **Finish installation**: JetBrains Gateway will navigate you back to the `Plugins` screen. You will see the Daytona Gateway Plugin Package is installed (under the search bar `/downloaded`). Click on the blue `OK` button at the bottom right to close the plugin window. 
 
@@ -115,7 +115,7 @@ You don't have to install the selected editor on your local machine if you are u
 
 2. **Connect via dashboard URL**
 
-- In the next window, you will see a selection field for Profile with `<Create profile>`, a `Reconnect` button, and on the right side, a small, <Icon icon="jetbrains-add-profile" class="icon-display" /> `Add profile` button. Click on the <Icon icon="jetbrains-add-profile" class="icon-display"/> button to continue.
+- In the next window, you will see a selection field for Profile with `<Create profile>`, a `Reconnect` button, and on the right side, a small, `Add profile` button. Click on the `Add profile` button to continue.
 
 - You will see a pop-up window with two input fields: `Name`and `Base Api URL`. In the `Name` field, you can name your profile as you wish (It is recommended to use your domain name for ease of recognition). In the `Base Api URL` field, you will need to enter your Daytona dashboard URL (kept from [prerequisites](#prerequisites), for example `https://your-domain-name`). After you enter the URL, click on the green button `New` at the bottom left corner of the pop-up window. 
 
@@ -150,7 +150,7 @@ If you wish to connect to Daytona via SSH without the plugin, please follow the 
 
 3. **Add your public key to Daytona**
 
-- On your Daytona dashboard, click on the `SSH Keys` on the left-hand side menu. At the **SSH Keys** section, click on the <Icon icon="jetbrains-adds" class="icon-display" /> `Add` button. A pop-up window with two input fields and one selection field will show up: 
+- On your Daytona dashboard, click on the `SSH Keys` on the left-hand side menu. At the **SSH Keys** section, click on the `Add` button. A pop-up window with two input fields and one selection field will show up: 
   
     - **Name**: You can name your public key as you wish.
     - **Public Key**: Paste your public key from the previous step here.
@@ -206,26 +206,26 @@ Within the Daytona configuration screen in JetBrains Gateway (the screen that sh
 
 ### Managing workspaces
 
-- **Checking workspaces**: Workspaces that have been created on your Daytona dashboard will show up on the Daytona configuration screen under the section `Recent workspaces` with their status (whether it is started, created, or stopped). If a workspace has been started, the <Icon icon="jetbrains-circle" class="icon-display" /> will be lighted up on the left side of the workspace, you can see the workspace with `started xxx time ago`. 
+- **Checking workspaces**: Workspaces that have been created on your Daytona dashboard will show up on the Daytona configuration screen under the section `Recent workspaces` with their status (whether it is started, created, or stopped). If a workspace has been started, a circle will be lighted up on the left side of the workspace, you can see the workspace with `started xxx time ago`. 
 
-- **Pinning a workspace**: You can also pin the workspace (by clicking on the <Icon icon="jetbrains-pin" class="icon-display rotate-30" size="1.2rem"/> button) if you have a lot of workspaces being created, and you want to keep them visible on the configuration screen. 
+- **Pinning a workspace**: You can also pin the workspace (by clicking on the pin button) if you have a lot of workspaces being created, and you want to keep them visible on the configuration screen. 
 
-- **Opening workspaces**: On the Daytona configuration screen, you can click on a workspace's name that has been created (the ones under `Recent workspace`) to open a workspace, or you can open it by clicking on `Open` (after clicking on <Icon icon="jetbrains-dots" class="icon-display" /> button). On the next screen `Choose an IDE`, choose a JetBrains IDE you need to work on. It will take a couple of seconds to connect to the remote machine and local binary ready to open the workspace in your selected IDE. If you close the window that shows `Running` while it's getting ready, JetBrains Gateway will stop the remote connection. 
+- **Opening workspaces**: On the Daytona configuration screen, you can click on a workspace's name that has been created (the ones under `Recent workspace`) to open a workspace, or you can open it by clicking on `Open` (after clicking on the dots). On the next screen `Choose an IDE`, choose a JetBrains IDE you need to work on. It will take a couple of seconds to connect to the remote machine and local binary ready to open the workspace in your selected IDE. If you close the window that shows `Running` while it's getting ready, JetBrains Gateway will stop the remote connection. 
 
 - **Working in a workspace**
 
 - 1. **Linux terminal**: Once you are working on a workspace in an IDE and start a terminal session within the IDE, you can treat it like a Linux terminal (because it is one). You can install software, or use Docker within the terminal. 
-- 2. **Debugging**: On the top right side of the IDE, you can click on the debug button <Icon icon="jetbrains-debug" class="icon-display"/> to debug your code. The debug panel at the bottom will show you the debugging log, the same as how you'd do it locally. If any extension is suggested to install within the IDE, you can also install them on the workspace and they will be persisted.
+- 2. **Debugging**: On the top right side of the IDE, you can click on the debug button (on the top right) to debug your code. The debug panel at the bottom will show you the debugging log, the same as how you'd do it locally. If any extension is suggested to install within the IDE, you can also install them on the workspace and they will be persisted.
 - 3. **Live preview link**: If you are working on a web application (port forwarding is supported), you can run `npm run dev` (or other commands) to start the local development server. Once the server is up and running, you can either click on the URL that shows up in the terminal to see the application locally (you can only see live change if your application enabled hot module replacement([HMR](https://webpack.js.org/concepts/hot-module-replacement/)), if not, you can only see changes after restarting the server).
 
 {/*TODO: This feature isn't yet built, put this back after it is built*/}
 {/*- 4. **Sharing live preview link**: On the [tool window](https://www.jetbrains.com/help/webstorm/guided-tour-around-the-user-interface.html#tool-windows), you will see a message `Your application is running on port <port-number>` with a port number when the local development server is running. Click on the port number next to the <Icon icon="chevron-down-dark" class="icon-display"/> icon. From the dropdown menu, select `Forward Port and Open Browser`, you will see your default browser opened with a sharable link. Click on `Make public` to make sure the link is accessible to everyone on the internet. You can share this link for others to see live updates*/ }
 
-- **Stopping workspaces**: To stop a workspace, you can click on <Icon icon="jetbrains-dots" class="icon-display"/> and then click on `Stop`. Once a workspace is stopped, you can always bring it back by clicking on the `Open` button on the dropdown menu(after you click on <Icon icon="jetbrains-dots" class="icon-display"/> on one of the workspaces). 
+- **Stopping workspaces**: To stop a workspace, you can click on the dots `...` button and then click on `Stop`. Once a workspace is stopped, you can always bring it back by clicking on the `Open` button on the dropdown menu(after you click on the dots `...` button on one of the workspaces). 
 
 
 :::caution
-- **Destroying a workspace**: This action is irreversible. Once you destroy it, you will lose all the installation and previous environment setup, unless you have them specified in `.devcontainer.json`. You can do so by clicking on the <Icon icon="jetbrains-dots" class="icon-display" /> button on the selected workspace then select `Destroy`.
+- **Destroying a workspace**: This action is irreversible. Once you destroy it, you will lose all the installation and previous environment setup, unless you have them specified in `.devcontainer.json`. You can do so by clicking on the dots `...` button on the selected workspace then select `Destroy`.
 :::
 
 - **Granting access to organization access**: Organization members can always request that an owner approve access to organization resources for Daytona, and organization owners receive notification of pending requests. For further information, check [here](/installation/idps#). 
@@ -239,15 +239,15 @@ Different profiles are equivalent to different Daytona installations, which migh
 
 - **Adding a profile**:
 
-- 1. Click on the <Icon icon="jetbrains-add-profile" class="icon-display"/> button next to the <Icon icon="jetbrains-edit" class="icon-display"/>. On the pop-up window, you will need to input `Name`(being displayed on Daytona's JetBrains Gateway configuration page, use a domain name for ease of recognition) and `Base Api URL`(your Daytona dashboard URL, no subdomain required. For example: if your Daytona dashboard URL is `https://daytona.com`, the input for this field would be `daytona.com`). 
+- 1. Click on the `Add profile` button next to the `Edit` button. On the pop-up window, you will need to input `Name`(being displayed on Daytona's JetBrains Gateway configuration page, use a domain name for ease of recognition) and `Base Api URL`(your Daytona dashboard URL, no subdomain required. For example: if your Daytona dashboard URL is `https://daytona.com`, the input for this field would be `daytona.com`). 
 
 - 2. After inputting the information, click on `New`. You will then be redirected to your Daytona dashboard's signin page to select an identity provider to sign in. Depending on whether you have a session that exists(that you are signed in) with your identity provider, you may be redirected to your identity provider(Github, Gitlab, BitBucket) to sign in. 
 
 - 3. After signing in to your identity provider, you will be asked whether you'd like to grant access to JetBrains, click on `Yes` to continue. Once the profile (an installation) establishes a connection with JetBrains Gateway, you should be able to see your workspaces or create workspaces based on different identity providers associated with that profile. 
 
-- **Editing a profile**: On the Daytona configuration screen (after you click on `Connect to Daytona` on JetBrains Gateway's welcome screen), you can click on the edit button <Icon icon="jetbrains-edit" class="icon-display"/> next to profile dropdown menu to edit your profiles. Once you click on it, you will be able to see and edit the name, Base Api URL, Keycloak Realm, Keycloak URL and SSH Port on the pop-up window `Edit. After you finish editing your profile, you can click on `Store` to confirm editing, or cancel the current edit by clicking on `Cancel`. 
+- **Editing a profile**: On the Daytona configuration screen (after you click on `Connect to Daytona` on JetBrains Gateway's welcome screen), you can click on the edit button next to profile dropdown menu to edit your profiles. Once you click on it, you will be able to see and edit the name, Base Api URL, Keycloak Realm, Keycloak URL and SSH Port on the pop-up window `Edit. After you finish editing your profile, you can click on `Store` to confirm editing, or cancel the current edit by clicking on `Cancel`. 
 
-- **Delete a profile**: You can click on the edit button <Icon icon="jetbrains-edit" class="icon-display"/> on the Daytona configuration screen and then select `Delete` to delete a profile. 
+- **Delete a profile**: You can click on the edit button on the Daytona configuration screen and then select `Delete` to delete a profile. 
 
 
 ### Managing teams
@@ -260,8 +260,8 @@ At the moment, you can only manage team-related information on your Daytona dash
 
 ## Remove Daytona from JetBrains Gateway
 
-1. Open JetBrains Gateway, on the welcome screen, select the <Icon icon="jetbrains-inline-setting" class="icon-display" /> setting icon at the bottom left corner and choose `Manage Providers` from the dropdown menu. 
+1. Open JetBrains Gateway, on the welcome screen, select the setting icon at the bottom left corner and choose `Manage Providers` from the dropdown menu. 
 
-2. On the plugins screen, you should be able to see `Daytona Gateway` under the search result `/downloaded`, click on it. On the right side of the screen, you should see a <Icon icon="chevron-down-dark" class="icon-display"/> button next to `Disable` (you can click on `Disable` to disable it). Click on <Icon icon="chevron-down-dark" class="icon-display" /> and choose `Uninstall` from the dropdown menu. 
+2. On the plugins screen, you should be able to see `Daytona Gateway` under the search result `/downloaded`, click on it. On the right side of the screen, you should see a down arrow button next to `Disable` (you can click on `Disable` to disable it). Click on the down arrow button and choose `Uninstall` from the dropdown menu. 
 
 3. A pop-up window `Uninstall Plugin` will show up asking you "Are you sure you want to uninstall the plugin 'Daytona Gateway'?", select `Yes`. After you click on `Yes`, you will be back to the plugins screen, click on the bottom right `OK`. Then JetBrains Gateway will ask you "Restart JetBrains Gateway to apply changes in plugins?", click on `Restart` to take effect of the uninstallation. 
