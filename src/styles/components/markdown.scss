@@ -98,7 +98,7 @@
   > ul {
     background: var(--block-bg-color);
     padding: 30px 30px 30px 45px;
-    margin-bottom: 30px;
+    margin-bottom: 60px;
     margin-top: 0;
     list-style-image: url(/src/assets/icons/facts.svg);
 
@@ -132,10 +132,5 @@
       }
     }
   }
-  .expressive-code {
-    margin: 20px 0;
-  }
-  .starlight-aside--note {
-    margin: 10px 0;
-  }
+ 
 }
