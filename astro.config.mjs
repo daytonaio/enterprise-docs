@@ -103,9 +103,6 @@ export default defineConfig({
       }, {
         "label": "JetBrains Gateway",
         "link": "/tools/jetbrains-gateway/"
-      }, {
-        "label": "Neovim",
-        "link": "/tools/neovim/"
       }]
     },
     {
