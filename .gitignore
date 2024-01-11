@@ -33,4 +33,6 @@ pnpm-debug.log*
 
 # vscode settings
 .vscode
+.vscode/
+
 
