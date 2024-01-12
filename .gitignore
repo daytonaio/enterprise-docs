@@ -28,3 +28,11 @@ pnpm-debug.log*
 .idea/
 
 
+# git config
+.gitconfig 
+
+# vscode settings
+.vscode
+.vscode/
+
+
