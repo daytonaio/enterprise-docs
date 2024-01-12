@@ -103,9 +103,6 @@ export default defineConfig({
       }, {
         "label": "JetBrains Gateway",
         "link": "/tools/jetbrains-gateway/"
-      }, {
-        "label": "Miscellaneous",
-        "link": "/tools/miscellaneous/"
       }]
     },
     {
@@ -117,7 +114,7 @@ export default defineConfig({
     }
     ],
     tableOfContents: { minHeadingLevel: 2, maxHeadingLevel: 2 },
-    customCss: ["./src/styles/tailwind.css", './src/fonts/font-face.css', './src/styles/style.scss'],
+    customCss: ['./src/fonts/font-face.css', './src/styles/style.scss'],
     components: {
       Footer: './src/components/Footer.astro',
       MarkdownContent: './src/components/MarkdownContent.astro',
@@ -138,6 +135,7 @@ export default defineConfig({
   output: 'hybrid',
   adapter: node({
     mode: 'middleware',
+
   }),
   vite: {
     ssr: {
