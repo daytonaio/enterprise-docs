@@ -45,6 +45,7 @@
 
   &__bottom {
     display: flex;
+    flex-wrap: wrap;
     flex-direction: row;
     margin: 27px 0 17px;
     align-items: center;
@@ -73,6 +74,10 @@
           font-size: 0.875rem;
           font-family: "Berkeley Mono", monospace;
           font-weight: 400;
+
+          @include for-tablet-screen-sizes{
+            display: none;
+          }
         }
       }
     }
@@ -81,6 +86,10 @@
       display: flex;
       gap: 16px;
       order: 1;
+
+      @include for-tablet-screen-sizes {
+        order: 2;
+      }
 
       a {
         font-size: 0.75rem;
