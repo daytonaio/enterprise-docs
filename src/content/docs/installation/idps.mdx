@@ -378,7 +378,7 @@ If your BitBucket account has the same email as other identity providers, you wi
 
 #### Full confirmation
 
-To confirm BitBucket is working properly with Daytona, open your Daytona dashboard URL and check if you can see the button `BitBucket` on the sign-in page, sign in via BitBucket and on the `Workspaces` page (select on the left sidebar), click on `Create`. Select a workspace and click on their right side, `Create`, to see if you can create a workspace based on the repository in BitBucket and then work on it in Theia or [VS Code](/tools/vs-code-extension)
+To confirm BitBucket is working properly with Daytona, open your Daytona dashboard URL and check if you can see the button `BitBucket` on the sign-in page, sign in via BitBucket and on the `Workspaces` page (select on the left sidebar), click on `Create`. Select a workspace and click on their right side, `Create`, to see if you can create a workspace based on the repository in BitBucket and then work on it in Theia or [other IDEs](/usage/ides)
 
 <details id="bitbucket-and-Keycloak-configuration-details" class="idp-details">
 <summary>BitBucket and Keycloak configuration details </summary>
@@ -515,6 +515,142 @@ _These permissions will allow Daytona to authenticate users, access users' works
 No further configuration is required. 
 
 In BitBucket, organizations are referred to as a `Workspace`, and workspace members are managed under `Access management` (in workspace settings page). When you sign in to a BitBucket account and start to work on a repository by default you will be working in a `Workspace` (in BitBucket). Once you added BitBucket as an identity provider and configured it as above, your Daytona installation will be able to access all your workspaces.
+
+## BitBucket Server
+
+If you or your organization deployed BitBucket Server as your Git provider and want to use it as an identity provider for your Daytona installation, you can follow the steps below to configure it. To complete this guide, you will need an active deployment of [BitBucket Server](https://www.atlassian.com/software/bitbucket/enterprise) and a registered account on your BitBucket Server.
+
+### Configure BitBucket Server in Keycloak
+
+1. **Log into default realm in Keycloack**: Log into your Keycloak's Administration with credentials you obtained from the [prerequisites](#prerequisites) section. After you sign in, make sure you are on the `default` realm. You should see the homepage show `Welcome to default` at the center of the screen. If not (the homepage shows scattered information with `Server info` with the title `master realm`), you can select `default` under the dropdown menu on the top left side of the homepage.
+
+2. **Obtain redirect URL**: Under the `default realm`, click on `Identity Providers` under the `Configure` section on the left sidebar. On the `Identity Providers` page, click on `bitbucket-server` (should be labeled with `disabled` at the moment). On the next page, `Provider details`, copy the `Redirect URI` and note it down, as we will need it later. <b>Don't close this tab</b>.
+
+3. **Create OAuth application**: Open your BitBucket Server dashboard in the browser. On the top right side of the page, click on the settings button (with a gear icon). Then on the settings page, click on `Application Links` under the `SYSTEM` section on the left sidebar (under `Application Navigator`). Click on `Create link` on the top right side of the `Application links` page. You will be asked to `Select the type of application you want to connect to`, select `External application` under `Application type`, and then under the `Direction` section, select `Incoming`. Then click on `Continue`.
+
+4. **Configure application in BitBucket Server**: On the next page, you will be prompted for application details. For the application name, we recommend using your Daytona dashboard URL for easy recognition. Under `Application details`, paste the `Redirect URI` you have copied from the previous step (from the Keycloak dashboard) into the `Redirect URL` field. Under `Application permission`, select `Read` and `Write` under `Repositories`. Then click on `Save at the bottom.
+
+5. **Configure Keycloak**: After you hit `Save` on configuration page (in BitBucket Server), you will see `Client ID` and `Client secret` on the next page. Copy and paste the `Client ID` into the `Client ID` field on Keycloak's `Provider details` page. Copy and paste the `Client secret` into the `Client Secret` field on Keycloak's `Provider details` page. At the `Base URL` input field in Keycloak, paste your BitBucket Server URL (the dashboard URL where it is deployed).
+
+:::caution
+You need to input your `Base URL` without the last trailing slash. For example, if your BitBucket Server URL is `https://bitbucket-server.example.com`, you will need to input `https://bitbucket-server.example.com` into the `Base URL` field. If you input `https://bitbucket-server.example.com/`, this step will fail.
+:::
+
+6. **Configure scopes in Keycloak**: Under the `Advance settings` section, copy and paste the following value into the field `Scope`: 
+
+```text
+PUBLIC_REPOS REPO_READ REPO_WRITE
+```
+> If you are unsure about the settings under `Advance settings` in Keycloak, you can refer to the [table below](#bitbucket-server-and-keycloak-configuration-details) to make sure the settings are correct.
+> These permission scopes will allow us to access authenticated users' repositories to create a workspace (without destructive behavior).
+
+7. **Enable BitBucket Server**: After finishing the above steps, on Keycloak, click `Save` at the bottom, and then enable the identity provider (toggle the `Disabled` switch on the top right side of the page to `Enabled`). 
+
+
+### Confirm BitBucket Server is working properly
+After you finish all the configuration, you can visit your Daytona dashboard to confirm the configuration is correct and the BitBucket Server is working properly as an identity provider.
+
+#### First-time sign-in
+Open your Daytona dashboard URL, there should be an option to sign in via BitBucket Server. When you sign in for the first time, you will be redirected to BitBucket Server's OAuth authorization page to confirm your access rights (the page with the title `<your-app-name> would like to access your Bitbucket account`). After confirming all the access rights, click on `Allow`. 
+
+After you click on `Allow`, you will be redirected to your Daytona dashboard's `Workspaces` page (You can confirm configurations are set up correctly now). If you click on `Settings` on the left sidebar, you will see your BitBucket Server and your account is under the `Git Providers` section.
+
+<details id="bitbucket-server-and-keycloak-configuration-details" class="idp-details">
+<summary>BitBucket server and Keycloak configuration details</summary>
+<content>
+<table class="table-color container">
+<tbody>
+<tr>
+<th>BitBucket Server VS. Keycloak</th>
+<th>BitBucket Server</th>
+<th>Keycloak Provider Details</th>
+</tr>
+<tr>
+<td>URL</td>
+<td>Redirect URL</td>
+<td>Redirect URI</td>
+</tr>
+<tr>
+<td>ID</td>
+<td>Client ID</td>
+<td>Client ID</td>
+</tr>
+<tr>
+<td>Secrets</td>
+<td>Client secret</td>
+<td>Client Secret</td>
+</tr>
+<tr>
+<td>Scopes</td>
+<td style="text-align:left">
+- Repositories 
+  - [x] Read 
+  - [x] Write 
+  - [ ] Admin 
+</td>
+<td >`PUBLIC_REPOS REPO_READ REPO_WRITE`</td>
+</tr>
+</tbody>
+</table>
+
+{/*TODO: Replace the on and off fields with real checkbox component + label for quick view*/}
+<table class="table-color container">
+<tbody>
+<tr>
+<th>Keycloak Advance Settings</th>
+<th> Details </th>
+</tr>
+
+<tr>
+<td>Store tokens</td>
+
+<td>On</td>
+</tr>
+<tr>
+<td>Accepts prompt=none forward from client</td>
+
+<td>Off</td>
+</tr>
+<tr>
+<td>Disable user info</td>
+
+<td>Off</td>
+</tr>
+<tr>
+<td>Trust Email</td>
+
+<td>On</td>
+</tr>
+<tr>
+<td>Hide on login page</td>
+
+<td>Off</td>
+</tr>
+<tr>
+<td>Verify essential claim</td>
+
+<td>Off</td>
+</tr>
+<tr>
+<td>First login flow (dropdown)</td>
+
+<td>first broker login</td>
+</tr>
+<tr>
+<td>Post login flow</td>
+
+<td>None</td>
+</tr>
+<tr>
+<td>Sync mode</td>
+
+<td>Import</td>
+</tr>
+</tbody>
+</table>
+</content>
+</details>
+
 
 
 ## Disable identity provider
