@@ -56,6 +56,10 @@
       justify-content: space-between;
       align-items: center;
       gap: 14px;
+      
+      @include for-mobile-screen-sizes {
+        flex: 1 1 50%;
+      }
 
       p {
         font-family: 'Berkeley Mono', monospace;
@@ -75,7 +79,7 @@
           font-family: "Berkeley Mono", monospace;
           font-weight: 400;
 
-          @include for-tablet-screen-sizes{
+          @include for-mobile-screen-sizes{
             display: none;
           }
         }
@@ -87,7 +91,7 @@
       gap: 16px;
       order: 1;
 
-      @include for-tablet-screen-sizes {
+      @include for-mobile-screen-sizes {
         order: 2;
       }
 
