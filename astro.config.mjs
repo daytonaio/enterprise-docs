@@ -31,12 +31,6 @@ export default defineConfig({
       }, {
         "label": "IDPs",
         "link": "/installation/idps/"
-      }, {
-        "label": "Domains",
-        "link": "/installation/domains/"
-      }, {
-        "label": "Uninstall",
-        "link": "/installation/uninstall/"
       }]
     }, {
       "label": "Configuration",
