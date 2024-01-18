@@ -53,18 +53,6 @@ export default defineConfig({
         attrs: {
           icon: 'shield.svg'
         },
-      }, {
-        "label": "Domains",
-        "link": "/installation/domains/",
-        attrs: {
-          icon: 'globe.svg'
-        },
-      }, {
-        "label": "Uninstall",
-        "link": "/installation/uninstall/",
-        attrs: {
-          icon: 'delete-alt.svg'
-        },
       }]
     }, {
       "label": "Configuration",
@@ -185,9 +173,6 @@ export default defineConfig({
         attrs: {
           icon: 'jetbrains.svg'
         },
-      }, {
-        "label": "Miscellaneous",
-        "link": "/tools/miscellaneous/"
       }]
     },
     {
@@ -199,7 +184,7 @@ export default defineConfig({
     }
     ],
     tableOfContents: { minHeadingLevel: 2, maxHeadingLevel: 2 },
-    customCss: ["./src/styles/tailwind.css", './src/fonts/font-face.css', './src/styles/style.scss'],
+    customCss: ['./src/fonts/font-face.css', './src/styles/style.scss'],
     components: {
       Footer: './src/components/Footer.astro',
       MarkdownContent: './src/components/MarkdownContent.astro',
@@ -224,6 +209,7 @@ export default defineConfig({
   output: 'hybrid',
   adapter: node({
     mode: 'middleware',
+
   }),
   vite: {
     ssr: {
