@@ -55,7 +55,48 @@
     unist-util-visit "^5.0.0"
     vfile "^6.0.1"
 
-"@astrojs/mdx@2.0.4", "@astrojs/mdx@^2.0.4":
+"@astrojs/markdown-remark@4.1.0":
+  version "4.1.0"
+  resolved "https://registry.yarnpkg.com/@astrojs/markdown-remark/-/markdown-remark-4.1.0.tgz#17cf55d38064859595ad6dfac5b951a1c22e0da9"
+  integrity sha512-JnIy6zk+6f/SgSVMZecZFxQt0faT1uBckwYCuBxKH1hYYJsal8OOe+tx6JxfnyaV+xViyjUvQ28mmn+p/F5LkQ==
+  dependencies:
+    "@astrojs/prism" "^3.0.0"
+    github-slugger "^2.0.0"
+    import-meta-resolve "^4.0.0"
+    mdast-util-definitions "^6.0.0"
+    rehype-raw "^7.0.0"
+    rehype-stringify "^10.0.0"
+    remark-gfm "^4.0.0"
+    remark-parse "^11.0.0"
+    remark-rehype "^11.0.0"
+    remark-smartypants "^2.0.0"
+    shikiji "^0.9.18"
+    unified "^11.0.4"
+    unist-util-visit "^5.0.0"
+    vfile "^6.0.1"
+
+"@astrojs/mdx@2.0.5":
+  version "2.0.5"
+  resolved "https://registry.yarnpkg.com/@astrojs/mdx/-/mdx-2.0.5.tgz#539af0ee2258ff827c90e9bf74d131f87fd08117"
+  integrity sha512-3+1E11J6Yfb8XZIyaEBtJNdc4Dn9YbforPgmxiY5SYa0C5+f6KEUQi30Hd9I/tA8ytS+1MXw6ZE1BXbaRUo3ZA==
+  dependencies:
+    "@astrojs/markdown-remark" "4.1.0"
+    "@mdx-js/mdx" "^3.0.0"
+    acorn "^8.11.2"
+    es-module-lexer "^1.4.1"
+    estree-util-visit "^2.0.0"
+    github-slugger "^2.0.0"
+    gray-matter "^4.0.3"
+    hast-util-to-html "^9.0.0"
+    kleur "^4.1.4"
+    rehype-raw "^7.0.0"
+    remark-gfm "^4.0.0"
+    remark-smartypants "^2.0.0"
+    source-map "^0.7.4"
+    unist-util-visit "^5.0.0"
+    vfile "^6.0.1"
+
+"@astrojs/mdx@^2.0.4":
   version "2.0.4"
   resolved "https://registry.yarnpkg.com/@astrojs/mdx/-/mdx-2.0.4.tgz#3d775ffca6b83696e7046c459de0595fd919b786"
   integrity sha512-8q8p7AfiGa6CEKUEEWDLZ7HsfonmZlzx8HITZp8eJnkh+n6mmD9vQTpuFNjJc3hiiMEEKLGTIjOUGAU4aGBkrA==
@@ -1317,6 +1358,13 @@ argparse@^2.0.1:
   resolved "https://registry.npmjs.org/argparse/-/argparse-2.0.1.tgz"
   integrity sha512-8+9WqebbFzpX9OR+Wa6O29asIogeRMzcGtAINdpMHHyAg10f05aSFVBbcEqGf/PXw1EjAZ+q2/bEBg3DvurK3Q==
 
+aria-query@^5.3.0:
+  version "5.3.0"
+  resolved "https://registry.yarnpkg.com/aria-query/-/aria-query-5.3.0.tgz#650c569e41ad90b51b3d7df5e5eed1c7549c103e"
+  integrity sha512-b0P0sZPKtyu8HkeRAfCq0IfURZK+SuwMjY1UXGBU27wpAiTwQAIlq56IbIO+ytk/JjS1fMR14ee5WBBfKi5J6A==
+  dependencies:
+    dequal "^2.0.3"
+
 array-flatten@1.1.1:
   version "1.1.1"
   resolved "https://registry.npmjs.org/array-flatten/-/array-flatten-1.1.1.tgz"
@@ -1339,14 +1387,14 @@ astro-expressive-code@^0.31.0:
   dependencies:
     remark-expressive-code "^0.31.0"
 
-astro@4.0.7:
-  version "4.0.7"
-  resolved "https://registry.yarnpkg.com/astro/-/astro-4.0.7.tgz#89973eee86411af7b73dc045610b740b819048bf"
-  integrity sha512-K+Ms2AAQvi6yERPuglcI69tnHyTT44JCjzqprSjw3uOwFX7N9obpLgbhmLMH1fPFTgzt3ZD7APjmtDPN51makw==
+astro@4.2.0:
+  version "4.2.0"
+  resolved "https://registry.yarnpkg.com/astro/-/astro-4.2.0.tgz#fb9e5e1f982b042e106635d988282a26283e6fe4"
+  integrity sha512-zx6Po3h5+VEkG1vwowaXC2T42317Gbs4d5lflkEYzUUseEQn8HMtqTwlbIoFCfyYTc4Kvo+4zEgbGsPjsybiaw==
   dependencies:
     "@astrojs/compiler" "^2.3.4"
     "@astrojs/internal-helpers" "0.2.1"
-    "@astrojs/markdown-remark" "4.0.1"
+    "@astrojs/markdown-remark" "4.1.0"
     "@astrojs/telemetry" "3.0.4"
     "@babel/core" "^7.23.3"
     "@babel/generator" "^7.23.3"
@@ -1356,6 +1404,8 @@ astro@4.0.7:
     "@babel/types" "^7.23.3"
     "@types/babel__core" "^7.20.4"
     acorn "^8.11.2"
+    aria-query "^5.3.0"
+    axobject-query "^4.0.0"
     boxen "^7.1.1"
     chokidar "^3.5.3"
     ci-info "^4.0.0"
@@ -1394,7 +1444,7 @@ astro@4.0.7:
     resolve "^1.22.4"
     semver "^7.5.4"
     server-destroy "^1.0.1"
-    shikiji "^0.6.13"
+    shikiji "^0.9.18"
     string-width "^7.0.0"
     strip-ansi "^7.1.0"
     tsconfck "^3.0.0"
@@ -1406,7 +1456,7 @@ astro@4.0.7:
     yargs-parser "^21.1.1"
     zod "^3.22.4"
   optionalDependencies:
-    sharp "^0.32.5"
+    sharp "^0.32.6"
 
 autoprefixer@^10.4.15:
   version "10.4.16"
@@ -1419,6 +1469,13 @@ autoprefixer@^10.4.15:
     normalize-range "^0.1.2"
     picocolors "^1.0.0"
     postcss-value-parser "^4.2.0"
+
+axobject-query@^4.0.0:
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/axobject-query/-/axobject-query-4.0.0.tgz#04a4c90dce33cc5d606c76d6216e3b250ff70dab"
+  integrity sha512-+60uv1hiVFhHZeO+Lz0RYzsVHy5Wr1ayX0mwda9KPDVLNJgZ1T9Ny7VmFbLDzxsH0D87I86vgj3gFrjTJUYznw==
+  dependencies:
+    dequal "^2.0.3"
 
 b4a@^1.6.4:
   version "1.6.4"
@@ -1889,7 +1946,7 @@ depd@2.0.0:
   resolved "https://registry.npmjs.org/depd/-/depd-2.0.0.tgz"
   integrity sha512-g7nH6P6dyDioJogAAGprGpCtVImJhpPk/roCzdb3fIh61/s/nPsfR6onyMwkCAR/OlC3yBC0lESvUoQEAssIrw==
 
-dequal@^2.0.0:
+dequal@^2.0.0, dequal@^2.0.3:
   version "2.0.3"
   resolved "https://registry.npmjs.org/dequal/-/dequal-2.0.3.tgz"
   integrity sha512-0je+qPKHEMohvfRTCEo3CrPG6cAzAYgmzKyxRiYSSDkS6eGJdyVJm7WaYA5ECaAD9wLB2T4EEeymA5aFVcYXCA==
@@ -4690,9 +4747,9 @@ setprototypeof@1.2.0:
   resolved "https://registry.npmjs.org/setprototypeof/-/setprototypeof-1.2.0.tgz"
   integrity sha512-E5LDX7Wrp85Kil5bhZv46j8jOeboKq5JMmYM3gVGdGH8xFpPWXUMsNrlODCrkoxMEeNi/XZIwuRvY4XNwYMJpw==
 
-sharp@^0.32.5:
+sharp@^0.32.6:
   version "0.32.6"
-  resolved "https://registry.npmjs.org/sharp/-/sharp-0.32.6.tgz"
+  resolved "https://registry.yarnpkg.com/sharp/-/sharp-0.32.6.tgz#6ad30c0b7cd910df65d5f355f774aa4fce45732a"
   integrity sha512-KyLTWwgcR9Oe4d9HwCwNM2l7+J0dUQwn/yf7S0EnTtb0eVS4RxO0eUSvxPtzT4F3SY+C4K6fqdv/DO27sJ/v/w==
   dependencies:
     color "^4.2.3"
@@ -4745,6 +4802,11 @@ shebang-regex@^3.0.0:
   resolved "https://registry.npmjs.org/shebang-regex/-/shebang-regex-3.0.0.tgz"
   integrity sha512-7++dFhtcx3353uBaq8DDR4NuxBetBzC7ZQOhmTQInHEd6bSrXdiEyzCvG07Z44UYdLShWUyXt5M/yhz8ekcb1A==
 
+shikiji-core@0.9.19:
+  version "0.9.19"
+  resolved "https://registry.yarnpkg.com/shikiji-core/-/shikiji-core-0.9.19.tgz#227975e998eb2a579cf83de30977762be3802507"
+  integrity sha512-AFJu/vcNT21t0e6YrfadZ+9q86gvPum6iywRyt1OtIPjPFe25RQnYJyxHQPMLKCCWA992TPxmEmbNcOZCAJclw==
+
 shikiji@^0.6.13:
   version "0.6.13"
   resolved "https://registry.npmjs.org/shikiji/-/shikiji-0.6.13.tgz"
@@ -4758,6 +4820,13 @@ shikiji@^0.8.0:
   integrity sha512-j5usxwI0yHkDTHOuhuSJl9+wT5CNYeYO82dJMSJBlJ/NYT5SIebGcPoL6y9QOyH15wGrJC4LOP2nz5k8mUDGRQ==
   dependencies:
     hast-util-to-html "^9.0.0"
+
+shikiji@^0.9.18:
+  version "0.9.19"
+  resolved "https://registry.yarnpkg.com/shikiji/-/shikiji-0.9.19.tgz#351a32b291a04cf9a6b69933f8044fe135b70f6f"
+  integrity sha512-Kw2NHWktdcdypCj1GkKpXH4o6Vxz8B8TykPlPuLHOGSV8VkhoCLcFOH4k19K4LXAQYRQmxg+0X/eM+m2sLhAkg==
+  dependencies:
+    shikiji-core "0.9.19"
 
 side-channel@^1.0.4:
   version "1.0.4"
