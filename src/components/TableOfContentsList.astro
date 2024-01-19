@@ -35,13 +35,17 @@ const { toc, isMobile = false, depth = 0 } = Astro.props;
     a {
         color: var(--secondary-text-color);
         font-family: 'Inter', sans-serif;
-        font-size: 0.75rem;
+        font-size: 0.78rem;
         font-weight: 500;
         line-height: 1.4;
         letter-spacing: -0.015rem;
         margin-bottom: 10px;
+        transition: color 0.1s ease-in-out;
         &:hover {
-            color: var(--hover-color) !important;
+            text-decoration: underline;
+            color: var(--primary-text-color) !important;
+            text-decoration-color: var(--hover-color) !important;
+            text-underline-offset: 3.2px;
         }
     }
     a[aria-current='true'],

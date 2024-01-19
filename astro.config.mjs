@@ -31,19 +31,15 @@ export default defineConfig({
       }, {
         "label": "IDPs",
         "link": "/installation/idps/"
-      }, {
-        "label": "Domains",
-        "link": "/installation/domains/"
-      }, {
-        "label": "Uninstall",
-        "link": "/installation/uninstall/"
       }]
     }, {
       "label": "Configuration",
-      "items": [{
-        "label": "User Types",
-        "link": "/configuration/user-types/"
-      }, {
+      "items": [
+      //     {
+      //   "label": "User Types",
+      //   "link": "/configuration/user-types/"
+      // },
+        {
         "label": "Git Providers",
         "link": "/configuration/git-providers/"
       }, {
@@ -52,10 +48,12 @@ export default defineConfig({
       }, {
         "label": "Templates",
         "link": "/configuration/templates/"
-      }, {
-        "label": "Licensing (Enterprise)",
-        "link": "/configuration/licensing/"
-      }]
+      }
+      // , {
+      //   "label": "Licensing (Enterprise)",
+      //   "link": "/configuration/licensing/"
+      // }
+      ]
     }, {
       "label": "Usage",
       "items": [{
@@ -67,51 +65,55 @@ export default defineConfig({
       }, {
         "label": "Account",
         "link": "/usage/account/"
-      }, {
-        "label": "Projects",
-        "link": "/usage/projects/"
-      }]
-    }, {
-      "label": "Administration",
-      "items": [{
-        "label": "Application Logs",
-        "link": "/administration/application-logs/"
-      }, {
-        "label": "Audit Logs",
-        "link": "/administration/audit-logs/"
-      }, {
-        "label": "High Density",
-        "link": "/administration/high-density/"
-      }, {
-        "label": "Telemetry",
-        "link": "/administration/telemetry/"
-      }, {
-        "label": "Appearance",
-        "link": "/administration/appearance/"
-      }]
-    }, {
-      "label": "Tools and Resources",
-      "items": [{
-        "label": "API",
-        "link": "/tools/api/"
-      }, {
-        "label": "CLI",
-        "link": "/tools/cli/"
-      }, {
-        "label": "VS Code Extension",
-        "link": "/tools/vs-code-extension/"
-      }, {
-        "label": "JetBrains Gateway",
-        "link": "/tools/jetbrains-gateway/"
-      }]
+      }
+      // , {
+      //   "label": "Projects",
+      //   "link": "/usage/projects/"
+      // }
+      ]
     },
-    {
-      "label": "Contribution",
-      "items": [{
-        "label": "Guideline",
-        "link": "/contribution/guidelines",
-      }]
-    }
+      //   {
+      //   "label": "Administration",
+      //   "items": [{
+      //     "label": "Application Logs",
+      //     "link": "/administration/application-logs/"
+      //   }, {
+      //     "label": "Audit Logs",
+      //     "link": "/administration/audit-logs/"
+      //   }, {
+      //     "label": "High Density",
+      //     "link": "/administration/high-density/"
+      //   }, {
+      //     "label": "Telemetry",
+      //     "link": "/administration/telemetry/"
+      //   }, {
+      //     "label": "Appearance",
+      //     "link": "/administration/appearance/"
+      //   }]
+      // },
+      {
+        "label": "Tools and Resources",
+        "items": [{
+          "label": "API",
+          "link": "/tools/api/"
+        }, {
+          "label": "CLI",
+          "link": "/tools/cli/"
+        }, {
+          "label": "VS Code Extension",
+          "link": "/tools/vs-code-extension/"
+        }, {
+          "label": "JetBrains Gateway",
+          "link": "/tools/jetbrains-gateway/"
+        }]
+      }
+      // , {
+      //   "label": "Contribution",
+      //   "items": [{
+      //     "label": "Guideline",
+      //     "link": "/contribution/guidelines",
+      //   }]
+      // }
     ],
     tableOfContents: { minHeadingLevel: 2, maxHeadingLevel: 2 },
     customCss: ['./src/fonts/font-face.css', './src/styles/style.scss'],

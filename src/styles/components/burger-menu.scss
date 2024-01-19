@@ -30,37 +30,37 @@ $hamburger-active-hover-filter: $hamburger-hover-filter !default;
 // Types (Remove or comment out what you don’t need)
 // ==================================================
 $hamburger-types: (
-  3dx,
-  3dx-r,
-  3dy,
-  3dy-r,
-  3dxy,
-  3dxy-r,
-  arrow,
-  arrow-r,
-  arrowalt,
-  arrowalt-r,
-  arrowturn,
-  arrowturn-r,
-  boring,
-  collapse,
-  collapse-r,
-  elastic,
-  elastic-r,
-  emphatic,
-  emphatic-r,
-  minus,
-  slider,
-  slider-r,
-  spin,
-  spin-r,
-  spring,
-  spring-r,
-  stand,
-  stand-r,
-  squeeze,
-  vortex,
-  vortex-r
+        3dx,
+        3dx-r,
+        3dy,
+        3dy-r,
+        3dxy,
+        3dxy-r,
+        arrow,
+        arrow-r,
+        arrowalt,
+        arrowalt-r,
+        arrowturn,
+        arrowturn-r,
+        boring,
+        collapse,
+        collapse-r,
+        elastic,
+        elastic-r,
+        emphatic,
+        emphatic-r,
+        minus,
+        slider,
+        slider-r,
+        spin,
+        spin-r,
+        spring,
+        spring-r,
+        stand,
+        stand-r,
+        squeeze,
+        vortex,
+        vortex-r
 ) !default;
 
 // Base Hamburger (We need this)
@@ -203,14 +203,14 @@ $hamburger-types: (
 
       &::before {
         transition:
-          top 0.1s 0.25s ease-in,
-          opacity 0.1s ease-in;
+                top 0.1s 0.25s ease-in,
+                opacity 0.1s ease-in;
       }
 
       &::after {
         transition:
-          bottom 0.1s 0.25s ease-in,
-          transform 0.22s cubic-bezier(0.55, 0.055, 0.675, 0.19);
+                bottom 0.1s 0.25s ease-in,
+                transform 0.22s cubic-bezier(0.55, 0.055, 0.675, 0.19);
       }
     }
 
@@ -224,16 +224,16 @@ $hamburger-types: (
           top: 0;
           opacity: 0;
           transition:
-            top 0.1s ease-out,
-            opacity 0.1s 0.12s ease-out;
+                  top 0.1s ease-out,
+                  opacity 0.1s 0.12s ease-out;
         }
 
         &::after {
           bottom: 0;
           transform: rotate(-90deg);
           transition:
-            bottom 0.1s ease-out,
-            transform 0.22s 0.12s cubic-bezier(0.215, 0.61, 0.355, 1);
+                  bottom 0.1s ease-out,
+                  transform 0.22s 0.12s cubic-bezier(0.215, 0.61, 0.355, 1);
         }
       }
     }
