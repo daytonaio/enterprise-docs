@@ -174,7 +174,7 @@ read:user user:email repo
     </content>
 </details>
 
-### Confirm Github is working properly
+### Confirm Github is working
 
 - To confirm Github is working properly with Daytona, refer to the [Git Provider](/configuration/git-providers#github) section to see if you can create a workspace based on the repository in Github.
 
@@ -332,7 +332,7 @@ profile email read_user write_repository read_repository openid api read_api
     </content>
 </details>
 
-### Confirm GitLab is working properly
+### Confirm GitLab is working
 
 You can refer to the [Git Provider](/configuration/git-providers#gitlab) section to see if you can create a workspace based on the repository in GitLab to confirm GitLab is working properly with Daytona.
 
@@ -349,25 +349,23 @@ In this section, we will guide you through how to configure BitBucket as your ad
 - You can sign into BitBucket with [this link](https://id.atlassian.com/login?application=bitbucket&continue=https://bitbucket.org/account/signin/?next%3D%252F%26redirectCount%3D1). After you sign in, click on the settings button on the top right, then in the dropdown menu select **Workspace settings**.
 - Scroll down and find *APPS AND FEATURES* section in the left sidebar. Under this section, click on **OAuth consumers** and then click on **Add consumer** on this page.
 
-2. Log into Keycloak
+2. Default realm in Keycloak
 - Open `https://id.domain.com` and click on **Administration Console** on the front page, then sign in with the credentials you obtained from your installation.
-
-3. Default realm
 - After you sign in, make sure you are on the **default realm**.
 - You should see the homepage show *Welcome to default* at the center of the screen. If not (the home page shows scattered information with *Server info* with the title *master realm*), you can select **default** under the dropdown menu on the top left side of the home page.
 
-4. Configure bitbucket as identity providers
+3. Configure bitbucket as identity providers
 - Click on **Identity Providers** under the *Configure* section on the left sidebar
 - Then click on **bitbucket**.
 - Copy the **Redirect URI** and note it down, as we will need it later. *Don't close this tab*.
 
-5. Configure OAuth consumer
+4. Configure OAuth consumer
 - Navigate back to BitBucket, on the *Add OAuth consumer* page, give your application a distinguishable name in the **Name** field (required, something like `daytona-domain-name`)
 - Paste the **Redirect URI** from the previous step into the **Callback URL** field.
 - The **URL** field will be your Daytona dashboard URL.
 - You can leave the `Privacy policy URL` and `End user license agreement URL` empty. Make sure **not to toggle `This is a private consumer`**. Your configuration will fail if you enable this.
 
-6. Permissions scopes in BitBucket
+5. Permissions scopes in BitBucket
 - Under the *Permissions* section on the same page, tick the permission scope:
 > - Account: Email, Read
 > - Workspace membership: Read, Write
@@ -377,12 +375,12 @@ In this section, we will guide you through how to configure BitBucket as your ad
 - Then click **Save** at the bottom.
 - If you are unsure about the settings under `Permissions` in BitBucket, you can refer to the [table below](#bitbucket-and-keycloak-configuration-details) to make sure the settings are correct.
 
-7. Copy Key and Secret
+6. Copy Key and Secret
 - After clicking on **Save**, you will be sent back to the *OAuth consumers* page in BitBucket. Click on the application name you just created on BitBucket's Workspace settings/OAuth consumers page.
 - Copy the value after **Key** on BitBucket and paste it into Keycloak's *Client ID* field.
 - Copy the value after **Secret** on BitBucket and paste it into Keycloak's *Client Secret* field.
 
-8. Configure Keycloak
+7. Configure Keycloak
 - Under the *Advance settings* section, copy and paste the following value into the field **Scope**:
 
 ```text 
@@ -393,7 +391,7 @@ email account repository:write project
 9. Enable BitBucket
 - After finishing the above steps, on Keycloak, click **Save** at the bottom, and then **Enabled** the identity provider (toggle the *Disabled* switch on the top right side on the page).
 
-### Confirm BitBucket is working properly
+### Confirm BitBucket is working
 After you finish all the configuration, you can refer to the [BitBucket section](/configuration/git-providers#bitbucket) in Git Providers guide and visit your Daytona dashboard to confirm the configuration is correct and working properly.
 
 
@@ -528,7 +526,162 @@ After you finish all the configuration, you can refer to the [BitBucket section]
 
 _These permissions will allow Daytona to authenticate users, access users' workspace membership, find team members, and access users' repositories to create workspaces._
 
+<hr/>
 
+## Github Enterprise
+
+This section will illustrate how to configure Github Enterprise as an identity provider for your Daytona installation. You will need an active deployment of Github Enterprise version and a registered account.
+
+### Configure Github Enterprise in Keycloak
+
+1. Create OAuth Application on Github Enterprise
+- Open your Github Enterprise domain URL in the browser and log in, click on your **profile picture** on the top right side of the page.
+- Under the dropdown menu, select **Settings**.
+- Scroll down and find **Developer settings** on the left sidebar, click on **OAuth Apps** on the left and then **New OAuth App** on the top right side of the page. *Don't close this tab*.
+
+2. Log into default realm in Keycloak
+- Open `https://id.domain.com` and click on **Administration Console** on the front page, then sign in with the credentials you obtained from your installation.
+- After you sign in, make sure you are on the **default realm**.
+- You should see the homepage show *Welcome to default* at the center of the screen. If not (the home page shows scattered information with *Server info* with the title *master realm*), you can select **default** under the dropdown menu on the top left side of the home page.
+
+3. Configure bitbucket as identity providers
+- Click on **Identity Providers** under the *Configure* section on the left sidebar
+- Then click on **bitbucket**.
+- Copy the **Redirect URI** and note it down, as we will need it later. *Don't close this tab*.
+
+4. Configure OAuth application on Github Enterprise
+- Go back to Github Enterprise, on the *Register a new OAuth application* page, fill in the following information:
+- The **Application name** would be something recognizable to yourself. Recommend using your domain name.
+- The **Homepage URL** would be your Daytona dashboard URL.
+- The **Authorization callback URL** is the *Redirect URI* you have copied from the previous step.
+- You don't need to toggle `Enable Device Flow` here. Then click on **Register application**.
+
+5. Copy Client ID and secrets
+- Under your application, click on the **Generate a new client secret** in the *Client secrets* section.
+- Copy the **credentials under Client ID** and paste it into your Keycloak *Provider details* page in the *Client ID* section.
+- Go back to the Github Enterprise OAuth Application page, copy the **credentials under the Client secrets** section, and then paste it into *Client Secret* on your Keycloak.
+- **! important**: At the **Base URL** input field in Keycloak, paste your Github Enterprise URL (the dashboard URL where it is deployed, no trailing slash at the end).
+
+:::caution
+You need to input your **Base URL** without the last trailing slash. For example, if your Github Enterprise URL is `https://github-enterprise.example.com`, you will need to input `https://github-enterprise.example.com` into the `Base URL` field.<br/>
+If you input `https://github-enterprise.example.com/`, this step will fail.
+:::
+
+6. Configure scopes in Keycloak
+- Under the *Advance settings* section, copy and paste the following value into the field **Scope**:
+
+```text
+read:user user:email repo
+```
+> - These permission scopes will allow us to access authenticated users' email, account details, and access signed-in users' repositories to gain read, write, and admin rights.
+> - Toggle the fields **Store tokens** and **Trust Email** to turn them on. You can compare your information to the [table below](#github-enterprise-and-keycloak-configuration-details) to make sure the details are correctly configured.
+> - If you want to type in scopes by yourself, remember to use `Space ␣` to separate different scopes instead of a comma `,`.
+
+7. Enable Github Enterprise
+- After finishing the above steps, on Keycloak, click **Save** at the bottom of the page (on Keycloak), and then enable the identity provider (toggle the *Disabled* switch on the top right side on the page).
+
+<details id="github-enterprise-and-keycloak-configuration-details" class="idp-details">
+    <summary>Github Enterprise and Keycloak configuration details</summary>
+    <content>
+        <table class="table-color container">
+            <tbody>
+            <tr>
+                <th>Github Enterprise VS. Keycloak</th>
+                <th>Github OAuth App</th>
+                <th>Keycloak Provider Details</th>
+            </tr>
+            <tr>
+                <td>URL</td>
+                <td>Authorization callback URL</td>
+                <td>Redirect URI</td>
+            </tr>
+            <tr>
+                <td>ID</td>
+                <td>Client ID</td>
+                <td>Client ID</td>
+            </tr>
+            <tr>
+                <td>Secrets</td>
+                <td>Client secrets</td>
+                <td>Client Secret</td>
+            </tr>
+            <tr>
+                <td>Scopes</td>
+                <td>No extra configuration required</td>
+                <td style="text-align:left">`read:user user:email repo`</td>
+            </tr>
+            </tbody>
+        </table>
+
+        {/*TODO: Replace the on and off fields with real checkbox component + label for quick view*/}
+        <table class="table-color container">
+            <tbody>
+            <tr>
+                <th>Keycloak Settings</th>
+                <th> Details </th>
+            </tr>
+            <tr>
+                <td>Base URL</td>
+
+                <td>Github Enterprise deployment URL</td>
+            </tr>
+
+            <tr>
+                <td>Store tokens</td>
+
+                <td>On</td>
+            </tr>
+            <tr>
+                <td>Accepts prompt=none forward from client</td>
+
+                <td>Off</td>
+            </tr>
+            <tr>
+                <td>Disable user info</td>
+
+                <td>Off</td>
+            </tr>
+            <tr>
+                <td>Trust Email</td>
+
+                <td>On</td>
+            </tr>
+            <tr>
+                <td>Hide on login page</td>
+
+                <td>Off</td>
+            </tr>
+            <tr>
+                <td>Verify essential claim</td>
+
+                <td>Off</td>
+            </tr>
+            <tr>
+                <td>First login flow (dropdown)</td>
+
+                <td>first broker login</td>
+            </tr>
+            <tr>
+                <td>Post login flow</td>
+
+                <td>None</td>
+            </tr>
+            <tr>
+                <td>Sync mode</td>
+
+                <td>Import</td>
+            </tr>
+            </tbody>
+        </table>
+    </content>
+</details>
+
+### Confirm Github Enterprise is working
+
+- To confirm Github Enterprise is working properly with Daytona, refer to the [Git Provider](/configuration/git-providers#github-enterprise) section to see if you can create a workspace based on the repository in Github Enterprise.
+
+
+<hr/>
 
 ## BitBucket Server
 
@@ -679,7 +832,7 @@ PUBLIC_REPOS REPO_READ REPO_WRITE
 </details>
 
 
-### Confirm BitBucket Server is working properly
+### Confirm BitBucket Server is working
 After you finish all the configuration, you can refer to the [BitBucket Server section](/configuration/git-providers#bitbucket-server) in Git Providers guide and visit your Daytona dashboard to confirm the configuration is correct and working properly.
 
 
