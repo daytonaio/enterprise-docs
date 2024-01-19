@@ -65,7 +65,7 @@ export default defineConfig({
         "label": "Projects",
         "link": "/usage/projects/"
       }]
-    }, {
+    }, /*{
       "label": "Administration",
       "items": [{
         "label": "Application Logs",
@@ -83,7 +83,7 @@ export default defineConfig({
         "label": "Appearance",
         "link": "/administration/appearance/"
       }]
-    }, {
+    },*/ {
       "label": "Tools and Resources",
       "items": [{
         "label": "API",
