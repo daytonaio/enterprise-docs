@@ -1,6 +1,6 @@
 ---
 title: Cluster Installation
-description: Add a brief description of the Cluster Installation page here
+description: Installing Daytona in cluster mode
 sidebar:
   label: Cluster
 ---
