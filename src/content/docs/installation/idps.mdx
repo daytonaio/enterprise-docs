@@ -835,6 +835,163 @@ PUBLIC_REPOS REPO_READ REPO_WRITE
 ### Confirm BitBucket Server is working
 After you finish all the configuration, you can refer to the [BitBucket Server section](/configuration/git-providers#bitbucket-server) in Git Providers guide and visit your Daytona dashboard to confirm the configuration is correct and working properly.
 
+## Google
+
+In the section below we will guide you how to configure Google as an identity provider for your Daytona installation. You will need a registered Google cloud account, or a Google account associated with a Google cloud account.
+
+### Configure Google in Keycloak
+
+1. Log into default realm in Keycloak
+- Log into your Keycloak's Administration with credentials you obtained from the [prerequisites](#prerequisites) section.
+- After you sign in, make sure you are on the **default realm**. You should see the homepage show *Welcome to default* at the center of the screen.
+- If not (the homepage shows scattered information with *Server info* with the title *master realm*), you can select **default** under the dropdown menu on the top left side of the homepage.
+
+2. Obtain redirect URL
+- Under the default realm, click on **Identity Providers** under the *Configure* section on the left sidebar.
+- Then click on **google** (should be labeled with `disabled` at the moment).
+- On the next page, *Provider details*, copy the **Redirect URI** and note it down, as we will need it later. *Don't close this tab*.
+
+3. Configure OAuth consent screen in Google Cloud
+- Sign in to your Google Cloud console's **APIs and services** with [this link](https://console.cloud.google.com/apis/dashboard). Or on your Google Cloud console, click on the hamburger menu on the top left side of the page, then select **APIs and services** under the *IAM & Admin* section.
+- Click on **OAuth consent screen** on the left side of the page and select **External** in *User Type*. Click on **CREATE**.
+- For **App name**, we recommend using your Daytona dashboard URL for easy recognition.
+- For **User support email**, use your IT support email. It is for users to contact you with question about their consent.
+- You can skip filling in all information except **Developer contact information**. You can input multiple ones for Google to notify you about any changes to your project. Then **SAVE AND CONTINUE**
+
+4. Add scopes to permissions
+- On the next page, click on **ADD OR REMOVE SCOPES**.
+- Search for **email**, **profile** and **openid** and select below values:
+>  - https://www.googleapis.com/auth/userinfo.email
+>  - https://www.googleapis.com/auth/userinfo.profile
+>  - openid
+- Click on **UPDATE**. and then **SAVE AND CONTINUE** on the main page.
+- You can add **Test users** based on your needs. During testing stage only testing user would be able to access the authenticated application. Click on **SAVE AND CONTINUE** to continue.
+- On the summary page, click on **BACK TO DASHBOARD**.
+
+5. Create credentials
+- On the left click **Credentials** and then on the top click **+ CREATE CREDENTIALS**.
+- Select **OAuth client ID** and select **Web application** as the application type.
+- Use a name you can correlate to the OAuth application you created for the **Name** field.
+- Under *Authorized redirect URI*, paste the *Redirect URI* you have copied from the previous step (from the Keycloak dashboard) into the **Authorized redirect URIs** field.
+- Then click on **CREATE**.
+
+6. Configure Keycloak
+- Copy the **Client ID** and paste it into your Keycloak *Provider details* page in the *Client ID* section.
+- Copy the **Client secret** and paste it into your Keycloak *Provider details* page in the *Client Secret* section. *Don't close this tab*.
+- You can (and should) download the JSON file and keep it somewhere safe for future reference.
+- Under *Advance settings**, copy and paste the following value into the field **Scope**:
+
+```text
+profile email openid
+```
+> - These permission scopes will allow us to access authenticated users' email, account details, and access signed-in users' repositories to gain read, write, and admin rights.
+- Toggle the fields **Store tokens** and **Trust Email** to turn them on. You can compare your information to the [table below](#google-and-keycloak-configuration-details) to make sure the details are correctly configured.
+- On the top right side of the page, toggle the *Disabled* switch to **Enabled**.
+
+7. Publish your OAuth application
+- Navigate back to Google Cloud console, on the left side of the page, click on **OAuth consent screen**.
+- Click on **PUBLISH APP**.
+:::caution
+If you don't publish your OAuth application, you will only be able to use it with your test users.
+:::
+
+<details id="google-and-keycloak-configuration-details" class="idp-details">
+    <summary>Google OAuth and Keycloak configuration details</summary>
+    <content>
+        <table class="table-color container">
+            <tbody>
+            <tr>
+                <th>Google VS. Keycloak</th>
+                <th>Google OAuth</th>
+                <th>Keycloak Provider Details</th>
+            </tr>
+            <tr>
+                <td>URL</td>
+                <td>Authorized redirect URI</td>
+                <td>Redirect URI</td>
+            </tr>
+            <tr>
+                <td>ID</td>
+                <td>Client ID</td>
+                <td>Client ID</td>
+            </tr>
+            <tr>
+                <td>Secrets</td>
+                <td>Client secret</td>
+                <td>Client Secret</td>
+            </tr>
+            <tr>
+                <td>Scopes</td>
+                <td style="text-align:left">
+                    - [x] profile
+                    - [x] email
+                    - [ ] openids
+                </td>
+                <td >`openid profile email`</td>
+            </tr>
+            </tbody>
+        </table>
+
+        {/*TODO: Replace the on and off fields with real checkbox component + label for quick view*/}
+        <table class="table-color container">
+            <tbody>
+            <tr>
+                <th>Keycloak Advance Settings</th>
+                <th> Details </th>
+            </tr>
+
+            <tr>
+                <td>Store tokens</td>
+
+                <td>On</td>
+            </tr>
+            <tr>
+                <td>Accepts prompt=none forward from client</td>
+
+                <td>Off</td>
+            </tr>
+            <tr>
+                <td>Disable user info</td>
+
+                <td>Off</td>
+            </tr>
+            <tr>
+                <td>Trust Email</td>
+
+                <td>On</td>
+            </tr>
+            <tr>
+                <td>Hide on login page</td>
+
+                <td>Off</td>
+            </tr>
+            <tr>
+                <td>Verify essential claim</td>
+
+                <td>Off</td>
+            </tr>
+            <tr>
+                <td>First login flow (dropdown)</td>
+
+                <td>first broker login</td>
+            </tr>
+            <tr>
+                <td>Post login flow</td>
+
+                <td>None</td>
+            </tr>
+            <tr>
+                <td>Sync mode</td>
+
+                <td>Import</td>
+            </tr>
+            </tbody>
+        </table>
+    </content>
+</details>
+
+### Confirm Google is working
+You can now open your Daytona dashboard on the browser and try to sign in with your Google account.
 
 ## Disable identity provider
 
