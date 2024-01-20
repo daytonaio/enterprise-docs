@@ -708,7 +708,7 @@ If you or your organization deployed BitBucket Server as your Git provider and w
 - Then click on **Continue**.
 
 4. Configure application in BitBucket Server
-- For the **application name**, we recommend using your Daytona dashboard URL for easy recognition.
+- For the **application name**, we recommend using your Daytona deploy domain for easy recognition.
 - Under *Application details*, paste the *Redirect URI* you have copied from the previous step (from the Keycloak dashboard) into the **Redirect URL** field.
 - Under *Application permission*, select **Read and Write under Repositories**.
 - Then click on **Save** at the bottom.
@@ -852,10 +852,10 @@ In the section below we will guide you how to configure Google as an identity pr
 - On the next page, *Provider details*, copy the **Redirect URI** and note it down, as we will need it later. *Don't close this tab*.
 
 3. Configure OAuth consent screen in Google Cloud
-- Sign in to your Google Cloud console's **APIs and services** with [this link](https://console.cloud.google.com/apis/dashboard). Or on your Google Cloud console, click on the hamburger menu on the top left side of the page, then select **APIs and services** under the *IAM & Admin* section.
+- Sign in to your Google Cloud console's **APIs and services** with [this link](https://console.cloud.google.com/apis/dashboard). Or on your Google Cloud console, click on the hamburger menu on the top left side of the page, then select **APIs and services**.
 - Click on **OAuth consent screen** on the left side of the page and select **External** in *User Type*. Click on **CREATE**.
-- For **App name**, we recommend using your Daytona dashboard URL for easy recognition.
-- For **User support email**, use your IT support email. It is for users to contact you with question about their consent.
+- For **App name**, we recommend using your Daytona deploy domain for easy recognition.
+- For **User support email**, use your IT support email (internal). It is for users to contact you with question about their consent.
 - You can skip filling in all information except **Developer contact information**. You can input multiple ones for Google to notify you about any changes to your project. Then **SAVE AND CONTINUE**
 
 4. Add scopes to permissions
@@ -925,7 +925,7 @@ If you don't publish your OAuth application, you will only be able to use it wit
                 <td style="text-align:left">
                     - [x] profile
                     - [x] email
-                    - [ ] openids
+                    - [ ] openid
                 </td>
                 <td >`openid profile email`</td>
             </tr>
