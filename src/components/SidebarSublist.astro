@@ -92,10 +92,14 @@ const { sublist, nested } = Astro.props;
         text-decoration: none;
         color: var(--primary-text-color);
         padding: 8px 0;
+        transition: all 0.25s ease-in-out;
     }
 
     a:hover {
         color: var(--primary-text-color);
+        text-underline-offset: 4px;
+        text-decoration: underline;
+        text-decoration-color: var(--hover-color) !important;
 
     }
     a:focus {
