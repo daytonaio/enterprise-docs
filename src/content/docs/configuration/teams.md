@@ -60,28 +60,51 @@ All the roles in a team can see who is in the same team and the pending invitati
   - see pending invitations in the same team
 
 ### Invite team members on Daytona dashboard
-1. Member's page on Daytona dashboard
-- Log into your Daytona dashboard and on the lest, click on  and click on the team you want to invite new members to.
+
+1. Log into selected team on Daytona dashboard
+- Log into your Daytona dashboard, make sure you are in the team you want to invite new members to by checking in the **top right corner** (on creation of each account, by default you are in a team, even you are the only member in the team).
+- Click on **Members** and then **Invite**.
+
+2. Entering emails
+- Enter the email address of the team member you want to invite and click on **Invite**. Note that they will need to register on Daytona dashboard.
+- Optional: you can also invite multiple team members by uploading a CSV file. Click on **Import**, upload a CSV file or click the dotted square box to select one from file explorer.
+:::note
+The invitation will be only shown to members who are already registered on the same Daytona deployment. They will need to log into their Daytona dashboard to accept the invitation.
+:::
+
+[//]: # (TODO: feature - 1. emails to team members who are invited regardless they are registered or not, 2. accept team invitation in emails)
+
+### Receiving invitation on Daytona dashboard 
+- Log into your Daytona dashboard, and click on your team's profile in the **top right corner**.
+- Under the dropdown menu click on **Team invitations**.
+- On this page you can see who invited you (their username) and the invitation time. 
+- Click on **Accept** to accept the invitation from known team, or **Decline** to decline the invitation from known team.
 
 ### Managing roles on Daytona dashboard
 
-### Invite team members in Keycloak 
+[//]: # (### Invite team members in Keycloak )
 
-### Managing roles in Keycloak
+[//]: # (### Managing roles in Keycloak)
 
 ## Managing secrets
 At the moment, you won't be able to share environment variables and manage access to environment variables within teams on Daytona dashboard. The quickest workaround is to use products like **Doppler**, **Hashicorp Vault**, **AWS Secrets Manager** and **Infisical**. 
 
-We have a detailed guide on how to use Doppler with Daytona [here](https://www.daytona.io/dotfiles/managing-secrets-with-doppler-in-devcontainers). Following this guide, you will be able to use Doppler's CLI to manage your secrets and environment variables in your workspaces across teams. It applies to secrest used in production environment, development environment and staging environment.
+We have a detailed guide on how to use Doppler with Daytona [here](https://www.daytona.io/dotfiles/managing-secrets-with-doppler-in-devcontainers). Following this guide, you will be able to use Doppler's CLI to manage your secrets and environment variables in your workspaces across teams. It applies to secrets used in production environment, development environment and staging environment.
 
 ## Configure team settings
+On Daytona dashboard, you can configure team settings including team name, check team ID and deleting team. 
+:::note 
+There are two **Settings** button on the Daytona dashboard. Only the one under the **Team** section is for setting's related to teams. Any settings in the **Settings** under the **Account** section, including dotfiles, default IDEs, Git Providers are your personal settings. They would not be shown nor shared with your team.
+:::
+
 
 ## Check workspace usage
 
 ## Teams on IDEs
 On different IDEs, at the moment you will be able to: 
 - see the teams you are in
-- the workspaces you have access to on the same team
+- create workspaces within the team you are in
+- viewing the workspaces you have access to on the same team
 - switching between teams
 
 ### VS Code
