@@ -5,66 +5,38 @@ sidebar:
   label: Teams
 ---
 
-Within a Daytona deployment, teams share a cohesive environment where team members can share [workspaces](/usage/workspaces), collaborate, and manage workspaces. On Daytona dashboard, you can invite, manage and configure team members, become a owner of a team, and the configuration is synced across all the [IDEs](/usage/ides) connected to your Daytona deployment. 
+On Daytona dashboard, users can invite, manage and configure team members, become a owner of a team, and the configuration is synced across all your [IDEs](/usage/ides) that are connected to your Daytona deployment. 
 
-In this guide, we will cover how to configure and manage teams in your Daytona deployment.
+Via Daytona' team, you can: 
 
+- [Managing team members](#managing-teams)
+- [Configuring team settings](#configuring-team-settings)
+- [Check team's statistics](#teams-statistics)
+
+<hr/>
 
 ## Pre-requisites
-Before you start configuring teams, make sure you have the following:
-1. Daytona deployment
+Before you start configuring teams, make sure you have access to a **Daytona deployment** and the **dashboard URL**. 
 
-Once you have a Daytona deployment, you can access the **daytona dashboard**: we will be refering to your Daytona dashboard as `https://domain.com`.
+
    
 [//]: # ({/*TODO: docs - second list item should be corrected rendered and indented*/})
+<hr/>
+
 ## Managing teams
-In this section, we will walk you through how you can invite, assign roles, and remove team members from your daytona dashboard.
 
+In this section, we will walk you through how you can invite, assign roles, and remove team members from your daytona dashboard. Whenever you register an account on a Daytona deployment, you are default to be in a team. You can create a new team, or join an existing team.
 
-### Different roles
-All the roles in a team can see who is in the same team and the pending invitation. 
+## Creating teams
 
-1. **Owner**
-- One team can only have one owner
-- The owner of a team can do the following in a team:
-  - **invite new team members** by email (one by one)
-  - **bulk invite** team members by uploading a CSV file
-  - assign roles to team members (**Admin** and **Member**)
-  - remove team members from the team
-  - see pending invitations in the same team
-  - check workspace usage within the team
-  - edit team configuration (team name, team ID, delete team)
-  - check workspace usage within the team
-  - edit team configuration (team name, team ID, delete team)
-
-2. **Admin**
-- One team can have multiple admins
-- The admin of a team can do the following in a team:
-  - **invite new team members** by email (one by one)
-  - **bulk invite** team members by uploading a CSV file
-  - assign roles to team members (Admin and Member)
-  - remove team members from the team
-  - see pending invitations in the same team
-
-
-3. **Member**
-- One team can have multiple members
-- The member of a team can do the following in a team:
-  - see who is in the same team
-  - see pending invitations in the same team
-  - check workspace usage within the team
-  - leaving a team
-  - can't invite new team members
-  - can't assign roles to team members
-  - can't remove team members from the team
-  - can't edit team name
+1. Log into your Daytona dashboard
+2. Creating a team
+- Click on your **team'name** in the top right corner.
+- In the dropdown menu, click on **Create team**.
+- Enter your team's name and click on **Create**.
 
 
 ### Inviting team members
-
-:::note
-At the moment, all the team related configuration can be only done on Daytona dashboard or Keycloak. You won't be able to configure teams from IDEs.
-:::
 
 1. Log into selected team on Daytona dashboard
 - Log into your Daytona dashboard, make sure you are in the team you want to invite new members to (by checking in the **top right corner**).
@@ -77,6 +49,7 @@ At the moment, all the team related configuration can be only done on Daytona da
 :::note
 The invitation will be only shown to members who are already registered on the same Daytona deployment. They will need to log into their Daytona dashboard to accept the invitation.
 :::
+
 3. Check pending invitations
 - On the *Member* tab, click on **Invitations**
 - You can see the expiration time of the invitation, the email address of the team member you invited. 
@@ -88,6 +61,7 @@ The invitation will be only shown to members who are already registered on the s
 - Log into your Daytona dashboard, and click on your team's profile in the **top right corner**.
 - Under the dropdown menu click on **Team invitations**.
 - On this page you can see which team invited you (team's name), who invited you (their username) and the invitation time. 
+
 2. Actions on team invitation
 - Click on **Accept** to accept the invitation from known team, or **Decline** to decline the invitation from known team.
 
@@ -124,8 +98,9 @@ There are two **Settings** button on the Daytona dashboard. Only the one under t
 - Click on **Delete team** (this action is destructive, you will lost records of your previous team members).
 - You will be prompted for your team's name. Enter the team's name and then click on **Delete**.
 
+<hr/>
 
-## Check workspace usage
+## Team's statistics
 
 On Daytona dashboard, you can check the usage of your workspaces within your team, namely how many workspaces are within this team, and how many hours you and your team members have used in total.
 
@@ -133,7 +108,7 @@ On Daytona dashboard, you can check the usage of your workspaces within your tea
 
 - Log into your Daytona dashboard in your selected teams (click on the team profile on top right and **Switch teams**).
 
-2. Workspace usage
+2. Check team's statistics
 
 - On the left under *Team* section, click on **Subscription**.
 - You can check: 
@@ -143,13 +118,55 @@ On Daytona dashboard, you can check the usage of your workspaces within your tea
   - **Inactivity timeout**: how many minutes of inactivity before a workspace is automatically stopped.
   - **Used minutes**: how many minutes you and your team members have used in total in the last 30 days.
   - **Active Workspaces**: how many [active workspaces](/usage/workspaces) exits in the current time within this team.
+
 :::note
   Every 30 days is a cycle for resetting the usage minutes. 
 :::
 
+<hr/>
+
+## Different roles
+All the roles in a team can see who is in the same team and the pending invitation.
+
+1. **Owner**
+- One team can only have one owner
+- The owner of a team can do the following in a team:
+  - **invite new team members** by email (one by one)
+  - **bulk invite** team members by uploading a CSV file
+  - assign roles to team members (**Admin** and **Member**)
+  - remove team members from the team
+  - see pending invitations in the same team
+  - edit team configuration (team name, team ID, delete team)
+  - check workspace usage within the team
+  - edit team configuration (team name, team ID, delete team)
+
+2. **Admin**
+- One team can have multiple admins
+- The admin of a team can do the following in a team:
+  - **invite new team members** by email (one by one)
+  - **bulk invite** team members by uploading a CSV file
+  - assign roles to team members (Admin and Member)
+  - remove team members from the team
+  - see pending invitations in the same team
+
+
+3. **Member**
+- One team can have multiple members
+- The member of a team can do the following in a team:
+  - see who is in the same team
+  - see pending invitations in the same team
+  - check workspace usage within the team
+  - leaving a team
+  - can't invite new team members
+  - can't assign roles to team members
+  - can't remove team members from the team
+  - can't edit team name
+
+<hr/>
+
 ## Teams on IDEs
 
-On different IDEs that utilises Daytona's [VS Code extension](/tools/vs-code-extension) or [JetBrain's Gateway Plugin](/tools/jetbrains-gateway), at the moment you will be able to: 
+On different IDEs that utilises Daytona's VS Code extension or JetBrain's Gateway Plugin you will be able to: 
 - see the teams you are in
 - create workspaces within the team you are in
 - switching between teams
@@ -160,5 +177,5 @@ On different IDEs that utilises Daytona's [VS Code extension](/tools/vs-code-ext
 
 ### JetBrains
 
-- In Jetbrains' Gateway, once you have configured Daytona based on [this guide](/tools/jetbrains-gateway#managing-teams), you will be able to switch between teams.
-In VS Code, you can only **changing teams(To see the features related to teams on JetBrains related products including **IntelliJ**, **PyCharm**, **WebStorm**, **PhpStorm** and more, we have written guides on [IDEs](/usage/ides#intellij) and [JetBrains Gateway](/tools/jetbrains-gateway#managing-teams).
+- In Jetbrains' Gateway, once you have configured Daytona based on [this guide](/tools/jetbrains-gateway), you will be able to switch between teams.
+In VS Code, you can only **changing teams(To see the features related to teams on JetBrains related products including **IntelliJ**, **PyCharm**, **WebStorm**, **PhpStorm** and more, we have written guides on [IDEs](/usage/ides#intellij) and [the team's feature in JetBrains Gateway](/tools/jetbrains-gateway#managing-teams).
