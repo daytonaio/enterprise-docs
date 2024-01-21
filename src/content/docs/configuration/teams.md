@@ -31,7 +31,7 @@ In this section, we will walk you through how you can invite, assign roles, and 
 
 1. Log into your Daytona dashboard
 2. Creating a team
-- Click on your **team'name** in the top right corner.
+- Click on your **team's name** in the top right corner.
 - In the dropdown menu, click on **Create team**.
 - Enter your team's name and click on **Create**.
 
