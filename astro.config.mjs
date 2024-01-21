@@ -35,10 +35,10 @@ export default defineConfig({
     }, {
       "label": "Configuration",
       "items": [
-      //     {
-      //   "label": "User Types",
-      //   "link": "/configuration/user-types/"
-      // },
+          {
+        "label": "User Types",
+        "link": "/configuration/user-types/"
+      },
         {
         "label": "Git Providers",
         "link": "/configuration/git-providers/"
