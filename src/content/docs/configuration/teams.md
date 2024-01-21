@@ -35,6 +35,10 @@ In this section, we will walk you through how you can invite, assign roles, and 
 - In the dropdown menu, click on **Create team**.
 - Enter your team's name and click on **Create**.
 
+:::note 
+At the moment you won't be able to add more than one team under your license. Feature to add more teams is coming soon.
+:::
+
 
 ### Inviting team members
 
