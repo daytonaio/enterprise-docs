@@ -104,3 +104,14 @@ strong {
   letter-spacing: -0.01em;
   color: var(--primary-text-color);
 }
+
+dt {
+  font-weight: bold;
+  color: var(--primary-text-color);
+}
+
+dd {
+  display: inline-block;
+  margin-left: 2em;
+  color: var(--secondary-text-color);
+}
