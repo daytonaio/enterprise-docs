@@ -151,6 +151,7 @@ There are two **Settings** button on the Daytona dashboard. Only the one under t
 
 - You can see the **Team ID** under the _Team information_.
 - Click on the copy icon to copy the team ID.
+- You may need your team ID when you are [**submitting a support ticket**](mailto:servicedesk@daytona.io).
 
 3. Deleting team
 
