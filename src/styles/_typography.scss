@@ -127,3 +127,13 @@ code {
   font-size: 0.875rem;
   color: var(--primary-text-color);
 }
+
+dt {
+  font-weight: bold;
+  color: var(--primary-text-color);
+}
+
+dd {
+  display: inline-block;
+  margin-left: 2em;
+}
