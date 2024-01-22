@@ -85,47 +85,80 @@ Once the team member you invited has accepted the invitation, you can assign two
 - Admin
 - Member
 
-The following [different roles](#different-roles) section explains what tasks different roles can perform.
+The following table explains what tasks different roles can perform.
 
-### Different roles
-
-All the roles in a team can see who is in the same team and the pending invitation.
-
-1. **Owner**
-
-- One team can only have one owner
-- The owner of a team can do the following in a team:
-  - **invite new team members** by email (one by one)
-  - **bulk invite** team members by uploading a CSV file
-  - assign roles to team members (**Admin** and **Member**)
-  - remove team members from the team
-  - see pending invitations in the same team
-  - edit team configuration (team name, team ID, delete team)
-  - check workspace usage within the team
-  - edit team configuration (team name, team ID, delete team)
-
-2. **Admin**
-
-- One team can have multiple admins
-- The admin of a team can do the following in a team:
-  - **invite new team members** by email (one by one)
-  - **bulk invite** team members by uploading a CSV file
-  - assign roles to team members (Admin and Member)
-  - remove team members from the team
-  - see pending invitations in the same team
-
-3. **Member**
-
-- One team can have multiple members
-- The member of a team can do the following in a team:
-  - see who is in the same team
-  - see pending invitations in the same team
-  - check workspace usage within the team
-  - leaving a team
-  - can't invite new team members
-  - can't assign roles to team members
-  - can't remove team members from the team
-  - can't edit team name
+<div class="container">
+<table id="different-roles table-color">
+<tbody>
+<tr>
+<td>Feature</td>
+<td>Owner</td>
+<td>Admin</td>
+<td>Member</td>
+</tr>
+<tr>
+<td>Check existing team members</td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>Check pending invitations</td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>Check workspace usage</td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>Delete team</td>
+<td>✅</td>
+<td>✅</td>
+<td>❌</td>
+</tr>
+<tr>
+<td>Leave team</td>
+<td>❌</td>
+<td>❌</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>Invite new team members by email</td>
+<td>✅</td>
+<td>✅</td>
+<td>❌</td>
+</tr>
+<tr>
+<td>Bulk invite team member (CSV)</td>
+<td>✅</td>
+<td>✅</td>
+<td>❌</td>
+</tr>
+<tr>
+<td>Assign roles to team members</td>
+<td>✅</td>
+<td>✅</td>
+<td>❌</td>
+</tr>
+<tr>
+<td>Remove team members</td>
+<td>✅</td>
+<td>✅</td>
+<td>❌</td>
+</tr>
+<tr>
+<td>Edit team configuration</td>
+<td>✅</td>
+<td>✅</td>
+<td>❌</td>
+</tr>
+</tbody>
+</table>
+</div>
 
 <hr/>
 
