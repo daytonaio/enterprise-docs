@@ -232,6 +232,21 @@
     margin: 1.2rem auto 0.6rem;
   }
 
+
+  .keyboard-shortcut {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 500;
+    line-height: 1.4;
+    letter-spacing: -0.015rem;;
+    border:1px solid var(--secondary-text-color);
+    border-radius: 3px;
+    box-shadow: 0 1px 0 0 var(--secondary-text-color);
+    padding: 0.8px 6px;
+    color: var(--primary-text-color);
+  }
+}
+
   .container tbody {
     width: 100%;
   }
