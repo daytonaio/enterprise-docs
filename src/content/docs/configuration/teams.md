@@ -155,8 +155,12 @@ There are two **Settings** button on the Daytona dashboard. Only the one under t
 
 3. Deleting team
 
-- Click on **Delete team** (this action is destructive, you will lost records of your previous team members).
+- Click on **Delete team**.
 - You will be prompted for your team's name. Enter the team's name and then click on **Delete**.
+
+:::danger
+This action is destructive. You will lose records of your previous team member and there might be unpredictable results.
+:::
 
 <hr/>
 
