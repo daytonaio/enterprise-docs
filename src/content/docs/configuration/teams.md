@@ -1,46 +1,45 @@
 ---
-title: Teams Configuration
+title: Teams
 description: This guide will help you configure and manage teams in your Daytona deployment.
 sidebar:
   label: Teams
 ---
 
-On Daytona dashboard, users can invite, manage and configure team members, become a owner of a team, and the configuration is synced across all your [IDEs](/usage/ides) that are connected to your Daytona deployment. 
+A team in a Daytona deployment represents a group of people collaborating together in Daytona, either as an **internal unit like the Engineering department** or as **an external group**, such as a team of Open Source contributors/collaborators. 
 
-Via Daytona' team, you can: 
+By creating a team, you become the team owner. This role empowers you to invite, manage, and configure team members, and most importantly, to manage the hardware resources at their disposal. 
 
-- [Managing team members](#managing-teams)
-- [Configuring team settings](#configuring-team-settings)
-- [Check team's statistics](#teams-statistics)
+In this guide, we will walk you through how you can perform above tasks from your daytona dashboard. Whenever you register an account on a Daytona deployment, you are default to be in a team. You can create a new team, or join an existing team.
 
 <hr/>
 
-## Pre-requisites
-Before you start configuring teams, make sure you have access to a **Daytona deployment** and the **dashboard URL**. 
-
-
+## Prerequisites
+Before you start configuring teams, make sure you have access to a **Daytona deployment** and the **dashboard URL**.
    
 [//]: # ({/*TODO: docs - second list item should be corrected rendered and indented*/})
 <hr/>
 
-## Managing teams
-
-In this section, we will walk you through how you can invite, assign roles, and remove team members from your daytona dashboard. Whenever you register an account on a Daytona deployment, you are default to be in a team. You can create a new team, or join an existing team.
 
 ## Creating teams
 
 1. Log into your Daytona dashboard
 2. Creating a team
-- Click on your **team's name** in the top right corner.
+- Click on your **team's name** (by default it is **My Team**) in the top right corner.
 - In the dropdown menu, click on **Create team**.
 - Enter your team's name and click on **Create**.
 
+[//]: # (TODO: docs - link in note component are not rendered)
+
 :::note 
-At the moment you won't be able to add more than one team under your license. Feature to add more teams is coming soon.
+You might have an error if you haven't upgrade. [Book a demo with us](https://daytona.zapier.app/) if you are interested in upgrading your current Daytona license.
 :::
 
+Either you choose to create a new team, or using the default **My Team**, you can manage them from the left sidebar via **Subscription**, **Members** and **Settings**. 
 
-### Inviting team members
+
+<hr/>
+
+## Inviting team members
 
 1. Log into selected team on Daytona dashboard
 - Log into your Daytona dashboard, make sure you are in the team you want to invite new members to (by checking in the **top right corner**).
@@ -59,7 +58,9 @@ The invitation will be only shown to members who are already registered on the s
 - You can see the expiration time of the invitation, the email address of the team member you invited. 
 - You can revoke invitation by clicking on **Remove**.
 
-### Receiving invitations
+<hr/>
+
+## Receiving invitations
 
 1. Team invitation on Daytona dashboard
 - Log into your Daytona dashboard, and click on your team's profile in the **top right corner**.
@@ -69,7 +70,9 @@ The invitation will be only shown to members who are already registered on the s
 2. Actions on team invitation
 - Click on **Accept** to accept the invitation from known team, or **Decline** to decline the invitation from known team.
 
-### Managing roles on Daytona dashboard
+<hr/>
+
+## Managing roles
 
 Once the team member you invited has accepted the invitation, you can assign two types of roles to them:
 - Admin
@@ -77,6 +80,44 @@ Once the team member you invited has accepted the invitation, you can assign two
 
 For a detailed explanation of different roles and what they can do, please refer to the [different roles](#different-roles) section above.
 
+### Different roles
+All the roles in a team can see who is in the same team and the pending invitation.
+
+1. **Owner**
+- One team can only have one owner
+- The owner of a team can do the following in a team:
+  - **invite new team members** by email (one by one)
+  - **bulk invite** team members by uploading a CSV file
+  - assign roles to team members (**Admin** and **Member**)
+  - remove team members from the team
+  - see pending invitations in the same team
+  - edit team configuration (team name, team ID, delete team)
+  - check workspace usage within the team
+  - edit team configuration (team name, team ID, delete team)
+
+2. **Admin**
+- One team can have multiple admins
+- The admin of a team can do the following in a team:
+  - **invite new team members** by email (one by one)
+  - **bulk invite** team members by uploading a CSV file
+  - assign roles to team members (Admin and Member)
+  - remove team members from the team
+  - see pending invitations in the same team
+
+
+3. **Member**
+- One team can have multiple members
+- The member of a team can do the following in a team:
+  - see who is in the same team
+  - see pending invitations in the same team
+  - check workspace usage within the team
+  - leaving a team
+  - can't invite new team members
+  - can't assign roles to team members
+  - can't remove team members from the team
+  - can't edit team name
+
+<hr/>
 
 ## Configuring team settings
 
@@ -127,44 +168,6 @@ On Daytona dashboard, you can check the usage of your workspaces within your tea
   Every 30 days is a cycle for resetting the usage minutes. 
 :::
 
-<hr/>
-
-## Different roles
-All the roles in a team can see who is in the same team and the pending invitation.
-
-1. **Owner**
-- One team can only have one owner
-- The owner of a team can do the following in a team:
-  - **invite new team members** by email (one by one)
-  - **bulk invite** team members by uploading a CSV file
-  - assign roles to team members (**Admin** and **Member**)
-  - remove team members from the team
-  - see pending invitations in the same team
-  - edit team configuration (team name, team ID, delete team)
-  - check workspace usage within the team
-  - edit team configuration (team name, team ID, delete team)
-
-2. **Admin**
-- One team can have multiple admins
-- The admin of a team can do the following in a team:
-  - **invite new team members** by email (one by one)
-  - **bulk invite** team members by uploading a CSV file
-  - assign roles to team members (Admin and Member)
-  - remove team members from the team
-  - see pending invitations in the same team
-
-
-3. **Member**
-- One team can have multiple members
-- The member of a team can do the following in a team:
-  - see who is in the same team
-  - see pending invitations in the same team
-  - check workspace usage within the team
-  - leaving a team
-  - can't invite new team members
-  - can't assign roles to team members
-  - can't remove team members from the team
-  - can't edit team name
 
 <hr/>
 

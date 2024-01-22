@@ -5,6 +5,8 @@ sidebar:
   label: Account
 ---
 
+
+
 ## Managing secrets
 1. Environment variables on dashboard
 - Log into your Daytona dashboard in your browser, click on **Environment variables** on the left.
