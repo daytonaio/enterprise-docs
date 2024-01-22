@@ -85,7 +85,7 @@ Once the team member you invited has accepted the invitation, you can assign two
 - Admin
 - Member
 
-For a detailed explanation of different roles and what they can do, please refer to the [different roles](#different-roles) section above.
+The following [different roles](#different-roles) section explains what tasks different roles can perform.
 
 ### Different roles
 
