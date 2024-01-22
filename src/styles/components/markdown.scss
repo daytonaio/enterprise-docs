@@ -7,8 +7,11 @@
   > p, ol, ul {
     a {
       color: var(--primary-text-color);
-      font-weight: 600;
+      font-weight: 500;
       text-decoration: underline;
+      text-decoration-color: var(--active-state-color);
+      text-underline-offset: 3.2px;
+      transition-duration: 250ms;
 
       @include for-hover-state {
         &:hover {
@@ -29,7 +32,7 @@
 
 
   > blockquote {
-    margin: 59px 0 64px;
+    margin: 0 0 34px;
     border-left: 2px solid var(--hover-color);
     padding-left: 30px;
     @include for-tablet-screen-sizes {
@@ -84,9 +87,14 @@
   }
   > ol {
     padding-inline-start: 18px;
+    margin: 0 0 6px;
     li {
+        font-size: 1.08rem;
+        color: var(--primary-text-color);
+        font-weight: 500;
+        margin-bottom: 8px;
       &::marker {
-        color: var(--secondary-text-color);
+        color: var(--accent-text-color);
       }
 
       p {
@@ -100,9 +108,9 @@
   }
 
   > ul {
-    background: var(--block-bg-color);
-    padding: 30px 30px 30px 45px;
-    margin-bottom: 60px;
+    // background: var(--block-bg-color);
+    padding: 0px 10px 10px 16px;
+    margin-bottom: 6px;
     margin-top: 0;
     list-style-image: url(/src/assets/icons/facts.svg);
 
@@ -112,9 +120,10 @@
 
     li {
       padding-left: 10px;
-      margin: 0 0 10px;
-      color: var(--primary-text-color);
-      font-weight: 500;
+      margin: 0 0 4px;
+      color: var(--accent-text-color);
+      font-weight: 300;
+      letter-spacing: 0.2px;
 
 
       code {
