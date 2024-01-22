@@ -194,9 +194,10 @@ On different IDEs that utilises Daytona's VS Code extension or JetBrain's Gatewa
 
 ### VS Code
 
-- To see the features related to Daytona's teams on VS Code, please refer to [IDEs](/usage/ides#vscode) and [VS Code Extension](/tools/vs-code-extension#managing-teams) guides.
+- You can switch teams on VS Code.
+- To see more features related to Daytona's teams on VS Code, please refer to [IDEs](/usage/ides#vscode) and [VS Code Extension](/tools/vs-code-extension#managing-teams) guides.
 
 ### JetBrains
 
 - In Jetbrains' Gateway, once you have configured Daytona based on [this guide](/tools/jetbrains-gateway), you will be able to switch between teams.
-  In VS Code, you can only **changing teams(To see the features related to teams on JetBrains related products including **IntelliJ**, **PyCharm**, **WebStorm**, **PhpStorm\*\* and more, we have written guides on [IDEs](/usage/ides#intellij) and [the team's feature in JetBrains Gateway](/tools/jetbrains-gateway#managing-teams).
+- To see the features related to teams on JetBrains related products including **IntelliJ**, **PyCharm**, **WebStorm**, \*\*PhpStorm\*\* and more, we have written guides on [IDEs](/usage/ides#intellij) and [the team's feature in JetBrains Gateway](/tools/jetbrains-gateway#managing-teams).
