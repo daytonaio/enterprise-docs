@@ -884,7 +884,7 @@ In the section below we will guide you how to configure Google as an identity pr
 ```text
 profile email openid
 ```
-> - These permission scopes will allow us to access authenticated users' email, account details, and access signed-in users' repositories to gain read, write, and admin rights.
+> - These permission scopes will allow us to access authenticated users' email and authenticate account details.
 - Toggle the fields **Store tokens** and **Trust Email** to turn them on. You can compare your information to the [table below](#google-and-keycloak-configuration-details) to make sure the details are correctly configured.
 - On the top right side of the page, toggle the *Disabled* switch to **Enabled**.
 
@@ -992,6 +992,141 @@ If you don't publish your OAuth application, you will only be able to use it wit
 
 ### Confirm Google is working
 You can now open your Daytona dashboard on the browser and try to sign in with your Google account.
+
+## Azure Active Directory (now Microsoft Entra ID)
+The following section will guide you through how to configure Azure as an identity provider for your Daytona installation. You will need a registered Azure account associated with a registered Microsoft Azure tenant. We assume you are familiar with Azure interface and have experience interacting with it.
+
+### Configure Azure Active Directory in Keycloak
+
+1. Log into default realm in Keycloak
+- Log into your Keycloak's Administration with credentials you obtained from the [prerequisites](#prerequisites) section.
+- After you sign in, make sure you are on the **default realm**. You should see the homepage show *Welcome to default* at the center of the screen.
+- If not (the homepage shows scattered information with *Server info* with the title *master realm*), you can select **default** under the dropdown menu on the top left side of the homepage.
+
+2. Obtain redirect URL
+- Under the default realm, click on **Identity Providers** under the *Configure* section on the left sidebar.
+- Then click on **azure** (should be labeled with `disabled` at the moment).
+- On the next page, *Provider details*, copy the **Redirect URI** and note it down, as we will need it later. *Don't close this tab*.
+
+3. Register an application in Azure
+- Sign in to your Azure portal with [this link](https://portal.azure.com/#view/Microsoft_AAD_RegisteredApps/CreateApplicationBlade/isMSAApp~/false). Or on your Azure portal, search for **App registrations** and then click on **New registration**.
+- For **Name**, we recommend using your Daytona deploy domain for easy recognition.
+- For **Supported account types**, you can choose an option based on your organisation needs. If you often have external contractors, select **Accounts in any organizational directory**.
+- Under the *Redirect URI* section, select **Web** and paste the *Redirect URI* you have copied from the previous step (from the Keycloak dashboard) into the **Redirect URI** input field.
+- Then click on **Register**.
+
+4. Copy Client ID and secrets
+- You will then be redirected to the *overview* page of your application.
+- Copy the **Application (client) ID** and paste it into your Keycloak *Provider details* page in the *Client ID* section.
+- Under *Certificates & secrets*, click on **New client secret**. Copy the **Value** and paste it into your Keycloak *Provider details* page in the *Client Secret* section.
+
+5. Configure Keycloak
+- Under *Advance settings*, copy and paste the following value into the field **Scope**:
+```text
+openid profile email user.read
+```
+> - These permission scopes will allow us to access authenticated users' email, account details, and authenticate users via their Azure account or Microsoft account.
+- Toggle the fields **Store tokens** and **Trust Email** to turn them on. You can compare your information to the [table below](#azure-and-keycloak-configuration-details) to make sure the details are correctly configured.
+- Click **Save**.
+- On the top right side of the page, toggle the *Disabled* switch to **Enabled**.
+
+<details id="azure-and-keycloak-configuration-details" class="idp-details">
+    <summary>Azure and Keycloak configuration details</summary>
+    <content>
+        <table class="table-color container">
+            <tbody>
+            <tr>
+                <th>Azure VS. Keycloak</th>
+                <th>Azure</th>
+                <th>Keycloak Provider Details</th>
+            </tr>
+            <tr>
+                <td>URL</td>
+                <td>Redirect URI</td>
+                <td>Redirect URI</td>
+            </tr>
+            <tr>
+                <td>ID</td>
+                <td>Application (client) ID</td>
+                <td>Client ID</td>
+            </tr>
+            <tr>
+                <td>Secrets</td>
+                <td>Value (in Credentials in secrets)</td>
+                <td>Client Secret</td>
+            </tr>
+            <tr>
+                <td>Scopes</td>
+                <td style="text-align:left">
+                    - openid
+                    - profile
+                    - email
+                    - user.read
+                </td>
+                <td >`openid profile email user.read`</td>
+            </tr>
+            </tbody>
+        </table>
+        <table class="table-color container">
+            <tbody>
+            <tr>
+                <th>Keycloak Advance Settings</th>
+                <th> Details </th>
+            </tr>
+
+            <tr>
+                <td>Store tokens</td>
+
+                <td>On</td>
+            </tr>
+            <tr>
+                <td>Accepts prompt=none forward from client</td>
+
+                <td>Off</td>
+            </tr>
+            <tr>
+                <td>Disable user info</td>
+
+                <td>Off</td>
+            </tr>
+            <tr>
+                <td>Trust Email</td>
+
+                <td>On</td>
+            </tr>
+            <tr>
+                <td>Hide on login page</td>
+
+                <td>Off</td>
+            </tr>
+            <tr>
+                <td>Verify essential claim</td>
+
+                <td>Off</td>
+            </tr>
+            <tr>
+                <td>First login flow (dropdown)</td>
+
+                <td>first broker login</td>
+            </tr>
+            <tr>
+                <td>Post login flow</td>
+
+                <td>None</td>
+            </tr>
+            <tr>
+                <td>Sync mode</td>
+
+                <td>Import</td>
+            </tr>
+            </tbody>
+        </table>
+
+    </content>
+</details>
+
+### Confirm Azure is working
+You can now open your Daytona dashboard on the browser and try to sign in with your Azure/Microsoft account.
 
 ## Disable identity provider
 
