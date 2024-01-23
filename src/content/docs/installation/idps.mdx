@@ -4,6 +4,7 @@ description: How to add identity providers from Github, Bitbucket and Gitlab for
 sidebar:
   label: IDPs
 ---
+import Keyboard from "../../../components/Keyboard.astro"
 
 
 To enable IDPs (Identity Providers) on your Daytona installation, we utilize an open-source identity and access management application [Keycloak](https://www.Keycloak.org/) to add multiple identity providers. It will allow you to sign into your Daytona dashboard via different IDPs, create [workspaces from different Git providers](/configuration/git-providers), manage access scope, permissions, sessions, and events. Also, monitor and manage users within your organization with Daytona.
@@ -75,8 +76,8 @@ In this section, we will guide you to configure Github as an identity provider f
 read:user user:email repo
 ```
 > - These three scopes will allow users to sign in via email, read GitHub users' information, and access signed-in users' repositories to gain read, write, and admin rights. 
-> - Toggle the fields **Store tokens** and **Trust Email** to turn them on. You can compare your information to the [table below](#github-and-keycloak-configuration-details) to make sure the details are correctly configured.
-> - If you want to type in scopes by yourself, remember to use `Space ␣` to separate different scopes and not comma `,`.
+> - Toggle the fields `Store tokens` and `Trust Email` to turn them on. You can compare your information to the [table below](#github-and-keycloak-configuration-details) to make sure the details are correctly configured. 
+> - If you want to type in scopes by yourself, remember to use <Keyboard shortcuts="Space ␣" /> to separate different scopes and not comma <Keyboard shortcuts="," />.
 
 7. Save and enable GitHub
 - After inputting all the information, click on **Save** at the bottom of Keycloak's Provider details page, then toggle *Disabled* on the top right side of the page to change it to **Enabled**.
@@ -224,8 +225,8 @@ If you choose another identity provider during the installation stage, you can s
 profile email read_user write_repository read_repository openid api read_api
 ```
 > - These scopes will allow your Daytona installation to access the signed-in user's profile, email, and respective repository(allow Daytona to create [workspace](/usage/workspaces)), use OpenID to authenticate users during sign-in, read and access [GitLab's API](https://docs.gitlab.com/ee/api/api_resources.html) to work with workspaces. 
-> - Toggle the fields **Store tokens** and **Trust Email** to turn them on. You can compare your information to the [table below](#gitlab-and-keycloak-configuration-details) to make sure the details are correctly configured.
-> - If you want to type in scopes by yourself, remember to use `Space ␣` to separate different scopes instead of a comma `,`.
+> - Toggle the fields `Store tokens` and `Trust Email` to turn them on. You can compare your information to the [table below](#gitlab-and-keycloak-configuration-details) to make sure the details are correctly configured.
+> - If you want to type in scopes by yourself, remember to use <Keyboard shortcuts="Space ␣" /> to separate different scopes instead of a comma <Keyboard shortcuts="," />.
 
 9. Enable GitLab
 - After finishing the above steps, on Keycloak, click **Save** at the bottom of the page (on Keycloak), and then enable the identity provider (toggle the *Disabled* switch on the top right side of the page to **Enabled**).
