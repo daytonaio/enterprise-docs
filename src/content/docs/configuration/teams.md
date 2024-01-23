@@ -1,6 +1,6 @@
 ---
 title: Teams Configuration
-description: Add a brief description of the Teams Configuration page here
+description: Explore how to create, manage, and utilize Teams on the Daytona dashboard efficiently for enhanced project organization.
 sidebar:
   label: Teams
 ---
