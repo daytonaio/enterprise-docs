@@ -118,7 +118,10 @@ const { sublist, nested } = Astro.props;
         }
     }
 
-    a:hover,
+    a:hover {
+        color: var(--primary-text-color);
+
+    }
     a:focus {
         color: var(--hover-color);
         > svg {

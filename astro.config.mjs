@@ -56,13 +56,15 @@ export default defineConfig({
       }]
     }, {
       "label": "Configuration",
-      "items": [{
-        "label": "User Types",
-        "link": "/configuration/user-types/",
-        attrs: {
-          icon: 'bookmark.svg'
-        },
-      }, {
+      "items": [
+      //     {
+      //   "label": "User Types",
+      //   "link": "/configuration/user-types/",
+      //   attrs: {
+      //     icon: 'bookmark.svg'
+      //   },
+      // },
+          {
         "label": "Git Providers",
         "link": "/configuration/git-providers/",
         attrs: {
@@ -80,13 +82,15 @@ export default defineConfig({
         attrs: {
           icon: 'copy.svg'
         },
-      }, {
-        "label": "Licensing (Enterprise)",
-        "link": "/configuration/licensing/",
-        attrs: {
-          icon: 'tag.svg'
-        },
-      }]
+      },
+      //     {
+      //   "label": "Licensing (Enterprise)",
+      //   "link": "/configuration/licensing/",
+      //   attrs: {
+      //     icon: 'tag.svg'
+      //   },
+      // }
+      ]
     }, {
       "label": "Usage",
       "items": [{
@@ -107,47 +111,51 @@ export default defineConfig({
         attrs: {
           icon: 'user.svg'
         },
-      }, {
-        "label": "Projects",
-        "link": "/usage/projects/",
-        attrs: {
-          icon: 'folder.svg'
-        },
-      }]
-    }, {
-      "label": "Administration",
-      "items": [{
-        "label": "Application Logs",
-        "link": "/administration/application-logs/",
-        attrs: {
-          icon: 'document.svg'
-        },
-      }, {
-        "label": "Audit Logs",
-        "link": "/administration/audit-logs/",
-        attrs: {
-          icon: 'clipboard-list.svg'
-        },
-      }, {
-        "label": "High Density",
-        "link": "/administration/high-density/",
-        attrs: {
-          icon: 'table.svg'
-        },
-      }, {
-        "label": "Telemetry",
-        "link": "/administration/telemetry/",
-        attrs: {
-          icon: 'pulse.svg'
-        },
-      }, {
-        "label": "Appearance",
-        "link": "/administration/appearance/",
-        attrs: {
-          icon: 'union.svg'
-        },
-      }]
-    }, {
+      },
+      //     {
+      //   "label": "Projects",
+      //   "link": "/usage/projects/",
+      //   attrs: {
+      //     icon: 'folder.svg'
+      //   },
+      // }
+      ]
+    },
+    //     {
+    //   "label": "Administration",
+    //   "items": [{
+    //     "label": "Application Logs",
+    //     "link": "/administration/application-logs/",
+    //     attrs: {
+    //       icon: 'document.svg'
+    //     },
+    //   }, {
+    //     "label": "Audit Logs",
+    //     "link": "/administration/audit-logs/",
+    //     attrs: {
+    //       icon: 'clipboard-list.svg'
+    //     },
+    //   }, {
+    //     "label": "High Density",
+    //     "link": "/administration/high-density/",
+    //     attrs: {
+    //       icon: 'table.svg'
+    //     },
+    //   }, {
+    //     "label": "Telemetry",
+    //     "link": "/administration/telemetry/",
+    //     attrs: {
+    //       icon: 'pulse.svg'
+    //     },
+    //   }, {
+    //     "label": "Appearance",
+    //     "link": "/administration/appearance/",
+    //     attrs: {
+    //       icon: 'union.svg'
+    //     },
+    //   }]
+    // },
+        {
       "label": "Tools and Resources",
       "items": [{
         "label": "API",
@@ -175,13 +183,13 @@ export default defineConfig({
         },
       }]
     },
-    {
-      "label": "Contribution",
-      "items": [{
-        "label": "Guideline",
-        "link": "/contribution/guidelines",
-      }]
-    }
+    // {
+    //   "label": "Contribution",
+    //   "items": [{
+    //     "label": "Guideline",
+    //     "link": "/contribution/guidelines",
+    //   }]
+    // }
     ],
     tableOfContents: { minHeadingLevel: 2, maxHeadingLevel: 2 },
     customCss: ['./src/fonts/font-face.css', './src/styles/style.scss'],
@@ -209,6 +217,7 @@ export default defineConfig({
   output: 'hybrid',
   adapter: node({
     mode: 'middleware',
+
 
   }),
   vite: {
