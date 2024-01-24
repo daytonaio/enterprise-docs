@@ -283,7 +283,36 @@
   > details[open] > summary {
     cursor: pointer;
     font-family: "Inter", sans-serif;
-    font-size: 1rem;
+    font-size: 1.2rem;
+    font-weight: 500;
+  }
+
+  > details[open] > content {
+    p {
+      padding-inline-start: 18px;
+       margin: 10px 0;
+      }
+
+    ol {
+      padding-inline-start: 18px;
+      margin: 14px 0 6px;
+     
+
+      @include for-tablet-screen-sizes {
+        font-size: 1rem;
+      }
+    }
+
+    ul {
+      color: var(--accent-text-color);
+      p {
+        padding-inline-start: 0px;
+      }
+    }
+    .expressive-code {
+      margin: 10px 0;
+    }
+    
   }
 
   > aside {
