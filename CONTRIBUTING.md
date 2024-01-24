@@ -6,7 +6,7 @@ We are happy to provide guidance on PRs, technical writing, and turning any feat
 
 This document provides a detailed guide for contributors, especially writers, to ensure that contributions are consistent and of high quality. If you need further assistance, don't hesitate to reach out in the [Daytona Slack Community][slack].
 
-## Writing 
+## Writing Overview
 
 ### Main Guidelines
 
