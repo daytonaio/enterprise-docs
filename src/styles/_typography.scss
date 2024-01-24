@@ -80,9 +80,24 @@ h6 {
 p {
   font-family: 'Inter', sans-serif;
   font-size: 1rem;
+  font-weight: 400;
   line-height: 1.6;
   letter-spacing: -0.01rem;
-  color: var(--secondary-text-color);
+  // color: var(--secondary-text-color);
+    color: var(--accent-text-color);
+}
+
+a {
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.6;
+  letter-spacing: -0.01rem;
+  color: var(--blue-link);
+  text-decoration: none;
+  &:hover {
+    text-decoration: underline;
+  }
 }
 
 ol {
@@ -98,8 +113,28 @@ hr {
 
 strong {
   font-family: 'Inter', sans-serif;
-  font-weight: normal;
+  font-weight: bold;
   line-height: 1.6;
   letter-spacing: -0.01em;
   color: var(--primary-text-color);
+}
+
+code {
+  text-wrap: wrap !important;
+  white-space: pre-wrap;
+  font-weight: 300;
+  letter-spacing: 0.008rem;
+  font-size: 0.875rem;
+  color: var(--primary-text-color);
+}
+
+
+dt {
+  font-weight: bold;
+  color: var(--primary-text-color);
+}
+
+dd {
+  display: inline-block;
+  margin-left: 2em;
 }
