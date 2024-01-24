@@ -1,12 +1,9 @@
-FROM node:20.10.0 as deps
+FROM node:20.10.0
 
-WORKDIR /usr/src/app
+ENV PNPM_HOME="/pnpm"
+ENV PATH="$PNPM_HOME:$PATH"
 
-COPY package.json yarn.lock ./
-
-RUN yarn --prod
-
-FROM node:20.10.0 as build
+RUN corepack enable
 
 ARG PUBLIC_WEB_URL
 
@@ -16,15 +13,9 @@ WORKDIR /usr/src/app
 
 COPY . .
 
-RUN yarn
-RUN yarn build
-
-FROM node:20.10.0-slim
-
-WORKDIR /usr/src/app
+RUN --mount=type=cache,id=pnpm,target=/pnpm/store pnpm install --frozen-lockfile
+RUN pnpm run build
 
 COPY server ./server
-COPY --link --from=build /usr/src/app/dist ./dist
-COPY --link --from=deps /usr/src/app/node_modules ./node_modules
 
 CMD [ "node", "server/index.mjs" ]
