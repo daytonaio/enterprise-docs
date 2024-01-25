@@ -88,9 +88,9 @@ export default defineConfig({
       //     "link": "/administration/telemetry/"
                 
          }, {
-      //     "label": "Appearance",
-      //     "link": "/administration/appearance/"
-      //   }]
+           "label": "Appearance",
+           "link": "/administration/appearance/"
+         }]
        },
       {
         "label": "Tools and Resources",
