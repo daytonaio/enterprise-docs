@@ -86,11 +86,12 @@ export default defineConfig({
       //   }, {
       //     "label": "Telemetry",
       //     "link": "/administration/telemetry/"
-      //   }, {
-      //     "label": "Appearance",
-      //     "link": "/administration/appearance/"
-      //   }]
-      // },
+                
+         }, {
+           "label": "Appearance",
+           "link": "/administration/appearance/"
+         }]
+       },
       {
         "label": "Tools and Resources",
         "items": [{
