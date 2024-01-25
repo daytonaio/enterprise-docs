@@ -10,7 +10,7 @@ import Keyboard from "../../../components/Keyboard.astro"
 
 Templates are displayed on the right side of your Daytona dashboard when you try to create a [workspace](/usage/workspaces). You can use them to customize your Daytona dashboard in combination with [devcontainer](https://www.daytona.io/dotfiles/advanced-configuration-techniques-for-dev-container) during deployment to create workspaces faster based on your requirements.
 
-We will walk through our default templates, the content of each template, how to customise your own templates and 
+We will walk through our default templates, the content of each template, how to customise your own templates and how to deploy them a custom template to your Daytona dashboard.
 
 We assume you have a successful Daytona deployment and gained access to a Daytona dashboard URL.
 
@@ -18,90 +18,211 @@ We assume you have a successful Daytona deployment and gained access to a Dayton
 
 <hr/>
 
-## Default Templates
+## Default templates index
 
-Below is an indexed description of the default templates, their content and repository URLs. The default template index is located in [this repository](https://github.com/daytonaio/samples-index/blob/main/index.json).
+The default template index is a JSON file that contains an array of 13 objects. Each object represents a template. The template is located in [this repository](https://github.com/daytonaio/samples-index/blob/main/index.json).
+
+{/* <!-- TODO: try template created in one repo and see if the problem with setting remote origin URL persists.  --> */}
+
+
+Below is an indexed description of the default templates, their content and repository URLs. 
 
 <dl>
-    <dt>Alpine</dt>
+
+    <dt>1. Alpine</dt>
     <dd>
-    - Create a workspace using Alpine Linux as base image with Git installed.
+    - Create a workspace using Alpine Linux as base image with Git and common dependencies installed.
+
     - Includes: 
-      1. .devcontainer
-        - .devcontainer.json: a configuration file for devcontainer.
-        - Dockerfile: a Dockerfile to build the image.
-        - library-scripts/common-alpine.sh: a file contains scripts to update and install critical packages within .
-      2. README.md: a brief introduction of the template.
+      1. `.devcontainer` directory
+        - **.devcontainer.json**: a devcontainer configuration file to set up devcontainer using Alpine Linux. You can customize this file to suit your needs based on [devcontainer standards](https://code.visualstudio.com/docs/remote/devcontainerjson-reference).
+        - **Dockerfile**: a Dockerfile to build the devcontainer with the given shell script.
+        - **library-scripts/common-alpine.sh**: 
+          - Install and upgrade git, bash and common dependencies.
+          - Create a non-root user with sudo support, also update the root user to match UID/GID. 
+          - Set default git editor. 
+          - Install and configure zsh and oh-my-zsh.
+      2. README.md: a brief introduction of the template to be displayed on the dashboard.
+
+    - Repository URL:
+
     ```json
     https://github.com/daytonaio-templates/base-alpine
     ```
     </dd>
-    <dt>Debian</dt>
-    <dd>Create a workspace using Debian as base image with Git installer.</dd>
-    ```json 
+
+    <dt>2. Debian</dt>
+    <dd>
+    - Create a workspace using Debian as the base image with Git installed.
+    - Includes: 
+      1. `.devcontainer` directory
+        - **.devcontainer.json**: 
+          - A devcontainer configuration file to set up devcontainer using Debian.
+          - Ensure install `zsh` as the shell. 
+          - Set up vscode as a username and match it with UID/GID.
+          - Useful commands you can use to forward ports.
+        - **Dockerfile**: 
+          - A Dockerfile to build the devcontainer with Debian under variant `bullseye`.
+          - Commented section to facilitate additional OS package installation.
+      2. README.md: a brief introduction of the template to be displayed on the dashboard.
+
+   ```json 
     https://github.com/daytonaio-templates/base-debian
-    ```
-    <dt>Ubuntu</dt>
-    <dd>Create a workspace using Ubuntu as base image with Git and other common utilities installed.</dd>
+    ``` 
+    </dd>
+  
+    <dt>3. Ubuntu</dt>
+    <dd>
+    - Create a workspace using Ubuntu as the base image with Git and other common utilities installed.
+    - Includes: 
+    1. `.devcontainer` directory
+      - **.devcontainer.json**: 
+        - A devcontainer configuration file to set up devcontainer using Ubuntu.
+        - Ensure install `zsh` as the shell. 
+        - Set up vscode as a username and match it with UID/GID.
+        - Upgrade the OS packages.
+      - **Dockerfile**: 
+        - A Dockerfile to build the devcontainer with Ubuntu under variant `focal`.
+        - Commented section to facilitate additional OS package installation.
+    2. README.md: a brief introduction of the template to be displayed on the dashboard.
+
     ```json
     https://github.com/daytonaio-templates/base-ubuntu
     ```
-    <dt>C/C++</dt>
-    <dd>Create a workspace to develop C++ applications on Linux, a template includes Debian C++ build tools.</dd>
+    </dd>
+
+    <dt>4. C/C++</dt>
+    <dd>
+    - Create a workspace to develop C++ applications on Linux, a template includes Debian C++ build tools.
+    - Includes: 
+     1. **test-project** directory: a sample C++ application to test the template. 
+     2. README.md: a brief introduction of the template and how to use the test template. It is displayed on the dashboard.
+    
     ```json 
     https://github.com/daytonaio-templates/cpp
     ```
-    <dt>C# (.NET)</dt>
-    <dd>Create a workspace with all needed SDKs, extensions and dependencies to build C# and .NET based application.</dd>
+    </dd>
+
+    <dt>5. C# (.NET)</dt>
+    <dd>
+    - Create a workspace with all needed SDKs, extensions and dependencies to build C# and .NET based application.
+    - Includes: 
+    1. **test-project** directory: a sample .NET application to test the template. 
+    2. README.md: a brief introduction of the template and how to use the test template. It is displayed on the dashboard.
+
     ```json 
     https://github.com/daytonaio-templates/dotnet
     ```
-    <dt>Go</dt>
-    <dd>Create a workspace with appropriate runtime arguments, Go, common tools, extensions and dependencies to develop Go based applications.</dd>
-    ```json 
+    </dd>
+
+    <dt>6. Go</dt>
+    <dd>
+    - Create a workspace with appropriate runtime arguments, Go, common tools, extensions and dependencies to develop Go based applications.
+    - Includes:
+    1. **test-project** directory: a sample Go application to test the template.
+    2. README.md: a brief introduction of the template and how to use the test template. It is displayed on the dashboard.
+
+   ```json 
     https://github.com/daytonaio-templates/go
-    ```
-    <dt>Java</dt>
-    <dd>Create a workspace includes JDK and Java extensions to develop Java application</dd>
+    ``` 
+    </dd>
+  
+    <dt>7. Java</dt>
+    <dd>
+    - Create a workspace includes JDK and Java extensions to develop Java application.
+    - Includes:
+    1. **test-project** directory: 
+    - A sample Java application to test the template with testing units.
+    - Development environment configuration files.
+    2. README.md: a brief introduction of the template and how to use the test template. It is displayed on the dashboard.
+    
     ```json 
-    https://github.com/daytonaio-templates/go
+    https://github.com/daytonaio-templates/java
     ```
-    <dt>Node.js</dt>
-    <dd>Create a workspace includes Node.js, eslint, nvm and yarn to develop Node.js based applications.</dd>
+    </dd>
+
+    <dt>8. Node.js</dt>
+    <dd>
+    - Create a workspace including Node.js runtime, eslint, nvm and yarn to develop Node.js-based backend applications.
+    - Includes:
+    1. **test-project** directory: a sample Node.js application using Express.js as a backend framework to test the template.
+    2. README.md: a brief introduction of the template and how to use the test template. It is displayed on the dashboard.
+
     ```json 
     https://github.com/daytonaio-templates/javascript-node
     ```
-    <dt>PHP</dt>
-    <dd>Create a workspace with needed tools, extensions and dependencies to build PHP based applications.</dd>
+    </dd>
+
+    <dt>9. PHP</dt>
+    <dd>
+    - Create a workspace with needed tools, extensions and dependencies to build PHP based applications.
+    - Includes: 
+    1. **test-project** directory: a sample PHP appliaction to test the template.
+    2. README.md: a brief introduction of the template and how to use the test template. It is displayed on the dashboard.
+    
     ```json 
     https://github.com/daytonaio-templates/php
     ```
+    </dd>
 
-    <dt>Python</dt>
-    <dd>Create a workspace to build Python application with Python3.</dd>
-    ```json 
+    <dt>10. Python</dt>
+    <dd>
+    - Create a workspace to build Python application with Python3.
+    - Includes:
+    1. **test-project** directory: a sample Python project to test the template.
+    2. README.md: a brief introduction of the template and how to use the test template. It is displayed on the dashboard.
+
+   ```json 
     https://github.com/daytonaio-templates/python
-    ```
-    <dt>Ruby</dt>
-    <dd>Create a workspace with essential utilities to build Ruby based applications.</dd>
-    ```json 
+    ``` 
+    </dd>
+
+    <dt>11. Ruby</dt>
+    <dd>
+    - Create a workspace with essential utilities to build Ruby based applications.
+    - Includes: 
+    1. **test-project** directory: a sample Ruby application to test the template.
+    2. README.md: a brief introduction of the template and how to use the test template. It is displayed on the dashboard.
+
+   ```json 
     https://github.com/daytonaio-templates/ruby
-    ```
-    <dt>Rust</dt>
-    <dd>Create a workspace with appropriate runtime arguments and everything you need to build Rust based application. </dd>
+    ``` 
+    </dd>
+
+    <dt>12. Rust</dt>
+    <dd>
+    - Create a workspace with appropriate runtime arguments and everything you need to build Rust based application. 
+    - Includes: 
+    1. **test-project** directory: a sample Rust application to test the template.
+    2. README.md: a brief introduction of the template and how to use the test template. It is displayed on the dashboard.
     ```json 
     https://github.com/daytonaio-templates/rust
-    ```
-    <dt>TypeScript</dt>
-    <dd>Create a workspace includes Node.js, eslint, nvim, yarn and Typescript compiler to build Node.js based applications in Typescript.</dd>
+    ``` 
+    </dd>
+
+    <dt>13. TypeScript</dt>
+    <dd>
+    - Create a workspace includes Node.js, eslint, nvim, yarn and Typescript compiler to build Node.js based applications in Typescript.
+    - Includes:
+    1. **test-project** directory: a sample Node.js application using Express.js as a backend framework to test the template.
+    2. README.md: a brief introduction of the template and how to use the test template. It is displayed on the dashboard.
+
     ```json 
     https://github.com/daytonaio-templates/typescript-node
     ```
+    </dd>
+
 </dl>
 
 :::note
 If you accidentally removed all the default templates and want to add it back, or wanted to take a reference of the default templates, the configuration is [here](https://raw.githubusercontent.com/daytonaio-templates/index/main/templates.json).
 :::
+
+<hr/>
+
+
+## Construct of a template 
+
 
 <hr/>
 
