@@ -363,18 +363,18 @@ $hamburger-types: (
 }
 
 .mobile-nav-btn {
-  display: grid;
-  gap: 10px;
-  margin-top: 16px;
-  margin-bottom: 28px;
-  margin-left: unset;
+  display: none;
 
-  @media (min-width: #{$screen-lg}) {
-    display: none;
+  @include for-tablet-screen-sizes {
+    display: grid;
+    gap: 10px;
+    margin-top: 16px;
+    margin-bottom: 28px;
+    margin-left: unset;
   }
 
   .github {
-    background: #161616;
+    background: var(--block-bg-color);
     border-radius: 3px;
 
     a {

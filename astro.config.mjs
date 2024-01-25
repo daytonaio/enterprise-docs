@@ -1,9 +1,16 @@
+import fs from 'node:fs';
 import { loadEnv } from 'vite'
 import { defineConfig } from 'astro/config';
 import starlight from '@astrojs/starlight';
 import node from '@astrojs/node'
+import { ExpressiveCodeTheme } from '@astrojs/starlight/expressive-code';
 
 const { PUBLIC_WEB_URL } = loadEnv(import.meta.env.MODE, process.cwd(), '')
+
+const jsonDarkString = fs.readFileSync(new URL(`src/assets/themes/daytona-code-dark.json`, import.meta.url), 'utf-8');
+const jsonLightString = fs.readFileSync(new URL(`src/assets/themes/daytona-code-light.json`, import.meta.url), 'utf-8');
+const myThemeDark = ExpressiveCodeTheme.fromJSONString(jsonDarkString);
+const myThemeLight = ExpressiveCodeTheme.fromJSONString(jsonLightString);
 
 // https://astro.build/config
 export default defineConfig({
@@ -16,105 +23,175 @@ export default defineConfig({
     },
     "sidebar": [{
       "label": "Getting Started",
-      link: 'getting-started'
+      link: 'getting-started',
+      attrs: {
+        icon: 'flag.svg'
+      },
     }, {
       "label": "Architecture",
-      link: 'architecture'
+      link: 'architecture',
+      attrs: {
+        icon: 'layers.svg'
+      },
     }, {
       "label": "Installation",
       "items": [{
         "label": "Single Node",
-        "link": "/installation/single-node/"
+        "link": "/installation/single-node/",
+        attrs: {
+          icon: 'git-commit.svg'
+        },
       }, {
         "label": "Cluster",
-        "link": "/installation/cluster/"
+        "link": "/installation/cluster/",
+        attrs: {
+          icon: 'cluster.svg'
+        },
       }, {
         "label": "IDPs",
-        "link": "/installation/idps/"
+        "link": "/installation/idps/",
+        attrs: {
+          icon: 'shield.svg'
+        },
       }]
     }, {
       "label": "Configuration",
       "items": [
       //     {
       //   "label": "User Types",
-      //   "link": "/configuration/user-types/"
+      //   "link": "/configuration/user-types/",
+      //   attrs: {
+      //     icon: 'bookmark.svg'
+      //   },
       // },
-        {
+          {
         "label": "Git Providers",
-        "link": "/configuration/git-providers/"
+        "link": "/configuration/git-providers/",
+        attrs: {
+          icon: 'git-branch.svg'
+        },
       }, {
         "label": "Teams",
-        "link": "/configuration/teams/"
+        "link": "/configuration/teams/",
+        attrs: {
+          icon: 'users.svg'
+        },
       }, {
         "label": "Templates",
-        "link": "/configuration/templates/"
-      }
-      // , {
+        "link": "/configuration/templates/",
+        attrs: {
+          icon: 'copy.svg'
+        },
+      },
+      //     {
       //   "label": "Licensing (Enterprise)",
-      //   "link": "/configuration/licensing/"
+      //   "link": "/configuration/licensing/",
+      //   attrs: {
+      //     icon: 'tag.svg'
+      //   },
       // }
       ]
     }, {
       "label": "Usage",
       "items": [{
         "label": "Workspaces",
-        "link": "/usage/workspaces/"
+        "link": "/usage/workspaces/",
+        attrs: {
+          icon: 'computer.svg'
+        },
       }, {
         "label": "IDEs",
-        "link": "/usage/ides/"
+        "link": "/usage/ides/",
+        attrs: {
+          icon: 'layout.svg'
+        },
       }, {
         "label": "Account",
-        "link": "/usage/account/"
-      }
-      // , {
+        "link": "/usage/account/",
+        attrs: {
+          icon: 'user.svg'
+        },
+      },
+      //     {
       //   "label": "Projects",
-      //   "link": "/usage/projects/"
+      //   "link": "/usage/projects/",
+      //   attrs: {
+      //     icon: 'folder.svg'
+      //   },
       // }
       ]
     },
-      //   {
-      //   "label": "Administration",
-      //   "items": [{
-      //     "label": "Application Logs",
-      //     "link": "/administration/application-logs/"
-      //   }, {
-      //     "label": "Audit Logs",
-      //     "link": "/administration/audit-logs/"
-      //   }, {
-      //     "label": "High Density",
-      //     "link": "/administration/high-density/"
-      //   }, {
-      //     "label": "Telemetry",
-      //     "link": "/administration/telemetry/"
-      //   }, 
-           {                           
+         {
+         "label": "Administration",
+         "items": [
+    //      {
+    //     "label": "Application Logs",
+    //     "link": "/administration/application-logs/",
+    //     attrs: {
+    //       icon: 'document.svg'
+    //     },
+    //   }, {
+    //     "label": "Audit Logs",
+    //     "link": "/administration/audit-logs/",
+    //     attrs: {
+    //       icon: 'clipboard-list.svg'
+    //     },
+    //   }, {
+    //     "label": "High Density",
+    //     "link": "/administration/high-density/",
+    //     attrs: {
+    //       icon: 'table.svg'
+    //     },
+    //   }, {
+    //     "label": "Telemetry",
+    //     "link": "/administration/telemetry/",
+    //     attrs: {
+    //       icon: 'pulse.svg'
+    //     },
+    //   },
+           {
            "label": "Appearance",
-           "link": "/administration/appearance/"
-         }]
-       },
-      {
-        "label": "Tools and Resources",
-        "items": [{
-          "label": "API",
-          "link": "/tools/api/"
-        }, {
-          "label": "CLI",
-          "link": "/tools/cli/"
-        }, {
-          "label": "VS Code Extension",
-          "link": "/tools/vs-code-extension/"
-        }, {
-          "label": "JetBrains Gateway",
-          "link": "/tools/jetbrains-gateway/"
+           "link": "/administration/appearance/",
+           attrs: {
+             icon: 'union.svg'
+           },
         }]
-      }
-      // , {
-      //   "label": "Contribution",
-      //   "items": [{
-      //     "label": "Guideline",
-      //     "link": "/contribution/guidelines",
-      //   }]
-      // }
+       },
+        {
+      "label": "Tools and Resources",
+      "items": [{
+        "label": "API",
+        "link": "/tools/api/",
+        attrs: {
+          icon: 'switch.svg'
+        },
+      }, {
+        "label": "CLI",
+        "link": "/tools/cli/",
+        attrs: {
+          icon: 'terminal.svg'
+        },
+      }, {
+        "label": "VS Code Extension",
+        "link": "/tools/vs-code-extension/",
+        attrs: {
+          icon: 'vscode-alt.svg'
+        },
+      }, {
+        "label": "JetBrains Gateway",
+        "link": "/tools/jetbrains-gateway/",
+        attrs: {
+          icon: 'jetbrains.svg'
+        },
+      }]
+    },
+    // {
+    //   "label": "Contribution",
+    //   "items": [{
+    //     "label": "Guideline",
+    //     "link": "/contribution/guidelines",
+    //   }]
+    // }
     ],
     tableOfContents: { minHeadingLevel: 2, maxHeadingLevel: 2 },
     customCss: ['./src/fonts/font-face.css', './src/styles/style.scss'],
@@ -132,8 +209,12 @@ export default defineConfig({
       ContentPanel: './src/components/ContentPanel.astro',
       PageTitle: './src/components/PageTitle.astro',
       Hero: './src/components/Hero.astro',
-      ThemeProvider: './src/components/ThemeProvider.astro'
+      ThemeProvider: './src/components/ThemeProvider.astro',
+      ThemeSelect: './src/components/ThemeSelect.astro'
     },
+    expressiveCode: {
+      themes: [myThemeDark, myThemeLight],
+    }
   })],
   output: 'hybrid',
   adapter: node({
