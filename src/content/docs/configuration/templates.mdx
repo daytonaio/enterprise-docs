@@ -6,185 +6,36 @@ sidebar:
 ---
 
 import Keyboard from "../../../components/Keyboard.astro"
-import { Tabs, TabItem } from "@astrojs/starlight/components"
+
 
 Templates are displayed on the right side of your Daytona dashboard when you try to create a [workspace](/usage/workspaces). You can use them to customize your Daytona dashboard in combination with [devcontainer](https://www.daytona.io/dotfiles/advanced-configuration-techniques-for-dev-container) during deployment to create workspaces faster based on your requirements.
 
-We will walk through how to customize them, create workspaces and repositories based on templates, to deploy your own templates and the default templates on the Daytona dashboard.
+We will walk through our default templates, the content of each template, how to customise your own templates and 
 
-<hr/>
-
-## Prerequisites
-
-1. Daytona dashboard URL
-
-After successfully deploying Daytona, you will be provided with a dashboard URL. You will need it to access your dashboard in the browser or create local profiles (as a record of your deployment).
-
-2. Optional: Daytona CLI
-
-You can use Daytona CLI to create workspaces and repositories based on templates. If you haven't installed it yet, you can run the following commands in your terminal:
-
-```bash
-brew install daytonaio/daytona/daytona
-```
-Read more about [Daytona CLI and how to use it](/tools/cli).
-
-<hr/>
-
-## Creating workspaces from templates
-
-By creating a workspace, we assume that you either have a successful Daytona deployment and gained access to a Daytona dashboard URL, or you have Daytona CLI installed on your local machine.
+We assume you have a successful Daytona deployment and gained access to a Daytona dashboard URL.
 
 
-
-<Tabs>
-<TabItem label="From dashboard">
-1. Open the Workspaces tab on Daytona dashboard
-
-- Sign in to your Daytona dashboard in the browser, select **Workspaces**.
-- Click on **Create**, on the right side we have provided a set of default templates.
-
-2. Creating a workspace based on a template
-
-- Choose one of the templates and click on it, then click **Create** on the opened dialog.
-- A new browser tab will open indicating workspace is setting up. 
-- Upon successful creation you can choose to open the workspace in [**default editor**](/usage/ides) (available to set up in [account settings](/usage/account#default-editor)) or **browser**, connect to the workspace via **SSH**, or go back to the dashboard.
-- Open it in your default editor to continue.
-</TabItem>
-<TabItem label="From CLI">
-We will refer to the URL as `https://git.com/user/repo` in the following steps.
-
-:::note
-You will need a public repository's URL as a template to create a workspace based on templates. 
-
-If you don't have one, you can create one on your Git provider. Or use one of our [default templates](#default-templates) as a reference.
-:::
-
-1. Check if you have existing profiles
-
-In your terminal, run the command below to check if you have existing profiles and select one to use.
-
-```bash
-daytona profile
-```
-If you don't have one, you can create one by running the command below and follow the instructions.
-
-```bash
-daytona profile new
-```
-The CLI will guide you to input name of profile and dashboard URL to create a profile. 
-
-2. Create a workspace
-
-- In your terminal, run the command below to create a workspace based on a template.
-
-```bash
-daytona create https://git.com/user/repo
-```
-> - If you are not authenticated yet, you will be prompted to open an authentication link to authenticate with your Daytona dashboard. 
-> - After successful authentication, you need to run the same command again to create a workspace.
-
-- After inputting the command, the terminal will display the status of workspace creation. When it is finished, you can run the below commands in terminal to start developing: 
-  
-```bash
-daytona code
-```
-- The terminal will list your current workspace. Use the arrow keys to select one and press <Keyboard shortcuts={['Enter']}/> to open it in your default editor. 
-- The default editor is VS Code in browser. You can set up other default editors in your Daytona dashboard by following [this guide](/usage/account).
-
-:::note 
-If you don't passed in a URL, the Daytona CLI will go through the existing repository in your default Git config to help you create a workspace. 
-
-You can use the arrow keys to select one.
-:::
-</TabItem>
-</Tabs>
-
-<hr/>
-
-##### Optional: Connecting your workspace to a new Git repository
-
-To facilitate CI/CD, you might need to reset repository URL upon template creation.
-
-- Create a new repository in your git provider and **copy the repository URL** (we will refer to it as `https://github.com/user/repo.git`)
-- When your default editor is opened, open the terminal in your editor (you will be in a terminal session connected to workspace) and run this command to set up a new remote url.
-
-```bash
-git remote add origin `https://github.com/user/repo.git`
-```
-
-- To confirm it is set up correctly, run the below command and check the value of **remote.origin.url**.
-
-```bash
-git config --list
-```
-
-<details class="idp-details">
-<summary>Example: Connect to GitHub using GitHub CLI</summary>
-<content>
-Although our templates include Git, you will still need to authenticate with your Git provider to push and pull to your remote repository. We are using GitHub as an example below.
-
-1. Install GitHub CLI
-
-- While you are connected to a running workspace, in your editor's terminal, run:
-
-```bash
-sudo apt update
-sudo apt install gh
-```
-
-- These commands install the GitHub CLI, you can see the official reference [here](https://github.com/cli/cli/blob/trunk/docs/install_linux.md#official-sources)
-
-2. Authenticate using GitHub CLI
-
-- Then in your terminal, run the command below and select the provided options based on your requirements.
-
-```bash
-gh auth login
-```
-
-- When you are asked for _preferred protocol for Git operation_, choose **SSH**.
-
-- This command will either generate a new SSH key to upload to your GitHub account or upload your current public key based on your selection.
-
-- After finishing the authentication process, you should be able to push and pull to your repository.
-
-- Your authenticating status will persist within this workspace.
-
-</content>
-</details>
-
-{/*_ <!-- TODO: consider deleting this and let user handle the conflicts themselves --> _*/}
-
-<details class="idp-details">
-<summary>Resolve merge conflicts</summary>
-<content>
-In a scenario you created the repository on GitHub with a license file, README.md and other initial configurations.
-
-Your push/pull might fail and you are prompted to resolve merge conflicts. You can run this command to allow unrelated histories from the remote to be merged with local files.
-
-```bash
-git merge --allow-unrelated-histories origin/main
-
-```
-
-</content>
-</details>
 
 <hr/>
 
 ## Default Templates
 
-Our default templates includes different based image and languages.
+Below is an indexed description of the default templates, their content and repository URLs. The default template index is located in [this repository](https://github.com/daytonaio/samples-index/blob/main/index.json).
 
 <dl>
     <dt>Alpine</dt>
     <dd>
-    Create a workspace using Alpine as base image with Git installed.
-    </dd>
-     ```json
+    - Create a workspace using Alpine Linux as base image with Git installed.
+    - Includes: 
+      1. .devcontainer
+        - .devcontainer.json: a configuration file for devcontainer.
+        - Dockerfile: a Dockerfile to build the image.
+        - library-scripts/common-alpine.sh: a file contains scripts to update and install critical packages within .
+      2. README.md: a brief introduction of the template.
+    ```json
     https://github.com/daytonaio-templates/base-alpine
     ```
+    </dd>
     <dt>Debian</dt>
     <dd>Create a workspace using Debian as base image with Git installer.</dd>
     ```json 
