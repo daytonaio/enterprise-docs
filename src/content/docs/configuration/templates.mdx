@@ -22,11 +22,12 @@ After successfully deploying Daytona, you will be provided with a dashboard URL.
 
 2. Optional: Daytona CLI
 
-You can use [Daytona CLI](/tools/cli) to create workspaces and repositories based on templates. If you haven't installed it yet, you can run the following commands in your terminal:
+You can use Daytona CLI to create workspaces and repositories based on templates. If you haven't installed it yet, you can run the following commands in your terminal:
 
 ```bash
 brew install daytonaio/daytona/daytona
 ```
+Read more about [Daytona CLI and how to use it](/tools/cli).
 
 <hr/>
 
@@ -336,9 +337,9 @@ You can build your own template within your organization to suit your developmen
 
 After you clone the [Daytona installer](http://github.com/daytonaio/installer) to your virtual machine, you can edit the shell script content to customize your template.
 
+{/*TODO: need to test this: host a json file within the machine and not making it public. */}
 1. Copy the raw content of your template
 - Following the step [obtaining raw content from a public repository](#obtaining-raw-content-from-a-public-repository) to obtain the raw content of your template after you customised it. 
-{/*TODO: need to test this: host a json file within the machine and not making it public. */}
 - **Copy the link** and note it down.
 
 2. Open the shell of your virtual machine
@@ -346,7 +347,7 @@ After you clone the [Daytona installer](http://github.com/daytonaio/installer) t
 - You can **SSH** into your virtual machine within your terminal.
 - You can also open the shell of your virtual machine within the browser if your cloud provider supports so.
 
-3. Editing shell script
+3. Edit variable **TEMPLATE_INDEX_URL** in installer script
 
 - Entering the installer folder and edit it via nano. You can use any text editor you prefer.
 
@@ -362,7 +363,7 @@ nano setup.sh
 - Press <Keyboard shortcuts={[`Ctrl`, `X`]}/> to exit nano.
 
 
-3. Redeploy the script 
+4. Redeploy the script 
 
 - Run the script again to deploy your custom template. Optionally you can pass in any arguments you need.
 
