@@ -6,6 +6,7 @@ sidebar:
 ---
 
 import Keyboard from "../../../components/Keyboard.astro"
+import { Tabs, TabItem } from "@astrojs/starlight/components"
 
 Templates are displayed on the right side of your Daytona dashboard when you try to create a [workspace](/usage/workspaces). You can use them to customize your Daytona dashboard in combination with [devcontainer](https://www.daytona.io/dotfiles/advanced-configuration-techniques-for-dev-container) during deployment to create workspaces faster based on your requirements.
 
@@ -13,10 +14,30 @@ We will walk through how to customize them, create workspaces and repositories b
 
 <hr/>
 
+## Prerequisites
+
+1. Daytona dashboard URL
+
+After successfully deploying Daytona, you will be provided with a dashboard URL. You will need it to access your dashboard in the browser or create local profiles (as a record of your deployment).
+
+2. Optional: Daytona CLI
+
+You can use [Daytona CLI](/tools/cli) to create workspaces and repositories based on templates. If you haven't installed it yet, you can run the following commands in your terminal:
+
+```bash
+brew install daytonaio/daytona/daytona
+```
+
+<hr/>
+
 ## Creating workspaces from templates
 
-By creating a workspace, we assume that you have a successful Daytona deployment and gained access to a Daytona dashboard URL.
+By creating a workspace, we assume that you either have a successful Daytona deployment and gained access to a Daytona dashboard URL, or you have Daytona CLI installed on your local machine.
 
+
+
+<Tabs>
+<TabItem label="From dashboard">
 1. Open the Workspaces tab on Daytona dashboard
 
 - Sign in to your Daytona dashboard in the browser, select **Workspaces**.
@@ -26,10 +47,61 @@ By creating a workspace, we assume that you have a successful Daytona deployment
 
 - Choose one of the templates and click on it, then click **Create** on the opened dialog.
 - A new browser tab will open indicating workspace is setting up. 
-- Upon successful creation you can choose to open the workspace in [**default editor**](usage/ides) (available to set up in [account settings](/usage/account#default-editor)) or **browser**, connect to the workspace via **SSH**, or go back to the dashboard.
+- Upon successful creation you can choose to open the workspace in [**default editor**](/usage/ides) (available to set up in [account settings](/usage/account#default-editor)) or **browser**, connect to the workspace via **SSH**, or go back to the dashboard.
 - Open it in your default editor to continue.
+</TabItem>
+<TabItem label="From CLI">
+We will refer to the URL as `https://git.com/user/repo` in the following steps.
 
-3. (Optional) Connecting your workspace to a new Git repository
+:::note
+You will need a public repository's URL as a template to create a workspace based on templates. 
+
+If you don't have one, you can create one on your Git provider. Or use one of our [default templates](#default-templates) as a reference.
+:::
+
+1. Check if you have existing profiles
+
+In your terminal, run the command below to check if you have existing profiles and select one to use.
+
+```bash
+daytona profile
+```
+If you don't have one, you can create one by running the command below and follow the instructions.
+
+```bash
+daytona profile new
+```
+The CLI will guide you to input name of profile and dashboard URL to create a profile. 
+
+2. Create a workspace
+
+- In your terminal, run the command below to create a workspace based on a template.
+
+```bash
+daytona create https://git.com/user/repo
+```
+> - If you are not authenticated yet, you will be prompted to open an authentication link to authenticate with your Daytona dashboard. 
+> - After successful authentication, you need to run the same command again to create a workspace.
+
+- After inputting the command, the terminal will display the status of workspace creation. When it is finished, you can run the below commands in terminal to start developing: 
+  
+```bash
+daytona code
+```
+- The terminal will list your current workspace. Use the arrow keys to select one and press <Keyboard shortcuts={['Enter']}/> to open it in your default editor. 
+- The default editor is VS Code in browser. You can set up other default editors in your Daytona dashboard by following [this guide](/usage/account).
+
+:::note 
+If you don't passed in a URL, the Daytona CLI will go through the existing repository in your default Git config to help you create a workspace. 
+
+You can use the arrow keys to select one.
+:::
+</TabItem>
+</Tabs>
+
+<hr/>
+
+##### Optional: Connecting your workspace to a new Git repository
 
 To facilitate CI/CD, you might need to reset repository URL upon template creation.
 
@@ -106,31 +178,73 @@ Our default templates includes different based image and languages.
 
 <dl>
     <dt>Alpine</dt>
-    <dd>Create a workspace using Alpine as base image with Git installed.</dd>
+    <dd>
+    Create a workspace using Alpine as base image with Git installed.
+    </dd>
+     ```json
+    https://github.com/daytonaio-templates/base-alpine
+    ```
     <dt>Debian</dt>
     <dd>Create a workspace using Debian as base image with Git installer.</dd>
+    ```json 
+    https://github.com/daytonaio-templates/base-debian
+    ```
     <dt>Ubuntu</dt>
     <dd>Create a workspace using Ubuntu as base image with Git and other common utilities installed.</dd>
+    ```json
+    https://github.com/daytonaio-templates/base-ubuntu
+    ```
     <dt>C/C++</dt>
     <dd>Create a workspace to develop C++ applications on Linux, a template includes Debian C++ build tools.</dd>
+    ```json 
+    https://github.com/daytonaio-templates/cpp
+    ```
     <dt>C# (.NET)</dt>
     <dd>Create a workspace with all needed SDKs, extensions and dependencies to build C# and .NET based application.</dd>
+    ```json 
+    https://github.com/daytonaio-templates/dotnet
+    ```
     <dt>Go</dt>
     <dd>Create a workspace with appropriate runtime arguments, Go, common tools, extensions and dependencies to develop Go based applications.</dd>
+    ```json 
+    https://github.com/daytonaio-templates/go
+    ```
     <dt>Java</dt>
     <dd>Create a workspace includes JDK and Java extensions to develop Java application</dd>
+    ```json 
+    https://github.com/daytonaio-templates/go
+    ```
     <dt>Node.js</dt>
     <dd>Create a workspace includes Node.js, eslint, nvm and yarn to develop Node.js based applications.</dd>
+    ```json 
+    https://github.com/daytonaio-templates/javascript-node
+    ```
     <dt>PHP</dt>
     <dd>Create a workspace with needed tools, extensions and dependencies to build PHP based applications.</dd>
+    ```json 
+    https://github.com/daytonaio-templates/php
+    ```
+
     <dt>Python</dt>
     <dd>Create a workspace to build Python application with Python3.</dd>
+    ```json 
+    https://github.com/daytonaio-templates/python
+    ```
     <dt>Ruby</dt>
     <dd>Create a workspace with essential utilities to build Ruby based applications.</dd>
+    ```json 
+    https://github.com/daytonaio-templates/ruby
+    ```
     <dt>Rust</dt>
     <dd>Create a workspace with appropriate runtime arguments and everything you need to build Rust based application. </dd>
+    ```json 
+    https://github.com/daytonaio-templates/rust
+    ```
     <dt>TypeScript</dt>
     <dd>Create a workspace includes Node.js, eslint, nvim, yarn and Typescript compiler to build Node.js based applications in Typescript.</dd>
+    ```json 
+    https://github.com/daytonaio-templates/typescript-node
+    ```
 </dl>
 
 :::note
