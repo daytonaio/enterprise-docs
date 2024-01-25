@@ -26,30 +26,37 @@
             grid-template-columns: 100%;
         }
     }
-
-    @media (min-width: 1024px) {
-        .right-sidebar-container {
-            order: 2;
-            position: relative;
-        }
-
-        .right-sidebar {
-            position: sticky;
-            top: 74px;
-            padding-top: 40px;
-            width: 100%;
-            height: calc(100vh - 74px);
-            overflow-y: auto;
-            scrollbar-width: none;
-        }
-
-        .main-pane {
-            width: 100%;
-        }
-
-        :global([data-has-sidebar][data-has-toc]) .main-pane {
-            --sl-content-margin-inline: auto 0;
-            order: 1;
+    .right-sidebar-container {
+        order: 2;
+        position: relative;
+        @media (max-width: 1024px) {
+            order: unset;
+            position: unset;
         }
     }
+
+    .right-sidebar {
+        position: sticky;
+        top: 74px;
+        padding-top: 40px;
+        width: 100%;
+        height: calc(100vh - 74px);
+        overflow-y: auto;
+        scrollbar-width: none;
+        @media (max-width: 1024px) {
+            padding-top: unset;
+            position: unset;
+            height: unset;
+        }
+    }
+
+    .main-pane {
+        width: 100%;
+    }
+
+    :global([data-has-sidebar][data-has-toc]) .main-pane {
+        --sl-content-margin-inline: auto 0;
+        order: 1;
+    }
+
 </style>

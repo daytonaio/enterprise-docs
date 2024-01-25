@@ -14,8 +14,11 @@ const { title = data.title, tagline, image, actions = [] } = data.hero || {};
 	.hero {
 		display: grid;
 		grid-template-columns: 100%;
-		row-gap: 40px;
-		margin-bottom: 80px;
+		margin-top: 40px;
+		margin-bottom: 60px;
+		@include for-mobile-screen-sizes {
+			margin-bottom: 40px
+		}
 
 		.hero-highlight {
 			color: var(--hover-color)

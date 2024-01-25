@@ -1,11 +1,9 @@
 ---
-import { Image } from 'astro:assets';
-const { imageDark, imageLight, title, link, imageAlt } = Astro.props;
+const { icon, title, link } = Astro.props;
 ---
 <a class="description-card" href={link}>
     <figure>
-        <Image class="dark" src={imageDark} alt={imageAlt}/>
-        <!--<Image class="light" src={imageLight} alt={imageAlt} />-->
+        <Fragment set:html={icon}/>
     </figure>
     <h6>{title}</h6>
     <slot />

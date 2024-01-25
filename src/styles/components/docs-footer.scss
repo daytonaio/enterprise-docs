@@ -32,6 +32,7 @@
         line-height: 1.4;
         letter-spacing: 0.015rem;
         color: var(--primary-text-color);
+        transition: 0.6s;
 
         @include for-hover-state {
           &:hover {
@@ -42,31 +43,44 @@
     }
   }
 
-  &__bottom-bar {
+  &__bottom {
     display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    margin: 27px 0 17px;
     align-items: center;
-    margin-bottom: 20px;
+    gap: 14px;
 
-    @include for-mobile-screen-sizes {
-      display: grid;
-      row-gap: 16px;
-    }
+    &-block {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 14px;
+      
+      @include for-mobile-screen-sizes {
+        flex: 1 1 50%;
+      }
 
-    .copyright {
       p {
         font-family: 'Berkeley Mono', monospace;
         font-size: 0.75rem;
-        letter-spacing: 0.0075rem;
+        letter-spacing: -0.0075rem;
         text-transform: uppercase;
-        color: var(--secondary-text-color);
+        color: var(--primary-text-color);
         line-height: 1;
+      }
 
-        &::after {
-          content: '/';
-          padding: 0 16px;
+      .divider {
+        &::before {
+          content: "/";
+          display: block;
+          color: var(--border-color);
+          font-size: 0.875rem;
+          font-family: "Berkeley Mono", monospace;
+          font-weight: 400;
 
-          @include for-mobile-screen-sizes {
-            content: none;
+          @include for-mobile-screen-sizes{
+            display: none;
           }
         }
       }
@@ -75,13 +89,20 @@
     .menu-list {
       display: flex;
       gap: 16px;
+      order: 1;
+
+      @include for-mobile-screen-sizes {
+        order: 2;
+      }
 
       a {
         font-size: 0.75rem;
         line-height: 1.4;
-        letter-spacing: 0.015rem;
+        letter-spacing: -0.015rem;
         font-weight: 500;
         color: var(--secondary-text-color);
+        transition: 0.6s;
+
         @include for-hover-state {
           &:hover {
             opacity: 0.6;

@@ -293,11 +293,11 @@
         border-color: var(--secondary-text-color);
 
         a {
-          color: var(--primary-text-color);
+          color: var(--white);
         }
 
         & svg path {
-          fill: var(--primary-text-color);
+          fill: var(--white);
         }
       }
     }
