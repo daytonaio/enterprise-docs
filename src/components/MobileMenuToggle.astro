@@ -1,15 +1,18 @@
 ---
 import menuIcon from '@assets/icons/menu.svg?raw'
+import closeXIcon from '@assets/icons/closeX.svg?raw'
 const { labels } = Astro.props;
 ---
 
 <starlight-menu-button>
+	<div id="blur-overlay"></div>
 	<button
 		aria-expanded="false"
 		aria-label={labels['menuButton.accessibleLabel']}
 		aria-controls="starlight__sidebar"
 	>
 		<Fragment set:html={menuIcon} />
+		<Fragment set:html={closeXIcon} />
 	</button>
 </starlight-menu-button>
 
@@ -51,6 +54,7 @@ const { labels } = Astro.props;
 
 <style>
 	button {
+		display: none;
 		position: fixed;
 		top: calc((74px - var(--sl-menu-button-size)) / 2);
 		inset-inline-end: var(--sl-nav-pad-x);
@@ -60,37 +64,53 @@ const { labels } = Astro.props;
 		border: var(--border);
 		cursor: pointer;
 		right: 40px;
-		display: flex;
-		@media (min-width: 1024px) {
+
+		> svg:last-child {
 			display: none;
+		}
+
+		> svg path {
+			fill: var(--primary-text-color);
+		}
+
+		@media (max-width: 1024px) {
+			display: flex;
 		}
 		@media (max-width: 650px) {
 			right: 20px;
 		}
 	}
-
 	[aria-expanded='true'] button {
 		box-shadow: none;
+		> svg:first-child {
+			display: none;
+		}
+		> svg:last-child {
+			display: block;
+		}
 	}
 
-	:global([data-theme='light']) button {
-		background-color: var(--sl-color-black);
-		color: var(--sl-color-white);
+	[aria-expanded='true'] #blur-overlay {
+		position: fixed;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		z-index: 4;
+		background-color: rgba(22, 22, 22, 0.80);
+		backdrop-filter: blur(2px)
 	}
 
-	:global([data-theme='light']) [aria-expanded='true'] button {
-		background-color: var(--sl-color-gray-5);
-	}
 </style>
 
 <style is:global>
 	[data-mobile-menu-expanded] {
-		overflow: hidden;
+		overflow: auto;
 	}
 
-	@media (min-width: 50rem) {
+	@media (max-width: 1024px) {
 		[data-mobile-menu-expanded] {
-			overflow: auto;
+			overflow: hidden;
 		}
 	}
 </style>

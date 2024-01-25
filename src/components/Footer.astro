@@ -2,6 +2,7 @@
 import { Image } from 'astro:assets';
 import textArrowIcon from '@assets/icons/text-arrow.svg'
 import Default from '@astrojs/starlight/components/Footer.astro';
+import ThemeSelect from "./ThemeSelect.astro";
 
 ---
 
@@ -24,10 +25,13 @@ import Default from '@astrojs/starlight/components/Footer.astro';
         </p>
     </div>
 
-    <div class="docs-footer__container__bottom-bar">
-        <div class="copyright">
-            <p>© {new Date().getFullYear()} Daytona Platform Inc.</p>
+    <div class="docs-footer__container__bottom">
+        <div class="docs-footer__container__bottom-block">
+            <div><p>© {new Date().getFullYear()} Daytona Platform Inc.</p></div>
+            <div class="divider"></div>
         </div>
+
+        <ThemeSelect />
 
         <div class="menu-list">
             <a href="https://www.daytona.io/company/privacy-policys">Privacy policy</a
@@ -36,5 +40,6 @@ import Default from '@astrojs/starlight/components/Footer.astro';
             >Terms of Service</a
             >
         </div>
+
     </div>
 </footer>

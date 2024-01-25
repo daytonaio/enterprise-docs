@@ -1,10 +1,12 @@
 .image-card {
-  width: 64px;
+  width: 100%;
   aspect-ratio: 1;
   justify-content: center;
   align-items: center;
   background: var(--block-bg-color);
-  max-width: 106px;
+  transition: 0.6s;
+  border-radius: 3px;
+
   @include for-hover-state {
     &:hover {
       opacity: .6;
@@ -29,6 +31,9 @@
 
 .title-card {
   text-decoration: none !important;
+  width: 100%;
+  border-radius: 3px;
+
   @include for-hover-state {
     opacity: 1;
     &:hover h6 {
@@ -37,31 +42,23 @@
   }
 
   figure {
+    display: flex;
     width: 100%;
-    height: 120px;
     background: var(--block-bg-color);
     justify-content: center;
     align-items: center;
     margin-bottom: 10px;
-
-    @include for-mobile-screen-sizes {
-      width: 106px;
-      height: 120px;
+    aspect-ratio: 15 / 8;
+    > svg path {
+      fill: var(--primary-text-color);
     }
 
     @include for-mobile-screen-sizes {
       display: grid;
       justify-content: center;
+      aspect-ratio: unset;
+      height: 120px;
     }
-
-    &.dark {
-      display: grid;
-    }
-
-    &.light {
-      display: none;
-    }
-
   }
 
   h6 {
@@ -74,18 +71,12 @@
     text-transform: none;
     transition: .6s;
 
-    &.dark {
-      display: block;
-    }
-
-    &.light {
-      display: none;
-    }
   }
 }
 
 .description-card {
   text-decoration: none !important;
+  border-radius: 3px;
 
   @include for-mobile-screen-sizes {
     font-size: 0.75rem;
@@ -120,21 +111,19 @@
 
   figure {
     width: 100%;
-    height: 160px;
     background: var(--block-bg-color);
     display: grid;
+    place-items: center;
     justify-content: center;
     align-items: center;
     margin-bottom: 16px;
     border: 1px solid var(--block-bg-color);
     transition: .6s;
-
-    .dark {
-      display: block;
-    }
-
-    .light {
-      display: none;
+    aspect-ratio: 2/1;
+    > svg {
+      rect,line {
+        stroke: var(--primary-text-color);
+      }
     }
   }
 
@@ -146,5 +135,18 @@
     font-size: 1rem;
     text-transform: none;
     transition: .6s;
+    margin-bottom: 5px;
   }
+}
+
+h6 {
+  font-weight: 700;
+  letter-spacing: -0.05rem;
+  line-height: 1;
+}
+
+
+
+.card-grid {
+  margin-bottom: 80px;
 }
