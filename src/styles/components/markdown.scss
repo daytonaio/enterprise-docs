@@ -469,4 +469,31 @@
       }
     }
   }
+
+  .api-card {
+    display: flex;
+    flex-direction: column;
+    max-width: 40vw;
+  
+  }
+  
+  .api-header {
+      display: flex;
+      flex-direction: row;
+      border: 1px solid var(--border-extra);
+      border-radius: 3px;
+      padding: 10px 10px;
+
+     .route {
+        font-size: 1rem;
+        margin-bottom: 0;
+      }
+
+      .method {
+        color: var(--primary-text-color);
+        font-size: 1rem;
+        font-weight: 500;
+      }
+  }
+  
 }
