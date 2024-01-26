@@ -37,22 +37,19 @@ const paths = Object.keys(Schema.paths) as unknown as [keyof Root['paths']]
 
                       return (
                         <div class="api-content" data-type={property}>
-                          <div class="property">
-                            {property.split('')[0].toUpperCase() +
-                              property.slice(1)}
-                            :
-                          </div>
                           <div class="value">
                             {property === 'responses' ? (
-                              <ResponseCard value={value} />
+                              <ResponseCard
+                                value={value}
+                                property={property}
+                                Schema={Schema}
+                              />
                             ) : property == 'parameters' ? (
                               <ParameterCard value={value} />
                             ) : property === 'requestBody' ? (
                               <div>Some request body here</div>
-                            ) : value === null ||
-                              value === undefined ||
-                              value.length < 1 ? (
-                              <span>NaN</span>
+                            ) : property === 'operationId' ? (
+                              value
                             ) : (
                               value
                             )}
