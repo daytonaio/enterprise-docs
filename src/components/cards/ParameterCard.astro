@@ -1,0 +1,30 @@
+---
+interface Props {
+  value: any
+}
+
+const { value }: Props = Astro.props
+---
+
+{
+  value.length > 0 ? (
+    value.map((item, index) => {
+      return (
+        <div class="parameter">
+          <li class="gap-2">
+            <span>{item.name}</span>
+            <span class="required">
+              {item.required === true && '*required'}
+            </span>
+          </li>
+          <div class="parameter-schema">
+            {Object.keys(item.schema)} : {Object.values(item.schema)}
+          </div>
+          <i class="parameter-in">({item.in})</i>
+        </div>
+      )
+    })
+  ) : (
+    <div>No parameters</div>
+  )
+}

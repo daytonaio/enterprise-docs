@@ -1,7 +1,8 @@
 ---
-import * as cn from 'classnames'
 import type { Root, ApiEndpoint } from '../../util/api-type'
+import ParameterCard from '../cards/ParameterCard.astro'
 import { Schema } from '../../util/api'
+import ResponseCard from '@components/cards/ResponseCard.astro'
 // const Schema = await fetch('https://api.cde.agency/v3/docs/swagger.json')
 //   .then(res => res.json() as Promise<Root>)
 //   .catch(err => console.error(err))
@@ -33,7 +34,7 @@ const paths = Object.keys(Schema.paths) as unknown as [keyof Root['paths']]
                   <div class="two-column">
                     {Object.keys(properties).map(property => {
                       const value = properties[property]
-                     
+
                       return (
                         <div class="api-content" data-type={property}>
                           <div class="property">
@@ -43,50 +44,12 @@ const paths = Object.keys(Schema.paths) as unknown as [keyof Root['paths']]
                           </div>
                           <div class="value">
                             {property === 'responses' ? (
-                              value !== null || value !== undefined ? (
-                                Object.keys(value).map(code => {
-                                  const content = value[code]['content']
-
-                                  console.log('content', content)
-
-                                  console.log("application/json", value["application/json"])
-                                  const schema = value["application/json"] ? value["application/json"]
-                                  ["schema"]["$ref"] : null
-                                  return (<div class="code">{code}</div>
-                                  <div class="">
-                                    {schema}
-                                    </div>
-                                  
-                                  )
-                                })
-                              ) : (
-                                'null'
-                              )
+                              <ResponseCard value={value} />
                             ) : property == 'parameters' ? (
-                              value.map((item, index) => {
-                                return (
-                                  <div class="parameter">
-                                    <div class="parameter-name">
-                                      <span class="bold">Name:</span>{' '}
-                                      {item.name}
-                                    </div>
-                                    <div class="parameter-in">
-                                      in: {item.in}
-                                    </div>
-                                    <div class="parameter-requirement">
-                                      required:{' '}
-                                      {item.required === true
-                                        ? 'true'
-                                        : 'false'}
-                                    </div>
-                                    <div class="parameter-schema">
-                                      schema: {Object.keys(item.schema)} :{' '}
-                                      {Object.values(item.schema)}
-                                    </div>
-                                  </div>
-                                )
-                              })
-                            ) : property === "requestBody" ? <div>Some request body here</div> : value === null ||
+                              <ParameterCard value={value} />
+                            ) : property === 'requestBody' ? (
+                              <div>Some request body here</div>
+                            ) : value === null ||
                               value === undefined ||
                               value.length < 1 ? (
                               <span>NaN</span>

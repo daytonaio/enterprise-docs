@@ -1,0 +1,19 @@
+---
+interface Props {
+  value: any
+}
+
+const { value }: Props = Astro.props
+---
+
+{
+  value !== null && value !== undefined
+    ? Object.entries(value).map(code => {
+        return (
+          <>
+            <div class="code expressive-code">{JSON.stringify(code)}</div>
+          </>
+        )
+      })
+    : 'null'
+}
