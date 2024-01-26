@@ -42,5 +42,5 @@ User Type:  Team Member
 - User preferences (like default IDE)
 - Allowed SSH Keys
 - Regular User within the Team
-- A ‘consumer of available resources’ with no ‘management access to the team space’.
+- A ‘consumer of available resources’ with no ‘management access to the team space’
 
