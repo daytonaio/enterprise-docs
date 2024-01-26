@@ -8,7 +8,7 @@ At the moment if you want to install Daytona in cluster mode, reach out [to book
 
 Our Daytona ‘Enterprise Solution is a fully scalable and secure development environment management solution - capable of allowing constructive and flowing work across multiple development teams. 
 
-You will have access to the following features:
+You will have access to the following features as part of your Daytona instance:
 - All features from Daytona Core (Single Node)
 - Identity and access management
 - Scalability / Resource allocation - cluster support (K8s)
