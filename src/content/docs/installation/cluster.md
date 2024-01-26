@@ -6,8 +6,7 @@ sidebar:
 ---
 At the moment if you want to install Daytona in cluster mode, reach out [to book a demo call](https://daytona.zapier.app/) with us and we will assist you with the installation.
 
-Our Daytona ‘Enterprise Solution is a fully scalable and secure development environment management solution - capable of allowing constructive and flowing work across multiple development teams. 
-
+Our Daytona ’Enterprise Solution is a fully scalable and secure development environment management solution - capable of allowing constructive and flowing work across multiple development teams.
 - All features from Daytona Core (Single Node)
 - Identity and access management
 - Scalability / Resource allocation - cluster support (K8s)
@@ -18,9 +17,6 @@ Our Daytona ‘Enterprise Solution is a fully scalable and secure development en
 - Team projects - manage and share pre built environments across team members
 - Github, Gitlab and Bitbucket - Enterprise / Self-hosted versions support
 - Audits and monitoring/observability
-
-
-
 ---
 User Type: Global Admin
 - Add/Remove Users on global scope
