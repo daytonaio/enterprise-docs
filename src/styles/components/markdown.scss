@@ -474,7 +474,19 @@
     display: flex;
     flex-direction: column;
     max-width: 40vw;
+
+    @include for-tablet-screen-sizes {
+      max-width: 100%;
+    }
   
+  }
+  
+  .method-card {
+    margin-bottom: 40px;
+
+    @include for-tablet-screen-sizes {
+      max-width: 100%;
+    }
   }
   
   .api-header {
@@ -483,9 +495,13 @@
       border: 1px solid var(--border-extra);
       border-radius: 3px;
       padding: 10px 10px;
+      align-items: center;
+      gap: 10px;
 
      .route {
         font-size: 1rem;
+        color: var(--primary-text-color);
+        font-weight: 500;
         margin-bottom: 0;
       }
 
@@ -493,7 +509,103 @@
         color: var(--primary-text-color);
         font-size: 1rem;
         font-weight: 500;
+        padding: 0 12px;
+        border: 1px solid #ccc;
+        display: inline-block;
+        margin: 5px;
+        border-radius: 3px;
+
+        &[data-method="GET"] {
+          background-color: var(--secondary-btn-color); // Green for GET
       }
+  
+      &[data-method="POST"] {
+          background-color: #3498db; // Blue for POST
+      }
+  
+      &[data-method="PUT"] {
+          background-color: #e67e22; // Orange for PUT
+      }
+
+      &[data-method="DELETE"] {
+          background-color: #e74c3c; // Red for DELETE
+      }}
+  }
+
+  
+  .two-column {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-rows: repeat(3, minmax(1, 1fr));
+    column-gap: 6px;
+
+    @include for-mobile-screen-sizes {
+      grid-template-columns: repeat(1, minmax(0, 1fr));
+    }
+
+    &[data-type="operationId"] {
+      display: flex;
+      flex-direction: row;
+    }
+  }
+
+  .api-content {
+
+    padding: 10px 10px;
+    margin: 10px 0;
+    background-color: var(--block-bg-color);
+    color: var(--primary-text-color);
+    font-size: 0.98rem;
+    font-weight: 400;
+    line-height: 1.6;
+    letter-spacing: -0.035rem;
+
+    .property {
+      font-weight: 500;
+      font-size: 1.08rem;
+    }
+
+
+    &[data-type="operationId"] {
+      display: flex;
+      flex-direction: row;
+      gap: 6px;
+      grid-column-start: 1;
+      grid-column-end: 3;
+    }
+
+    &[data-type="responses"] {
+      grid-column-start: 2;
+      grid-row-start:2;
+    }
+
+    &[data-type="parameters"] {
+      grid-column-start: 1;
+    }
+
+    &[data-type="tags"] {
+      display: flex;
+      flex-direction: row;
+      gap: 6px;
+      grid-column-start: 1;
+      grid-row-start: 2;
+    }
+
+    &[data-type="requestBody"] {
+      grid-column-start: 2;
+    }
+  }
+
+  .parameter {
+    border-bottom: solid 1px var(--border-extra);
+    padding: 4px 0;
+
+    &:last-child {
+      border-bottom: none;
+    }
+  }
+  .bold {
+    font-weight: 500;
   }
   
 }

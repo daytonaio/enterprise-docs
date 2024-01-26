@@ -2,38 +2,10 @@
 import * as cn from 'classnames'
 import type { Root, ApiEndpoint } from '../../util/api-type'
 import { Schema } from '../../util/api'
-
+// const Schema = await fetch('https://api.cde.agency/v3/docs/swagger.json')
+//   .then(res => res.json() as Promise<Root>)
+//   .catch(err => console.error(err))
 const paths = Object.keys(Schema.paths) as unknown as [keyof Root['paths']]
-
-const pathMap = new Map()
-const methodMap = new Map()
-//for (const [key, value] of map) { // Using the default iterator (could be `map.entries()` instead)
-//  console.log(`The value for key ${key} is ${value}`);
-//}
-paths.forEach(path => {
-  // the groups coming from the first part of the route
-  const group = path.split('/')[1]
-
-  // the key is the path
-  const key = path
-
-  const methods = Object.keys(Schema.paths[path])
-
-  methods.forEach(method => {
-    const properties = Schema.paths[path][method]
-
-    if (!pathMap.has(path)) {
-      pathMap.set(`${path}-${method}`, {
-        group: group,
-        route: path,
-        method: method,
-        properties: properties,
-        // value: value,
-      })
-    }
-  })
-})
-console.log('pathMap', pathMap)
 ---
 
 <div>
@@ -43,35 +15,94 @@ console.log('pathMap', pathMap)
       const key = path
       // this return the methods like get, post, put, delete
       const methods = Object.keys(Schema.paths[path])
-
       return (
-        <div class="api-card">
-          {methods.map(method => {
-            const properties = Schema.paths[path][method]
-            const responses = Schema.paths[path][method].responses
-            return (
-              <div>
-                <div class="api-header">
-                  <div class="method">{method}</div>
+        <>
+          <div class="api-card">
+            {methods.map(method => {
+              const properties = Schema.paths[path][method]
 
-                  <div class="route">{path}</div>
+              return (
+                <div class="method-card">
+                  <div class="api-header">
+                    <div class="method" data-method={method.toUpperCase()}>
+                      {method.toUpperCase()}
+                    </div>
+
+                    <div class="route">{path}</div>
+                  </div>
+                  <div class="two-column">
+                    {Object.keys(properties).map(property => {
+                      const value = properties[property]
+                     
+                      return (
+                        <div class="api-content" data-type={property}>
+                          <div class="property">
+                            {property.split('')[0].toUpperCase() +
+                              property.slice(1)}
+                            :
+                          </div>
+                          <div class="value">
+                            {property === 'responses' ? (
+                              value !== null || value !== undefined ? (
+                                Object.keys(value).map(code => {
+                                  const content = value[code]['content']
+
+                                  console.log('content', content)
+
+                                  console.log("application/json", value["application/json"])
+                                  const schema = value["application/json"] ? value["application/json"]
+                                  ["schema"]["$ref"] : null
+                                  return (<div class="code">{code}</div>
+                                  <div class="">
+                                    {schema}
+                                    </div>
+                                  
+                                  )
+                                })
+                              ) : (
+                                'null'
+                              )
+                            ) : property == 'parameters' ? (
+                              value.map((item, index) => {
+                                return (
+                                  <div class="parameter">
+                                    <div class="parameter-name">
+                                      <span class="bold">Name:</span>{' '}
+                                      {item.name}
+                                    </div>
+                                    <div class="parameter-in">
+                                      in: {item.in}
+                                    </div>
+                                    <div class="parameter-requirement">
+                                      required:{' '}
+                                      {item.required === true
+                                        ? 'true'
+                                        : 'false'}
+                                    </div>
+                                    <div class="parameter-schema">
+                                      schema: {Object.keys(item.schema)} :{' '}
+                                      {Object.values(item.schema)}
+                                    </div>
+                                  </div>
+                                )
+                              })
+                            ) : property === "requestBody" ? <div>Some request body here</div> : value === null ||
+                              value === undefined ||
+                              value.length < 1 ? (
+                              <span>NaN</span>
+                            ) : (
+                              value
+                            )}
+                          </div>
+                        </div>
+                      )
+                    })}
+                  </div>
                 </div>
-                <div>
-                  {Object.keys(properties).map(property => {
-                    const value = Object.values(properties[property])
-                    console.log('value', value)
-                    return (
-                      <div>
-                        <h6>{property}</h6>
-                        <div>{value}</div>
-                      </div>
-                    )
-                  })}
-                </div>
-              </div>
-            )
-          })}
-        </div>
+              )
+            })}
+          </div>
+        </>
       )
     })
   }
