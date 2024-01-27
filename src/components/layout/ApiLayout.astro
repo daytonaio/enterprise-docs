@@ -6,10 +6,12 @@ import ParameterCard from '@components/cards/ParameterCard.astro'
 import OperationIdCard from '@components/cards/OperationIdCard.astro'
 import TagCard from '@components/cards/TagCard.astro'
 import RequestBodyCard from '@components/cards/RequestBodyCard.astro'
+import type { operations } from 'src/util/generated-api-type'
+import type { Schema } from 'astro/zod'
 // const Schema = await fetch('https://api.cde.agency/v3/docs/swagger.json')
 //   .then(res => res.json() as Promise<Root>)
 //   .catch(err => console.error(err))
-const paths = Object.keys(Schema.paths) as unknown as [keyof Root['paths']]
+const paths = Object.keys(Schema['paths']) as unknown as (keyof Root['paths'])[]
 ---
 
 <div>

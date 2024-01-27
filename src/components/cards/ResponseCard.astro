@@ -1,5 +1,6 @@
 ---
 import ApiPropertyCardTitle from './ApiPropertyCardTitle.astro'
+import { Sample } from '../../util/sample'
 interface Props {
   value: any
   Schema?: any
@@ -8,33 +9,34 @@ interface Props {
 
 const { value, property, Schema }: Props = Astro.props
 
-// validate if the value of the item is an object
-function isObject(item) {
-  if (typeof item === 'object' && item !== null && !Array.isArray(item)) {
-    return true
-  }
-  return false
+const isCodeTwoHundre = value['200']
+const isCodeTwoHundreOne = value['201']
+const isCodeTwoHundreFour = value['204']
+
+const schema = (position: string) => {
+  const schemaValue = Object.entries(Schema['components']['schemas'][position])
+
+  console.log('schemaValue', schemaValue)
 }
 
-function findRef(obj) {
-  for (let key in obj) {
-    if (isObject(obj[key])) {
-      findRef(obj[key])
-    } else {
-      if (key === '$ref') {
-        return obj[key]
-      }
-    }
-  }
-  return obj
-}
-// getting response body schema
-const schema = Object.keys(value).map(key => {
-  // example content: [ { 'application/json': { schema: [Object] } } ]
-  const content = Object.values(value[key]).map(item => {
-    findRef(item)
+// recursively look for "ref" in an object and look get its value, if none return null
+
+Object.entries(Sample)
+const stringSchema = Object.entries(Object.values(Sample)).map(item => {
+  const response = Object.values(item[1]).map(data => {
+    console.log('data', data, 'typeof data', typeof data)
+    const isContentExists = Object.keys(data['responses']).map(code => {
+      return Object.values(data['responses'][code])[0]['application/json']
+        ? true
+        : Object.values(data['responses'][code])[0]['*/*']
+          ? true
+          : false
+    })
+    console.log('isContentExists', isContentExists)
   })
 })
+
+console.log('stringSchema', stringSchema)
 ---
 
 <>
