@@ -1,30 +1,58 @@
 ---
+import ApiPropertyCardTitle from './ApiPropertyCardTitle.astro'
+
 interface Props {
   value: any
+  property: string
 }
 
-const { value }: Props = Astro.props
+const { value, property }: Props = Astro.props
 ---
 
-{
-  value.length > 0 ? (
-    value.map((item, index) => {
-      return (
-        <div class="parameter">
-          <li class="gap-2">
-            <span>{item.name}</span>
-            <span class="required">
-              {item.required === true && '*required'}
-            </span>
-          </li>
-          <div class="parameter-schema">
-            {Object.keys(item.schema)} : {Object.values(item.schema)}
-          </div>
-          <i class="parameter-in">({item.in})</i>
-        </div>
-      )
-    })
-  ) : (
-    <div>No parameters</div>
-  )
-}
+<>
+  <ApiPropertyCardTitle property={property} />
+  {
+    value.length > 0 ? (
+      value.map((item, index) => {
+        const isKeySingular = Object.keys(item.schema).length < 2
+        const key = isKeySingular
+          ? Object.keys(item.schema)
+          : JSON.stringify(Object.entries(item.schema))
+        const value = Object.values(item.schema)
+        return (
+          <dl class="parameter">
+            <dt class="gap-2">
+              <span>{item.name}</span>
+              <span class="required">
+                {item.required === true && '*required'}
+              </span>
+            </dt>
+            <dd class="parameter-schema">
+              {isKeySingular ? (
+                <div>
+                  {key}: {value}
+                </div>
+              ) : (
+                <div>
+                  {Object.keys(item.schema).map((key, index) => {
+                    return (
+                      <div>
+                        {key}:{' '}
+                        {index === 0
+                          ? value[index]
+                          : JSON.stringify(Object.values(value[index]))}
+                      </div>
+                    )
+                  })}
+                </div>
+              )}
+              <i class="parameter-in">({item.in})</i>
+            </dd>
+          </dl>
+        )
+      })
+    ) : (
+      <span>No parameters</span>
+    )
+  }
+</>

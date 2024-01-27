@@ -1,5 +1,5 @@
 ---
-import hljs from 'highlight.js'
+import ApiPropertyCardTitle from './ApiPropertyCardTitle.astro'
 interface Props {
   value: any
   Schema?: any
@@ -22,11 +22,9 @@ function findRef(obj) {
       findRef(obj[key])
     } else {
       if (key === '$ref') {
-        console.log('ref', obj[key])
         return obj[key]
       }
     }
-    console.log('obj[key]', obj[key])
   }
   return obj
 }
@@ -37,31 +35,19 @@ const schema = Object.keys(value).map(key => {
     findRef(item)
   })
 })
-
-console.log('--------------end of execution------------------')
 ---
 
 <>
-  <div class="property">
-    {property.split('')[0].toUpperCase() + property.slice(1)}
-    :
-  </div>
+  <ApiPropertyCardTitle property={property} />
   <div class="value">
     {
-      value !== null && value !== undefined
-        ? Object.entries(value).map(code => {
-            return (
-              <div class="response-content">
-                <pre>
-                  {JSON.stringify(code, null, 2)
-                    .replace('[', '{')
-                    .replace(']', '}')
-                    .trim()}
-                </pre>
-              </div>
-            )
-          })
-        : 'null'
+      value ? (
+        <div class="children-body">
+          <pre>{JSON.stringify(value, null, 2)}</pre>
+        </div>
+      ) : (
+        'null'
+      )
     }
   </div>
 </>

@@ -557,7 +557,7 @@
   }
 
 
-  .two-column {
+  .api-body {
     display: flex;
     flex-direction: column;
     column-gap: 6px;
@@ -567,14 +567,9 @@
       flex-direction: column;
     }
 
-    &[data-type="operationId"] {
-      display: flex;
-      flex-direction: row;
-    }
   }
 
   .api-content {
-
     padding: 10px 10px;
     margin: 10px 0;
     background-color: var(--block-bg-color);
@@ -624,11 +619,16 @@
 
   .parameter {
     border-bottom: solid 1px var(--border-extra);
-    padding: 10px 0;
+    padding: 10px 10px;
 
 
     &:last-child {
       border-bottom: none;
+    }
+
+    >dt {
+      font-weight: 500;
+      letter-spacing: 0.02rem;
     }
 
     >li {
@@ -643,6 +643,13 @@
 
   }
 
+  .flex {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 6px;
+  }
+
 
   .bold {
     font-weight: 500;
@@ -650,22 +657,34 @@
 
   .required {
     color: var(--orange-code-text);
-    font-size: x-small;
+    font-size: small;
+    font-weight: 400;
     line-height: 1.4rem;
     margin-left: 5px;
   }
 
-  .response-content {
+  .optional {
+    color: var(--secondary-text-color);
+    font-size: small;
+    font-weight: 400;
+    line-height: 1.4rem;
+    margin-left: 5px;
+  }
+
+  .children-body {
     border: solid 1px var(--border-extra);
     inset-inline: 0;
     border-radius: 3px;
-    padding: 0 10px;
+    padding: 10px 10px;
     max-width: 100%;
     margin-top: 10px;
 
 
     >pre {
-      text-wrap: warp !important;
+      text-wrap: wrap !important;
+      text-align: left;
+      white-space: pre-wrap;
+
     }
   }
 

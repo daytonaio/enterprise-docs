@@ -1,8 +1,11 @@
 ---
 import type { Root, ApiEndpoint } from '../../util/api-type'
-import ParameterCard from '../cards/ParameterCard.astro'
 import { Schema } from '../../util/api'
 import ResponseCard from '@components/cards/ResponseCard.astro'
+import ParameterCard from '@components/cards/ParameterCard.astro'
+import OperationIdCard from '@components/cards/OperationIdCard.astro'
+import TagCard from '@components/cards/TagCard.astro'
+import RequestBodyCard from '@components/cards/RequestBodyCard.astro'
 // const Schema = await fetch('https://api.cde.agency/v3/docs/swagger.json')
 //   .then(res => res.json() as Promise<Root>)
 //   .catch(err => console.error(err))
@@ -31,29 +34,34 @@ const paths = Object.keys(Schema.paths) as unknown as [keyof Root['paths']]
 
                     <div class="route">{path}</div>
                   </div>
-                  <div class="two-column">
+                  <div class="api-body">
                     {Object.keys(properties).map(property => {
                       const value = properties[property]
 
                       return (
                         <div class="api-content" data-type={property}>
-                          <div class="value">
-                            {property === 'responses' ? (
-                              <ResponseCard
-                                value={value}
-                                property={property}
-                                Schema={Schema}
-                              />
-                            ) : property == 'parameters' ? (
-                              <ParameterCard value={value} />
-                            ) : property === 'requestBody' ? (
-                              <div>Some request body here</div>
-                            ) : property === 'operationId' ? (
-                              value
-                            ) : (
-                              value
-                            )}
-                          </div>
+                          {property === 'responses' ? (
+                            <ResponseCard
+                              value={value}
+                              property={property}
+                              Schema={Schema}
+                            />
+                          ) : property == 'parameters' ? (
+                            <ParameterCard value={value} property={property} />
+                          ) : property === 'requestBody' ? (
+                            <RequestBodyCard
+                              Schema={Schema}
+                              value={value}
+                              property={property}
+                            />
+                          ) : property === 'operationId' ? (
+                            <OperationIdCard
+                              value={value}
+                              property={property}
+                            />
+                          ) : (
+                            <TagCard value={value} property={property} />
+                          )}
                         </div>
                       )
                     })}

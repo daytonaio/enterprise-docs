@@ -1,0 +1,34 @@
+---
+import type { Root } from 'src/util/api-type'
+import ApiPropertyCardTitle from './ApiPropertyCardTitle.astro'
+interface Props {
+  property: string
+  value: any
+  Schema: Root
+}
+const { property, value, Schema } = Astro.props
+
+console.log({ property, value })
+---
+
+{
+  property && (
+    <>
+      <div class="flex">
+        {' '}
+        <ApiPropertyCardTitle property={property} />
+        {value.required ? (
+          <span class="required">*required</span>
+        ) : (
+          <span class="optional">optional</span>
+        )}
+      </div>
+
+      <p>Example values</p>
+      <div class="children-body">
+        {' '}
+        <pre>{JSON.stringify(value.content, null, 2)}</pre>
+      </div>
+    </>
+  )
+}
