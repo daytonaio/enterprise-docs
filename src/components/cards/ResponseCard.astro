@@ -1,7 +1,7 @@
 ---
 import ApiPropertyCardTitle from './ApiPropertyCardTitle.astro'
 import { Sample } from '../../util/sample'
-import type { operations } from 'src/util/generated-api-type'
+import type { operations, paths } from 'src/util/generated-api-type'
 import type { Root } from 'src/util/api-type'
 interface Props {
   value: any
@@ -17,7 +17,11 @@ const isCodeTwoHundreFour = value['204']
 
 // recursively look for "ref" in an object and look get its value, if none return null
 
-function stringSchema(schema: operations) {
+function stringSchema(schema: paths) {
+  const schemaKeys = Object.keys(schema)
+  const schemaValue = Object.values(schema)
+  console.log('schemaValue', schemaValue)
+
   Object.entries(Object.values(schema)).map(item => {
     const response = Object.values(item[1]).map(data => {
       // console.log('data', data, 'typeof data', typeof data)
@@ -42,14 +46,13 @@ function stringSchema(schema: operations) {
                 ? data['responses'][code]
                 : content
           : content
-        console.log('result', result)
       })
       // console.log('isContentExists', isContentExists)
     })
   })
 }
 
-console.log('stringSchema', stringSchema(Schema['paths']))
+stringSchema(Sample)
 ---
 
 <>
