@@ -94,7 +94,6 @@ A team name can be changed using the Daytona dashboard.
 
 ## Understanding your subscription
 Your Daytona subscription determines the functionality and amount of resources you can utilize within your Daytona instance.
-If your instance is 
 
 :::tip
 If you have deployed Daytona as a *[Single Node installation](/installation/single-node)*, your instance will use Daytona's free tier subscription.
