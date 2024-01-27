@@ -124,5 +124,54 @@ export const Sample = {
             ],
             tags: ['Cluster'],
         },
-    }
+    },
+    '/user/environment-variables': {
+        post: {
+            operationId: 'userCreateUserEnvironmentVariable',
+            responses: {
+                '201': {
+                    content: {
+                        '*/*': {
+                            schema: {
+                                type: 'object',
+                            },
+                        },
+                    },
+                    description: 'Created',
+                },
+            },
+            parameters: [],
+            requestBody: {
+                required: false,
+                content: {
+                    'application/json': {
+                        schema: {
+                            $ref: '#/components/schemas/EnvironmentVariableCreation',
+                        },
+                    },
+                },
+            },
+            tags: ['User'],
+        },
+        get: {
+            operationId: 'userGetUserEnvironmentVariableList',
+            responses: {
+                '200': {
+                    content: {
+                        'application/json': {
+                            schema: {
+                                type: 'array',
+                                items: {
+                                    $ref: '#/components/schemas/EnvironmentVariable',
+                                },
+                            },
+                        },
+                    },
+                    description: 'Success',
+                },
+            },
+            parameters: [],
+            tags: ['User'],
+        },
+    },
 }

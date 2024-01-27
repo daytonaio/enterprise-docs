@@ -1,9 +1,11 @@
 ---
 import ApiPropertyCardTitle from './ApiPropertyCardTitle.astro'
 import { Sample } from '../../util/sample'
+import type { operations } from 'src/util/generated-api-type'
+import type { Root } from 'src/util/api-type'
 interface Props {
   value: any
-  Schema?: any
+  Schema: Root
   property: string
 }
 
@@ -13,30 +15,41 @@ const isCodeTwoHundre = value['200']
 const isCodeTwoHundreOne = value['201']
 const isCodeTwoHundreFour = value['204']
 
-const schema = (position: string) => {
-  const schemaValue = Object.entries(Schema['components']['schemas'][position])
-
-  console.log('schemaValue', schemaValue)
-}
-
 // recursively look for "ref" in an object and look get its value, if none return null
 
-Object.entries(Sample)
-const stringSchema = Object.entries(Object.values(Sample)).map(item => {
-  const response = Object.values(item[1]).map(data => {
-    console.log('data', data, 'typeof data', typeof data)
-    const isContentExists = Object.keys(data['responses']).map(code => {
-      return Object.values(data['responses'][code])[0]['application/json']
-        ? true
-        : Object.values(data['responses'][code])[0]['*/*']
-          ? true
-          : false
-    })
-    console.log('isContentExists', isContentExists)
-  })
-})
+function stringSchema(schema: operations) {
+  Object.entries(Object.values(schema)).map(item => {
+    const response = Object.values(item[1]).map(data => {
+      // console.log('data', data, 'typeof data', typeof data)
+      const isContentExists = Object.keys(data['responses']).map(code => {
+        // console.log('code', code, 'data', data['responses'][code])
+        const content = Object.values(data['responses'][code])[0][
+          'application/json'
+        ]
+          ? Object.values(data['responses'][code])[0]['application/json'][
+              'schema'
+            ]
+          : Object.values(data['responses'][code])[0]['*/*']
+            ? Object.values(data['responses'][code])[0]['*/*']['schema']
+            : Object.values(data['responses'][code])[0]
 
-console.log('stringSchema', stringSchema)
+        const result = content
+          ? content['$ref']
+            ? content['$ref'].split('/')[3]
+            : content['items']
+              ? content['items']['$ref'].split('/')[3]
+              : content === 'No Content'
+                ? data['responses'][code]
+                : content
+          : content
+        console.log('result', result)
+      })
+      // console.log('isContentExists', isContentExists)
+    })
+  })
+}
+
+console.log('stringSchema', stringSchema(Schema['paths']))
 ---
 
 <>
