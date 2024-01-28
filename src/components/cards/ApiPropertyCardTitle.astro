@@ -1,0 +1,17 @@
+---
+interface Props {
+  property: string
+}
+const { property } = Astro.props
+---
+
+<div class="property">
+  {
+    property === 'requestBody'
+      ? 'Request Body'
+      : property === 'operationId'
+        ? 'Operation Id'
+        : property.split('')[0].toUpperCase() + property.slice(1)
+  }
+  :
+</div>
