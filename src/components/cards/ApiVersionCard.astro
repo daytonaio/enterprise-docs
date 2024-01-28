@@ -1,0 +1,17 @@
+---
+import { url, version } from '../../util/fetch'
+
+const regex = /^https:\/\/[^\/]+\/([^\/]+)\/[^\/]+\//
+
+const match = regex.exec(url)
+let modifiedVersion: string
+
+if (match) {
+  modifiedVersion = match[1]
+  console.log('version found: ' + modifiedVersion)
+} else {
+  console.log('No match found.')
+}
+---
+
+<span>{version === 'undefined' ? modifiedVersion : version}</span>
