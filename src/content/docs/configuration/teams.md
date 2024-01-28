@@ -95,9 +95,10 @@ A team name can be changed using the Daytona dashboard.
 ## Understanding your subscription
 Your Daytona subscription determines the functionality and amount of resources you can utilize within your Daytona instance.
 
-:::tip
-If you have deployed Daytona as a *[Single Node installation](/installation/single-node)*, your instance will use Daytona's free tier subscription.
-To discuss upgrading your subscription with additional resources, please [reach out to us](https://daytona.zapier.app/).
+:::note
+All Daytona deployments are initially configured with the Non-Commercial License.
+For more information about this license, please visit Daytona's [End User License Agreement](https://www.daytona.io/eula).
+If you wish to upgrade your license, please [reach out to Daytona](https://daytona.zapier.app/).
 :::
 
 :::note
