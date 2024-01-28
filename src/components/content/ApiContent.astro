@@ -28,8 +28,15 @@ const paths = Object.keys(Schema['paths']) as unknown as (keyof Root['paths'])[]
               const properties = Schema.paths[path][method]
 
               return (
-                <div class="method-card" x-data="{open: false}">
-                  <div class="api-header" @click="open =! open">
+                <div
+                  class="method-card"
+                  x-data="{
+    open: false,
+    get isOpen() { return this.open },
+    toggle() { this.open = ! this.open },
+}"
+                >
+                  <div class="api-header" @click="toggle()">
                     <div class="api-header-left">
                       <div class="method" data-method={method.toUpperCase()}>
                         {method.toUpperCase()}
@@ -37,13 +44,17 @@ const paths = Object.keys(Schema['paths']) as unknown as (keyof Root['paths'])[]
 
                       <div class="route">{path}</div>
                     </div>
-                    <div class="api-header-right">
+                    <div
+                      class="api-header-right"
+                     :class="open ? 'rotate-180' : 'rotate-0'"
+                     
+                    >
                       <Icon name="down-caret" size="2rem" />
                     </div>
                   </div>
                   <div
                     class="api-body"
-                    x-show="open"
+                    x-show="isOpen"
                     @click.outside="open = false"
                   >
                     {Object.keys(properties).map(property => {

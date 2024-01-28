@@ -514,12 +514,24 @@
 
   .api-header {
     display: flex;
-    flex-direction: row;
+    cursor: pointer;
+    justify-content: space-between;
     border: 1px solid var(--border-extra);
     border-radius: 3px;
     padding: 10px 10px;
     align-items: center;
-    gap: 10px;
+
+    .api-header-left {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .api-header-right {
+      display:flex;
+
+     
+    }
 
     .route {
       font-size: 1rem;
@@ -561,6 +573,8 @@
     display: flex;
     flex-direction: column;
     column-gap: 6px;
+
+    
 
     @include for-mobile-screen-sizes {
       display: flex;
@@ -686,6 +700,15 @@
       white-space: pre-wrap;
 
     }
+  }
+
+  .rotate-180 {
+    transform: rotate(180deg);
+    transition: ease-in 0.2s;
+  }
+  .rotate-0 {
+    transform: rotate(0deg);
+    transition: ease-out 0.2s;
   }
 
 
