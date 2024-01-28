@@ -6,6 +6,7 @@ import ParameterCard from '../cards/ParameterCard.astro'
 import OperationIdCard from '../cards/OperationIdCard.astro'
 import TagCard from '../cards/TagCard.astro'
 import RequestBodyCard from '../cards/RequestBodyCard.astro'
+import { Icon } from '@astrojs/starlight/components'
 import type { operations } from '../../util/generated-types'
 // const Schema = await fetch('https://api.cde.agency/v3/docs/swagger.json')
 //   .then(res => res.json() as Promise<Root>)
@@ -27,15 +28,24 @@ const paths = Object.keys(Schema['paths']) as unknown as (keyof Root['paths'])[]
               const properties = Schema.paths[path][method]
 
               return (
-                <div class="method-card">
-                  <div class="api-header">
-                    <div class="method" data-method={method.toUpperCase()}>
-                      {method.toUpperCase()}
-                    </div>
+                <div class="method-card" x-data="{open: false}">
+                  <div class="api-header" @click="open =! open">
+                    <div class="api-header-left">
+                      <div class="method" data-method={method.toUpperCase()}>
+                        {method.toUpperCase()}
+                      </div>
 
-                    <div class="route">{path}</div>
+                      <div class="route">{path}</div>
+                    </div>
+                    <div class="api-header-right">
+                      <Icon name="down-caret" size="2rem" />
+                    </div>
                   </div>
-                  <div class="api-body">
+                  <div
+                    class="api-body"
+                    x-show="open"
+                    @click.outside="open = false"
+                  >
                     {Object.keys(properties).map(property => {
                       const value = properties[property]
 
