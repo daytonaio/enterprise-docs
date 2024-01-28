@@ -16,6 +16,15 @@ const myThemeLight = ExpressiveCodeTheme.fromJSONString(jsonLightString);
 export default defineConfig({
   site: PUBLIC_WEB_URL,
   integrations: [starlight({
+    head: [
+      {
+        tag: "script",
+        attrs: {
+          defer: true,
+          src: "https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"
+        }
+      }
+    ],
     favicon: '/favicon.ico',
     title: 'Daytona',
     social: {
