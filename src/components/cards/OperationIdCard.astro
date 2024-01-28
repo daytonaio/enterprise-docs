@@ -1,0 +1,15 @@
+---
+import ApiPropertyCardTitle from './ApiPropertyCardTitle.astro'
+
+interface Props {
+  property: string
+  value: any
+}
+
+const { property, value }: Props = Astro.props
+---
+
+<>
+  <ApiPropertyCardTitle property={property} />
+  {value ? <span class="value">{value}</span> : <span class="value">null</span>}
+</>
