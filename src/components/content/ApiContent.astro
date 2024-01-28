@@ -11,7 +11,14 @@ import type { operations } from '../../util/generated-types'
 // const Schema = await fetch('https://api.cde.agency/v3/docs/swagger.json')
 //   .then(res => res.json() as Promise<Root>)
 //   .catch(err => console.error(err))
-const paths = Object.keys(Schema['paths']) as unknown as (keyof Root['paths'])[]
+interface Props {
+  routeGroup: string
+}
+const routes = Object.keys(Schema['paths']) as unknown as (keyof Root['paths'])[]
+
+const { routeGroup}: Props = Astro.props
+
+const paths = routes.filter(route => route.split("/"))
 ---
 
 <div>
