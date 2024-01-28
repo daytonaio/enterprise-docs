@@ -120,7 +120,7 @@ Your Daytona account must be connected to at least one Git provider.
 ## Deleting your account
 You can delete your account using the Daytona dashboard.
 
-:::danger
+:::caution
 Deleting your account will irreversibly remove access to any teams you are a member of.
 In teams where you are the sole member, workspaces will be permanently deleted as a result of this action.
 :::
