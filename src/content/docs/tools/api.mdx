@@ -4,19 +4,126 @@ description: Add a brief description of the API Tools and Resources page here
 sidebar:
   label: API
 ---
-import ApiLayout from "../../../components/layout/ApiLayout.astro"
+import ApiContent from "../../../components/content/ApiContent.astro"
+import ApiVersion from "../../../components/cards/ApiVersionCard.astro"
 
-Our API is a RESTful API based on the OpenAPI 3.0 specification. It is a
-JSON API that uses standard HTTP response codes and verbs, and token-based  authentication.
+**Current API version: <ApiVersion/>**
 
-Our API is currently in beta. We are actively working on it and will be
-adding new endpoints and features regularly. If you have any questions or
-feedback, please [contact us](mailto:servicedesk@daytona.io).
+The Daytona API is a REST-styled API based on the OpenAPI 3.0.1 specification  gives you full control over your Daytona deployment. It allows developers to interact with your own Daytona deployment, deploy new clusters, manage existing clusters, retrieve infromation about deployemnt and configurations, manage secrets and perform other operations using HTTP requests programmatically. 
 
-## Prerequisites
+The API uses standard HTTP response codes and verbs, and follows `OAuth2`  authentication protocols. Any programming languages or framework that can make HTTP requests can use the API to interact with your Daytona deployment.
+
+
+## API Endpoint
+
+Every Daytona deployment has its own API endpoint and documentations. 
+
+For example, if your deployment is located at `https://daytona.domain.com`, then your API endpoint is in `https://api.daytonaio.domain.com` and documentation is live in `https://api.daytona.domain.com/v3/docs`. In the API documentation, you can find the API endpoint for your deployment in the top right corner of the page.
+
+#### Example
+<dl>
+<dt>Daytona dashboard URL</dt>
+<dd>`https://daytona.domain.com`</dd>
+<dt>API Endpoint</dt>
+<dd>`https://api.daytona.domain.com`</dd>
+<dt>API Documentation</dt>
+<dd>`https://api.daytona.domain.com/v3/docs`</dd>
+</dl>
+
+## API Basics
+
+Our API is exposed as an HTTP/1 adn HTTP/2 service over SSL. All endpoints live under your specific endpoint and generally follow the REST architecture. 
+
+### Server Specs 
+
+#### HTTP and TLS 
+
+The API supports HTTP version 1, 1.1, and 2, although HTTP/2 is preferred. 
+
+TLS version 1.3 is supported with resumption. 
+
+For more information on TLS support, paste your endpoint in [SSL Labs report](https://www.ssllabs.com/ssltest/index.html).
+
+#### Content Type 
+
+Al requests must be encoded as JSON with the `Content-Type: application/json` header. If not otherwise specified (some are `*/*`), responses from your Daytona API, including errors, are encoded as JSON as well. 
+
 
 
 ## Authentication
+Daytona API is token based, follows the OAuth2 authentication protocol.
 
-## API Reference
-<ApiLayout/>
+### Creating an Access Token 
+Access Tokens can be created and managed from inside [TBC].
+
+### Expiration 
+Setting an expiration date on an Access Token is **highly recommended** and is considered one of the standard security practices that helps keep your information secure. 
+
+You can select from a range of expiration dates, [TBC]. You can view the expiration date of an Access Token by clicking on the token in the [TBC] page.
+
+### Revoking an Access Token
+You can revoke an Access Token at any time from the [TBC] page. Once revoked, the token is no longer valid and cannot be used to make API calls.
+
+### Regenerating an Access Token
+
+You can regenerate an Access Token at any time from the [TBC] page. Once regenerated, the old token is no longer valid and cannot be used to make API calls.
+
+### Using an Access Token
+
+### Failed Authentication 
+If authentication is unsuccessful for a request, the **`401`** or **`403`** response code is returned.
+
+{/*No rate limits and error handling in API/swagger?*/}
+
+## Versioning
+All endpoints and examples are designated with a specific version. Versions do not vary per endpoint and are global [TBC]. 
+
+To ensure the security and correctness of your application, make sure to **only read the keys from the response** that your application expects. Don't proxy entire responses to third-parties without validation. 
+
+{/*Any changelog to notify user if API endpoint/responses changes?*/}
+
+Endpoint versions follow the base URL and come before the endpoint. For example:
+
+```json 
+https://api.daytona.domain.com/v3/clusters
+```
+
+## Types 
+The following is a list of the types of data used within Daytona API: 
+
+| Name | Description | Example |
+| ---- | ----------- | ------- |
+| ID | A unique identifier for an object. See team ID or account ID on Daytona dashboard. | `123e4567-e89b-12d3-a456-426614174000` |
+| `string` | A sequence of characters used to represent text. | `value` |
+| `number` | A whole number without decimal. | `1` |
+| `object` | A data structure with a list of values assigned to a unique key. | `{ "key": "value" }` |
+| `array` | A list of values. | `[ "value1", "value2" ]` |
+| `boolean` | A value that is either `true` or `false`. | `true` |
+| `enum` | A value that is one of a predefined set of values. | [ 'value1', 'value2'] |
+| Timestamp | A value that represents a point in time. | `2021-01-01T00:00:00Z` |
+
+
+{/* {/* | `null` | A value that is `null`. | `null` |/*} */}
+
+
+## API endpoints
+Daytona's API endpoints are separated into groups based on the type of action they perform. Following is a list of the groups and their explained actions:
+
+| Group | Description |
+| ----- | ----------- |
+| [Clusters](#cluster) | Cluster related actions, such as creating, deleting, and managing clusters. |
+| [User](#user) | User related actions, such as login, logout, and user profile. |
+| [Workspace](#workspace) | Workspace related actions, such as creating, deleting, and managing workspaces. |
+| [WorkspaceInstance](#workspace-instance) | Secrets related actions, such as creating, deleting, and managing secrets. |
+| [Team](#team) | Team related actions, such as creating, deleting, and managing teams. |
+| [Plan](#plan) | Plan related actions, such as creating, deleting, and managing plans. |
+| [WorkspaceUsage](#workspace-usage) | Workspace usage related actions, such as creating, deleting, and managing workspace usage. |
+| [WorkspaceSSH](#workspace-ssh) | Workspace SSH related actions, such as creating, deleting, and managing workspace SSH. |
+| [Superviser](#superviser) | Superviser related actions, such as creating, deleting, and managing supervisers. |
+
+### API request example 
+
+## API Endpoints reference
+<ApiContent/>
+
+## API Request
