@@ -134,16 +134,12 @@ export function transformResponse(route: keyof paths, method?: string) {
                         // console.log("schemaObject", schemaObject)
                         return schemaObject
                     }
-
-
                 }
             }
             )
         const originalSchema = schema.operation(route, method).getResponseAsJSONSchema(statusCode) ?? { description: "No Content" }
 
         return schemaObject ?? originalSchema
-
-
     }
 }
 
