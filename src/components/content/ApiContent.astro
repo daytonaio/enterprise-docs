@@ -17,7 +17,7 @@ const paths = Object.keys(schema['paths']) as unknown as (keyof Root['paths'])[]
 
 const { routeGroup}: Props = Astro.props
 
-const routes = paths.filter(route => 
+const routes = paths.filter(route =>  
    route.split("/")[1] === routeGroup
   )
 ---
