@@ -18,7 +18,7 @@ export default defineConfig({
   integrations: [starlight({
     head: [
       {
-        tag: "script",
+        tag: "script", // add alpinejs for client side animations
         attrs: {
           defer: true,
           src: "https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"
