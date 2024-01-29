@@ -13,5 +13,5 @@ const { property } = Astro.props
         ? 'Operation Id'
         : property.split('')[0].toUpperCase() + property.slice(1)
   }
-  :
+  : {property === 'responses' && <span class="required">Example Response</span>}
 </div>
