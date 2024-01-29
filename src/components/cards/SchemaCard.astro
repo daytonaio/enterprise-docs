@@ -6,7 +6,7 @@ import { Icon } from '@astrojs/starlight/components'
 
 
 const schema = returnSchema!
-const keys = Object.keys(schema)
+const keys = Object.keys(schema).filter(key => key.split("/")[0] !== "superviser")
 ---
 
 {schema && keys && keys.map(key => (<div
