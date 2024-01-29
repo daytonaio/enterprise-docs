@@ -1,6 +1,6 @@
 ---
 import type { Root, ApiEndpoint } from '../../util/api-type'
-import { Schema } from '../../util/api'
+import { apiSchema as schema } from '../../util/fetch'
 import ResponseCard from '../cards/ResponseCard.astro'
 import ParameterCard from '../cards/ParameterCard.astro'
 import OperationIdCard from '../cards/OperationIdCard.astro'
@@ -9,13 +9,11 @@ import RequestBodyCard from '../cards/RequestBodyCard.astro'
 import { Icon } from '@astrojs/starlight/components'
 import type { operations } from '../../util/generated-types'
 import SecurityCard from '@components/cards/SecurityCard.astro'
-// const Schema = await fetch('https://api.cde.agency/v3/docs/swagger.json')
-//   .then(res => res.json() as Promise<Root>)
-//   .catch(err => console.error(err))
+
 interface Props {
   routeGroup: string
 }
-const paths = Object.keys(Schema['paths']) as unknown as (keyof Root['paths'])[]
+const paths = Object.keys(schema['paths']) as unknown as (keyof Root['paths'])[]
 
 const { routeGroup}: Props = Astro.props
 
@@ -30,12 +28,12 @@ const routes = paths.filter(route =>
       const group = path.split('/')[1]
       const key = path
       // this return the methods like get, post, put, delete
-      const methods = Object.keys(Schema.paths[path])
+      const methods = Object.keys(schema.paths[path])
       return (
         <>
           <div class="api-card">
             {methods.map(method => {
-              const properties = Schema.paths[path][method]
+              const properties = schema.paths[path][method]
 
               return (
                 <div
@@ -82,7 +80,7 @@ const routes = paths.filter(route =>
                             <ParameterCard value={value} property={property} />
                           ) : property === 'requestBody' ? (
                             <RequestBodyCard
-                              Schema={Schema}
+                              schema={schema}
                               value={value}
                               property={property}
                             />
