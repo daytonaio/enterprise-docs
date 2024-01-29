@@ -527,9 +527,9 @@
       align-items: center;
     }
 
-    .api-header-right {
+    .api-header-icon {
       display:flex;
-
+      align-items: center;
      
     }
 
@@ -692,6 +692,8 @@
     padding: 10px 10px;
     max-width: 100%;
     margin-top: 10px;
+    max-height: 40vh;
+    overflow-y: scroll;
 
 
     >pre {
@@ -702,8 +704,14 @@
     }
   }
 
+
+
   .rotate-180 {
     transform: rotate(180deg);
+    transition: ease-in 0.2s;
+  }
+  .rotate-90 {
+    transform: rotate(90deg);
     transition: ease-in 0.2s;
   }
   .rotate-0 {
