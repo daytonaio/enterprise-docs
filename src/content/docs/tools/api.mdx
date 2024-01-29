@@ -6,6 +6,7 @@ sidebar:
 ---
 import ApiContent from "../../../components/content/ApiContent.astro"
 import ApiVersion from "../../../components/cards/ApiVersionCard.astro"
+import SchemaCard from "../../../components/cards/SchemaCard.astro"
 
 **Current API version: <ApiVersion/>**
 
@@ -50,10 +51,17 @@ Al requests must be encoded as JSON with the `Content-Type: application/json` he
 
 
 ## Authentication
-Daytona API is token based, follows the OAuth2 authentication protocol.
+Unless specify differently, most of the Daytona API endpoints are token based, follows the OAuth2 authentication protocol (`client_secret`). Some of the endpoints requires a `workspaceToken` for authentication. We will walk through how you can create and authenticate via [`client_secret`](#finding-client-secret) and [`workspaceToken`](#creating-workspaceToken) in the following sections.
 
-### Creating an Access Token 
+:::note 
+When `workspaceToken` is required, it overwrites the `client_secret` and you will only need `workspaceToken` to authenticate. 
+:::
+
+### Finding Client Secret
 Access Tokens can be created and managed from inside [TBC].
+
+### Creating workspaceToken
+To retrieve `workspaceToken`, you can [TBC].
 
 ### Expiration 
 Setting an expiration date on an Access Token is **highly recommended** and is considered one of the standard security practices that helps keep your information secure. 
@@ -106,19 +114,19 @@ The following is a list of the types of data used within Daytona API:
 
 
 ## API endpoints
-Daytona's API endpoints are separated into groups based on the type of action they perform. Following is a list of the groups and their explained actions:
+Daytona's API endpoints are separated into groups based on the type of action they perform. 
 
 | Group | Description |
 | ----- | ----------- |
-| [Clusters](#cluster) | Cluster related actions, such as creating, deleting, and managing clusters. |
-| [User](#user) | User related actions, such as login, logout, and user profile. |
-| [Workspace](#workspace) | Workspace related actions, such as creating, deleting, and managing workspaces. |
-| [WorkspaceInstance](#workspace-instance) | Secrets related actions, such as creating, deleting, and managing secrets. |
-| [Team](#team) | Team related actions, such as creating, deleting, and managing teams. |
-| [Plan](#plan) | Plan related actions, such as creating, deleting, and managing plans. |
-| [WorkspaceUsage](#workspace-usage) | Workspace usage related actions, such as creating, deleting, and managing workspace usage. |
-| [WorkspaceSSH](#workspace-ssh) | Workspace SSH related actions, such as creating, deleting, and managing workspace SSH. |
-| [Superviser](#superviser) | Superviser related actions, such as creating, deleting, and managing supervisers. |
+| [Cluster](#cluster) | Cluster related actions, such as retrieving information, creating and deleting clusters. |
+| [User](#user) | User related actions, such as retrieving and deleting a user, creating, updating and retrieving new environment variables, ssh-keys, ide, dotfiles and git-related information. |
+| [Workspace](#workspace) | Manage workspace related actions, such as creating, deleting, and managing workspaces. |
+| [WorkspaceInstance](#workspace-instance) | Retrieving and updating a specifc workspace. |
+| [Team](#team) | Team related actions, such as creating new invitation, updating and retrieving and team related information, managing subscriptions and users within a team.  |
+| [Plan](#plan) | Subscription plan related actions, such as creating, retrieving, deleting, and managing subscription plans. |
+| [WorkspaceUsage](#workspace-usage) | Retrieving workspace usage related information. |
+| [WorkspaceSSH](#workspace-ssh) | Retrieving and updating SSH key related information within a workspace. |
+| [Superviser](#superviser) | Superviser related actions, such as creating, deleting, and managing git credentials, deployment status, user configuration, found errors, user's environment variables, cluster and workspaces. Endpoints related to supervisor have highest priviledge in all actions. |
 
 ### API request example 
 
@@ -130,6 +138,7 @@ Daytona's API endpoints are separated into groups based on the type of action th
 
 
 #### User
+
 <ApiContent routeGroup="user"/>
 
 #### Workspace
@@ -149,8 +158,10 @@ Daytona's API endpoints are separated into groups based on the type of action th
 ### Workspace SSH
 <ApiContent routeGroup="workspace-ssh"/>
 
-### Superviser
+### Supervisor
 
-<ApiContent routeGroup="superviser"/>
+<ApiContent routeGroup="supervisor"/>
 
 ## Schema Reference
+
+<SchemaCard/>
