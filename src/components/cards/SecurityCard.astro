@@ -1,0 +1,26 @@
+---
+import ApiPropertyCardTitle from './ApiPropertyCardTitle.astro'
+interface Props {
+  property: string
+  value: any
+}
+
+const { property, value }: Props = Astro.props
+---
+
+<>
+  <ApiPropertyCardTitle property={property} />
+  <p class="required">
+    Overwrite the default <code class="required">client_secret</code>.
+  </p>
+  <div class="value api-content">
+    <code
+      >{
+        JSON.stringify(Object.keys(value[0]))
+          .replace('[', '')
+          .replace(']', '')
+          .replaceAll('"', '')
+      }</code
+    >
+  </div>
+</>
