@@ -1,7 +1,7 @@
 
 import Oas from 'oas'
 import type { Root } from './api-type'
-import type { paths } from './generated-api-type'
+import type { paths } from './generated-types'
 import type { OASDocument, SchemaObject } from 'oas/types'
 
 // Put this in environment variable
