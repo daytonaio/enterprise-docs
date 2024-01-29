@@ -7,12 +7,13 @@ sidebar:
 import ApiContent from "../../../components/content/ApiContent.astro"
 import ApiVersion from "../../../components/cards/ApiVersionCard.astro"
 import SchemaCard from "../../../components/cards/SchemaCard.astro"
+import Keyboard from "../../../components/keyboard.astro"
 
 **Current API version: <ApiVersion/>**
 
-The Daytona API is a REST-styled API based on the OpenAPI 3.0.1 specification  gives you full control over your Daytona deployment. It allows developers to interact with your own Daytona deployment, deploy new clusters, manage existing clusters, retrieve infromation about deployemnt and configurations, manage secrets and perform other operations using HTTP requests programmatically. 
+The Daytona API is a REST-styled API based on the OpenAPI 3.0.1 specification  gives you full control over your Daytona deployment. It allows developers to interact with your own Daytona deployment, deploy new clusters, manage existing clusters, retrieve infromation about deployemnt and configurations, manage secrets and perform other operations via Swagger documentation. 
 
-The API uses standard HTTP response codes and verbs, and follows `OAuth2`  authentication protocols. Any programming languages or framework that can make HTTP requests can use the API to interact with your Daytona deployment.
+The API uses standard HTTP response codes and verbs, and follows `OAuth2`  authentication protocols. 
 
 <hr/>
 
@@ -25,11 +26,13 @@ Example as follow:
 <dl>
 <dt>Daytona dashboard URL</dt>
 <dd>`https://daytona.domain.com` your deployment URL.</dd>
-<dt>API Endpoint</dt>
-<dd>`https://api.daytona.domain.com`</dd>
 <dt>API Documentation</dt>
-<dd>`https://api.daytona.domain.com/v3/docs`</dd>
+<dd>`https://api.daytona.domain.com/v3/docs`. An auto-generated Swagger documentation to use API in a browser. </dd>
 </dl>
+
+:::note 
+We will be using this link as a reference in the following sections.
+:::
 
 <hr/>
 
@@ -49,40 +52,43 @@ For more information on TLS support, paste your endpoint in [SSL Labs report](ht
 
 #### Content Type 
 
-Al requests must be encoded as JSON with the `Content-Type: application/json` header. If not otherwise specified (some are `*/*`), responses from your Daytona API, including errors, are encoded as JSON as well. 
+Al requests must be encoded as JSON with the `Content-Type: application/json` header. If not otherwise specified (some are `*/*`), responses from your Daytona API, including errors, are encoded as JSON as well. As these settings are injected in Swagger documentation automatically, no further configuration are needed. 
 
 <hr/>
 
 ## Authentication
-Unless specify differently, most of the Daytona API endpoints are token based, follows the OAuth2 authentication protocol (`client_secret`). Some of the endpoints requires a `workspaceToken` for authentication. We will walk through how you can create and authenticate via [`client_secret`](#finding-client-secret) and [`workspaceToken`](#creating-workspaceToken) in the following sections.
+Daytona's API key can be automatically injected into Swagger documentation after authentication. Unless specify differently, most of the Daytona API endpoints are token based, follows the OAuth2 authentication protocol (`client_secret`). We will walk through how you can create and authenticate via [`client_secret`](#finding-client-secret) to use our API endpoints in Swagger documentation.
 
 :::note 
 When `workspaceToken` is required, it overwrites the `client_secret` and you will only need `workspaceToken` to authenticate. 
 :::
 
-### Finding Client Secret
-Access Tokens can be created and managed from inside [TBC].
+1. Authorize on the Swagger documentation
+- In the browser, open `https://api.daytona.domain.com/v3/docs` to access Swagger documentation.
+- On the top right corner, **click `Authorize`** to open the authorization dialog. 
 
-### Creating workspaceToken
-To retrieve `workspaceToken`, you can [TBC].
+2. Sign in on Dashboard to authenticate 
+- After you click on `Authorize`, a dialog will open. 
+- **Under the `oauth2` section, click on `Authorize`**. A new browser tab will open and redirect you to the Daytona dashboard sign in page. 
+- Sign in on the new pop-up page. Your API endpoints will be authenticated and `client_secret` will be automatically injected in the Swagger documentation. 
+
+3. Authenticate Daytona API Documentation
+- After you are authenticated, you can click on `Close` to close the dialog. 
+- Try to perform an API request, you will see the `client_secret` is automatically injected in the `Authorization` header as `Bearer` token.
+
 
 ### Expiration 
-Setting an expiration date on an Access Token is **highly recommended** and is considered one of the standard security practices that helps keep your information secure. 
-
-You can select from a range of expiration dates, [TBC]. You can view the expiration date of an Access Token by clicking on the token in the [TBC] page.
-
-### Revoking secrets
-You can revoke an Access Token at any time from the [TBC] page. Once revoked, the token is no longer valid and cannot be used to make API calls.
-
-### Regenerating secrets
-You can regenerate an Access Token at any time from the [TBC] page. Once regenerated, the old token is no longer valid and cannot be used to make API calls.
+Daytona does not offer static API keys. The `client_secret` will **expire within 5 minutes** and you won't be able to set an expiration time.
 
 :::note
-More example about how to use `client_secret` and `workspaceToken` in the following sections [example api request](#api-request-example).
+After expiration, click `Authorize` again on Swagger documentation to re-authenticate.
 :::
 
+More example about how to use `client_secret` and `workspaceToken` in the following sections [example api request](#api-request-example).
+
+
 ### Failed Authentication 
-If authentication is unsuccessful for a request, the **`401`** or **`403`** response code is returned.
+If authentication is unsuccessful for a request, do a hard refresh in the browser by pressing <Keyboard shortcuts={["Shift ⇧", "Command ⌘", "R"]}/> in the browser to perform a hard refresh. Then go through the authorization process again. If the issue persists, you can contact us via [email](mailto:servicedesk@daytona.io) or [Slack community](https://join.slack.com/t/daytonacommunity/shared_invite/zt-273yohksh-Q5YSB5V7tnQzX2RoTARr7Q).
 
 {/*No rate limits and error handling in API/swagger?*/}
 
@@ -102,7 +108,7 @@ https://api.daytona.domain.com/v3/clusters
 ```
 <hr/>
 
-## Types 
+## Types
 The following is a list of the types of data used within Daytona API: 
 
 | Name | Description | Example |
@@ -115,6 +121,8 @@ The following is a list of the types of data used within Daytona API:
 | `boolean` | A value that is either `true` or `false`. | `true` |
 | `enum` | A value that is one of a predefined set of values. | [ 'value1', 'value2'] |
 | Timestamp | A value that represents a point in time. | `2021-01-01T00:00:00Z` |
+
+
 
 
 {/* {/* | `null` | A value that is `null`. | `null` |/*} */}
@@ -134,9 +142,7 @@ Daytona's API endpoints are separated into groups based on the type of action th
 | [Plan](#plan) | Subscription plan related actions, such as creating, retrieving, deleting, and managing subscription plans. |
 | [WorkspaceUsage](#workspace-usage) | Retrieving workspace usage related information. |
 | [WorkspaceSSH](#workspace-ssh) | Retrieving and updating SSH key related information within a workspace. |
-| [Superviser](#superviser) | Superviser related actions, such as creating, deleting, and managing git credentials, deployment status, user configuration, found errors, user's environment variables, cluster and workspaces. Endpoints related to supervisor have highest priviledge in all actions. |
 
-### API request example 
 
 <hr/>
 
@@ -149,15 +155,21 @@ Daytona's API endpoints are separated into groups based on the type of action th
 <ApiContent routeGroup="user"/>
 
 #### Workspace
+Some of the endpoints in this group requires `id`. 
+
+You can find the `id` by **right click on a workspace in VS Code extension** and select `Copy ID`. Alternatively, you can copy the `id` on the dashboard: select a workspace and click on `...`, then select **Info**. Copy the `id` under **Workspace ID**. 
+
 <ApiContent routeGroup="workspace"/>
 
 #### Workspace Instance
 <ApiContent routeGroup="workspace-instance"/>
 
 #### Team
+Some of the endpoints in this group requires `id`. You can find the team's id by going to the dashboard and click on **Team**. Copy the `id` under **Team ID**.
 <ApiContent routeGroup="team"/>
 
 #### Plan
+
 <ApiContent routeGroup="plan"/>
 
 #### Workspace Usage
@@ -166,8 +178,6 @@ Daytona's API endpoints are separated into groups based on the type of action th
 ### Workspace SSH
 <ApiContent routeGroup="workspace-ssh"/>
 
-### Supervisor
-<ApiContent routeGroup="supervisor"/>
 
 <hr/>
 
