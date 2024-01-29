@@ -1,3 +1,5 @@
+
+// this is a local copy of the swagger.json file from the server for testing.
 export const Schema = {
   openapi: '3.0.1',
   info: { version: 'undefined', title: 'Daytona REST API' },
