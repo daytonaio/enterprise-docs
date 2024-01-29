@@ -8,6 +8,7 @@ import TagCard from '../cards/TagCard.astro'
 import RequestBodyCard from '../cards/RequestBodyCard.astro'
 import { Icon } from '@astrojs/starlight/components'
 import type { operations } from '../../util/generated-types'
+import SecurityCard from '@components/cards/SecurityCard.astro'
 // const Schema = await fetch('https://api.cde.agency/v3/docs/swagger.json')
 //   .then(res => res.json() as Promise<Root>)
 //   .catch(err => console.error(err))
@@ -54,7 +55,7 @@ const routes = paths.filter(route =>
                       <div class="route">{path}</div>
                     </div>
                     <div
-                      class="api-header-right"
+                      class="api-header-icon"
                      :class="open ? 'rotate-180' : 'rotate-0'"
                      
                     >
@@ -90,7 +91,9 @@ const routes = paths.filter(route =>
                               value={value}
                               property={property}
                             />
-                          ) : (
+                          ) : property === "security" ? 
+                          <SecurityCard value={value} property={property} />
+                          : (
                             <TagCard value={value} property={property} />
                           )}
                         </div>
