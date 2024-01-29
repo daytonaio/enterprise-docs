@@ -1,3 +1,4 @@
+// a smaller sample for testing
 export const Sample = {
     '/cluster': {
         post: {
