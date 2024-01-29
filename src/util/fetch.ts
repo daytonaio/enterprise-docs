@@ -7,7 +7,7 @@ import type { OASDocument, SchemaObject } from 'oas/types'
 // Put this in environment variable
 export const url = 'https://api.cde.agency/v3/docs/swagger.json'
 export const apiSchema = await fetch(url)
-    .then(res => res.json() as unknown as Promise<OASDocument>)
+    .then(res => res.json() as unknown as Promise<Root>)
 
 
 
@@ -173,4 +173,3 @@ export function getStatusCodes(route: keyof paths, method?: string) {
 
 export const returnSchema = apiSchema.components?.schemas
 
-console.log("returnSchema", returnSchema)
