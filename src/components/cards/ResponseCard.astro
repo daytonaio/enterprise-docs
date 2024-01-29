@@ -1,88 +1,29 @@
 ---
 import ApiPropertyCardTitle from './ApiPropertyCardTitle.astro'
+import { transformResponse } from 'src/util/fetch'
 import { Sample } from '../../util/sample'
 import type { operations, paths } from '../../util/generated-types'
 import type { Root } from 'src/util/api-type'
 interface Props {
-  value: any
-  Schema: Root
+  method: string
   property: string
+  route: keyof paths
 }
 
-const { value, property, Schema }: Props = Astro.props
+const { method, route, property }: Props = Astro.props
 
-const isCodeTwoHundre = value['200']
-const isCodeTwoHundreOne = value['201']
-const isCodeTwoHundreFour = value['204']
+// const response = transformResponse(route, method)
 
 // recursively look for "ref" in an object and look get its value, if none return null
-class Transform {
-  _routes: paths
-  _component: operations
-  constructor(routes, component) {
-    this._routes = routes
-    this._component = component
-  }
-
-  getRef() {
-    const { obj } = this
-    const keys = Object.keys(obj)
-    const values = Object.values(obj)
-    const ref = values.find(item => item['$ref'])
-    if (ref) {
-      const refValue = ref['$ref'].split('/')[3]
-      return refValue
-    } else {
-      return this.obj
-    }
-  }
-
-  getType() {}
-}
-function stringSchema(schema: paths) {
-  const schemaKeys = Object.keys(schema)
-  const schemaValue = Object.values(schema)
-
-  Object.entries(Object.values(schema)).map(item => {
-    const response = Object.values(item[1]).map(data => {
-      // console.log('data', data, 'typeof data', typeof data)
-      const isContentExists = Object.keys(data['responses']).map(code => {
-        // console.log('code', code, 'data', data['responses'][code])
-        const content = Object.values(data['responses'][code])[0][
-          'application/json'
-        ]
-          ? Object.values(data['responses'][code])[0]['application/json'][
-              'schema'
-            ]
-          : Object.values(data['responses'][code])[0]['*/*']
-            ? Object.values(data['responses'][code])[0]['*/*']['schema']
-            : Object.values(data['responses'][code])[0]
-
-        const result = content
-          ? content['$ref']
-            ? content['$ref'].split('/')[3]
-            : content['items']
-              ? content['items']['$ref'].split('/')[3]
-              : content === 'No Content'
-                ? data['responses'][code]
-                : content
-          : content
-      })
-      // console.log('isContentExists', isContentExists)
-    })
-  })
-}
-
-stringSchema(Sample)
 ---
 
 <>
   <ApiPropertyCardTitle property={property} />
   <div class="value">
     {
-      value ? (
+      route ? (
         <div class="children-body">
-          <pre>{JSON.stringify(value, null, 2)}</pre>
+          <pre>{JSON.stringify(route, null, 2)}</pre>
         </div>
       ) : (
         'null'

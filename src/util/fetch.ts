@@ -7,7 +7,7 @@ import type { OASDocument, SchemaObject } from 'oas/types'
 // Put this in environment variable
 export const url = 'https://api.cde.agency/v3/docs/swagger.json'
 export const apiSchema = await fetch(url)
-    .then(res => res.json() as unknown as Promise<OASDocument> as Promise<Root>)
+    .then(res => res.json() as unknown as Promise<OASDocument>)
 
 
 
@@ -36,67 +36,119 @@ const apiKey = {
     name: authObject![auth.apiKey].name as string,
 }
 
-const responseJson = schema
-    .operation("/cluster", "get",)
-    .getResponseAsJSONSchema(200, {
-        includeDiscriminatorMappingRefs: false,
-        transformer: (schema: SchemaObject) => {
-            console.log("schema", schema)
-            if ("$ref" in schema || typeof schema["$ref"] !== "undefined") {
-                const schemaString = schema["$ref"]
 
-                const schemaValue = apiSchema.components?.schemas?.[schema["$ref"].split("/").pop()!]
-                schema = schemaValue!
-                console.log("schemaString", schemaString)
-                console.log("schemaValue", schemaValue)
 
-            }
-            return schema
-        }
-    }).reduce((prev, next) => Object.assign(prev, next), {})
-
+// This returns all the response examples for a given method in a route
 const responseExamples = schema.operation("/cluster", "get").getResponseExamples()
 
-const statusCodes = schema.operation("/cluster", "get").getResponseStatusCodes()
+// This returns all status code for a given method in a route
+// const statusCodes = schema.operation("/cluster", "get").getResponseStatusCodes()
 
-console.log("responseJson", responseJson)
-console.log("operation", responseExamples)
-console.log("statusCodes", statusCodes)
+function getSchema(refValue: string) {
+    const schemaString = refValue.split("/").pop()
+    return apiSchema.components?.schemas[schemaString]
+}
+
+const visited = new Map()
+function getRef(obj: any, param: number) {
+    const keys = Object.keys(obj)
+
+    // in this map we store the keys and depth of nodes that we have visited
+    console.log("layer level:", param)
+    try {
+        // for every keys in the object
+        for (const key of keys) {
+
+            // check if the key is $ref, if we don't get this key, continue
+            console.log("we didn't find anything, continue")
+            console.log(key === "$ref")
+
+            if (key === "$ref") {
+
+                console.log("pos 4 have we ever been here?")
+
+                // if it is return the value of the key and strip it to get the schema
+                const schemaValue = getSchema(obj[key])
+                obj[key] = schemaValue
+
+
+                visited.set(key, obj[key])
+                // turn this entire object into the schema
+
+            }
+
+
+
+            if (key !== "$ref" && typeof obj[key] === "object") {
+
+                console.log("pos 1 have we ever been here?")
+                // if it is not a $ref and it is an object
+                // get the object and call the function again to check if there is a $ref in keys
+                const newObj = Object.values(obj[key])
+
+                getRef(newObj, param + 1)
+
+            }
+
+
+            console.log("visited", visited)
+
+        }
+    } catch (error) {
+        console.log(error)
+    }
+
+    return obj
+}
+
 
 
 export function transformResponse(route: keyof paths, method?: string) {
 
     // in each method we get all the status code if there is more than one
     const getStatusCodes = schema.operation(route, method).getResponseStatusCodes()
-    console.log("are you here? ")
+    let schemaObject: SchemaObject | undefined
 
     // loop through each status code if there is more than one
     for (const statusCode of getStatusCodes) {
 
         // get the example json response for each status code
-        const responseJson = schema
+        const transformedResponseJson = schema
             .operation(route, method)
             .getResponseAsJSONSchema(statusCode, {
-                includeDiscriminatorMappingRefs: false,
                 transformer: (schema: SchemaObject) => {
-                    console.log("schema2", schema)
 
+
+                    // if the schema has a $ref key
                     if ("$ref" in schema || typeof schema["$ref"] !== "undefined") {
 
+                        // get the value of the $ref key
                         const schemaString = schema["$ref"]?.split("/").pop()
 
+                        // get the schema of the value of the $ref key
                         const schemaValue = apiSchema.components?.schemas[schemaString]
-                        console.log("schemaValue2", schemaValue)
-                        return schemaValue!
+
+                        // assign it back to the schema in response body
+                        schema = schemaValue
+
+                        schemaObject = schemaValue
+                        // console.log("schemaObject", schemaObject)
+                        return schemaObject
                     }
 
 
                 }
-            })
+            }
+            )
+        const originalSchema = schema.operation(route, method).getResponseAsJSONSchema(statusCode) ?? { description: "No Content" }
 
-        console.log("responseJson2", responseJson)
+        return schemaObject ?? originalSchema
+
+
     }
 }
 
+console.log("transformResponse", transformResponse("/workspace", "post"))
 
-transformResponse("/cluster", "get")
+const useGetRef = getRef(transformResponse("/workspace", "post"), 0)
+console.log("useGetRef", useGetRef)

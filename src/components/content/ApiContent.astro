@@ -73,9 +73,9 @@ const routes = paths.filter(route =>
                         <div class="api-content" data-type={property}>
                           {property === 'responses' ? (
                             <ResponseCard
-                              value={value}
+                            method={method}
+                            route={path}
                               property={property}
-                              Schema={Schema}
                             />
                           ) : property == 'parameters' ? (
                             <ParameterCard value={value} property={property} />

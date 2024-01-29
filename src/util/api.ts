@@ -1,18 +1,13 @@
 export const Schema = {
   openapi: '3.0.1',
-  info: {
-    version: 'undefined',
-    title: 'Daytona REST API',
-  },
+  info: { version: 'undefined', title: 'Daytona REST API' },
   components: {
     securitySchemes: {
       oauth2: {
         type: 'oauth2',
         flows: {
           authorizationCode: {
-            scopes: {
-              openid: 'openid',
-            },
+            scopes: { openid: 'openid' },
             authorizationUrl:
               'https://id.cde.agency/realms/default/protocol/openid-connect/auth',
             tokenUrl:
@@ -22,30 +17,15 @@ export const Schema = {
           },
         },
       },
-      workspaceToken: {
-        type: 'apiKey',
-        in: 'header',
-        name: 'x-ws-token',
-      },
+      workspaceToken: { type: 'apiKey', in: 'header', name: 'x-ws-token' },
     },
     schemas: {
       Cluster: {
         type: 'object',
         properties: {
-          domain: {
-            type: 'string',
-            description: 'Domain',
-            minLength: 1,
-          },
-          id: {
-            type: 'string',
-            minLength: 1,
-          },
-          name: {
-            type: 'string',
-            description: 'Name',
-            minLength: 1,
-          },
+          domain: { type: 'string', description: 'Domain', minLength: 1 },
+          id: { type: 'string', minLength: 1 },
+          name: { type: 'string', description: 'Name', minLength: 1 },
           region: {
             type: 'string',
             enum: ['us', 'eu', 'asia', 'local'],
@@ -62,16 +42,8 @@ export const Schema = {
             description: 'Cluster config',
             minLength: 1,
           },
-          domain: {
-            type: 'string',
-            description: 'Domain',
-            minLength: 1,
-          },
-          name: {
-            type: 'string',
-            description: 'Name',
-            minLength: 1,
-          },
+          domain: { type: 'string', description: 'Domain', minLength: 1 },
+          name: { type: 'string', description: 'Name', minLength: 1 },
           region: {
             type: 'string',
             enum: ['us', 'eu', 'asia', 'local'],
@@ -86,29 +58,17 @@ export const Schema = {
         properties: {
           items: {
             type: 'array',
-            items: {
-              $ref: '#/components/schemas/Cluster',
-            },
+            items: { $ref: '#/components/schemas/Cluster' },
           },
-          total: {
-            type: 'number',
-          },
+          total: { type: 'number' },
         },
         required: ['items', 'total'],
       },
       EnvironmentVariableCreation: {
         type: 'object',
         properties: {
-          name: {
-            type: 'string',
-            description: 'Name',
-            minLength: 1,
-          },
-          value: {
-            type: 'string',
-            description: 'Value',
-            minLength: 1,
-          },
+          name: { type: 'string', description: 'Name', minLength: 1 },
+          value: { type: 'string', description: 'Value', minLength: 1 },
         },
         required: ['name', 'value'],
       },
@@ -137,26 +97,17 @@ export const Schema = {
       User: {
         type: 'object',
         properties: {
-          avatarUrl: {
-            type: 'string',
-            description: 'AvatarUrl',
-          },
+          avatarUrl: { type: 'string', description: 'AvatarUrl' },
           disabled: {
             type: 'boolean',
             description: 'User account disabled flag',
           },
-          id: {
-            type: 'string',
-            description: 'Id',
-            minLength: 1,
-          },
+          id: { type: 'string', description: 'Id', minLength: 1 },
           markedForDeletion: {
             type: 'boolean',
             description: 'Marked for deletion',
           },
-          preferences: {
-            $ref: '#/components/schemas/UserPreferences',
-          },
+          preferences: { $ref: '#/components/schemas/UserPreferences' },
           primaryEmail: {
             type: 'string',
             description: 'Primary email',
@@ -167,11 +118,7 @@ export const Schema = {
             description: 'Public SSH Key',
             minLength: 1,
           },
-          username: {
-            type: 'string',
-            description: 'Name',
-            minLength: 1,
-          },
+          username: { type: 'string', description: 'Name', minLength: 1 },
         },
         required: [
           'id',
@@ -213,37 +160,18 @@ export const Schema = {
       EnvironmentVariable: {
         type: 'object',
         properties: {
-          name: {
-            type: 'string',
-            description: 'Name',
-            minLength: 1,
-          },
-          value: {
-            type: 'string',
-            description: 'Value',
-            minLength: 1,
-          },
+          name: { type: 'string', description: 'Name', minLength: 1 },
+          value: { type: 'string', description: 'Value', minLength: 1 },
         },
         required: ['name', 'value'],
       },
       GitNamespace: {
         type: 'object',
         properties: {
-          id: {
-            type: 'string',
-            minLength: 1,
-          },
-          name: {
-            type: 'string',
-            minLength: 1,
-          },
-          personal: {
-            type: 'boolean',
-          },
-          provider: {
-            type: 'string',
-            minLength: 1,
-          },
+          id: { type: 'string', minLength: 1 },
+          name: { type: 'string', minLength: 1 },
+          personal: { type: 'boolean' },
+          provider: { type: 'string', minLength: 1 },
         },
         required: ['id', 'name', 'provider'],
       },
@@ -252,31 +180,18 @@ export const Schema = {
         properties: {
           items: {
             type: 'array',
-            items: {
-              $ref: '#/components/schemas/GitRepository',
-            },
+            items: { $ref: '#/components/schemas/GitRepository' },
           },
-          total: {
-            type: 'number',
-          },
+          total: { type: 'number' },
         },
         required: ['items', 'total'],
       },
       GitRepository: {
         type: 'object',
         properties: {
-          fullName: {
-            type: 'string',
-            minLength: 1,
-          },
-          htmlUrl: {
-            type: 'string',
-            minLength: 1,
-          },
-          name: {
-            type: 'string',
-            minLength: 1,
-          },
+          fullName: { type: 'string', minLength: 1 },
+          htmlUrl: { type: 'string', minLength: 1 },
+          name: { type: 'string', minLength: 1 },
         },
         required: ['fullName', 'htmlUrl', 'name'],
       },
@@ -294,11 +209,7 @@ export const Schema = {
             format: 'date-time',
             description: 'Expires at',
           },
-          id: {
-            type: 'string',
-            description: 'Id',
-            minLength: 1,
-          },
+          id: { type: 'string', description: 'Id', minLength: 1 },
           name: {
             type: 'string',
             example: 'My SSH key',
@@ -345,77 +256,30 @@ export const Schema = {
       EnvironmentVariableUpdate: {
         type: 'object',
         properties: {
-          name: {
-            type: 'string',
-            description: 'Name',
-            minLength: 1,
-          },
-          value: {
-            type: 'string',
-            description: 'Value',
-            minLength: 1,
-          },
+          name: { type: 'string', description: 'Name', minLength: 1 },
+          value: { type: 'string', description: 'Value', minLength: 1 },
         },
         required: ['name', 'value'],
       },
       Workspace: {
         type: 'object',
         properties: {
-          createdAt: {
-            type: 'string',
-            format: 'date-time',
-            minLength: 1,
-          },
-          createdFromTemplate: {
-            type: 'boolean',
-          },
-          destroyed: {
-            type: 'boolean',
-          },
-          error: {
-            type: 'string',
-          },
-          errorLog: {
-            type: 'string',
-          },
-          gitContext: {
-            $ref: '#/components/schemas/GitContext',
-          },
-          gitStatus: {
-            $ref: '#/components/schemas/WorkspaceGitStatus',
-          },
-          id: {
-            type: 'string',
-            minLength: 1,
-          },
-          pinned: {
-            type: 'boolean',
-          },
-          shared: {
-            type: 'boolean',
-          },
-          sshAccessToken: {
-            type: 'string',
-          },
-          teamId: {
-            type: 'string',
-            minLength: 1,
-          },
-          updatedAt: {
-            type: 'string',
-            format: 'date-time',
-            minLength: 1,
-          },
-          userId: {
-            type: 'string',
-            minLength: 1,
-          },
-          version: {
-            type: 'number',
-          },
-          workspaceInstance: {
-            $ref: '#/components/schemas/WorkspaceInstance',
-          },
+          createdAt: { type: 'string', format: 'date-time', minLength: 1 },
+          createdFromTemplate: { type: 'boolean' },
+          destroyed: { type: 'boolean' },
+          error: { type: 'string' },
+          errorLog: { type: 'string' },
+          gitContext: { $ref: '#/components/schemas/GitContext' },
+          gitStatus: { $ref: '#/components/schemas/WorkspaceGitStatus' },
+          id: { type: 'string', minLength: 1 },
+          pinned: { type: 'boolean' },
+          shared: { type: 'boolean' },
+          sshAccessToken: { type: 'string' },
+          teamId: { type: 'string', minLength: 1 },
+          updatedAt: { type: 'string', format: 'date-time', minLength: 1 },
+          userId: { type: 'string', minLength: 1 },
+          version: { type: 'number' },
+          workspaceInstance: { $ref: '#/components/schemas/WorkspaceInstance' },
         },
         required: [
           'createdAt',
@@ -452,10 +316,7 @@ export const Schema = {
             description: 'The owner of the repository',
             minLength: 1,
           },
-          path: {
-            type: 'string',
-            description: 'The path of the repository',
-          },
+          path: { type: 'string', description: 'The path of the repository' },
           prNumber: {
             type: 'number',
             description: 'The pull request number of the repository',
@@ -500,29 +361,15 @@ export const Schema = {
       WorkspaceGitStatus: {
         type: 'object',
         properties: {
-          ahead: {
-            type: 'integer',
-            multipleOf: 1,
-          },
-          behind: {
-            type: 'integer',
-            multipleOf: 1,
-          },
-          current: {
-            type: 'string',
-          },
-          detached: {
-            type: 'boolean',
-          },
+          ahead: { type: 'integer', multipleOf: 1 },
+          behind: { type: 'integer', multipleOf: 1 },
+          current: { type: 'string' },
+          detached: { type: 'boolean' },
           files: {
             type: 'array',
-            items: {
-              $ref: '#/components/schemas/WorkspaceFileStatus',
-            },
+            items: { $ref: '#/components/schemas/WorkspaceFileStatus' },
           },
-          tracking: {
-            type: 'string',
-          },
+          tracking: { type: 'string' },
         },
         required: ['ahead', 'behind', 'detached', 'files'],
       },
@@ -539,10 +386,7 @@ export const Schema = {
             description:
               "First digit of the status code of the file, e.g. 'M' = modified. Represents the status of the index if no merge conflicts, otherwise represents status of one side of the merge.",
           },
-          path: {
-            type: 'string',
-            description: 'Path of the file',
-          },
+          path: { type: 'string', description: 'Path of the file' },
           workingDir: {
             type: 'string',
             description:
@@ -558,34 +402,17 @@ export const Schema = {
             enum: ['kata', 'sysbox', 'default'],
             minLength: 1,
           },
-          clusterId: {
-            type: 'string',
-            minLength: 1,
-          },
-          createdAt: {
-            type: 'string',
-            format: 'date-time',
-            minLength: 1,
-          },
-          error: {
-            type: 'string',
-          },
-          errorLog: {
-            type: 'string',
-          },
-          id: {
-            type: 'string',
-            minLength: 1,
-          },
+          clusterId: { type: 'string', minLength: 1 },
+          createdAt: { type: 'string', format: 'date-time', minLength: 1 },
+          error: { type: 'string' },
+          errorLog: { type: 'string' },
+          id: { type: 'string', minLength: 1 },
           lastKeepAliveSignal: {
             type: 'string',
             format: 'date-time',
             minLength: 1,
           },
-          startedAt: {
-            type: 'string',
-            format: 'date-time',
-          },
+          startedAt: { type: 'string', format: 'date-time' },
           state: {
             type: 'string',
             enum: [
@@ -613,25 +440,11 @@ export const Schema = {
             ],
             minLength: 1,
           },
-          stoppedAt: {
-            type: 'string',
-            format: 'date-time',
-          },
-          token: {
-            type: 'string',
-            minLength: 1,
-          },
-          updatedAt: {
-            type: 'string',
-            format: 'date-time',
-            minLength: 1,
-          },
-          version: {
-            type: 'number',
-          },
-          workspaceId: {
-            type: 'string',
-          },
+          stoppedAt: { type: 'string', format: 'date-time' },
+          token: { type: 'string', minLength: 1 },
+          updatedAt: { type: 'string', format: 'date-time', minLength: 1 },
+          version: { type: 'number' },
+          workspaceId: { type: 'string' },
         },
         required: [
           'className',
@@ -648,10 +461,7 @@ export const Schema = {
       WorkspaceFromGitRepositoryUrlCreation: {
         type: 'object',
         properties: {
-          clusterId: {
-            type: 'string',
-            description: 'Cluster id',
-          },
+          clusterId: { type: 'string', description: 'Cluster id' },
           createdFromTemplate: {
             type: 'boolean',
             description: 'Is the workspace created from a template?',
@@ -674,23 +484,16 @@ export const Schema = {
         properties: {
           items: {
             type: 'array',
-            items: {
-              $ref: '#/components/schemas/Workspace',
-            },
+            items: { $ref: '#/components/schemas/Workspace' },
           },
-          total: {
-            type: 'number',
-          },
+          total: { type: 'number' },
         },
         required: ['items', 'total'],
       },
       ActiveWorkspaceCount: {
         type: 'object',
         properties: {
-          count: {
-            type: 'number',
-            description: 'Active workspace count',
-          },
+          count: { type: 'number', description: 'Active workspace count' },
         },
         required: ['count'],
       },
@@ -701,30 +504,16 @@ export const Schema = {
             type: 'boolean',
             description: 'Team has active subscription',
           },
-          id: {
-            type: 'string',
-            minLength: 1,
-          },
-          name: {
-            type: 'string',
-            description: 'Name',
-            minLength: 1,
-          },
-          privateMembers: {
-            type: 'boolean',
-            description: 'Private members',
-          },
+          id: { type: 'string', minLength: 1 },
+          name: { type: 'string', description: 'Name', minLength: 1 },
+          privateMembers: { type: 'boolean', description: 'Private members' },
         },
         required: ['hasActiveSubscription', 'id', 'name', 'privateMembers'],
       },
       TeamCreation: {
         type: 'object',
         properties: {
-          name: {
-            type: 'string',
-            description: 'Name',
-            minLength: 1,
-          },
+          name: { type: 'string', description: 'Name', minLength: 1 },
         },
         required: ['name'],
       },
@@ -753,97 +542,44 @@ export const Schema = {
             default: false,
             description: 'Disabled',
           },
-          end: {
-            type: 'string',
-            format: 'date-time',
-            description: 'End',
-          },
-          id: {
-            type: 'string',
-            description: 'Subscription ID',
-          },
-          planId: {
-            type: 'string',
-            description: 'Plan id',
-            minLength: 1,
-          },
-          seats: {
-            type: 'number',
-            description: 'Max team members',
-          },
-          start: {
-            type: 'string',
-            format: 'date-time',
-            description: 'Start',
-          },
+          end: { type: 'string', format: 'date-time', description: 'End' },
+          id: { type: 'string', description: 'Subscription ID' },
+          planId: { type: 'string', description: 'Plan id', minLength: 1 },
+          seats: { type: 'number', description: 'Max team members' },
+          start: { type: 'string', format: 'date-time', description: 'Start' },
         },
         required: ['planId', 'seats'],
       },
       Subscription: {
         type: 'object',
         properties: {
-          disabled: {
-            type: 'boolean',
-            description: 'Disabled',
-          },
-          end: {
-            type: 'string',
-            format: 'date-time',
-            description: 'End',
-          },
-          id: {
-            type: 'string',
-            minLength: 1,
-          },
-          plan: {
-            $ref: '#/components/schemas/Plan',
-          },
-          seats: {
-            type: 'number',
-            description: 'Max team members',
-          },
+          disabled: { type: 'boolean', description: 'Disabled' },
+          end: { type: 'string', format: 'date-time', description: 'End' },
+          id: { type: 'string', minLength: 1 },
+          plan: { $ref: '#/components/schemas/Plan' },
+          seats: { type: 'number', description: 'Max team members' },
           start: {
             type: 'string',
             format: 'date-time',
             description: 'Start',
             minLength: 1,
           },
-          teamId: {
-            type: 'string',
-            description: 'Team id',
-            minLength: 1,
-          },
+          teamId: { type: 'string', description: 'Team id', minLength: 1 },
         },
         required: ['disabled', 'id', 'plan', 'seats', 'start', 'teamId'],
       },
       Plan: {
         type: 'object',
         properties: {
-          buildCredits: {
-            type: 'number',
-            description: 'Build credits',
-          },
-          credits: {
-            type: 'number',
-            description: 'Workspace credits',
-          },
-          id: {
-            type: 'string',
-            minLength: 1,
-          },
+          buildCredits: { type: 'number', description: 'Build credits' },
+          credits: { type: 'number', description: 'Workspace credits' },
+          id: { type: 'string', minLength: 1 },
           inactivityTimeoutInMinutes: {
             type: 'number',
             description: 'Inactivity timeout in minutes',
           },
-          name: {
-            type: 'string',
-            description: 'Name',
-            minLength: 1,
-          },
-          parallelBuilds: {
-            type: 'number',
-            description: 'Parallel builds',
-          },
+          name: { type: 'string', description: 'Name', minLength: 1 },
+          parallelBuilds: { type: 'number', description: 'Parallel builds' },
           parallelWorkspaces: {
             type: 'number',
             description: 'Parallel workspaces',
@@ -867,31 +603,11 @@ export const Schema = {
       TeamInvitation: {
         type: 'object',
         properties: {
-          email: {
-            type: 'string',
-            format: 'email',
-            minLength: 1,
-          },
-          expiresAt: {
-            type: 'string',
-            format: 'date-time',
-            minLength: 1,
-          },
-          id: {
-            type: 'string',
-            description: 'Invitation Id',
-            minLength: 1,
-          },
-          teamId: {
-            type: 'string',
-            description: 'Team Id',
-            minLength: 1,
-          },
-          teamName: {
-            type: 'string',
-            description: 'Team name',
-            minLength: 1,
-          },
+          email: { type: 'string', format: 'email', minLength: 1 },
+          expiresAt: { type: 'string', format: 'date-time', minLength: 1 },
+          id: { type: 'string', description: 'Invitation Id', minLength: 1 },
+          teamId: { type: 'string', description: 'Team Id', minLength: 1 },
+          teamName: { type: 'string', description: 'Team name', minLength: 1 },
           teamOwnerUsername: {
             type: 'string',
             description: 'Team owner username',
@@ -902,20 +618,14 @@ export const Schema = {
       TeamInvitationCount: {
         type: 'object',
         properties: {
-          count: {
-            type: 'number',
-            description: 'Team invitation count',
-          },
+          count: { type: 'number', description: 'Team invitation count' },
         },
         required: ['count'],
       },
       TeamUser: {
         type: 'object',
         properties: {
-          avatarUrl: {
-            type: 'string',
-            description: 'AvatarUrl',
-          },
+          avatarUrl: { type: 'string', description: 'AvatarUrl' },
           disabled: {
             type: 'boolean',
             description: 'User account disabled flag',
@@ -939,16 +649,8 @@ export const Schema = {
             enum: ['owner', 'admin', 'member'],
             minLength: 1,
           },
-          userId: {
-            type: 'string',
-            description: 'User id',
-            minLength: 1,
-          },
-          username: {
-            type: 'string',
-            description: 'Name',
-            minLength: 1,
-          },
+          userId: { type: 'string', description: 'User id', minLength: 1 },
+          username: { type: 'string', description: 'Name', minLength: 1 },
         },
         required: ['primaryEmail', 'teamRole', 'userId', 'username'],
       },
@@ -966,30 +668,14 @@ export const Schema = {
       },
       TeamUpdate: {
         type: 'object',
-        properties: {
-          name: {
-            type: 'string',
-            description: 'Team name',
-          },
-        },
+        properties: { name: { type: 'string', description: 'Team name' } },
       },
       SubscriptionUpdate: {
         type: 'object',
         properties: {
-          end: {
-            type: 'string',
-            format: 'date-time',
-            description: 'End',
-          },
-          planId: {
-            type: 'string',
-            description: 'Plan id',
-            minLength: 1,
-          },
-          seats: {
-            type: 'number',
-            description: 'Max team members',
-          },
+          end: { type: 'string', format: 'date-time', description: 'End' },
+          planId: { type: 'string', description: 'Plan id', minLength: 1 },
+          seats: { type: 'number', description: 'Max team members' },
           start: {
             type: 'string',
             format: 'date-time',
@@ -1002,31 +688,15 @@ export const Schema = {
       PlanCreation: {
         type: 'object',
         properties: {
-          buildCredits: {
-            type: 'number',
-            description: 'Build credits',
-          },
-          credits: {
-            type: 'number',
-            description: 'Workspace hours',
-          },
-          id: {
-            type: 'string',
-            description: 'Id',
-          },
+          buildCredits: { type: 'number', description: 'Build credits' },
+          credits: { type: 'number', description: 'Workspace hours' },
+          id: { type: 'string', description: 'Id' },
           inactivityTimeoutInMinutes: {
             type: 'number',
             description: 'Inactivity timeout in minutes',
           },
-          name: {
-            type: 'string',
-            description: 'Name',
-            minLength: 1,
-          },
-          parallelBuilds: {
-            type: 'number',
-            description: 'Parallel builds',
-          },
+          name: { type: 'string', description: 'Name', minLength: 1 },
+          parallelBuilds: { type: 'number', description: 'Parallel builds' },
           parallelWorkspaces: {
             type: 'number',
             description: 'Parallel workspaces',
@@ -1051,40 +721,23 @@ export const Schema = {
         properties: {
           items: {
             type: 'array',
-            items: {
-              $ref: '#/components/schemas/Plan',
-            },
+            items: { $ref: '#/components/schemas/Plan' },
           },
-          total: {
-            type: 'number',
-          },
+          total: { type: 'number' },
         },
         required: ['items', 'total'],
       },
       PlanUpdate: {
         type: 'object',
         properties: {
-          buildCredits: {
-            type: 'number',
-            description: 'Build credits',
-          },
-          credits: {
-            type: 'number',
-            description: 'Workspace credits',
-          },
+          buildCredits: { type: 'number', description: 'Build credits' },
+          credits: { type: 'number', description: 'Workspace credits' },
           inactivityTimeoutInMinutes: {
             type: 'number',
             description: 'Inactivity timeout in minutes',
           },
-          name: {
-            type: 'string',
-            description: 'Name',
-            minLength: 1,
-          },
-          parallelBuilds: {
-            type: 'number',
-            description: 'Parallel builds',
-          },
+          name: { type: 'string', description: 'Name', minLength: 1 },
+          parallelBuilds: { type: 'number', description: 'Parallel builds' },
           parallelWorkspaces: {
             type: 'number',
             description: 'Parallel workspaces',
@@ -1107,10 +760,7 @@ export const Schema = {
       WorkspaceUsageSpentCredit: {
         type: 'object',
         properties: {
-          credits: {
-            type: 'number',
-            description: 'Credits spent per minute',
-          },
+          credits: { type: 'number', description: 'Credits spent per minute' },
         },
         required: ['credits'],
       },
@@ -1119,13 +769,9 @@ export const Schema = {
         properties: {
           items: {
             type: 'array',
-            items: {
-              $ref: '#/components/schemas/WorkspaceUsage',
-            },
+            items: { $ref: '#/components/schemas/WorkspaceUsage' },
           },
-          total: {
-            type: 'number',
-          },
+          total: { type: 'number' },
         },
         required: ['items', 'total'],
       },
@@ -1136,23 +782,13 @@ export const Schema = {
             type: 'number',
             description: 'Credits spent per minute',
           },
-          teamId: {
-            type: 'string',
-            description: 'Team Id',
-            minLength: 1,
-          },
+          teamId: { type: 'string', description: 'Team Id', minLength: 1 },
           usagePeriods: {
             type: 'array',
-            items: {
-              $ref: '#/components/schemas/WorkspaceUsagePeriod',
-            },
+            items: { $ref: '#/components/schemas/WorkspaceUsagePeriod' },
             description: 'Usage periods',
           },
-          userId: {
-            type: 'string',
-            description: 'User Id',
-            minLength: 1,
-          },
+          userId: { type: 'string', description: 'User Id', minLength: 1 },
           workspaceId: {
             type: 'string',
             description: 'Workspace Id',
@@ -1179,10 +815,7 @@ export const Schema = {
             description: 'Usage started at',
             minLength: 1,
           },
-          stoppedAt: {
-            type: 'string',
-            description: 'Usage stopped at',
-          },
+          stoppedAt: { type: 'string', description: 'Usage stopped at' },
           workspaceInfo: {
             $ref: '#/components/schemas/WorkspaceUsageWorkspaceInfo',
           },
@@ -1196,9 +829,7 @@ export const Schema = {
             type: 'boolean',
             description: 'Created from template?',
           },
-          gitContext: {
-            $ref: '#/components/schemas/GitContext',
-          },
+          gitContext: { $ref: '#/components/schemas/GitContext' },
           workspaceId: {
             type: 'string',
             description: 'Workspace ID',
@@ -1212,47 +843,26 @@ export const Schema = {
         properties: {
           items: {
             type: 'array',
-            items: {
-              $ref: '#/components/schemas/WorkspaceUsagePeriod',
-            },
+            items: { $ref: '#/components/schemas/WorkspaceUsagePeriod' },
           },
-          total: {
-            type: 'number',
-          },
+          total: { type: 'number' },
         },
         required: ['items', 'total'],
       },
       GitCredentials: {
         type: 'object',
         properties: {
-          credentials: {
-            $ref: '#/components/schemas/Credentials',
-          },
-          email: {
-            type: 'string',
-            description: 'Email',
-          },
-          username: {
-            type: 'string',
-            description: 'Username',
-            minLength: 1,
-          },
+          credentials: { $ref: '#/components/schemas/Credentials' },
+          email: { type: 'string', description: 'Email' },
+          username: { type: 'string', description: 'Username', minLength: 1 },
         },
         required: ['credentials', 'username'],
       },
       Credentials: {
         type: 'object',
         properties: {
-          username: {
-            type: 'string',
-            description: 'Username',
-            minLength: 1,
-          },
-          password: {
-            type: 'string',
-            description: 'Password',
-            minLength: 1,
-          },
+          username: { type: 'string', description: 'Username', minLength: 1 },
+          password: { type: 'string', description: 'Password', minLength: 1 },
         },
         required: ['username', 'password'],
       },
@@ -1296,15 +906,10 @@ export const Schema = {
             type: 'string',
             description: 'Dotfiles repository URL',
           },
-          primaryEmail: {
-            type: 'string',
-            description: 'Primary email',
-          },
+          primaryEmail: { type: 'string', description: 'Primary email' },
           environmentVariables: {
             type: 'array',
-            items: {
-              $ref: '#/components/schemas/EnvironmentVariable',
-            },
+            items: { $ref: '#/components/schemas/EnvironmentVariable' },
           },
         },
         required: ['environmentVariables'],
@@ -1316,17 +921,9 @@ export const Schema = {
             type: 'boolean',
             description: 'Created from template',
           },
-          domain: {
-            type: 'string',
-            description: 'Domain',
-            minLength: 1,
-          },
-          gitContext: {
-            $ref: '#/components/schemas/GitContext',
-          },
-          gitCredentials: {
-            $ref: '#/components/schemas/GitCredentials',
-          },
+          domain: { type: 'string', description: 'Domain', minLength: 1 },
+          gitContext: { $ref: '#/components/schemas/GitContext' },
+          gitCredentials: { $ref: '#/components/schemas/GitCredentials' },
           statusPageUrl: {
             type: 'string',
             description: 'Status page url',
@@ -1349,21 +946,12 @@ export const Schema = {
       },
       WorkspaceInstanceError: {
         type: 'object',
-        properties: {
-          error: {
-            type: 'string',
-            minLength: 1,
-          },
-        },
+        properties: { error: { type: 'string', minLength: 1 } },
         required: ['error'],
       },
     },
   },
-  security: [
-    {
-      oauth2: [],
-    },
-  ],
+  security: [{ oauth2: [] }],
   paths: {
     '/cluster': {
       post: {
@@ -1372,9 +960,7 @@ export const Schema = {
           '200': {
             content: {
               'application/json': {
-                schema: {
-                  $ref: '#/components/schemas/Cluster',
-                },
+                schema: { $ref: '#/components/schemas/Cluster' },
               },
             },
             description: 'Success',
@@ -1385,9 +971,7 @@ export const Schema = {
           required: false,
           content: {
             'application/json': {
-              schema: {
-                $ref: '#/components/schemas/ClusterCreation',
-              },
+              schema: { $ref: '#/components/schemas/ClusterCreation' },
             },
           },
         },
@@ -1399,9 +983,7 @@ export const Schema = {
           '200': {
             content: {
               'application/json': {
-                schema: {
-                  $ref: '#/components/schemas/ClusterList',
-                },
+                schema: { $ref: '#/components/schemas/ClusterList' },
               },
             },
             description: 'Success',
@@ -1412,33 +994,25 @@ export const Schema = {
             in: 'query',
             name: 'clusterId',
             required: false,
-            schema: {
-              type: 'string',
-            },
+            schema: { type: 'string' },
           },
           {
             in: 'query',
             name: 'name',
             required: false,
-            schema: {
-              type: 'string',
-            },
+            schema: { type: 'string' },
           },
           {
             in: 'query',
             name: 'limit',
             required: false,
-            schema: {
-              type: 'number',
-            },
+            schema: { type: 'number' },
           },
           {
             in: 'query',
             name: 'offset',
             required: false,
-            schema: {
-              type: 'number',
-            },
+            schema: { type: 'number' },
           },
         ],
         tags: ['Cluster'],
@@ -1447,19 +1021,13 @@ export const Schema = {
     '/cluster/{clusterId}': {
       delete: {
         operationId: 'clusterDeleteCluster',
-        responses: {
-          '204': {
-            description: 'No Content',
-          },
-        },
+        responses: { '204': { description: 'No Content' } },
         parameters: [
           {
             in: 'path',
             name: 'clusterId',
             required: true,
-            schema: {
-              type: 'string',
-            },
+            schema: { type: 'string' },
           },
         ],
         tags: ['Cluster'],
@@ -1470,9 +1038,7 @@ export const Schema = {
           '200': {
             content: {
               'application/json': {
-                schema: {
-                  $ref: '#/components/schemas/Cluster',
-                },
+                schema: { $ref: '#/components/schemas/Cluster' },
               },
             },
             description: 'Success',
@@ -1483,9 +1049,7 @@ export const Schema = {
             in: 'path',
             name: 'clusterId',
             required: true,
-            schema: {
-              type: 'string',
-            },
+            schema: { type: 'string' },
           },
         ],
         tags: ['Cluster'],
@@ -1496,13 +1060,7 @@ export const Schema = {
         operationId: 'userCreateUserEnvironmentVariable',
         responses: {
           '201': {
-            content: {
-              '*/*': {
-                schema: {
-                  type: 'object',
-                },
-              },
-            },
+            content: { '*/*': { schema: { type: 'object' } } },
             description: 'Created',
           },
         },
@@ -1527,9 +1085,7 @@ export const Schema = {
               'application/json': {
                 schema: {
                   type: 'array',
-                  items: {
-                    $ref: '#/components/schemas/EnvironmentVariable',
-                  },
+                  items: { $ref: '#/components/schemas/EnvironmentVariable' },
                 },
               },
             },
@@ -1545,13 +1101,7 @@ export const Schema = {
         operationId: 'userCreateUserSshKey',
         responses: {
           '201': {
-            content: {
-              '*/*': {
-                schema: {
-                  type: 'object',
-                },
-              },
-            },
+            content: { '*/*': { schema: { type: 'object' } } },
             description: 'Created',
           },
         },
@@ -1560,9 +1110,7 @@ export const Schema = {
           required: false,
           content: {
             'application/json': {
-              schema: {
-                $ref: '#/components/schemas/PublicSSHKeyCreation',
-              },
+              schema: { $ref: '#/components/schemas/PublicSSHKeyCreation' },
             },
           },
         },
@@ -1576,9 +1124,7 @@ export const Schema = {
               'application/json': {
                 schema: {
                   type: 'array',
-                  items: {
-                    $ref: '#/components/schemas/PublicSSHKey',
-                  },
+                  items: { $ref: '#/components/schemas/PublicSSHKey' },
                 },
               },
             },
@@ -1592,11 +1138,7 @@ export const Schema = {
     '/user': {
       delete: {
         operationId: 'userDeleteUser',
-        responses: {
-          '204': {
-            description: 'No Content',
-          },
-        },
+        responses: { '204': { description: 'No Content' } },
         parameters: [],
         tags: ['User'],
       },
@@ -1606,9 +1148,7 @@ export const Schema = {
           '200': {
             content: {
               'application/json': {
-                schema: {
-                  $ref: '#/components/schemas/User',
-                },
+                schema: { $ref: '#/components/schemas/User' },
               },
             },
             description: 'Success',
@@ -1621,19 +1161,13 @@ export const Schema = {
     '/user/environment-variables/{name}': {
       delete: {
         operationId: 'userDeleteUserEnvironmentVariable',
-        responses: {
-          '204': {
-            description: 'No Content',
-          },
-        },
+        responses: { '204': { description: 'No Content' } },
         parameters: [
           {
             in: 'path',
             name: 'name',
             required: true,
-            schema: {
-              type: 'string',
-            },
+            schema: { type: 'string' },
           },
         ],
         tags: ['User'],
@@ -1642,13 +1176,7 @@ export const Schema = {
         operationId: 'userUpdateUserEnvironmentVariable',
         responses: {
           '200': {
-            content: {
-              '*/*': {
-                schema: {
-                  type: 'object',
-                },
-              },
-            },
+            content: { '*/*': { schema: { type: 'object' } } },
             description: 'Success',
           },
         },
@@ -1657,9 +1185,7 @@ export const Schema = {
             in: 'path',
             name: 'name',
             required: true,
-            schema: {
-              type: 'string',
-            },
+            schema: { type: 'string' },
           },
         ],
         requestBody: {
@@ -1678,19 +1204,13 @@ export const Schema = {
     '/user/ssh-keys/{id}': {
       delete: {
         operationId: 'userDeleteUserSshKey',
-        responses: {
-          '204': {
-            description: 'No Content',
-          },
-        },
+        responses: { '204': { description: 'No Content' } },
         parameters: [
           {
             in: 'path',
             name: 'id',
             required: true,
-            schema: {
-              type: 'string',
-            },
+            schema: { type: 'string' },
           },
         ],
         tags: ['User'],
@@ -1701,13 +1221,7 @@ export const Schema = {
         operationId: 'userGetPublicSshKey',
         responses: {
           '200': {
-            content: {
-              '*/*': {
-                schema: {
-                  type: 'string',
-                },
-              },
-            },
+            content: { '*/*': { schema: { type: 'string' } } },
             description: 'Public Key',
           },
         },
@@ -1724,9 +1238,7 @@ export const Schema = {
               'application/json': {
                 schema: {
                   type: 'array',
-                  items: {
-                    $ref: '#/components/schemas/GitNamespace',
-                  },
+                  items: { $ref: '#/components/schemas/GitNamespace' },
                 },
               },
             },
@@ -1738,9 +1250,7 @@ export const Schema = {
             in: 'path',
             name: 'provider',
             required: true,
-            schema: {
-              type: 'string',
-            },
+            schema: { type: 'string' },
           },
         ],
         tags: ['User'],
@@ -1753,9 +1263,7 @@ export const Schema = {
           '200': {
             content: {
               'application/json': {
-                schema: {
-                  $ref: '#/components/schemas/GitRepositoryList',
-                },
+                schema: { $ref: '#/components/schemas/GitRepositoryList' },
               },
             },
             description: 'Success',
@@ -1766,49 +1274,37 @@ export const Schema = {
             in: 'path',
             name: 'provider',
             required: true,
-            schema: {
-              type: 'string',
-            },
+            schema: { type: 'string' },
           },
           {
             in: 'path',
             name: 'namespaceId',
             required: true,
-            schema: {
-              type: 'string',
-            },
+            schema: { type: 'string' },
           },
           {
             in: 'query',
             name: 'personal',
             required: false,
-            schema: {
-              type: 'boolean',
-            },
+            schema: { type: 'boolean' },
           },
           {
             in: 'query',
             name: 'offset',
             required: false,
-            schema: {
-              type: 'number',
-            },
+            schema: { type: 'number' },
           },
           {
             in: 'query',
             name: 'limit',
             required: false,
-            schema: {
-              type: 'number',
-            },
+            schema: { type: 'number' },
           },
           {
             in: 'query',
             name: 'query',
             required: false,
-            schema: {
-              type: 'string',
-            },
+            schema: { type: 'string' },
           },
         ],
         tags: ['User'],
@@ -1819,13 +1315,7 @@ export const Schema = {
         operationId: 'userUpdateUserDefaultIde',
         responses: {
           '200': {
-            content: {
-              '*/*': {
-                schema: {
-                  type: 'object',
-                },
-              },
-            },
+            content: { '*/*': { schema: { type: 'object' } } },
             description: 'Success',
           },
         },
@@ -1834,9 +1324,7 @@ export const Schema = {
           required: false,
           content: {
             'application/json': {
-              schema: {
-                $ref: '#/components/schemas/UserUpdateDefaultIde',
-              },
+              schema: { $ref: '#/components/schemas/UserUpdateDefaultIde' },
             },
           },
         },
@@ -1848,13 +1336,7 @@ export const Schema = {
         operationId: 'userUpdateUserDotfilesRepositoryUrl',
         responses: {
           '200': {
-            content: {
-              '*/*': {
-                schema: {
-                  type: 'object',
-                },
-              },
-            },
+            content: { '*/*': { schema: { type: 'object' } } },
             description: 'Success',
           },
         },
@@ -1879,9 +1361,7 @@ export const Schema = {
           '200': {
             content: {
               'application/json': {
-                schema: {
-                  $ref: '#/components/schemas/Workspace',
-                },
+                schema: { $ref: '#/components/schemas/Workspace' },
               },
             },
             description: 'Success',
@@ -1906,9 +1386,7 @@ export const Schema = {
           '200': {
             content: {
               'application/json': {
-                schema: {
-                  $ref: '#/components/schemas/WorkspaceList',
-                },
+                schema: { $ref: '#/components/schemas/WorkspaceList' },
               },
             },
             description: 'Success',
@@ -1919,33 +1397,25 @@ export const Schema = {
             required: true,
             in: 'query',
             name: 'teamId',
-            schema: {
-              type: 'string',
-            },
+            schema: { type: 'string' },
           },
           {
             in: 'query',
             name: 'workspaceId',
             required: false,
-            schema: {
-              type: 'string',
-            },
+            schema: { type: 'string' },
           },
           {
             in: 'query',
             name: 'limit',
             required: false,
-            schema: {
-              type: 'number',
-            },
+            schema: { type: 'number' },
           },
           {
             in: 'query',
             name: 'offset',
             required: false,
-            schema: {
-              type: 'number',
-            },
+            schema: { type: 'number' },
           },
         ],
         tags: ['Workspace'],
@@ -1958,9 +1428,7 @@ export const Schema = {
           '200': {
             content: {
               'application/json': {
-                schema: {
-                  $ref: '#/components/schemas/Workspace',
-                },
+                schema: { $ref: '#/components/schemas/Workspace' },
               },
             },
             description: 'Success',
@@ -1971,9 +1439,7 @@ export const Schema = {
             in: 'path',
             name: 'id',
             required: true,
-            schema: {
-              type: 'string',
-            },
+            schema: { type: 'string' },
           },
         ],
         tags: ['Workspace'],
@@ -1986,9 +1452,7 @@ export const Schema = {
           '200': {
             content: {
               'application/json': {
-                schema: {
-                  $ref: '#/components/schemas/Workspace',
-                },
+                schema: { $ref: '#/components/schemas/Workspace' },
               },
             },
             description: 'Success',
@@ -1999,9 +1463,7 @@ export const Schema = {
             in: 'path',
             name: 'id',
             required: true,
-            schema: {
-              type: 'string',
-            },
+            schema: { type: 'string' },
           },
         ],
         tags: ['Workspace'],
@@ -2012,13 +1474,7 @@ export const Schema = {
         operationId: 'workspaceIsWorkspaceShared',
         responses: {
           '200': {
-            content: {
-              '*/*': {
-                schema: {
-                  type: 'object',
-                },
-              },
-            },
+            content: { '*/*': { schema: { type: 'object' } } },
             description: 'Success',
           },
         },
@@ -2027,9 +1483,7 @@ export const Schema = {
             in: 'path',
             name: 'id',
             required: true,
-            schema: {
-              type: 'string',
-            },
+            schema: { type: 'string' },
           },
         ],
         tags: ['Workspace'],
@@ -2040,13 +1494,7 @@ export const Schema = {
         operationId: 'workspacePinWorkspace',
         responses: {
           '200': {
-            content: {
-              '*/*': {
-                schema: {
-                  type: 'object',
-                },
-              },
-            },
+            content: { '*/*': { schema: { type: 'object' } } },
             description: 'Success',
           },
         },
@@ -2055,9 +1503,7 @@ export const Schema = {
             in: 'path',
             name: 'id',
             required: true,
-            schema: {
-              type: 'string',
-            },
+            schema: { type: 'string' },
           },
         ],
         tags: ['Workspace'],
@@ -2068,13 +1514,7 @@ export const Schema = {
         operationId: 'workspaceShareWorkspace',
         responses: {
           '200': {
-            content: {
-              '*/*': {
-                schema: {
-                  type: 'object',
-                },
-              },
-            },
+            content: { '*/*': { schema: { type: 'object' } } },
             description: 'Success',
           },
         },
@@ -2083,9 +1523,7 @@ export const Schema = {
             in: 'path',
             name: 'id',
             required: true,
-            schema: {
-              type: 'string',
-            },
+            schema: { type: 'string' },
           },
         ],
         tags: ['Workspace'],
@@ -2096,13 +1534,7 @@ export const Schema = {
         operationId: 'workspaceUnpinWorkspace',
         responses: {
           '200': {
-            content: {
-              '*/*': {
-                schema: {
-                  type: 'object',
-                },
-              },
-            },
+            content: { '*/*': { schema: { type: 'object' } } },
             description: 'Success',
           },
         },
@@ -2111,9 +1543,7 @@ export const Schema = {
             in: 'path',
             name: 'id',
             required: true,
-            schema: {
-              type: 'string',
-            },
+            schema: { type: 'string' },
           },
         ],
         tags: ['Workspace'],
@@ -2124,13 +1554,7 @@ export const Schema = {
         operationId: 'workspaceUnshareWorkspace',
         responses: {
           '200': {
-            content: {
-              '*/*': {
-                schema: {
-                  type: 'object',
-                },
-              },
-            },
+            content: { '*/*': { schema: { type: 'object' } } },
             description: 'Success',
           },
         },
@@ -2139,9 +1563,7 @@ export const Schema = {
             in: 'path',
             name: 'id',
             required: true,
-            schema: {
-              type: 'string',
-            },
+            schema: { type: 'string' },
           },
         ],
         tags: ['Workspace'],
@@ -2154,9 +1576,7 @@ export const Schema = {
           '200': {
             content: {
               'application/json': {
-                schema: {
-                  $ref: '#/components/schemas/ActiveWorkspaceCount',
-                },
+                schema: { $ref: '#/components/schemas/ActiveWorkspaceCount' },
               },
             },
             description: 'Success',
@@ -2167,9 +1587,7 @@ export const Schema = {
             required: true,
             in: 'query',
             name: 'teamId',
-            schema: {
-              type: 'string',
-            },
+            schema: { type: 'string' },
           },
         ],
         tags: ['WorkspaceInstance'],
@@ -2180,13 +1598,7 @@ export const Schema = {
         operationId: 'workspaceInstanceStartWorkspaceInstance',
         responses: {
           '200': {
-            content: {
-              '*/*': {
-                schema: {
-                  type: 'object',
-                },
-              },
-            },
+            content: { '*/*': { schema: { type: 'object' } } },
             description: 'Success',
           },
         },
@@ -2195,9 +1607,7 @@ export const Schema = {
             in: 'path',
             name: 'id',
             required: true,
-            schema: {
-              type: 'string',
-            },
+            schema: { type: 'string' },
           },
         ],
         tags: ['WorkspaceInstance'],
@@ -2208,13 +1618,7 @@ export const Schema = {
         operationId: 'workspaceInstanceStopWorkspaceInstance',
         responses: {
           '200': {
-            content: {
-              '*/*': {
-                schema: {
-                  type: 'object',
-                },
-              },
-            },
+            content: { '*/*': { schema: { type: 'object' } } },
             description: 'Success',
           },
         },
@@ -2223,9 +1627,7 @@ export const Schema = {
             in: 'path',
             name: 'id',
             required: true,
-            schema: {
-              type: 'string',
-            },
+            schema: { type: 'string' },
           },
         ],
         tags: ['WorkspaceInstance'],
@@ -2236,13 +1638,7 @@ export const Schema = {
         operationId: 'teamAcceptTeamInvitation',
         responses: {
           '200': {
-            content: {
-              '*/*': {
-                schema: {
-                  type: 'object',
-                },
-              },
-            },
+            content: { '*/*': { schema: { type: 'object' } } },
             description: 'Success',
           },
         },
@@ -2251,17 +1647,13 @@ export const Schema = {
             in: 'path',
             name: 'id',
             required: true,
-            schema: {
-              type: 'string',
-            },
+            schema: { type: 'string' },
           },
           {
             in: 'path',
             name: 'invitationId',
             required: true,
-            schema: {
-              type: 'string',
-            },
+            schema: { type: 'string' },
           },
         ],
         tags: ['Team'],
@@ -2274,9 +1666,7 @@ export const Schema = {
           '200': {
             content: {
               'application/json': {
-                schema: {
-                  $ref: '#/components/schemas/Team',
-                },
+                schema: { $ref: '#/components/schemas/Team' },
               },
             },
             description: 'Success',
@@ -2287,9 +1677,7 @@ export const Schema = {
           required: false,
           content: {
             'application/json': {
-              schema: {
-                $ref: '#/components/schemas/TeamCreation',
-              },
+              schema: { $ref: '#/components/schemas/TeamCreation' },
             },
           },
         },
@@ -2303,9 +1691,7 @@ export const Schema = {
               'application/json': {
                 schema: {
                   type: 'array',
-                  items: {
-                    $ref: '#/components/schemas/Team',
-                  },
+                  items: { $ref: '#/components/schemas/Team' },
                 },
               },
             },
@@ -2317,10 +1703,7 @@ export const Schema = {
             in: 'query',
             name: 'role',
             required: false,
-            schema: {
-              type: 'string',
-              enum: ['owner', 'admin', 'member'],
-            },
+            schema: { type: 'string', enum: ['owner', 'admin', 'member'] },
           },
         ],
         tags: ['Team'],
@@ -2331,13 +1714,7 @@ export const Schema = {
         operationId: 'teamCreateTeamInvitation',
         responses: {
           '201': {
-            content: {
-              '*/*': {
-                schema: {
-                  type: 'object',
-                },
-              },
-            },
+            content: { '*/*': { schema: { type: 'object' } } },
             description: 'Created',
           },
         },
@@ -2346,18 +1723,14 @@ export const Schema = {
             in: 'path',
             name: 'id',
             required: true,
-            schema: {
-              type: 'string',
-            },
+            schema: { type: 'string' },
           },
         ],
         requestBody: {
           required: true,
           content: {
             'application/json': {
-              schema: {
-                $ref: '#/components/schemas/TeamInvitationCreation',
-              },
+              schema: { $ref: '#/components/schemas/TeamInvitationCreation' },
             },
           },
         },
@@ -2371,9 +1744,7 @@ export const Schema = {
               'application/json': {
                 schema: {
                   type: 'array',
-                  items: {
-                    $ref: '#/components/schemas/TeamInvitation',
-                  },
+                  items: { $ref: '#/components/schemas/TeamInvitation' },
                 },
               },
             },
@@ -2385,9 +1756,7 @@ export const Schema = {
             in: 'path',
             name: 'id',
             required: true,
-            schema: {
-              type: 'string',
-            },
+            schema: { type: 'string' },
           },
         ],
         tags: ['Team'],
@@ -2398,13 +1767,7 @@ export const Schema = {
         operationId: 'teamCreateTeamSubscription',
         responses: {
           '201': {
-            content: {
-              '*/*': {
-                schema: {
-                  type: 'object',
-                },
-              },
-            },
+            content: { '*/*': { schema: { type: 'object' } } },
             description: 'Created',
           },
         },
@@ -2413,18 +1776,14 @@ export const Schema = {
             in: 'path',
             name: 'id',
             required: true,
-            schema: {
-              type: 'string',
-            },
+            schema: { type: 'string' },
           },
         ],
         requestBody: {
           required: false,
           content: {
             'application/json': {
-              schema: {
-                $ref: '#/components/schemas/SubscriptionCreation',
-              },
+              schema: { $ref: '#/components/schemas/SubscriptionCreation' },
             },
           },
         },
@@ -2438,9 +1797,7 @@ export const Schema = {
               'application/json': {
                 schema: {
                   type: 'array',
-                  items: {
-                    $ref: '#/components/schemas/Subscription',
-                  },
+                  items: { $ref: '#/components/schemas/Subscription' },
                 },
               },
             },
@@ -2452,9 +1809,7 @@ export const Schema = {
             in: 'path',
             name: 'id',
             required: true,
-            schema: {
-              type: 'string',
-            },
+            schema: { type: 'string' },
           },
         ],
         tags: ['Team'],
@@ -2463,19 +1818,13 @@ export const Schema = {
     '/team/{id}': {
       delete: {
         operationId: 'teamDeleteTeam',
-        responses: {
-          '204': {
-            description: 'No Content',
-          },
-        },
+        responses: { '204': { description: 'No Content' } },
         parameters: [
           {
             in: 'path',
             name: 'id',
             required: true,
-            schema: {
-              type: 'string',
-            },
+            schema: { type: 'string' },
           },
         ],
         tags: ['Team'],
@@ -2486,9 +1835,7 @@ export const Schema = {
           '200': {
             content: {
               'application/json': {
-                schema: {
-                  $ref: '#/components/schemas/Team',
-                },
+                schema: { $ref: '#/components/schemas/Team' },
               },
             },
             description: 'Success',
@@ -2499,9 +1846,7 @@ export const Schema = {
             in: 'path',
             name: 'id',
             required: true,
-            schema: {
-              type: 'string',
-            },
+            schema: { type: 'string' },
           },
         ],
         tags: ['Team'],
@@ -2510,13 +1855,7 @@ export const Schema = {
         operationId: 'teamUpdateTeam',
         responses: {
           '200': {
-            content: {
-              '*/*': {
-                schema: {
-                  type: 'object',
-                },
-              },
-            },
+            content: { '*/*': { schema: { type: 'object' } } },
             description: 'Success',
           },
         },
@@ -2525,18 +1864,14 @@ export const Schema = {
             in: 'path',
             name: 'id',
             required: true,
-            schema: {
-              type: 'string',
-            },
+            schema: { type: 'string' },
           },
         ],
         requestBody: {
           required: true,
           content: {
             'application/json': {
-              schema: {
-                $ref: '#/components/schemas/TeamUpdate',
-              },
+              schema: { $ref: '#/components/schemas/TeamUpdate' },
             },
           },
         },
@@ -2548,13 +1883,7 @@ export const Schema = {
         operationId: 'teamDisableTeamSubscription',
         responses: {
           '200': {
-            content: {
-              '*/*': {
-                schema: {
-                  type: 'object',
-                },
-              },
-            },
+            content: { '*/*': { schema: { type: 'object' } } },
             description: 'Success',
           },
         },
@@ -2563,17 +1892,13 @@ export const Schema = {
             in: 'path',
             name: 'id',
             required: true,
-            schema: {
-              type: 'string',
-            },
+            schema: { type: 'string' },
           },
           {
             in: 'path',
             name: 'subscriptionId',
             required: true,
-            schema: {
-              type: 'string',
-            },
+            schema: { type: 'string' },
           },
         ],
         tags: ['Team'],
@@ -2584,13 +1909,7 @@ export const Schema = {
         operationId: 'teamEnableTeamSubscription',
         responses: {
           '200': {
-            content: {
-              '*/*': {
-                schema: {
-                  type: 'object',
-                },
-              },
-            },
+            content: { '*/*': { schema: { type: 'object' } } },
             description: 'Success',
           },
         },
@@ -2599,17 +1918,13 @@ export const Schema = {
             in: 'path',
             name: 'id',
             required: true,
-            schema: {
-              type: 'string',
-            },
+            schema: { type: 'string' },
           },
           {
             in: 'path',
             name: 'subscriptionId',
             required: true,
-            schema: {
-              type: 'string',
-            },
+            schema: { type: 'string' },
           },
         ],
         tags: ['Team'],
@@ -2622,9 +1937,7 @@ export const Schema = {
           '200': {
             content: {
               'application/json': {
-                schema: {
-                  $ref: '#/components/schemas/Subscription',
-                },
+                schema: { $ref: '#/components/schemas/Subscription' },
               },
             },
             description: 'Success',
@@ -2635,9 +1948,7 @@ export const Schema = {
             in: 'path',
             name: 'id',
             required: true,
-            schema: {
-              type: 'string',
-            },
+            schema: { type: 'string' },
           },
         ],
         tags: ['Team'],
@@ -2652,9 +1963,7 @@ export const Schema = {
               'application/json': {
                 schema: {
                   type: 'array',
-                  items: {
-                    $ref: '#/components/schemas/TeamInvitation',
-                  },
+                  items: { $ref: '#/components/schemas/TeamInvitation' },
                 },
               },
             },
@@ -2672,9 +1981,7 @@ export const Schema = {
           '200': {
             content: {
               'application/json': {
-                schema: {
-                  $ref: '#/components/schemas/TeamInvitationCount',
-                },
+                schema: { $ref: '#/components/schemas/TeamInvitationCount' },
               },
             },
             description: 'Success',
@@ -2693,9 +2000,7 @@ export const Schema = {
               'application/json': {
                 schema: {
                   type: 'array',
-                  items: {
-                    $ref: '#/components/schemas/TeamUser',
-                  },
+                  items: { $ref: '#/components/schemas/TeamUser' },
                 },
               },
             },
@@ -2707,9 +2012,7 @@ export const Schema = {
             in: 'path',
             name: 'id',
             required: true,
-            schema: {
-              type: 'string',
-            },
+            schema: { type: 'string' },
           },
         ],
         tags: ['Team'],
@@ -2718,19 +2021,13 @@ export const Schema = {
     '/team/{id}/leave': {
       delete: {
         operationId: 'teamLeaveTeam',
-        responses: {
-          '204': {
-            description: 'No Content',
-          },
-        },
+        responses: { '204': { description: 'No Content' } },
         parameters: [
           {
             in: 'path',
             name: 'id',
             required: true,
-            schema: {
-              type: 'string',
-            },
+            schema: { type: 'string' },
           },
         ],
         tags: ['Team'],
@@ -2741,13 +2038,7 @@ export const Schema = {
         operationId: 'teamRejectTeamInvitation',
         responses: {
           '200': {
-            content: {
-              '*/*': {
-                schema: {
-                  type: 'object',
-                },
-              },
-            },
+            content: { '*/*': { schema: { type: 'object' } } },
             description: 'Success',
           },
         },
@@ -2756,17 +2047,13 @@ export const Schema = {
             in: 'path',
             name: 'id',
             required: true,
-            schema: {
-              type: 'string',
-            },
+            schema: { type: 'string' },
           },
           {
             in: 'path',
             name: 'invitationId',
             required: true,
-            schema: {
-              type: 'string',
-            },
+            schema: { type: 'string' },
           },
         ],
         tags: ['Team'],
@@ -2775,27 +2062,19 @@ export const Schema = {
     '/team/{id}/invitation/{invitationId}': {
       delete: {
         operationId: 'teamRemoveTeamInvitation',
-        responses: {
-          '204': {
-            description: 'No Content',
-          },
-        },
+        responses: { '204': { description: 'No Content' } },
         parameters: [
           {
             in: 'path',
             name: 'id',
             required: true,
-            schema: {
-              type: 'string',
-            },
+            schema: { type: 'string' },
           },
           {
             in: 'path',
             name: 'invitationId',
             required: true,
-            schema: {
-              type: 'string',
-            },
+            schema: { type: 'string' },
           },
         ],
         tags: ['Team'],
@@ -2808,9 +2087,7 @@ export const Schema = {
           '200': {
             content: {
               'application/json': {
-                schema: {
-                  $ref: '#/components/schemas/Team',
-                },
+                schema: { $ref: '#/components/schemas/Team' },
               },
             },
             description: 'Success',
@@ -2821,17 +2098,13 @@ export const Schema = {
             in: 'path',
             name: 'id',
             required: true,
-            schema: {
-              type: 'string',
-            },
+            schema: { type: 'string' },
           },
           {
             in: 'path',
             name: 'userId',
             required: true,
-            schema: {
-              type: 'string',
-            },
+            schema: { type: 'string' },
           },
         ],
         tags: ['Team'],
@@ -2842,9 +2115,7 @@ export const Schema = {
           '201': {
             content: {
               'application/json': {
-                schema: {
-                  $ref: '#/components/schemas/Team',
-                },
+                schema: { $ref: '#/components/schemas/Team' },
               },
             },
             description: 'Created',
@@ -2855,26 +2126,20 @@ export const Schema = {
             in: 'path',
             name: 'id',
             required: true,
-            schema: {
-              type: 'string',
-            },
+            schema: { type: 'string' },
           },
           {
             in: 'path',
             name: 'userId',
             required: true,
-            schema: {
-              type: 'string',
-            },
+            schema: { type: 'string' },
           },
         ],
         requestBody: {
           required: true,
           content: {
             'application/json': {
-              schema: {
-                $ref: '#/components/schemas/TeamUserRoleUpdate',
-              },
+              schema: { $ref: '#/components/schemas/TeamUserRoleUpdate' },
             },
           },
         },
@@ -2888,9 +2153,7 @@ export const Schema = {
           '200': {
             content: {
               'application/json': {
-                schema: {
-                  $ref: '#/components/schemas/Subscription',
-                },
+                schema: { $ref: '#/components/schemas/Subscription' },
               },
             },
             description: 'Success',
@@ -2901,26 +2164,20 @@ export const Schema = {
             in: 'path',
             name: 'id',
             required: true,
-            schema: {
-              type: 'string',
-            },
+            schema: { type: 'string' },
           },
           {
             in: 'path',
             name: 'subscriptionId',
             required: true,
-            schema: {
-              type: 'string',
-            },
+            schema: { type: 'string' },
           },
         ],
         requestBody: {
           required: false,
           content: {
             'application/json': {
-              schema: {
-                $ref: '#/components/schemas/SubscriptionUpdate',
-              },
+              schema: { $ref: '#/components/schemas/SubscriptionUpdate' },
             },
           },
         },
@@ -2934,9 +2191,7 @@ export const Schema = {
           '200': {
             content: {
               'application/json': {
-                schema: {
-                  $ref: '#/components/schemas/Plan',
-                },
+                schema: { $ref: '#/components/schemas/Plan' },
               },
             },
             description: 'Success',
@@ -2947,9 +2202,7 @@ export const Schema = {
           required: false,
           content: {
             'application/json': {
-              schema: {
-                $ref: '#/components/schemas/PlanCreation',
-              },
+              schema: { $ref: '#/components/schemas/PlanCreation' },
             },
           },
         },
@@ -2961,9 +2214,7 @@ export const Schema = {
           '200': {
             content: {
               'application/json': {
-                schema: {
-                  $ref: '#/components/schemas/PlanList',
-                },
+                schema: { $ref: '#/components/schemas/PlanList' },
               },
             },
             description: 'Success',
@@ -2974,33 +2225,25 @@ export const Schema = {
             in: 'query',
             name: 'planId',
             required: false,
-            schema: {
-              type: 'string',
-            },
+            schema: { type: 'string' },
           },
           {
             in: 'query',
             name: 'name',
             required: false,
-            schema: {
-              type: 'string',
-            },
+            schema: { type: 'string' },
           },
           {
             in: 'query',
             name: 'limit',
             required: false,
-            schema: {
-              type: 'number',
-            },
+            schema: { type: 'number' },
           },
           {
             in: 'query',
             name: 'offset',
             required: false,
-            schema: {
-              type: 'number',
-            },
+            schema: { type: 'number' },
           },
         ],
         tags: ['Plan'],
@@ -3009,19 +2252,13 @@ export const Schema = {
     '/plan/{planId}': {
       delete: {
         operationId: 'planDeletePlan',
-        responses: {
-          '204': {
-            description: 'No Content',
-          },
-        },
+        responses: { '204': { description: 'No Content' } },
         parameters: [
           {
             in: 'path',
             name: 'planId',
             required: true,
-            schema: {
-              type: 'string',
-            },
+            schema: { type: 'string' },
           },
         ],
         tags: ['Plan'],
@@ -3032,9 +2269,7 @@ export const Schema = {
           '200': {
             content: {
               'application/json': {
-                schema: {
-                  $ref: '#/components/schemas/Plan',
-                },
+                schema: { $ref: '#/components/schemas/Plan' },
               },
             },
             description: 'Success',
@@ -3045,9 +2280,7 @@ export const Schema = {
             in: 'path',
             name: 'planId',
             required: true,
-            schema: {
-              type: 'string',
-            },
+            schema: { type: 'string' },
           },
         ],
         tags: ['Plan'],
@@ -3058,9 +2291,7 @@ export const Schema = {
           '201': {
             content: {
               'application/json': {
-                schema: {
-                  $ref: '#/components/schemas/Plan',
-                },
+                schema: { $ref: '#/components/schemas/Plan' },
               },
             },
             description: 'Created',
@@ -3071,18 +2302,14 @@ export const Schema = {
             in: 'path',
             name: 'planId',
             required: true,
-            schema: {
-              type: 'string',
-            },
+            schema: { type: 'string' },
           },
         ],
         requestBody: {
           required: false,
           content: {
             'application/json': {
-              schema: {
-                $ref: '#/components/schemas/PlanUpdate',
-              },
+              schema: { $ref: '#/components/schemas/PlanUpdate' },
             },
           },
         },
@@ -3109,35 +2336,25 @@ export const Schema = {
             required: true,
             in: 'query',
             name: 'periodStart',
-            schema: {
-              type: 'string',
-              format: 'date-time',
-            },
+            schema: { type: 'string', format: 'date-time' },
           },
           {
             in: 'query',
             name: 'workspaceId',
             required: false,
-            schema: {
-              type: 'string',
-            },
+            schema: { type: 'string' },
           },
           {
             in: 'query',
             name: 'periodEnd',
             required: false,
-            schema: {
-              type: 'string',
-              format: 'date-time',
-            },
+            schema: { type: 'string', format: 'date-time' },
           },
           {
             in: 'query',
             name: 'teamId',
             required: false,
-            schema: {
-              type: 'string',
-            },
+            schema: { type: 'string' },
           },
         ],
         tags: ['WorkspaceUsage'],
@@ -3150,9 +2367,7 @@ export const Schema = {
           '200': {
             content: {
               'application/json': {
-                schema: {
-                  $ref: '#/components/schemas/WorkspaceUsageList',
-                },
+                schema: { $ref: '#/components/schemas/WorkspaceUsageList' },
               },
             },
             description: 'Success',
@@ -3163,51 +2378,37 @@ export const Schema = {
             in: 'query',
             name: 'teamId',
             required: false,
-            schema: {
-              type: 'string',
-            },
+            schema: { type: 'string' },
           },
           {
             in: 'query',
             name: 'workspaceId',
             required: false,
-            schema: {
-              type: 'string',
-            },
+            schema: { type: 'string' },
           },
           {
             in: 'query',
             name: 'periodStart',
             required: false,
-            schema: {
-              type: 'string',
-              format: 'date-time',
-            },
+            schema: { type: 'string', format: 'date-time' },
           },
           {
             in: 'query',
             name: 'periodEnd',
             required: false,
-            schema: {
-              type: 'string',
-              format: 'date-time',
-            },
+            schema: { type: 'string', format: 'date-time' },
           },
           {
             in: 'query',
             name: 'limit',
             required: false,
-            schema: {
-              type: 'number',
-            },
+            schema: { type: 'number' },
           },
           {
             in: 'query',
             name: 'offset',
             required: false,
-            schema: {
-              type: 'number',
-            },
+            schema: { type: 'number' },
           },
         ],
         tags: ['WorkspaceUsage'],
@@ -3233,51 +2434,37 @@ export const Schema = {
             in: 'query',
             name: 'teamId',
             required: false,
-            schema: {
-              type: 'string',
-            },
+            schema: { type: 'string' },
           },
           {
             in: 'query',
             name: 'workspaceId',
             required: false,
-            schema: {
-              type: 'string',
-            },
+            schema: { type: 'string' },
           },
           {
             in: 'query',
             name: 'periodStart',
             required: false,
-            schema: {
-              type: 'string',
-              format: 'date-time',
-            },
+            schema: { type: 'string', format: 'date-time' },
           },
           {
             in: 'query',
             name: 'periodEnd',
             required: false,
-            schema: {
-              type: 'string',
-              format: 'date-time',
-            },
+            schema: { type: 'string', format: 'date-time' },
           },
           {
             in: 'query',
             name: 'limit',
             required: false,
-            schema: {
-              type: 'number',
-            },
+            schema: { type: 'number' },
           },
           {
             in: 'query',
             name: 'offset',
             required: false,
-            schema: {
-              type: 'number',
-            },
+            schema: { type: 'number' },
           },
         ],
         tags: ['WorkspaceUsage'],
@@ -3290,9 +2477,7 @@ export const Schema = {
           '200': {
             content: {
               'application/json': {
-                schema: {
-                  $ref: '#/components/schemas/Workspace',
-                },
+                schema: { $ref: '#/components/schemas/Workspace' },
               },
             },
             description: 'Success',
@@ -3303,9 +2488,7 @@ export const Schema = {
             in: 'path',
             name: 'id',
             required: true,
-            schema: {
-              type: 'string',
-            },
+            schema: { type: 'string' },
           },
         ],
         tags: ['WorkspaceSsh'],
@@ -3316,13 +2499,7 @@ export const Schema = {
         operationId: 'workspaceSshReceiveKeepAliveSignalFromSsh',
         responses: {
           '200': {
-            content: {
-              '*/*': {
-                schema: {
-                  type: 'object',
-                },
-              },
-            },
+            content: { '*/*': { schema: { type: 'object' } } },
             description: 'Success',
           },
         },
@@ -3331,9 +2508,7 @@ export const Schema = {
             in: 'path',
             name: 'id',
             required: true,
-            schema: {
-              type: 'string',
-            },
+            schema: { type: 'string' },
           },
         ],
         tags: ['WorkspaceSsh'],
@@ -3344,13 +2519,7 @@ export const Schema = {
         operationId: 'workspaceSshValidatePublicKey',
         responses: {
           '200': {
-            content: {
-              '*/*': {
-                schema: {
-                  type: 'object',
-                },
-              },
-            },
+            content: { '*/*': { schema: { type: 'object' } } },
             description: 'Success',
           },
         },
@@ -3359,41 +2528,31 @@ export const Schema = {
             in: 'path',
             name: 'id',
             required: true,
-            schema: {
-              type: 'string',
-            },
+            schema: { type: 'string' },
           },
           {
             in: 'query',
             name: 'algo',
             required: false,
-            schema: {
-              type: 'string',
-            },
+            schema: { type: 'string' },
           },
           {
             in: 'query',
             name: 'blob',
             required: false,
-            schema: {
-              type: 'string',
-            },
+            schema: { type: 'string' },
           },
           {
             in: 'query',
             name: 'data',
             required: false,
-            schema: {
-              type: 'string',
-            },
+            schema: { type: 'string' },
           },
           {
             in: 'query',
             name: 'signature',
             required: false,
-            schema: {
-              type: 'string',
-            },
+            schema: { type: 'string' },
           },
         ],
         tags: ['WorkspaceSsh'],
@@ -3404,13 +2563,7 @@ export const Schema = {
         operationId: 'workspaceSshValidateSshToken',
         responses: {
           '200': {
-            content: {
-              '*/*': {
-                schema: {
-                  type: 'object',
-                },
-              },
-            },
+            content: { '*/*': { schema: { type: 'object' } } },
             description: 'Success',
           },
         },
@@ -3419,17 +2572,13 @@ export const Schema = {
             in: 'path',
             name: 'id',
             required: true,
-            schema: {
-              type: 'string',
-            },
+            schema: { type: 'string' },
           },
           {
             in: 'query',
             name: 'token',
             required: false,
-            schema: {
-              type: 'string',
-            },
+            schema: { type: 'string' },
           },
         ],
         tags: ['WorkspaceSsh'],
@@ -3442,19 +2591,13 @@ export const Schema = {
           '200': {
             content: {
               'application/json': {
-                schema: {
-                  $ref: '#/components/schemas/GitCredentials',
-                },
+                schema: { $ref: '#/components/schemas/GitCredentials' },
               },
             },
             description: 'Success',
           },
         },
-        security: [
-          {
-            workspaceToken: [],
-          },
-        ],
+        security: [{ workspaceToken: [] }],
         parameters: [],
         tags: ['Supervisor'],
       },
@@ -3474,11 +2617,7 @@ export const Schema = {
             description: 'Success',
           },
         },
-        security: [
-          {
-            workspaceToken: [],
-          },
-        ],
+        security: [{ workspaceToken: [] }],
         parameters: [],
         tags: ['Supervisor'],
       },
@@ -3486,21 +2625,11 @@ export const Schema = {
         operationId: 'supervisorSetState',
         responses: {
           '200': {
-            content: {
-              '*/*': {
-                schema: {
-                  type: 'object',
-                },
-              },
-            },
+            content: { '*/*': { schema: { type: 'object' } } },
             description: 'Success',
           },
         },
-        security: [
-          {
-            workspaceToken: [],
-          },
-        ],
+        security: [{ workspaceToken: [] }],
         parameters: [],
         requestBody: {
           required: true,
@@ -3522,19 +2651,13 @@ export const Schema = {
           '200': {
             content: {
               'application/json': {
-                schema: {
-                  $ref: '#/components/schemas/UserConfig',
-                },
+                schema: { $ref: '#/components/schemas/UserConfig' },
               },
             },
             description: 'Success',
           },
         },
-        security: [
-          {
-            workspaceToken: [],
-          },
-        ],
+        security: [{ workspaceToken: [] }],
         parameters: [],
         tags: ['Supervisor'],
       },
@@ -3554,11 +2677,7 @@ export const Schema = {
             description: 'Success',
           },
         },
-        security: [
-          {
-            workspaceToken: [],
-          },
-        ],
+        security: [{ workspaceToken: [] }],
         parameters: [],
         tags: ['Supervisor'],
       },
@@ -3568,21 +2687,11 @@ export const Schema = {
         operationId: 'supervisorReceiveKeepAliveSignal',
         responses: {
           '200': {
-            content: {
-              '*/*': {
-                schema: {
-                  type: 'object',
-                },
-              },
-            },
+            content: { '*/*': { schema: { type: 'object' } } },
             description: 'Success',
           },
         },
-        security: [
-          {
-            workspaceToken: [],
-          },
-        ],
+        security: [{ workspaceToken: [] }],
         parameters: [],
         tags: ['Supervisor'],
       },
@@ -3592,29 +2701,17 @@ export const Schema = {
         operationId: 'supervisorSetError',
         responses: {
           '200': {
-            content: {
-              '*/*': {
-                schema: {
-                  type: 'object',
-                },
-              },
-            },
+            content: { '*/*': { schema: { type: 'object' } } },
             description: 'Success',
           },
         },
-        security: [
-          {
-            workspaceToken: [],
-          },
-        ],
+        security: [{ workspaceToken: [] }],
         parameters: [],
         requestBody: {
           required: true,
           content: {
             'application/json': {
-              schema: {
-                $ref: '#/components/schemas/WorkspaceInstanceError',
-              },
+              schema: { $ref: '#/components/schemas/WorkspaceInstanceError' },
             },
           },
         },
@@ -3626,29 +2723,17 @@ export const Schema = {
         operationId: 'supervisorSetGitStatus',
         responses: {
           '200': {
-            content: {
-              '*/*': {
-                schema: {
-                  type: 'object',
-                },
-              },
-            },
+            content: { '*/*': { schema: { type: 'object' } } },
             description: 'Success',
           },
         },
-        security: [
-          {
-            workspaceToken: [],
-          },
-        ],
+        security: [{ workspaceToken: [] }],
         parameters: [],
         requestBody: {
           required: true,
           content: {
             'application/json': {
-              schema: {
-                $ref: '#/components/schemas/WorkspaceGitStatus',
-              },
+              schema: { $ref: '#/components/schemas/WorkspaceGitStatus' },
             },
           },
         },
@@ -3660,21 +2745,11 @@ export const Schema = {
         operationId: 'supervisorSupervisorCreateUserEnvironmentVariable',
         responses: {
           '201': {
-            content: {
-              '*/*': {
-                schema: {
-                  type: 'object',
-                },
-              },
-            },
+            content: { '*/*': { schema: { type: 'object' } } },
             description: 'Created',
           },
         },
-        security: [
-          {
-            workspaceToken: [],
-          },
-        ],
+        security: [{ workspaceToken: [] }],
         parameters: [],
         requestBody: {
           required: false,
@@ -3696,20 +2771,14 @@ export const Schema = {
               'application/json': {
                 schema: {
                   type: 'array',
-                  items: {
-                    $ref: '#/components/schemas/EnvironmentVariable',
-                  },
+                  items: { $ref: '#/components/schemas/EnvironmentVariable' },
                 },
               },
             },
             description: 'Success',
           },
         },
-        security: [
-          {
-            workspaceToken: [],
-          },
-        ],
+        security: [{ workspaceToken: [] }],
         parameters: [],
         tags: ['Supervisor'],
       },
@@ -3717,24 +2786,14 @@ export const Schema = {
     '/supervisor/user/environment-variables/{name}': {
       delete: {
         operationId: 'supervisorSupervisorDeleteUserEnvironmentVariable',
-        responses: {
-          '204': {
-            description: 'No Content',
-          },
-        },
-        security: [
-          {
-            workspaceToken: [],
-          },
-        ],
+        responses: { '204': { description: 'No Content' } },
+        security: [{ workspaceToken: [] }],
         parameters: [
           {
             in: 'path',
             name: 'name',
             required: true,
-            schema: {
-              type: 'string',
-            },
+            schema: { type: 'string' },
           },
         ],
         tags: ['Supervisor'],
@@ -3743,29 +2802,17 @@ export const Schema = {
         operationId: 'supervisorSupervisorUpdateUserEnvironmentVariable',
         responses: {
           '200': {
-            content: {
-              '*/*': {
-                schema: {
-                  type: 'object',
-                },
-              },
-            },
+            content: { '*/*': { schema: { type: 'object' } } },
             description: 'Success',
           },
         },
-        security: [
-          {
-            workspaceToken: [],
-          },
-        ],
+        security: [{ workspaceToken: [] }],
         parameters: [
           {
             in: 'path',
             name: 'name',
             required: true,
-            schema: {
-              type: 'string',
-            },
+            schema: { type: 'string' },
           },
         ],
         requestBody: {
@@ -3788,51 +2835,37 @@ export const Schema = {
           '200': {
             content: {
               'application/json': {
-                schema: {
-                  $ref: '#/components/schemas/ClusterList',
-                },
+                schema: { $ref: '#/components/schemas/ClusterList' },
               },
             },
             description: 'Success',
           },
         },
-        security: [
-          {
-            workspaceToken: [],
-          },
-        ],
+        security: [{ workspaceToken: [] }],
         parameters: [
           {
             in: 'query',
             name: 'clusterId',
             required: false,
-            schema: {
-              type: 'string',
-            },
+            schema: { type: 'string' },
           },
           {
             in: 'query',
             name: 'name',
             required: false,
-            schema: {
-              type: 'string',
-            },
+            schema: { type: 'string' },
           },
           {
             in: 'query',
             name: 'limit',
             required: false,
-            schema: {
-              type: 'number',
-            },
+            schema: { type: 'number' },
           },
           {
             in: 'query',
             name: 'offset',
             required: false,
-            schema: {
-              type: 'number',
-            },
+            schema: { type: 'number' },
           },
         ],
         tags: ['Supervisor'],
@@ -3847,29 +2880,20 @@ export const Schema = {
               'application/json': {
                 schema: {
                   type: 'array',
-                  items: {
-                    $ref: '#/components/schemas/Team',
-                  },
+                  items: { $ref: '#/components/schemas/Team' },
                 },
               },
             },
             description: 'Success',
           },
         },
-        security: [
-          {
-            workspaceToken: [],
-          },
-        ],
+        security: [{ workspaceToken: [] }],
         parameters: [
           {
             in: 'query',
             name: 'role',
             required: false,
-            schema: {
-              type: 'string',
-              enum: ['owner', 'admin', 'member'],
-            },
+            schema: { type: 'string', enum: ['owner', 'admin', 'member'] },
           },
         ],
         tags: ['Supervisor'],
@@ -3882,27 +2906,19 @@ export const Schema = {
           '200': {
             content: {
               'application/json': {
-                schema: {
-                  $ref: '#/components/schemas/Workspace',
-                },
+                schema: { $ref: '#/components/schemas/Workspace' },
               },
             },
             description: 'Success',
           },
         },
-        security: [
-          {
-            workspaceToken: [],
-          },
-        ],
+        security: [{ workspaceToken: [] }],
         parameters: [
           {
             in: 'path',
             name: 'id',
             required: true,
-            schema: {
-              type: 'string',
-            },
+            schema: { type: 'string' },
           },
         ],
         tags: ['Supervisor'],
@@ -3915,51 +2931,37 @@ export const Schema = {
           '200': {
             content: {
               'application/json': {
-                schema: {
-                  $ref: '#/components/schemas/WorkspaceList',
-                },
+                schema: { $ref: '#/components/schemas/WorkspaceList' },
               },
             },
             description: 'Success',
           },
         },
-        security: [
-          {
-            workspaceToken: [],
-          },
-        ],
+        security: [{ workspaceToken: [] }],
         parameters: [
           {
             required: true,
             in: 'query',
             name: 'teamId',
-            schema: {
-              type: 'string',
-            },
+            schema: { type: 'string' },
           },
           {
             in: 'query',
             name: 'workspaceId',
             required: false,
-            schema: {
-              type: 'string',
-            },
+            schema: { type: 'string' },
           },
           {
             in: 'query',
             name: 'limit',
             required: false,
-            schema: {
-              type: 'number',
-            },
+            schema: { type: 'number' },
           },
           {
             in: 'query',
             name: 'offset',
             required: false,
-            schema: {
-              type: 'number',
-            },
+            schema: { type: 'number' },
           },
         ],
         tags: ['Supervisor'],
@@ -3970,29 +2972,17 @@ export const Schema = {
         operationId: 'supervisorSupervisorPinWorkspace',
         responses: {
           '200': {
-            content: {
-              '*/*': {
-                schema: {
-                  type: 'object',
-                },
-              },
-            },
+            content: { '*/*': { schema: { type: 'object' } } },
             description: 'Success',
           },
         },
-        security: [
-          {
-            workspaceToken: [],
-          },
-        ],
+        security: [{ workspaceToken: [] }],
         parameters: [
           {
             in: 'path',
             name: 'id',
             required: true,
-            schema: {
-              type: 'string',
-            },
+            schema: { type: 'string' },
           },
         ],
         tags: ['Supervisor'],
@@ -4003,29 +2993,17 @@ export const Schema = {
         operationId: 'supervisorSupervisorShareWorkspace',
         responses: {
           '200': {
-            content: {
-              '*/*': {
-                schema: {
-                  type: 'object',
-                },
-              },
-            },
+            content: { '*/*': { schema: { type: 'object' } } },
             description: 'Success',
           },
         },
-        security: [
-          {
-            workspaceToken: [],
-          },
-        ],
+        security: [{ workspaceToken: [] }],
         parameters: [
           {
             in: 'path',
             name: 'id',
             required: true,
-            schema: {
-              type: 'string',
-            },
+            schema: { type: 'string' },
           },
         ],
         tags: ['Supervisor'],
@@ -4036,29 +3014,17 @@ export const Schema = {
         operationId: 'supervisorSupervisorStartWorkspaceInstance',
         responses: {
           '200': {
-            content: {
-              '*/*': {
-                schema: {
-                  type: 'object',
-                },
-              },
-            },
+            content: { '*/*': { schema: { type: 'object' } } },
             description: 'Success',
           },
         },
-        security: [
-          {
-            workspaceToken: [],
-          },
-        ],
+        security: [{ workspaceToken: [] }],
         parameters: [
           {
             in: 'path',
             name: 'id',
             required: true,
-            schema: {
-              type: 'string',
-            },
+            schema: { type: 'string' },
           },
         ],
         tags: ['Supervisor'],
@@ -4069,29 +3035,17 @@ export const Schema = {
         operationId: 'supervisorSupervisorStopWorkspaceInstance',
         responses: {
           '200': {
-            content: {
-              '*/*': {
-                schema: {
-                  type: 'object',
-                },
-              },
-            },
+            content: { '*/*': { schema: { type: 'object' } } },
             description: 'Success',
           },
         },
-        security: [
-          {
-            workspaceToken: [],
-          },
-        ],
+        security: [{ workspaceToken: [] }],
         parameters: [
           {
             in: 'path',
             name: 'id',
             required: true,
-            schema: {
-              type: 'string',
-            },
+            schema: { type: 'string' },
           },
         ],
         tags: ['Supervisor'],
@@ -4102,29 +3056,17 @@ export const Schema = {
         operationId: 'supervisorSupervisorUnpinWorkspace',
         responses: {
           '200': {
-            content: {
-              '*/*': {
-                schema: {
-                  type: 'object',
-                },
-              },
-            },
+            content: { '*/*': { schema: { type: 'object' } } },
             description: 'Success',
           },
         },
-        security: [
-          {
-            workspaceToken: [],
-          },
-        ],
+        security: [{ workspaceToken: [] }],
         parameters: [
           {
             in: 'path',
             name: 'id',
             required: true,
-            schema: {
-              type: 'string',
-            },
+            schema: { type: 'string' },
           },
         ],
         tags: ['Supervisor'],
@@ -4135,29 +3077,17 @@ export const Schema = {
         operationId: 'supervisorSupervisorUnshareWorkspace',
         responses: {
           '200': {
-            content: {
-              '*/*': {
-                schema: {
-                  type: 'object',
-                },
-              },
-            },
+            content: { '*/*': { schema: { type: 'object' } } },
             description: 'Success',
           },
         },
-        security: [
-          {
-            workspaceToken: [],
-          },
-        ],
+        security: [{ workspaceToken: [] }],
         parameters: [
           {
             in: 'path',
             name: 'id',
             required: true,
-            schema: {
-              type: 'string',
-            },
+            schema: { type: 'string' },
           },
         ],
         tags: ['Supervisor'],
@@ -4165,176 +3095,14 @@ export const Schema = {
     },
   },
   tags: [
-    {
-      name: 'Cluster',
-    },
-    {
-      name: 'User',
-    },
-    {
-      name: 'Workspace',
-    },
-    {
-      name: 'WorkspaceInstance',
-    },
-    {
-      name: 'Team',
-    },
-    {
-      name: 'Plan',
-    },
-    {
-      name: 'WorkspaceUsage',
-    },
-    {
-      name: 'WorkspaceSsh',
-    },
-    {
-      name: 'Supervisor',
-    },
+    { name: 'Cluster' },
+    { name: 'User' },
+    { name: 'Workspace' },
+    { name: 'WorkspaceInstance' },
+    { name: 'Team' },
+    { name: 'Plan' },
+    { name: 'WorkspaceUsage' },
+    { name: 'WorkspaceSsh' },
+    { name: 'Supervisor' },
   ],
 }
-
-export type ApiEndpoint = {
-  [route: string]: {
-    [method: string]: {
-      operationId: string
-      responses: {
-        [statusCode: string]: {
-          content: {
-            [contentType: string]: {
-              schema: {
-                type: string
-              }
-            }
-          }
-          description: string
-        }
-      }
-      security: Array<{ [security: string]: string[] }>
-      parameters?: Array<{
-        in: string
-        name: string
-        required: boolean
-        schema: {
-          type: string
-        }
-      }>
-      tags?: string[]
-    }
-  }
-}
-
-const apiEndpoints: ApiEndpoint = {
-  '/supervisor/workspace/{id}/unshare': {
-    post: {
-      operationId: 'supervisorSupervisorUnshareWorkspace',
-      responses: {
-        '200': {
-          content: {
-            '*/*': {
-              schema: {
-                type: 'object',
-              },
-            },
-          },
-          description: 'Success',
-        },
-      },
-      security: [
-        {
-          workspaceToken: [],
-        },
-      ],
-      parameters: [
-        {
-          in: 'path',
-          name: 'id',
-          required: true,
-          schema: {
-            type: 'string',
-          },
-        },
-      ],
-      tags: ['Supervisor'],
-    },
-  },
-}
-
-const example: ApiEndpoint[] = [
-  {
-    '/supervisor/workspace/{id}/unshare': {
-      post: {
-        operationId: 'supervisorSupervisorUnshareWorkspace',
-        responses: {
-          '200': {
-            content: {
-              '*/*': {
-                schema: {
-                  type: 'object',
-                },
-              },
-            },
-            description: 'Success',
-          },
-        },
-        security: [
-          {
-            workspaceToken: [],
-          },
-        ],
-        parameters: [
-          {
-            in: 'path',
-            name: 'id',
-            required: true,
-            schema: {
-              type: 'string',
-            },
-          },
-        ],
-        tags: ['Supervisor'],
-      },
-    },
-
-    '/supervisor/workspace/{id}/unshar': {
-      post: {
-        operationId: 'supervisorSupervisorUnshareWorkspace',
-        responses: {
-          '200': {
-            content: {
-              '*/*': {
-                schema: {
-                  type: 'object',
-                },
-              },
-            },
-            description: 'Success',
-          },
-        },
-        security: [
-          {
-            workspaceToken: [],
-          },
-        ],
-        parameters: [
-          {
-            in: 'path',
-            name: 'id',
-            required: true,
-            schema: {
-              type: 'string',
-            },
-          },
-        ],
-        tags: ['Supervisor'],
-      },
-    },
-  },
-]
-// map over it so it can be rendered  the first key is the route and the second is the method
-const output = Object.keys(apiEndpoints).map(route => {
-  return Object.keys(apiEndpoints[route]).map(method => {
-    return { route, method, ...apiEndpoints[route][method].responses[200] }
-  })
-})
