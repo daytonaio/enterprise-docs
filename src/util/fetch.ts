@@ -58,10 +58,10 @@ let family = {
 
 let indice: any
 
+// A function to resolve circular reference in the schema, still WIP
 function getRef(obj: any, pram: number) {
 
     const keys = Object.keys(obj)
-
 
     // in this map we store the keys and depth of nodes that we have visited
     // console.log("layer level", pram)
@@ -74,27 +74,19 @@ function getRef(obj: any, pram: number) {
 
             if (key === "$ref") {
 
-
-
                 // if it is return the value of the key and strip it to get the schema
                 const schemaValue = getSchema(obj[key])
-
 
                 // current: if gitContext's key is ref, then key "Ref" value should be the schema
 
                 // Should be: if gitContext's key is ref, then object["gitContex"] = schema
                 obj[key] = schemaValue
 
-
             }
 
             if (key !== "$ref" && typeof obj[key] === "object") {
 
-
-
                 // console.log(pram, "indices -> ", indice)
-
-
                 // if it is not a $ref and it is an object
                 // get the object and call the function again to check if there is a $ref in keys
                 const newObj = obj[key]
@@ -102,19 +94,12 @@ function getRef(obj: any, pram: number) {
                 getRef(newObj, pram + 1)
 
             }
-
-
-
-
         }
     } catch (error) {
         console.log(error)
     }
-
-
     return obj
 }
-
 
 
 export function transformResponse(route: keyof paths, method?: string) {
