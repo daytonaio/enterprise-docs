@@ -14,6 +14,7 @@ The Daytona API is a REST-styled API based on the OpenAPI 3.0.1 specification  g
 
 The API uses standard HTTP response codes and verbs, and follows `OAuth2`  authentication protocols. Any programming languages or framework that can make HTTP requests can use the API to interact with your Daytona deployment.
 
+<hr/>
 
 ## API Endpoint
 
@@ -29,6 +30,8 @@ Example as follow:
 <dt>API Documentation</dt>
 <dd>`https://api.daytona.domain.com/v3/docs`</dd>
 </dl>
+
+<hr/>
 
 ## API Basics
 
@@ -48,7 +51,7 @@ For more information on TLS support, paste your endpoint in [SSL Labs report](ht
 
 Al requests must be encoded as JSON with the `Content-Type: application/json` header. If not otherwise specified (some are `*/*`), responses from your Daytona API, including errors, are encoded as JSON as well. 
 
-
+<hr/>
 
 ## Authentication
 Unless specify differently, most of the Daytona API endpoints are token based, follows the OAuth2 authentication protocol (`client_secret`). Some of the endpoints requires a `workspaceToken` for authentication. We will walk through how you can create and authenticate via [`client_secret`](#finding-client-secret) and [`workspaceToken`](#creating-workspaceToken) in the following sections.
@@ -68,19 +71,22 @@ Setting an expiration date on an Access Token is **highly recommended** and is c
 
 You can select from a range of expiration dates, [TBC]. You can view the expiration date of an Access Token by clicking on the token in the [TBC] page.
 
-### Revoking an Access Token
+### Revoking secrets
 You can revoke an Access Token at any time from the [TBC] page. Once revoked, the token is no longer valid and cannot be used to make API calls.
 
-### Regenerating an Access Token
-
+### Regenerating secrets
 You can regenerate an Access Token at any time from the [TBC] page. Once regenerated, the old token is no longer valid and cannot be used to make API calls.
 
-### Using an Access Token
+:::note
+More example about how to use `client_secret` and `workspaceToken` in the following sections [example api request](#api-request-example).
+:::
 
 ### Failed Authentication 
 If authentication is unsuccessful for a request, the **`401`** or **`403`** response code is returned.
 
 {/*No rate limits and error handling in API/swagger?*/}
+
+<hr/>
 
 ## Versioning
 All endpoints and examples are designated with a specific version. Versions do not vary per endpoint and are global [TBC]. 
@@ -94,6 +100,7 @@ Endpoint versions follow the base URL and come before the endpoint. For example:
 ```json 
 https://api.daytona.domain.com/v3/clusters
 ```
+<hr/>
 
 ## Types 
 The following is a list of the types of data used within Daytona API: 
@@ -112,6 +119,7 @@ The following is a list of the types of data used within Daytona API:
 
 {/* {/* | `null` | A value that is `null`. | `null` |/*} */}
 
+<hr/>
 
 ## API endpoints
 Daytona's API endpoints are separated into groups based on the type of action they perform. 
@@ -130,15 +138,14 @@ Daytona's API endpoints are separated into groups based on the type of action th
 
 ### API request example 
 
+<hr/>
+
 ## API Endpoints reference
 
 #### Cluster
-
 <ApiContent routeGroup="cluster"/>
 
-
 #### User
-
 <ApiContent routeGroup="user"/>
 
 #### Workspace
@@ -146,6 +153,7 @@ Daytona's API endpoints are separated into groups based on the type of action th
 
 #### Workspace Instance
 <ApiContent routeGroup="workspace-instance"/>
+
 #### Team
 <ApiContent routeGroup="team"/>
 
@@ -159,9 +167,9 @@ Daytona's API endpoints are separated into groups based on the type of action th
 <ApiContent routeGroup="workspace-ssh"/>
 
 ### Supervisor
-
 <ApiContent routeGroup="supervisor"/>
 
-## Schema Reference
+<hr/>
 
+## Schema Reference
 <SchemaCard/>
