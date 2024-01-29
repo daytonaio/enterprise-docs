@@ -130,9 +130,10 @@ export default defineConfig({
       // }
       ]
     },
-    //     {
-    //   "label": "Administration",
-    //   "items": [{
+         {
+         "label": "Administration",
+         "items": [
+    //      {
     //     "label": "Application Logs",
     //     "link": "/administration/application-logs/",
     //     attrs: {
@@ -156,14 +157,15 @@ export default defineConfig({
     //     attrs: {
     //       icon: 'pulse.svg'
     //     },
-    //   }, {
-    //     "label": "Appearance",
-    //     "link": "/administration/appearance/",
-    //     attrs: {
-    //       icon: 'union.svg'
-    //     },
-    //   }]
-    // },
+    //   },
+           {
+           "label": "Appearance",
+           "link": "/administration/appearance/",
+           attrs: {
+             icon: 'union.svg'
+           },
+        }]
+       },
         {
       "label": "Tools and Resources",
       "items": [{
