@@ -59,9 +59,6 @@ API requests must be encoded as JSON with the `Content-Type: application/json` h
 ## Authentication
 Daytona's API key can be automatically injected into Swagger documentation after authentication. Unless specify differently, most of the Daytona API endpoints are token based, follows the OAuth2 authentication protocol (`client_secret`). We will walk through how you can create and authenticate via [`client_secret`](#finding-client-secret) to use our API endpoints in Swagger documentation.
 
-:::note 
-When `workspaceToken` is required, it overwrites the `client_secret` and you will only need `workspaceToken` to authenticate. 
-:::
 
 1. Authorize on the Swagger documentation
 - In the browser, open `https://api.daytona.domain.com/v3/docs` to access Swagger documentation.
@@ -84,7 +81,7 @@ Daytona does not offer static API keys. The `client_secret` will **expire within
 After expiration, click `Authorize` again on Swagger documentation to re-authenticate.
 :::
 
-More example about how to use `client_secret` and `workspaceToken` in the following sections [example api request](#api-request-example).
+
 
 
 ### Failed Authentication 
