@@ -14,16 +14,18 @@ import type { operations } from '../../util/generated-types'
 interface Props {
   routeGroup: string
 }
-const routes = Object.keys(Schema['paths']) as unknown as (keyof Root['paths'])[]
+const paths = Object.keys(Schema['paths']) as unknown as (keyof Root['paths'])[]
 
 const { routeGroup}: Props = Astro.props
 
-const paths = routes.filter(route => route.split("/"))
+const routes = paths.filter(route => 
+   route.split("/")[1] === routeGroup
+  )
 ---
-
+<!-- This throw red squiggle, it is caused by alpine, but it works -->
 <div>
   {
-    paths.map(path => {
+    routes.map(path => {
       const group = path.split('/')[1]
       const key = path
       // this return the methods like get, post, put, delete
