@@ -1,0 +1,38 @@
+---
+import { returnSchema } from 'src/util/fetch'
+import { Icon } from '@astrojs/starlight/components'
+import { map } from 'astro/zod'
+
+const schema = returnSchema!
+const keys = Object.keys(schema)
+---
+
+{schema && keys && keys.map(key => (<div
+  class="method-card"
+  x-data="{
+    open: false,
+    get isOpen() { return this.open },
+    toggle() { this.open = ! this.open },
+}"
+>
+  <div class="api-header" @click="toggle()">
+    <div class="api-header-left">
+      <span class="api-header-icon" :class='open ? "rotate-90" : "rotate-0"'
+        ><Icon name="right-caret" size="1.2rem" /></span
+      >
+      <div class="route">{key}</div>
+    </div>
+  </div>
+  <div class="api-body" x-show="isOpen" @click.outside="open = false">
+    <div class="api-content">
+        <div class="value">
+            <p>Type: {schema[key]["type"]}</p>
+            <div class="children-body">
+                <pre>{JSON.stringify(schema[key]["properties"], null, 2)}</pre>
+                </div>
+            </div>
+        </div>
+  </div>
+</div>
+))
+}
