@@ -49,54 +49,68 @@ function getSchema(refValue: string) {
     return apiSchema.components?.schemas[schemaString]
 }
 
-const visited = new Map()
-function getRef(obj: any, param: number) {
+let family = {
+    parent: "",
+    children: "",
+    isRef: false,
+    assigned: false,
+}
+
+let indice: any
+
+function getRef(obj: any, pram: number) {
+
     const keys = Object.keys(obj)
 
+
     // in this map we store the keys and depth of nodes that we have visited
-    console.log("layer level:", param)
+    // console.log("layer level", pram)
     try {
         // for every keys in the object
         for (const key of keys) {
 
             // check if the key is $ref, if we don't get this key, continue
-            console.log("we didn't find anything, continue")
-            console.log(key === "$ref")
+            // console.log(key === "$ref")
 
             if (key === "$ref") {
 
-                console.log("pos 4 have we ever been here?")
+
 
                 // if it is return the value of the key and strip it to get the schema
                 const schemaValue = getSchema(obj[key])
+
+
+                // current: if gitContext's key is ref, then key "Ref" value should be the schema
+
+                // Should be: if gitContext's key is ref, then object["gitContex"] = schema
                 obj[key] = schemaValue
 
 
-                visited.set(key, obj[key])
-                // turn this entire object into the schema
-
             }
-
-
 
             if (key !== "$ref" && typeof obj[key] === "object") {
 
-                console.log("pos 1 have we ever been here?")
+
+
+                // console.log(pram, "indices -> ", indice)
+
+
                 // if it is not a $ref and it is an object
                 // get the object and call the function again to check if there is a $ref in keys
-                const newObj = Object.values(obj[key])
+                const newObj = obj[key]
 
-                getRef(newObj, param + 1)
+                getRef(newObj, pram + 1)
 
             }
 
 
-            console.log("visited", visited)
+
 
         }
     } catch (error) {
         console.log(error)
     }
+
 
     return obj
 }
@@ -148,7 +162,15 @@ export function transformResponse(route: keyof paths, method?: string) {
     }
 }
 
-console.log("transformResponse", transformResponse("/workspace", "post"))
+//console.log("transformResponse", transformResponse("/workspace", "post"))
 
 const useGetRef = getRef(transformResponse("/workspace", "post"), 0)
-console.log("useGetRef", useGetRef)
+// console.log("useGetRef", useGetRef)     
+
+export function getStatusCodes(route: keyof paths, method?: string) {
+    return schema.operation(route, method).getResponseStatusCodes()
+}
+
+export const returnSchema = apiSchema.components?.schemas
+
+console.log("returnSchema", returnSchema)
