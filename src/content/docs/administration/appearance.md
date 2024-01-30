@@ -6,24 +6,33 @@ sidebar:
 ---
 Daytona has the ability to provide White Labeling as per company requirements. This means that you can add your own ‘look and feel’/company branding, presenting a unified environment and giving users a more seamless experience across your other internal tools.
 
+To begin, you will need to have the following prerequisites:
+<br>
+<br>
+- An ‘active’ Daytona License
+- A ‘White Label’ license - if you have not already done so, you will need to reach out to our Sales Team. 
+ 
 
-- To White Label Daytona, first, you need to create a container image which holds the required branded assets.
-- To create the image, please create a directory and file structure as so 
+<br>
+To White Label Daytona, first, you need to create a container image which holds the required branded assets.
+<br>
+<br>
+To create the required image, you will need to create the directory and file structure.
+
 
 
 
 - Then create a container image from the Dockerfile content provided below:
 
----
-FROM busybox
+
 
 
 ```
-COPY packages/branding/dashboard /branding/dashboard/
-COPY packages/branding/workspace-status /branding/workspace-status/
-COPY packages/branding/workspace-proxy/ /branding/workspace-proxy/
-COPY packages/branding/email-service/ /branding/email-service/
-COPY apps/docs/public/branding /branding/docs/
+COPY branding/dashboard /branding/dashboard/
+COPY branding/workspace-status /branding/workspace-status/
+COPY branding/workspace-proxy/ /branding/workspace-proxy/
+COPY branding/email-service/ /branding/email-service
+
 
 ```
 
@@ -31,7 +40,8 @@ COPY apps/docs/public/branding /branding/docs/
 
 
 
-- Push the image into a public or private registry. Now you have a branding image prepared to be used in Daytona.
+- Push the image into a public or private registry. You will now have a branding image prepared to be used within your Daytona instance.
+
 
 
 
