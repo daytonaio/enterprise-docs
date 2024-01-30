@@ -23,7 +23,7 @@ const response = transformResponse(route, method)
     {
       response ? (
         <div class="children-body">
-          <pre class="response-pre">{JSON.stringify(response, null, 2)}</pre>
+          <pre>{JSON.stringify(response, null, 2)}</pre>
         </div>
       ) : (
         'null'
