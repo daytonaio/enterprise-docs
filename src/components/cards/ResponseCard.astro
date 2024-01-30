@@ -1,7 +1,7 @@
 ---
 import ApiPropertyCardTitle from './ApiPropertyCardTitle.astro'
 import { transformResponse, getStatusCodes } from 'src/util/fetch'
-import type {  paths } from '../../util/generated-types'
+import type { paths } from '../../util/generated-types'
 interface Props {
   method: string
   property: string
@@ -11,7 +11,7 @@ interface Props {
 const { method, route, property }: Props = Astro.props
 
 const response = transformResponse(route, method)
-const statusCodes = getStatusCodes(route, method)
+// const statusCodes = getStatusCodes(route, method)
 
 // recursively look for "ref" in an object and look get its value, if none return null
 ---
@@ -19,11 +19,11 @@ const statusCodes = getStatusCodes(route, method)
 <>
   <ApiPropertyCardTitle property={property} />
   <div class="value">
-    <p>Status code: {statusCodes}</p>
+    <!-- <p>Status code: {statusCodes}</p> -->
     {
       response ? (
         <div class="children-body">
-          <pre>{JSON.stringify(response, null, 2)}</pre>
+          <pre class="response-pre">{JSON.stringify(response, null, 2)}</pre>
         </div>
       ) : (
         'null'
