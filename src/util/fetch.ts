@@ -7,7 +7,7 @@ import type { OASDocument, SchemaObject } from 'oas/types'
 // Put this in environment variable
 export const url = 'https://api.cde.agency/v3/docs/swagger.json'
 export const apiSchema = await fetch(url)
-    .then(res => res.json() as unknown as Promise<Root>)
+    .then(res => res.json() as unknown as Promise<OASDocument> as Promise<Root>)
 
 
 
@@ -30,11 +30,12 @@ export const oauth = {
     refreshUrl: 'https://id.daytona.domain.com/realms/default/protocol/openid-connect/token',
 }
 
-const apiKey = {
-    type: authObject![auth.apiKey].type! as string,
-    in: authObject![auth.apiKey].in as string,
-    name: authObject![auth.apiKey].name as string,
-}
+// This is not needed for now because we don't expose workspaceToken to end users.
+// const apiKey = {
+//     type: authObject![auth.apiKey].type! as string,
+//     in: authObject![auth.apiKey].in as string,
+//     name: authObject![auth.apiKey].name as string,
+// }
 
 
 
@@ -45,34 +46,33 @@ const responseExamples = schema.operation("/cluster", "get").getResponseExamples
 // const statusCodes = schema.operation("/cluster", "get").getResponseStatusCodes()
 
 function getSchema(refValue: string) {
-    const schemaString = refValue.split("/").pop()
-    return apiSchema.components?.schemas[schemaString]
+
+    if (typeof refValue === "string" && refValue !== undefined && refValue !== null) {
+
+        const schemaString = refValue.split("/").pop() as keyof OASDocument["components"]
+        return apiSchema.components?.schemas[schemaString]["properties"]
+    }
+    return
+
 }
 
-let family = {
-    parent: "",
-    children: "",
-    isRef: false,
-    assigned: false,
-}
 
-let indice: any
 
 // A function to resolve circular reference in the schema, still WIP
+// pram represents the depth of nodes we are visiting, start with 0
 function getRef(obj: any, pram: number) {
 
-    const keys = Object.keys(obj)
+    if (typeof obj !== undefined && typeof obj !== null) return obj
 
-    // in this map we store the keys and depth of nodes that we have visited
-    // console.log("layer level", pram)
+    const keys = Object.keys(obj)
     try {
         // for every keys in the object
         for (const key of keys) {
 
-            // check if the key is $ref, if we don't get this key, continue
-            // console.log(key === "$ref")
+            // if the key is "required" delete it
+            // if (key === "required") delete obj[key]
 
-            if (key === "$ref") {
+            if (key == "$ref") {
 
                 // if it is return the value of the key and strip it to get the schema
                 const schemaValue = getSchema(obj[key])
@@ -99,8 +99,77 @@ function getRef(obj: any, pram: number) {
         console.log(error)
     }
     return obj
+    // return initialObj
 }
 
+
+function finalResult(stepTwoSchema: any) {
+
+    if (!stepTwoSchema) return
+
+
+    const properties = stepTwoSchema.properties
+
+    if (!properties) return
+    for (let key in properties) {
+
+        Object.keys(properties).map(key => {
+
+            if (!key) return
+
+
+            if (key === "$ref") {
+                // think we should do something here? 
+
+            }
+            else if (typeof properties[key] === "object" && properties[key] !== null && properties[key] !== undefined) {
+
+                const nested = Object.keys(properties[key])
+
+                if (!nested) return
+                nested.forEach(key2 => {
+                    if (!key2) return
+
+
+                    if (!Object.keys((properties[key][key2]))) return
+
+
+                    const deph = Object.keys((properties[key][key2]))
+
+
+                    if (key2 === "$ref") {
+
+                        //assign the value of the $ref key to the base key
+                        // create a new object with the base key and the value of the $ref key
+                        //deepcopy the object
+                        const layer1 = properties[key] = getSchema(properties[key][key2])
+                    }
+
+
+                    deph.map(key3 => {
+
+                        if (!key3) return
+                        if (key3 === "$ref") {
+
+
+                            //assign the value of the $ref key to the base key 
+                            // create a new object with the base key and the value of the $ref key
+                            //deepcopy the object
+                            const layer2 = properties[key][key2] = getSchema(properties[key][key2][key3])
+
+
+                        }
+                    })
+
+                })
+
+            }
+        })
+
+
+    }
+    return properties
+}
 
 export function transformResponse(route: keyof paths, method?: string) {
 
@@ -112,7 +181,8 @@ export function transformResponse(route: keyof paths, method?: string) {
     for (const statusCode of getStatusCodes) {
 
         // get the example json response for each status code
-        const transformedResponseJson = schema
+
+        schema
             .operation(route, method)
             .getResponseAsJSONSchema(statusCode, {
                 transformer: (schema: SchemaObject) => {
@@ -124,12 +194,12 @@ export function transformResponse(route: keyof paths, method?: string) {
                         // get the value of the $ref key
                         const schemaString = schema["$ref"]?.split("/").pop()
 
-                        // get the schema of the value of the $ref key
+                        // get the schema of the value from [components][schemas] based on the $ref key
                         const schemaValue = apiSchema.components?.schemas[schemaString]
 
                         // assign it back to the schema in response body
                         schema = schemaValue
-
+                        // because the return of transformedResponseJson return objects with other things so we don't want it, but we want the value it finds.
                         schemaObject = schemaValue
                         // console.log("schemaObject", schemaObject)
                         return schemaObject
@@ -139,14 +209,24 @@ export function transformResponse(route: keyof paths, method?: string) {
             )
         const originalSchema = schema.operation(route, method).getResponseAsJSONSchema(statusCode) ?? { description: "No Content" }
 
-        return schemaObject ?? originalSchema
+        // we have the first layer of result, but this result will contain $ref key, we need to resolve it
+        const stepOneSchema = schemaObject ?? originalSchema
+
+        // second layer of result, we want to loop through each key in the object
+        const stepTwoSchema = getRef(stepOneSchema, 0)
+
+        const result = finalResult(stepTwoSchema)
+        return result
     }
 }
 
-//console.log("transformResponse", transformResponse("/workspace", "post"))
+// test if this function works
+// console.log("transformResponse", transformResponse("/workspace", "post"))
 
-const useGetRef = getRef(transformResponse("/workspace", "post"), 0)
-// console.log("useGetRef", useGetRef)     
+const useGetRef = getRef(transformResponse("/workspace", "get"), 0)
+
+
+
 
 export function getStatusCodes(route: keyof paths, method?: string) {
     return schema.operation(route, method).getResponseStatusCodes()
@@ -154,3 +234,18 @@ export function getStatusCodes(route: keyof paths, method?: string) {
 
 export const returnSchema = apiSchema.components?.schemas
 
+export function transformRequest(route: keyof paths, method?: string) {
+
+    const requestExample = schema.operation(route, method).getRequestBody() as Array<any>
+
+    const mediaType = requestExample[0]
+
+    const examples = getSchema(requestExample[1]["schema"]["$ref"])
+
+    return {
+        mediaType,
+        examples
+    }
+}
+
+// console.log("transformRequest", transformRequest("/workspace", "post"))
