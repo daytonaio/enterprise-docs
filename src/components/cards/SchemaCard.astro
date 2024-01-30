@@ -5,22 +5,21 @@ import { returnSchema } from 'src/util/fetch'
 import { Icon } from '@astrojs/starlight/components'
 
 
-const schema = returnSchema!
+const schema = returnSchema
 const keys = Object.keys(schema).filter(key => key.split("/")[0] !== "superviser")
 ---
 
-{schema && keys && keys.map(key => (<div
+{schema && keys && keys.map(key => 
+(<div
   class="method-card"
   x-data="{
     open: false,
     get isOpen() { return this.open },
-    toggle() { this.open = ! this.open },
-}"
->
+    toggle() { this.open = ! this.open }}">
   <div class="api-header" @click="toggle()">
     <div class="api-header-left">
-      <span class="api-header-icon" :class='open ? "rotate-90" : "rotate-0"'
-        ><Icon name="right-caret" size="1.2rem" /></span
+      <span class="api-header-icon" :class='open ? "rotate-90" : "rotate-0"'>
+        <Icon name="right-caret" size="1.2rem" /></span
       >
       <div class="route">{key}</div>
     </div>
@@ -28,13 +27,13 @@ const keys = Object.keys(schema).filter(key => key.split("/")[0] !== "superviser
   <div class="api-body" x-show="isOpen" @click.outside="open = false">
     <div class="api-content">
         <div class="value">
-            <p>Type: {schema[key]["type"]}</p>
+           { schema[key]["type"] && <p>Type: {schema[key]["type"]}</p>}
             <div class="children-body">
-                <pre>{JSON.stringify(schema[key]["properties"], null, 2)}</pre>
+               { schema[key]["properties"] && <pre>{JSON.stringify(schema[key]["properties"], null, 2)}</pre>}
                 </div>
             </div>
         </div>
   </div>
 </div>
-))
-}
+
+))}
