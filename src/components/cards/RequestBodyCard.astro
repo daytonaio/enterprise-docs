@@ -1,12 +1,18 @@
 ---
 import type { Root } from 'src/util/api-type'
 import ApiPropertyCardTitle from './ApiPropertyCardTitle.astro'
+import type { paths } from 'src/util/generated-types'
+import { transformRequest } from 'src/util/fetch'
 interface Props {
   property: string
   value: any
   schema: Root
+  route: keyof paths
+  method: string
 }
-const { property, value, schema } = Astro.props
+const { property, value, method, route, schema } = Astro.props
+
+const result = transformRequest(route, method)
 ---
 
 {
@@ -22,10 +28,11 @@ const { property, value, schema } = Astro.props
         )}
       </div>
 
-      <p>Example values</p>
+      <p>Media Type: {result.mediaType}</p>
+      <code>Schema:</code>
       <div class="children-body">
         {' '}
-        <pre>{JSON.stringify(value.content, null, 2)}</pre>
+        <pre>{JSON.stringify(result.examples, null, 2)}</pre>
       </div>
     </>
   )
