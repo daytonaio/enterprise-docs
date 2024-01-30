@@ -81,8 +81,10 @@ const routes = paths.filter(route =>
                             <ParameterCard value={value} property={property} />
                           ) : property === 'requestBody' ? (
                             <RequestBodyCard
+                            route={path}
+                            method={method}
                               schema={schema}
-                              value={value}
+                              value={value} 
                               property={property}
                             />
                           ) : property === 'operationId' ? (
