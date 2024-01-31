@@ -10,7 +10,7 @@ They allow you to separate projects and access to workspaces according to the ne
 
 Teams can be modified, created, and switched between using the Daytona dashboard.
 
-## Creating a new team
+## Creating a New Team
 You can create a new team using the Daytona dashboard.
 A new team will contain no workspaces or members by default.
 
@@ -24,7 +24,7 @@ The ability to utilize new teams is determined by your subscription limits.
 For more information, see *[Understanding your subscription](#understanding-your-subscription)*.
 :::
 
-## Switching teams
+## Switching Teams
 You can switch the context of the Daytona dashboard to another team.
 This allows you to control and access that team's Daytona workspaces and membership according to the access provided in your role.
 
@@ -32,7 +32,7 @@ This allows you to control and access that team's Daytona workspaces and members
 2. In the dropdown presented, click the `Switch teams` button.
 3. In the next dropdown presented, click on the team to switch to.
 
-## Inviting members to a team
+## Inviting Members to a Team
 You can invite new members to your team using the Daytona dashboard.
 This allows others to access and utilize the team's workspaces.
 
@@ -41,7 +41,7 @@ The ability to invite new members to a team is determined by your subscription l
 For more information, see *[Understanding your subscription](#understanding-your-subscription)*.
 :::
 
-## Importing members to a team
+## Importing Members to a Team
 You can import members to your team using the Daytona dashboard.
 This provides an easy method to add members to your team in bulk.
 
@@ -50,7 +50,7 @@ The ability to import members to a team is determined by your subscription limit
 For more information, see *[Understanding your subscription](#understanding-your-subscription)*.
 :::
 
-## Viewing and managing team members
+## Viewing and Managing Team Members
 You can manage the members associated with your team through the Daytona dashboard.
 This allows you to see which people are in your team, control their access within the team, and remove them as a member.
 
@@ -69,7 +69,7 @@ Each row contains the following information:
   <dd>The access level associated with the member.</dd>
 </dl>
 
-## Deleting a team
+## Deleting a Team
 
 You can delete a team from your Daytona instance. This allows you to free up resources used under your Daytona subscription, or to recreate your team from scratch.
 
@@ -83,7 +83,7 @@ Ensure that any data you require from these workspaces is backed up before execu
 3. Click the `Delete` button under the heading `Delete Team`.
 4. Verify your action using the instructions shown in the confirmation dialogue and click the `Delete` button.
 
-## Changing the name of a team
+## Changing the Name of a Team
 A team name can be changed using the Daytona dashboard.
 
 1. Verify your desired team is shown in the top-right of the page.
@@ -92,7 +92,7 @@ A team name can be changed using the Daytona dashboard.
 4. Enter your desired team name in the input field provided.
 5. Click on the `Update` button.
 
-## Understanding your subscription
+## Understanding Your Subscription
 Your Daytona subscription determines the functionality and amount of resources you can utilize within your Daytona instance.
 
 :::note
@@ -112,19 +112,19 @@ Metadata under the *Current Subscription* section specifies the limits set by yo
 This section contains the following information:
 
 <dl>
-  <dt>Current subscription plan</dt>
+  <dt>Current Subscription Plan</dt>
   <dd>The title of your current Daytona subscription plan.</dd>
-  <dt>Workspace hours</dt>
+  <dt>Workspace Hours</dt>
   <dd>The total amount of hours available to utilize during the subscription period.</dd>
-  <dt>Subscription started</dt>
+  <dt>Subscription Started</dt>
   <dd>The date the Daytona subscription began given in the format DD/MM/YYYY.</dd>
-  <dt>Parallel workspaces</dt>
+  <dt>Parallel Workspaces</dt>
   <dd>The number of workspaces allowed to be run simultaneously under the current subscription.</dd>
-  <dt>Pinned workspaces</dt>
+  <dt>Pinned Workspaces</dt>
   <dd>The number of workspaces allowed to be pinned at one time under the current subscription.</dd>
-  <dt>Subscription ends</dt>
+  <dt>Subscription Ends</dt>
   <dd>The date the current Daytona subscription ends given in the format DD/MM/YYYY.</dd>
-  <dt>Inactivity timeout</dt>
+  <dt>Inactivity Timeout</dt>
   <dd>The amount of time a workspace will be allowed run without being suspended for inactivity under the current subscription.</dd>
 </dl>
 
@@ -138,7 +138,7 @@ This section contains the following information:
   <dd>A textual and visual representation of how many workspaces are currently active compared with the subscription limit.</dd>
 </dl>
 
-## Understanding your usage
+## Understanding Your Usage
 You can get an overview of the resources being used within your current subscription limits.
 This allows you to better understand where optimizations can be made to keep your usage under your current subscription limits.
 To access this information, navigate to the *Subscription* page under the *Teams* heading in the sidebar.
