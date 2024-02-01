@@ -18,7 +18,7 @@ const shouldRenderSearch =
                 <Fragment set:html={daytonaLogo} />
             </a>
         </div>
-        <a href='/' class="dotfiles-logo"
+        <a href={import.meta.env.BASE_URL} class="dotfiles-logo"
         ><Fragment set:html={documentationIcon} />Documentation
         </a>
         <div class="nav__items_side_menu">
@@ -33,7 +33,7 @@ const shouldRenderSearch =
             </a>
         </div>
 
-        <a href='/' class="dotfiles-logo blur-section"
+        <a href={import.meta.env.BASE_URL} class="dotfiles-logo blur-section"
         ><Fragment set:html={documentationIcon} />Documentation
         </a>
     </nav>
