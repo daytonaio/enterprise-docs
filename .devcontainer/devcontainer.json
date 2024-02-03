@@ -3,6 +3,12 @@
     "build": {
       "dockerfile": "Dockerfile"
     },
+    "remoteUser": "daytona",
+    "features": {
+      "ghcr.io/devcontainers/features/common-utils:1": {
+        "username": "daytona"
+      }
+    },
     "postCreateCommand": "pnpm install",
     "waitFor": "postCreateCommand",
     "customizations": {
