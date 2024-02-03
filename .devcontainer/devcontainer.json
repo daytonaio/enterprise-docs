@@ -3,6 +3,7 @@
     "build": {
       "dockerfile": "Dockerfile"
     },
+    "remoteUser": "root",
     "postCreateCommand": "pnpm install",
     "waitFor": "postCreateCommand",
     "customizations": {
