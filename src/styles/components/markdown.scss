@@ -28,6 +28,11 @@
     margin-top: 60px;
   }
 
+  > :first-child {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+  }
+
   > p, ol, ul {
     a {
       color: var(--primary-text-color);
