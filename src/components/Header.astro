@@ -18,7 +18,7 @@ const shouldRenderSearch =
                 <Fragment set:html={daytonaLogo} />
             </a>
         </div>
-        <a href='/' class="dotfiles-logo"
+        <a href={import.meta.env.MODE==='production' ? '/docs': '/'} class="dotfiles-logo"
         ><Fragment set:html={documentationIcon} />Documentation
         </a>
         <div class="nav__items_side_menu">
