@@ -108,21 +108,19 @@ const { sublist, nested } = Astro.props;
         text-decoration: none;
         color: var(--primary-text-color);
         padding: 8px 0;
+        transition: 0.6s;
+
         > svg {
             margin-right: 10px;
             width: 16px;
             height: 16px;
+
             path {
                 fill: var(--primary-text-color);
             }
         }
     }
-
-    a:hover {
-        opacity: 0.6;
-
-    }
-    a:focus {
+    a:focus, a:hover {
         color: var(--hover-color);
         > svg {
             path {
