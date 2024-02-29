@@ -14,7 +14,7 @@ import Card from '@components/cards/Card.astro';
 import TitleCard from '@components/cards/TitleCard.astro';
 import ImageCard from '@components/cards/ImageCard.astro';
 import CardGrid from '@components/cards/CardGrid.astro';
-import VSlogo from '@assets/index/icons/VS.svg';
+import VSlogo from '@assets/index/icons/VS.svg?url';
 import PClogo from '@assets/index/images/pycharm.png';
 import vimlogo from '@assets/index/images/vim.png';
 import IJlogo from '@assets/index/images/intelliJ.png';
@@ -34,7 +34,7 @@ import IPIllustration from '@assets/index/icons/LocalHost.svg?raw';
 Discover how to connect Daytona to your favorite IDE and get coding in just a few minutes.
 
 <CardGrid gridNumber={9} mobileGridNumber={2} colsMinWidth='64px' colsMinWidthMobile='98px'>
-	<ImageCard imageDark={VSlogo} link="/tools/vs-code-extension" imageAlt="Visual Studio logo" />
+	<ImageCard icon={VSlogo} link="/tools/vs-code-extension" imageAlt="Visual Studio logo" />
 	<ImageCard  imageDark={PClogo} link="/tools/jetbrains-gateway" imageAlt="PyCharm logo" />
 	<ImageCard  imageDark={vimlogo} link="/tools/neovim" imageAlt="Vim logo" />
 	<ImageCard  imageDark={IJlogo} link="#" imageAlt="IntelliJ logo" />
