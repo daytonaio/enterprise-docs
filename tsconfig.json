@@ -3,6 +3,7 @@
   "compilerOptions": {
     "strictNullChecks": true,
     "allowImportingTsExtensions": true,
+    "moduleResolution": "bundler",
     "baseUrl": ".",
     "paths": {
       "@assets/*": ["src/assets/*"],

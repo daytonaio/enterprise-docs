@@ -5,7 +5,7 @@ import menuIcon from "../assets/icons/menu.svg";
 
 function getSVG(name: string) {
     const filepath = `/src/assets/sidebar/${name}`;
-    const files = import.meta.glob<string>('/src/assets/sidebar/*.svg',  {as: 'raw'});
+    const files = import.meta.glob<string>('/src/assets/sidebar/*.svg',  {query: '?raw', import: 'default'});
 
     if (!(filepath in files)) {
         throw new Error(`${filepath} not found`);
