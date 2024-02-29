@@ -1,6 +1,6 @@
 ---
 import { Image } from 'astro:assets';
-import textArrowIcon from '@assets/icons/text-arrow.svg'
+import textArrowIcon from '@assets/icons/text-arrow.svg?raw'
 import Default from '@astrojs/starlight/components/Footer.astro';
 import ThemeSelect from "./ThemeSelect.astro";
 
@@ -12,15 +12,15 @@ import ThemeSelect from "./ThemeSelect.astro";
 <footer class="docs-footer__container">
     <div class="docs-footer__container__support-links">
         <p>
-            <Image class="dark" src={textArrowIcon} alt="Text arrow" />Need help? - <a
+            <Fragment set:html={textArrowIcon} />Need help? - <a
                 href="#">Reach support</a>
         </p>
         <p>
-            <Image class="dark" src={textArrowIcon} alt="Text arrow" />Latest product
+            <Fragment set:html={textArrowIcon} />Latest product
             updates? - <a href="https://www.daytona.io/changelog">View Changelog</a>
         </p>
         <p>
-            <Image class="dark" src={textArrowIcon} alt="Text arrow" />Dotfiles Insider
+            <Fragment set:html={textArrowIcon} />Dotfiles Insider
             - <a href="https://www.daytona.io/dotfiles/">Read our blog</a>
         </p>
     </div>
