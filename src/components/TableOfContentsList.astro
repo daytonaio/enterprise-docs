@@ -48,10 +48,8 @@ const { toc, isMobile = false, depth = 0 } = Astro.props;
             text-underline-offset: 3.2px;
         }
     }
-    a[aria-current='true'],
-    a[aria-current='true']:hover,
-    a[aria-current='true']:focus {
-        color: var(--primary-text-color);
+     a[aria-current='true'] {
+        color: var(--primary-text-color) !important;
         :before {
             content: '_';
         }

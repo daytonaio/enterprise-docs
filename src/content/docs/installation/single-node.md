@@ -3,6 +3,8 @@ title: Single Node Installation
 description: Add a brief description of the Single Node Installation page here
 sidebar:
   label: Single Node
+licence: Free, Pro & Ultimate
+distribution: Daytona, Daytona Cloud, Daytona Self-Managed, & Daytona Dedicated
 ---
 
 ## Requirements
@@ -71,11 +73,11 @@ Number of variables you need to set ranges from 4 to 6, depending on the Identit
 
 <br>
 
-| IdP     | variables needed     |
-|--------------|--------------|
-| github, gitlab, bitbucket | URL, IDP, IDP_ID, IDP_SECRET |
-| gitlabSelfManaged | URL, IDP, IDP_ID, IDP_SECRET, IDP_URL |
-| githubEnterpriseServer | URL, IDP, IDP_ID, IDP_SECRET, IDP_URL, IDP_API_URL |
+| IdP                       | variables needed                                   |
+|---------------------------|----------------------------------------------------|
+| github, gitlab, bitbucket | URL, IDP, IDP_ID, IDP_SECRET                       |
+| gitlabSelfManaged         | URL, IDP, IDP_ID, IDP_SECRET, IDP_URL              |
+| githubEnterpriseServer    | URL, IDP, IDP_ID, IDP_SECRET, IDP_URL, IDP_API_URL |
 
 <br>
 

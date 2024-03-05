@@ -1,11 +1,10 @@
 ---
 import { Image } from 'astro:assets';
-import menuIcon from "../assets/icons/menu.svg";
 
 
 function getSVG(name: string) {
     const filepath = `/src/assets/sidebar/${name}`;
-    const files = import.meta.glob<string>('/src/assets/sidebar/*.svg',  {as: 'raw'});
+    const files = import.meta.glob<string>('/src/assets/sidebar/*.svg',  {query: '?raw', import: 'default'});
 
     if (!(filepath in files)) {
         throw new Error(`${filepath} not found`);
@@ -108,21 +107,20 @@ const { sublist, nested } = Astro.props;
         text-decoration: none;
         color: var(--primary-text-color);
         padding: 8px 0;
+        transition: 0.6s;
+
         > svg {
             margin-right: 10px;
             width: 16px;
             height: 16px;
+
             path {
+                transition: .6s;
                 fill: var(--primary-text-color);
             }
         }
     }
-
-    a:hover {
-        color: var(--primary-text-color);
-
-    }
-    a:focus {
+    a:focus, a:hover {
         color: var(--hover-color);
         > svg {
             path {
