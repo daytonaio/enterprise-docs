@@ -19,7 +19,7 @@ export default defineConfig({
     favicon: '/favicon.ico',
     title: 'Daytona',
     social: {
-      github: 'https://github.com/daytonaio'
+      github: 'https://github.com/daytonaio/daytona'
     },
     "sidebar": [{
       "label": "Getting Started",
