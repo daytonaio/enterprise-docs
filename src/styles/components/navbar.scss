@@ -36,7 +36,7 @@
     display: flex;
 
     & svg {
-      width: 128px;
+      width: 117px;
       height: 26px;
     }
 
@@ -102,7 +102,6 @@
     max-width: 1248px;
     margin: auto;
 
-
     @include for-tablet-screen-sizes {
       display: none;
     }
@@ -146,7 +145,6 @@
     }
   }
 }
-
 
 .nav__items_side_menu {
   display: flex;
