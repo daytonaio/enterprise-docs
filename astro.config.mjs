@@ -3,6 +3,7 @@ import { loadEnv } from 'vite'
 import { defineConfig } from 'astro/config';
 import starlight from '@astrojs/starlight';
 import node from '@astrojs/node'
+import react from '@astrojs/react'
 import { ExpressiveCodeTheme } from '@astrojs/starlight/expressive-code';
 
 const { PUBLIC_WEB_URL } = loadEnv(import.meta.env.MODE, process.cwd(), '')
@@ -15,7 +16,9 @@ const myThemeLight = ExpressiveCodeTheme.fromJSONString(jsonLightString);
 // https://astro.build/config
 export default defineConfig({
   site: PUBLIC_WEB_URL,
-    integrations: [starlight({
+  integrations: [
+    react(),
+    starlight({
     favicon: '/favicon.ico',
     title: 'Daytona',
     social: {

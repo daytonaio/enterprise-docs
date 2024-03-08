@@ -1,7 +1,7 @@
 ---
 import config from 'virtual:starlight/user-config';
 
-import SideNavLinks from './menu/SideNavLinks.astro'
+import { SideNavLinks } from './menu/SideNavLinks'
 import daytonaLogo from '@assets/icons/daytona-logo.svg?raw'
 import daytonaLogoIcon from '@assets/icons/logo-icon.svg?raw'
 import documentationIcon from '@assets/icons/documentation-icon.svg?raw'
@@ -22,7 +22,7 @@ const shouldRenderSearch =
         ><Fragment set:html={documentationIcon} />Documentation
         </a>
         <div class="nav__items_side_menu">
-            <SideNavLinks />
+            <SideNavLinks client:load />
         </div>
     </nav>
 
