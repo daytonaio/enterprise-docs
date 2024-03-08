@@ -225,17 +225,16 @@ export default defineConfig({
       PageTitle: './src/components/PageTitle.astro',
       Hero: './src/components/Hero.astro',
       ThemeProvider: './src/components/ThemeProvider.astro',
-      ThemeSelect: './src/components/ThemeSelect.astro'
+      ThemeSelect: './src/components/ThemeSelect.astro',
+      Head: './src/components/Head.astro',
     },
     expressiveCode: {
       themes: [myThemeDark, myThemeLight],
-    }
+    },
   })],
   output: 'hybrid',
   adapter: node({
     mode: 'middleware',
-
-
   }),
   vite: {
     ssr: {
