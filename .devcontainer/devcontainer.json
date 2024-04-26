@@ -4,7 +4,9 @@
       "dockerfile": "Dockerfile"
     },
     "remoteUser": "root",
-    "postCreateCommand": "pnpm install",
+    // Work around for https://github.com/pnpm/pnpm/issues/7024
+    "postCreateCommand": "echo 'package-import-method=clone-or-copy' >> ~/.npmrc && pnpm install",
+    "postAttachCommand": "pnpm run dev",
     "waitFor": "postCreateCommand",
     "customizations": {
       "codespaces": {
