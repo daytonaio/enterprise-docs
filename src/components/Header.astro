@@ -2,6 +2,7 @@
 import config from 'virtual:starlight/user-config';
 
 import { SideNavLinks } from './menu/SideNavLinks'
+import Version from "./Version.astro"
 import daytonaLogo from '@assets/icons/daytona-logo.svg?raw'
 import daytonaLogoIcon from '@assets/icons/logo-icon.svg?raw'
 import documentationIcon from '@assets/icons/documentation-icon.svg?raw'
@@ -18,8 +19,13 @@ const shouldRenderSearch =
                 <Fragment set:html={daytonaLogo} />
             </a>
         </div>
+        <div class="logo-divider">
+            <a href={import.meta.env.BASE_URL} class="dotfiles-logo"
+            ><Fragment set:html={documentationIcon} /> Documentation
+            </a>
+        </div>
         <a href={import.meta.env.BASE_URL} class="dotfiles-logo"
-        ><Fragment set:html={documentationIcon} />Documentation
+        > v<Version/>
         </a>
         <div class="nav__items_side_menu">
             <SideNavLinks client:load />
