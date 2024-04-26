@@ -25,188 +25,49 @@ export default defineConfig({
       github: 'https://github.com/daytonaio/daytona'
     },
     "sidebar": [
-      // {
-      // "label": "Getting Started",
-      // link: 'getting-started',
-      // attrs: {
-      //   icon: 'flag.svg'
-      // },
-      // }, 
-      // {
-      // "label": "Architecture",
-      // link: 'architecture',
-      // attrs: {
-      //   icon: 'layers.svg'
-      // },
-      // }, 
       {
         "label": "Getting Started",
         link: '/',
         attrs: {
           icon: 'flag.svg'
         },
-      }, 
+      },
       {
-      "label": "Installation",
-      "items": [{
-        "label": "Single Node",
-        "link": "/installation/single-node/",
-        attrs: {
-          icon: 'git-commit.svg'
-        },
-      }, {
-        "label": "Cluster",
-        "link": "/installation/cluster/",
-        attrs: {
-          icon: 'cluster.svg'
-        },
-      }, {
-        "label": "IDPs",
-        "link": "/installation/idps/",
-        attrs: {
-          icon: 'shield.svg'
-        },
-      }]
-    }, {
-      "label": "Configuration",
-      "items": [
-      //     {
-      //   "label": "User Types",
-      //   "link": "/configuration/user-types/",
-      //   attrs: {
-      //     icon: 'bookmark.svg'
-      //   },
-      // },
+        "label": "Explanation",
+        "items": [
           {
-        "label": "Git Providers",
-        "link": "/configuration/git-providers/",
-        attrs: {
-          icon: 'git-branch.svg'
-        },
-      }, {
-        "label": "Teams",
-        "link": "/configuration/teams/",
-        attrs: {
-          icon: 'users.svg'
-        },
-      }, {
-        "label": "Templates",
-        "link": "/configuration/templates/",
-        attrs: {
-          icon: 'copy.svg'
-        },
+            "label": "What is Daytona?",
+            "link": "/explanation/what-is-daytona",
+            attrs: {
+              icon: 'git-commit.svg'
+            },
+          },
+        ]
       },
-      //     {
-      //   "label": "Licensing (Enterprise)",
-      //   "link": "/configuration/licensing/",
-      //   attrs: {
-      //     icon: 'tag.svg'
-      //   },
-      // }
-      ]
-    }, {
-      "label": "Usage",
-      "items": [{
-        "label": "Workspaces",
-        "link": "/usage/workspaces/",
-        attrs: {
-          icon: 'computer.svg'
-        },
-      }, {
-        "label": "IDEs",
-        "link": "/usage/ides/",
-        attrs: {
-          icon: 'layout.svg'
-        },
-      }, {
-        "label": "Account",
-        "link": "/usage/account/",
-        attrs: {
-          icon: 'user.svg'
-        },
-      },
-      //     {
-      //   "label": "Projects",
-      //   "link": "/usage/projects/",
-      //   attrs: {
-      //     icon: 'folder.svg'
-      //   },
-      // }
-      ]
-    },
-    //     {
-    //   "label": "Administration",
-    //   "items": [
-    //       {
-    //     "label": "Application Logs",
-    //     "link": "/administration/application-logs/",
-    //     attrs: {
-    //       icon: 'document.svg'
-    //     },
-    //   }, {
-    //     "label": "Audit Logs",
-    //     "link": "/administration/audit-logs/",
-    //     attrs: {
-    //       icon: 'clipboard-list.svg'
-    //     },
-    //   }, {
-    //     "label": "High Density",
-    //     "link": "/administration/high-density/",
-    //     attrs: {
-    //       icon: 'table.svg'
-    //     },
-    //   }, {
-    //     "label": "Telemetry",
-    //     "link": "/administration/telemetry/",
-    //     attrs: {
-    //       icon: 'pulse.svg'
-    //     },
-    //   },
-    //       {
-    //     "label": "Appearance",
-    //     "link": "/administration/appearance/",
-    //     attrs: {
-    //       icon: 'union.svg'
-    //     },
-    //   }]
-    // },
-        {
-      "label": "Tools and Resources",
-      "items": [
-      //   {
-      //   "label": "API",
-      //   "link": "/tools/api/",
-      //   attrs: {
-      //     icon: 'switch.svg'
-      //   },
-      // }, 
       {
-        "label": "CLI",
-        "link": "/tools/cli/",
-        attrs: {
-          icon: 'terminal.svg'
-        },
-      }, {
-        "label": "VS Code Extension",
-        "link": "/tools/vs-code-extension/",
-        attrs: {
-          icon: 'vscode-alt.svg'
-        },
-      }, {
-        "label": "JetBrains Gateway",
-        "link": "/tools/jetbrains-gateway/",
-        attrs: {
-          icon: 'jetbrains.svg'
-        },
-      }]
-    },
-    // {
-    //   "label": "Contribution",
-    //   "items": [{
-    //     "label": "Guideline",
-    //     "link": "/contribution/guidelines",
-    //   }]
-    // }
+        "label": "How-To",
+        "items": [
+          {
+            "label": "Install Daytona",
+            "link": "/how-to/install",
+            attrs: {
+              icon: 'git-commit.svg'
+            },
+          }
+        ]
+      },
+      {
+        "label": "Reference",
+        "items": [
+          {
+            "label": "Daytona CLI",
+            "link": "/reference/daytona-cli",
+            attrs: {
+              icon: 'git-commit.svg'
+            },
+          }
+        ]
+      }
     ],
     tableOfContents: { minHeadingLevel: 2, maxHeadingLevel: 2 },
     customCss: ['./src/fonts/font-face.css', './src/styles/style.scss'],
