@@ -1,6 +1,6 @@
 ---
 title: <span class="hero-highlight">~</span><span class="hero-lowlight"> cd</span> daytona-docs
-description: Get started building your docs site with Starlight.
+description: Learn about managing and deploying Development Environments with Daytona.
 template: doc
 head:
   - tag: title
@@ -14,67 +14,6 @@ head:
         name: twitter:title
         content: Documentation · Daytona
 hero:
-  tagline: This documentation contains guidance and best practices that can help you get the best out of Daytona. From setting up your first workspace to the most advanced team collab.
+  tagline: Learn about managing and deploying Development Environments with Daytona.
 tableOfContents: false
 ---
-
-import Card from '@components/cards/Card.astro';
-import TitleCard from '@components/cards/TitleCard.astro';
-import ImageCard from '@components/cards/ImageCard.astro';
-import CardGrid from '@components/cards/CardGrid.astro';
-import VSlogo from '@assets/index/icons/VS.svg?url';
-import PClogo from '@assets/index/images/pycharm.png';
-import vimlogo from '@assets/index/images/vim.png';
-import IJlogo from '@assets/index/images/intelliJ.png';
-import WSlogo from '@assets/index/images/webstorm.png';
-import GOlogo from '@assets/index/images/goLand.png';
-import CLlogo from '@assets/index/images/clion.png';
-import RDlogo from '@assets/index/images/rider.png';
-import RMlogo from '@assets/index/images/rubyMine.png';
-import bitbucketLogo from '@assets/index/icons/Bitbucket.svg?raw';
-import githubLogo from '@assets/index/icons/GitHub.svg?raw';
-import gitlabLogo from '@assets/index/icons/GitLab.svg?raw';
-import hostIllustration from '@assets/index/icons/BareMetal.svg?raw';
-import IPIllustration from '@assets/index/icons/LocalHost.svg?raw';
-
-###### Get Started
-
-Discover how to connect Daytona to your favorite IDE and get coding in just a few minutes.
-
-<CardGrid gridNumber={9} mobileGridNumber={2} colsMinWidth='64px' colsMinWidthMobile='98px'>
-	<ImageCard icon={VSlogo} link="/docs/tools/vs-code-extension" imageAlt="Visual Studio logo" />
-	<ImageCard  imageDark={PClogo} link="/docs/tools/jetbrains-gateway" imageAlt="PyCharm logo" />
-	<ImageCard  imageDark={IJlogo} link="/docs/tools/jetbrains-gateway" imageAlt="IntelliJ logo" />
-    <ImageCard  imageDark={WSlogo} link="/docs/tools/jetbrains-gateway" imageAlt="WebStorm logo" />
-    <ImageCard  imageDark={GOlogo} link="/docs/tools/jetbrains-gateway" imageAlt="GoLand logo" />
-    <ImageCard  imageDark={CLlogo} link="/docs/tools/jetbrains-gateway" imageAlt="CLion logo" />
-    <ImageCard  imageDark={RDlogo} link="/docs/tools/jetbrains-gateway" imageAlt="Rider logo" />
-    <ImageCard  imageDark={RMlogo} link="/docs/tools/jetbrains-gateway" imageAlt="RubyMine logo"/>
-    <ImageCard  imageDark={vimlogo} imageAlt="Vim logo" />
-</CardGrid>
-
-
-###### GIT system
-
-<CardGrid gridNumber={3} mobileGridNumber={1} colsMinWidth='150px' colsMinWidthMobile='100px'>
-    <TitleCard icon={bitbucketLogo} title="Bitbucket" link="/docs/configuration/git-providers#bitbucket" imageAlt="BitBucket logo"/>
-    <TitleCard icon={githubLogo} title="GitHub" link="/docs/configuration/git-providers#github" imageAlt="'GitHub logo"/>
-    <TitleCard icon={gitlabLogo} title="GitLab" link="/docs/configuration/git-providers#gitlab" imageAlt="GitLab logo"/>
-</CardGrid>
-
-{/*
-###### Hosting
-
-<CardGrid gridNumber={2} mobileGridNumber={1} colsMinWidth='230px' colsMinWidthMobile='250px'>
-    <Card icon={IPIllustration}  title="Setup your Localhost" link="#" imageAlt="IP illustration">
-        Run a Daytona workspace from the comfort and safety of your very own machine
-    </Card>
-    <Card icon={hostIllustration} title="Bare Metal" link="#" imageAlt="host server illustration">
-        Host your daytona setup at Jeff’s, he is great and that certainly possible.
-    </Card>
-</CardGrid>
-*/}
-
-<hr />
-
-<strong>If you found a bug on this website, please open a new issue with as much detail as possible, including steps to replicate the bug, screenshots, links, and expected results.</strong>
