@@ -1,79 +1,100 @@
-# Daytona Development Environment Management Platform: Documentation
+<div align="center">
+ <picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://github.com/daytonaio/daytona/raw/main/assets/images/Daytona-logotype-white.png">
+  <img alt="Daytona logo" src="https://github.com/daytonaio/daytona/raw/main/assets/images/Daytona-logotype-black.png" width="40%">
+ </picture>
+</div>
 
-[![Built with Starlight](https://astro.badg.es/v2/built-with-starlight/tiny.svg)](https://starlight.astro.build)
+<br><br>
 
-## 🚀 Project Structure
+<div align="center">
 
-Inside your Daytona DEM Documentation project, powered by Astro + Starlight, you'll find the following structure:
+[![License](https://img.shields.io/badge/License-Apache--2.0-blue)](#license)
+[![Issues - daytona](https://img.shields.io/github/issues/daytonaio/enterprise-docs)](https://github.com/daytonaio/enterprise-docs/issues)
 
-```
-.
-├── public/
-├── src/
-│   ├── assets/
-│   ├── content/
-│   │   ├── docs/
-│   │   │   ├── getting-started.md
-│   │   │   ├── architecture.md
-│   │   │   ├── installation/
-│   │   │   │   ├── single-node.md
-│   │   │   │   ├── cluster.md
-│   │   │   │   ├── idps.md
-│   │   │   │   ├── domains.md
-│   │   │   │   └── uninstall.md
-│   │   │   ├── configuration/
-│   │   │   │   ├── user-types.md
-│   │   │   │   ├── git-providers.md
-│   │   │   │   ├── teams.md
-│   │   │   │   ├── templates.md
-│   │   │   │   └── licensing.md
-│   │   │   ├── usage/
-│   │   │   │   ├── workspaces.md
-│   │   │   │   ├── ides.md
-│   │   │   │   ├── account.md
-│   │   │   │   └── projects.md
-│   │   │   ├── administration/
-│   │   │   │   ├── application-logs.md
-│   │   │   │   ├── audit-logs.md
-│   │   │   │   ├── high-density.md
-│   │   │   │   ├── telemetry.md
-│   │   │   │   └── appearance.md
-│   │   │   └── tools/
-│   │   │       ├── api.md
-│   │   │       ├── cli.md
-│   │   │       ├── vs-code-extension.md
-│   │   │       └── jetbrains-gateway.md
-│   │   └── config.ts
-│   └── env.d.ts
-├── astro.config.mjs
-├── package.json
-└── tsconfig.json
-```
+</div>
 
-Daytona uses Starlight to manage documentation content. Place your `.md` or `.mdx` files in the `src/content/docs/` directory to match the structure above. These files will automatically become available as routes.
+<h1 align="center">Daytona Documentation</h1>
+<div align="center">
+Daytona's user and developer documentation.
+</div>
+</br>
 
-Store images in `src/assets/` to include them in your Markdown files with relative link `../../../assets/`.
+<p align="center">
+    <a href="https://github.com/daytonaio/enterprise-docs/issues/new?assignees=&labels=bug">Report Bug</a>
+    ·
+  <a href="https://go.daytona.io/slack">Join Our Slack</a>
+    ·
+    <a href="https://twitter.com/daytonaio">Twitter</a>
+  </p>
 
-Place static assets, such as icons and manifest files, into the `public/` directory.
+<hr/>
 
-## 🧞 Commands
+## Development
 
-Execute these commands from the root of your project in a terminal:
+The Daytona Documentation website is built using Astro and Stralight.
+The core of the website is built in React, with documentation and other content built in MDX.
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Builds your production site to `./dist/`         |
-| `npm run preview`         | Previews your build locally before deployment    |
-| `npm run astro ...`       | Runs CLI commands like `astro add`, `astro check`|
-| `npm run astro -- --help` | Provides help for using the Astro CLI            |
+### Setting up a Development Environment
 
-## 👀 Looking for more information on how to structure and develop docs with Astro and Starlight?
+The easiest way to start working on the documentation is by using a DEM such as Daytona.
+You can create a Workspace with the dependencies and configuration needed to preview the docs locally by opening the repo in your installation of Daytona.
 
-Explore [Starlight’s documentation](https://starlight.astro.build/), delve into [Astro’s docs](https://docs.astro.build), or join the vibrant [Astro Discord community](https://astro.build/chat) for support.
+Alternatively, if your local machine has Node.js and Yarn set up, you can clone this repository and execute `yarn install` to install the required dependencies.
 
-### NOTES
-- For API we are using [Starlight OpenAPI](https://github.com/HiDeoo/starlight-openapi/)
-- Currently openapi doesn't work - render menu but breaks on content
-- OpenAPI JSON needs to be converted to YAML with https://editor.swagger.io/
+### Useful Commands
+
+This repository uses Yarn to handle project management.
+For convenience, a number of scripts are defined in `package.json` that can be called using Yarn:
+
+| Command                         | Action                                                              |
+| :------------------------------ | :------------------------------------------------------------------ |
+| `yarn run dev`                  | Starts local dev server at `localhost:4321`                         |
+| `yarn run build`                | Builds your production site to `./dist/`                            |
+| `yarn run preview`              | Previews your build locally before deployment                       |
+| `yarn run astro ...`            | Runs CLI commands like `astro add`, `astro check`                   |
+| `yarn run astro -- --help`      | Provides help for using the Astro CLI                               |
+| `yarn run update-cli-reference` | Update the Daytona CLI reference docs using autogenerated CLI docs` |
+
+### Navigating the Docs
+
+On the filesystem, you'll find the content in `./src/content/docs` in the form of `.mdx` files.
+Daytona's documentation is organized into broad topics:
+
+- **Configuration**
+  Information around configuring the main components of Daytona.
+- **Installation**  
+   Information around installing Daytona under different environments.
+- **Tools**  
+   Information about supporting tools.
+- **Usage**  
+   Practical information on using Daytona.
+
+
+## Contributing
+
+Daytona is licensed under the [Apache License 2.0](LICENSE). If you would like to contribute to the software, you must:
+
+1. Read the Developer Certificate of Origin Version 1.1 (<https://developercertificate.org/>)
+2. Sign all commits to the Daytona project.
+
+This ensures that users, distributors, and other contributors can rely on all the software related to Daytona being contributed under the terms of the [License](LICENSE). No contributions will be accepted without following this process.
+
+## License
+
+This repository contains Daytona's Documentation website, covered under the Apache License 2.0, except where noted (any Daytona logos or trademarks are not covered under the Apache License, and should be explicitly noted by a LICENSE file.)
+
+Daytona is a product produced from this open source software, exclusively by Daytona Platforms, Inc. It is distributed under our commercial terms.
+
+Others are allowed to make their own distribution of the software, but they cannot use any of the Daytona trademarks, cloud services, etc.
+
+We explicitly grant permission for you to make a build that includes our trademarks while developing Daytona itself. You may not publish or share the build, and you may not use that build to run Daytona for any other purpose.
+
+## Code of Conduct
+
+This project has adapted the Code of Conduct from the [Contributor Covenant](https://www.contributor-covenant.org/). For more information see the [Code of Conduct](CODE_OF_CONDUCT.md) or contact [codeofconduct@daytona.io.](mailto:codeofconduct@daytona.io) with any additional questions or comments.
+
+## Questions
+
+If you need guideance on contributing to Daytona, talk to us on
+[Slack](https://go.daytona.io/slack).
