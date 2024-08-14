@@ -4330,16 +4330,7 @@ postcss-value-parser@^4.0.0, postcss-value-parser@^4.2.0:
   resolved "https://registry.npmjs.org/postcss-value-parser/-/postcss-value-parser-4.2.0.tgz"
   integrity sha512-1NNCs6uurfkVbeXG4S8JFT9t19m45ICnif8zWLd5oPSZ50QnwMfK+H3jv408d4jw/7Bttv5axS5IiHoLaVNHeQ==
 
-postcss@^8.4.21, postcss@^8.4.23, postcss@^8.4.28:
-  version "8.4.32"
-  resolved "https://registry.npmjs.org/postcss/-/postcss-8.4.32.tgz"
-  integrity sha512-D/kj5JNu6oo2EIy+XL/26JEDTlIbB8hw85G8StOE6L74RQAVVP5rej6wxCNqyMbR4RkPfqvezVbPw81Ngd6Kcw==
-  dependencies:
-    nanoid "^3.3.7"
-    picocolors "^1.0.0"
-    source-map-js "^1.0.2"
-
-postcss@^8.4.35:
+postcss@^8.4.21, postcss@^8.4.23, postcss@^8.4.28, postcss@^8.4.35:
   version "8.4.35"
   resolved "https://registry.yarnpkg.com/postcss/-/postcss-8.4.35.tgz#60997775689ce09011edf083a549cea44aabe2f7"
   integrity sha512-u5U8qYpBCpN13BsiEB0CbR1Hhh4Gc0zLFuedrHJKMctHCHAGrMdG0PRM/KErzAL3CU6/eckEtmHNB3x6e3c0vA==
@@ -5514,10 +5505,10 @@ vite-plugin-svgr@^4.2.0:
     "@svgr/core" "^8.1.0"
     "@svgr/plugin-jsx" "^8.1.0"
 
-vite@^5.1.2, vite@^5.1.4:
-  version "5.1.4"
-  resolved "https://registry.yarnpkg.com/vite/-/vite-5.1.4.tgz#14e9d3e7a6e488f36284ef13cebe149f060bcfb6"
-  integrity sha512-n+MPqzq+d9nMVTKyewqw6kSt+R3CkvF9QAKY8obiQn8g1fwTscKxyfaYnC632HtBXAQGc1Yjomphwn1dtwGAHg==
+vite@^5.1.2, vite@^5.1.7:
+  version "5.1.7"
+  resolved "https://registry.yarnpkg.com/vite/-/vite-5.1.7.tgz#9f685a2c4c70707fef6d37341b0e809c366da619"
+  integrity sha512-sgnEEFTZYMui/sTlH1/XEnVNHMujOahPLGMxn1+5sIT45Xjng1Ec1K78jRP15dSmVgg5WBin9yO81j3o9OxofA==
   dependencies:
     esbuild "^0.19.3"
     postcss "^8.4.35"
