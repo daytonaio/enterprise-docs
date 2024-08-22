@@ -4,44 +4,119 @@ description: Installing Daytona in cluster mode
 sidebar:
   label: Cluster
 ---
-At the moment if you want to install Daytona in cluster mode, reach out [to book a demo call](https://daytona.zapier.app/) with us and we will assist you with the installation.
 
-Our Daytona ‘Enterprise Solution is a fully scalable and secure development environment management solution - capable of allowing constructive and flowing work across multiple development teams. 
+To install Daytona in cluster mode, please contact us to [schedule a demo call](https://daytona.zapier.app/). Our team will provide assistance with the installation process.
 
-You will have access to the following features as part of your Daytona instance:
-- All features from Daytona Core (Single Node)
-- Identity and access management
-- Scalability / Resource allocation - cluster support (K8s)
-- Distributed storage support
-- Secure development environments / workspace Isolation - VM, Sysbox etc.
-- Quota and limits management (workspace sizes, active workspaces limits per user etc.) to ensure best use of team resources.
-- Teams support
-- Team projects - manage and share pre built environments across team members
-- Github, Gitlab and Bitbucket - Enterprise / Self-hosted versions support
-- Audits and monitoring/observability
+Daytona Enterprise Solution is a fully scalable and secure development environment management platform, designed to facilitate collaboration across multiple development teams.
 
+Your Daytona instance will include access to the following features:
 
+- **All features from Daytona Core (Single Node)**
+
+    Includes all functionality available in the single-node version of Daytona.
+
+- **Identity and Access Management**
+
+    Integrated solutions for managing user identities and controlling access to resources.
+
+- **Scalability and Resource Allocation - Cluster Support (K8s)**
+
+    Supports Kubernetes-based clusters for scalable resource management and efficient workload distribution.
+
+- **Distributed Storage Support**
+
+    Enables the use of distributed storage systems to manage data across the cluster.
+
+- **Secure Development Environments and Workspace Isolation**
+
+    Provides isolated and secure Workspaces using VM, Sysbox, and other technologies.
+
+- **Quota and Limits Management**
+
+    Enforces Workspace size limits and active Workspace quotas per user to optimize team resource usage.
+
+- **Teams Support**
+
+    Facilitates collaboration by organizing users into teams.
+
+- **Team Projects**
+
+    Allows for the management and sharing of pre-built environments among team members.
+
+- **Github, Gitlab and Bitbucket - Enterprise and Self-hosted Versions Support**
+
+    Compatible with enterprise and self-hosted versions of GitHub, GitLab, and Bitbucket.
+
+- **Audits, Monitoring and Observability**
+
+    Provides tools for auditing, monitoring, and observing system performance and security.
 
 ---
-User Type: Global Admin
-- Add/Remove Users on global scope
-- Enable/Disable Workspace Classes on global scope
-- By default, the user that created the team is the ‘Owner’
-- Ownership can be transferred to another team member
-- There can only ever be one team Owner
-- The Owner has access to Delete the team or change its Name
----
-User Type: Team owner
-- Add/Remove Users (in Team scope)
-- Enable/Disable Workspace Classes (in Team scope)
-- There is currently no limit to the number of Admins within the team
-- Admins can manage team members, meaning they can invite, remove and change their role within the team.
----
-User Type:  Team Member
-- Workspace management
-- Environment variables
-- User preferences (like default IDE)
-- Allowed SSH Keys
-- Regular User within the Team
-- A ‘consumer of available resources’ with no ‘management access to the team space’
 
+## Global Admin
+
+User Type: **Global Admin**
+
+- **User Management (Global Scope)**
+
+    Add or remove users across the entire system.
+
+- **Workspace Class Management (Global Scope)**
+
+    Enable or disable Workspace classes at a global level.
+
+- **Team Ownership and Management**
+
+    The user who creates a team is assigned as the 'Owner' by default.
+
+    Ownership can be transferred to another team member.
+
+    Only one team Owner is allowed.
+
+    The Owner has the authority to delete the team or modify its name.
+
+---
+
+## Team Owner
+
+User Type: **Team Owner**
+
+- **User Management (Team Scope)**
+
+    Add or remove users within the team.
+
+- **Workspace Class Management (Team Scope)**
+
+    Enable or disable Workspace classes within the team.
+
+- **Team Administration**
+
+    There is no restriction on the number of Admins within the team.
+
+    Admins have the ability to manage team members, including inviting, removing, and changing their roles.
+
+---
+
+## Team Member
+
+User Type:  **Team Member**
+
+- **Workspace Management**
+
+    Manage personal Workspaces within the team environment.
+
+- **Environment Variable Configuration**
+
+    Set and manage environment variables for personal Workspaces.
+
+- **User preferences (like default IDE)**
+
+    Customize preferences, such as the default IDE.
+
+- **SSH Key Management**
+
+    Manage allowed SSH keys for secure access.
+
+- **Regular User Role**
+
+    Operate as a regular team member with access to resources, but without management privileges within the team space.
