@@ -16,14 +16,9 @@ You can create a new team using the Daytona dashboard.
 A new team will contain no Workspaces or members by default.
 
 1. In the top-left corner of the dashboard, click on the name of the current team.
-2. In the dropdown menu presented, click the **`New team`** button.
-3. Enter the desired name for your new team in the Create Team dialogue.
-4. Click the **`Continue`** button to proceed creating your new team.
-
-:::note
-The ability to utilize new teams is determined by your subscription limits.
-For more information, see *[understand your subscription](#understand-your-subscription)*.
-:::
+2. In the dropdown menu presented, click **`+ New team`**.
+3. Enter the desired name for your team in the Create Team dialogue.
+4. Click **`Continue`** proceed with creating your team.
 
 ## Switch Teams
 
@@ -38,13 +33,14 @@ This allows you to control and access that team's Daytona Workspaces and members
 You can invite new members to your team using the Daytona dashboard.
 This allows others to access and utilize the team's Workspaces.
 
-1. In the dashboard sidebar, click the **`Members`** tab under the **Team** section in the sidebar.
+1. In the dashboard sidebar, click the **`Members`** page under the **Team** section.
 2. Click **`Add +`** to invite a new team member to your team.
 3. Enter the email of the team member you want to invite.
+4. Click  **`Invite ➜`** to send an invitation for the team member to join your team.
 
 :::note
 The ability to invite new members to a team is determined by your subscription limits.
-For more information, see *[understand your subscription](#understand-your-subscription)*.
+For more information, see *[Subscription](#subscription)*.
 :::
 
 ## Import Members to a Team
@@ -52,7 +48,7 @@ For more information, see *[understand your subscription](#understand-your-subsc
 You can import members to your team using the Daytona dashboard.
 This provides an easy method to add members to your team in bulk.
 
-1. In the dashboard sidebar, click the **`Members`** tab under **Team** section.
+1. In the dashboard sidebar, click the **`Members`** page under the **Team** section.
 2. Click **`Add +`** to invite new team members to your team.
 3. Select **`Bulk import`** to invite multiple team members.
 
@@ -62,27 +58,30 @@ Each email address should be in its own separate row entry. Email addresses that
 
 :::note
 The ability to import members to a team is determined by your subscription limits.
-For more information, see *[understand your subscription](#understand-your-subscription)*.
+For more information, see *[Subscription](#subscription)*.
 :::
 
-## View and Manage Team Members
+## Manage Team Members
 
 You can view and manage the members associated with your team through the Daytona dashboard.
 This allows you to see which people are in your team, control their access within the team, and remove them as a member.
 
-1. In the top-left corner of the dashboard, click the **`Members`** tab under **Team** section in the sidebar.
+1. In the top-left corner of the dashboard, click the **`Members`** page under **Team** section in the sidebar.
 
 You will be presented with a table of metadata relating to members on your team.
 Each row contains the following information:
 
-<dl>
-  <dt>Username</dt>
-  <dd>The username associated with the member.</dd>
-  <dt>Email</dt>
-  <dd>The email associated with the member.</dd>
-  <dt>Role</dt>
-  <dd>The access level associated with the member.</dd>
-</dl>
+- **Username**
+
+  The username associated with the team member.
+
+- **Email**
+
+  The email associated with the team member.
+
+- **Role**
+
+  The access level associated with the team member.
 
 ## Delete a Team
 
@@ -95,88 +94,106 @@ Ensure that any data you require from these Workspaces is backed up before execu
 
 <br />
 
-1. In the dashboard sidebar, click the **`Settings`** tab under **Team** section.
-2. Click the **`Delete team`** button under the **Delete Team** heading.
-3. Verify your action using the instructions shown in the confirmation dialogue and click the **`Delete team`** button.
+1. In the dashboard sidebar, click the **`Settings`** page under the **Team** section.
+2. Click **`Delete team`** under the **Delete Team** heading.
+3. Click **`Delete`** to delete your team. For security purposes, deleting a team requires you to retype the team name to confirm the action.
 
 ## Change the Team Name
 
 A team name can be changed using the Daytona dashboard.
 
-1. In the dashboard sidebar, click the **`Settings`** tab under **Team** section.
-2. Enter your desired team name in the input field provided under the **Team name** heading.
+1. In the dashboard sidebar, click the **`Settings`** page under the **Team** section.
+2. Enter your new team name in the input field provided under the **Team name** heading.
 3. Click the **`Save`** button.
 
-## Understand Your Subscription
+## Subscription
 
-Your Daytona subscription determines the functionality and amount of resources you can utilize within your Daytona instance.
+Your Daytona subscription determines the functionality and amount of resources you can utilize within your Daytona instance. The Daytona dashboard can be used to view your current subscription limits and show your resource usage.
+
+1. In the dashboard sidebar, click the **`Subscription`** page under the **Teams** section.
+
+Metadata in the Subscription page specifies the limits set by your current subscription. If a subscription does not exist for your team, the page will display *No subscription found*.
+
+- **Workspace Hours**
+
+  The total amount of hours available to utilize during the subscription period.
+
+  Example: `100`
+
+- **Parallel Workspaces**
+
+  The number of Workspaces allowed to be run simultaneously under the current subscription.
+
+  Example: `3`
+
+- **Subscription End**
+
+  The date the current Daytona subscription ends given in the format DD/MM/YYYY.
+
+  Example: `31/12/2024`
+
+- **Inactivity Timeout**
+
+  The amount of time a Workspace will be allowed run without being suspended for inactivity under the current subscription.
+
+  Example: `30 min`
+
+- **Pinned Workspaces**
+
+  The number of Workspaces allowed to be pinned at one time under the current subscription.
+
+  Example: `1`
 
 :::note
-All Daytona deployments are initially configured with the Non-Commercial License.
-For more information about this license, please visit Daytona's [End User License Agreement](https://www.daytona.io/eula).
-If you wish to upgrade your license, please [reach out to Daytona](https://daytona.zapier.app/).
-
-<br />
-
-If a subscription does not exist for your team, the **Subscription** page will display "*This team doesn't have an active subscription*".
+To upgrade your license, please [reach out to Daytona](https://daytona.zapier.app/).
 :::
 
-The Daytona dashboard can be used to view your current subscription limits and show your resource usage.
-To access this information, navigate to the *Subscription* page under the *Teams* heading in the sidebar.
+## Usage 
 
-Metadata under the *Current Subscription* section specifies the limits set by your current subscription.
-This section contains the following information:
+Daytona provides an overview of your resources usage within your current subscription limits. This allows you to better understand where optimizations can be made to keep your usage under your current subscription limits.
 
-<dl>
-  <dt>Current Subscription Plan</dt>
-  <dd>The title of your current Daytona subscription plan.</dd>
-  <dt>Workspace Hours</dt>
-  <dd>The total amount of hours available to utilize during the subscription period.</dd>
-  <dt>Subscription Started</dt>
-  <dd>The date the Daytona subscription began given in the format DD/MM/YYYY.</dd>
-  <dt>Parallel Workspaces</dt>
-  <dd>The number of Workspaces allowed to be run simultaneously under the current subscription.</dd>
-  <dt>Pinned Workspaces</dt>
-  <dd>The number of Workspaces allowed to be pinned at one time under the current subscription.</dd>
-  <dt>Subscription Ends</dt>
-  <dd>The date the current Daytona subscription ends given in the format DD/MM/YYYY.</dd>
-  <dt>Inactivity Timeout</dt>
-  <dd>The amount of time a Workspaces will be allowed run without being suspended for inactivity under the current subscription.</dd>
-</dl>
+1. In the dashboard sidebar, click the **`Usage`** page.
 
-Metadata under the *Workspace Usage* section specifies information relating to current resource usage in respect of your Daytona subscription.
-This section contains the following information:
+Metadata in the usage page specifies the current state of resources and subscription limits. If the usage does not exist for your team, the page will display *No usage found*.
 
-<dl>
-  <dt>Used Minutes</dt>
-  <dd>A textual and visual representation of how many minutes have been used during your subscription period compared with the subscription limit.</dd>
-  <dt>Active Workspaces</dt>
-  <dd>A textual and visual representation of how many Workspaces are currently active compared with the subscription limit.</dd>
-</dl>
+- **Used Credits**
 
-## Understand Your Usage
+  Credits are a measure of resource consumption. Indicates the number of credits you have used compared to your total available credits.
 
-You can get an overview of the resources being used within your current subscription limits.
-This allows you to better understand where optimizations can be made to keep your usage under your current subscription limits.
-To access this information, navigate to the *Subscription* page under the *Teams* heading in the sidebar.
+  Example: `500.00/10020`
 
-:::tip
-If your organization is reaching your subscription limits, please [reach out to us](https://daytona.zapier.app/) to discuss upgrading your limits.
-:::
+- **Active Workspaces**
 
-You are presented with a list of events that have affected resources allocated under your current subscription.
-Each row in this lists specifies the following information:
+  Specifies how many Workspaces are currently running versus the maximum number you can have active simultaneously.
 
-<dl>
-  <dt>Workspace</dt>
-  <dd>The identifier of the Workspace and link to the associated code repository.</dd>
-  <dt>Used Minutes</dt>
-  <dd>The amount of minutes this Workspace ran between <i>Started At</i> and <i>Stopped At</i>.</dd>
-  <dt>Started At</dt>
-  <dd>The date and time the Workspace was started.</dd>
-  <dt>Stopped At</dt>
-  <dd>The date and time the Workspace was stopped.</dd>
-</dl>
+  Example: `0/3`
 
-This table can be filtered by Workspace ID.
-To see usage information during a specific period, use the date toggles in the top-right corner of the page.
+- **Filter by Workspace ID**
+
+  Filter the Workspace activity by selecting a Workspace ID. Allows you to view data and usage durations for a specific Workspace only.
+
+  Example: `daytonaio-templates-docs-abc123def`
+
+- **Date Range Filter**
+
+  Filter the Workspace activity by selecting a date range. Allows you to view data and usage durations within a specific period.
+
+  Example: `From 01/01/2024 to 31/12/2024`
+
+- **Workspace Path and ID**
+
+  For each Workspace, there is an associated repository path and a unique Workspace ID.
+
+  Example: `github.com / daytonaio-templates / php`
+
+- **Start Time**
+
+  The exact date and time when the Workspace was started. This helps track when you began using the Workspace.
+
+  Example: `Started at 01/01/2024, 12:30:00`
+
+- **Usage Duration**
+
+  The amount of time the Workspace was active during its session, displayed in minutes.
+
+  Example: `30 min`
