@@ -83,6 +83,14 @@ Each row contains the following information:
 
   The access level associated with the team member.
 
+## Change the Team Name
+
+A team name can be changed using the Daytona dashboard.
+
+1. In the dashboard sidebar, click the **`Settings`** page under the **Team** section.
+2. Enter your new team name in the input field provided under the **Team name** heading.
+3. Click the **`Save`** button.
+
 ## Delete a Team
 
 You can delete a team from your Daytona instance. This allows you to free up resources used under your Daytona subscription, or to recreate your team from scratch.
@@ -97,14 +105,6 @@ Ensure that any data you require from these Workspaces is backed up before execu
 1. In the dashboard sidebar, click the **`Settings`** page under the **Team** section.
 2. Click **`Delete team`** under the **Delete Team** heading.
 3. Click **`Delete`** to delete your team. For security purposes, deleting a team requires you to retype the team name to confirm the action.
-
-## Change the Team Name
-
-A team name can be changed using the Daytona dashboard.
-
-1. In the dashboard sidebar, click the **`Settings`** page under the **Team** section.
-2. Enter your new team name in the input field provided under the **Team name** heading.
-3. Click the **`Save`** button.
 
 ## Subscription
 
