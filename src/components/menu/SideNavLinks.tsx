@@ -29,17 +29,17 @@ export const SideNavLinks = () => {
   return (
     <>
       <div className="nav-item call">
-        <a
+        {/* <a
           href="https://daytona.zapier.app/"
           target="_blank"
           className="nav__link"
           rel="noreferrer"
         >
           Get a Demo
-        </a>
+        </a> */}
       </div>
       <div className="nav-item github">
-        <a
+        {/* <a
           href="https://github.com/daytonaio/daytona"
           target="_blank"
           className="nav__link"
@@ -63,7 +63,7 @@ export const SideNavLinks = () => {
             : stars === null
             ? 'Star'
             : GITHUB_STARS_FORMATTER.format(stars)}
-        </a>
+        </a> */}
       </div>
     </>
   )
