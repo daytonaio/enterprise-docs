@@ -40,39 +40,35 @@ The simplest example of a template includes the listed properties. Each of the p
 
 {/* <!-- TODO: try template created in one repo and see if the problem with setting remote origin URL persists.  --> */}
 
-<dl>
-<dt>name</dt>
-<dd>
-Required.
+- **`name`**
 
-Name of the template being displayed on the Daytona dashboard.
-</dd>
-<dt>description</dt>
-<dd>
-Required.
+  Required.
 
-The description of the template. This property won't be displayed it'd be helpful to take notes when you are creating them.
-</dd>
-<dt>gitUrl</dt>
-<dd>
-Required.
+  The name of the template being displayed on the Daytona dashboard.
 
-The content of this template.
-</dd>
-<dt>imageUrl</dt>
-<dd>
-Required.
+- **`description`**
+  
+    Required.
+    
+    The description of the template. This property won't be displayed it'd be helpful to take notes when you are creating them.
 
-An image display on the template when it is deployed to the dashboard. It supports JPG, JPEG, SVG and PNG formats. It can be a link to any public image.
-</dd>
-<dt>rawReadmeUrl</dt>
-<dd>
-Required.
+- **`gitUrl`**
+  
+    Required.
+    
+    The content of the template.
 
-Textual content is displayed on the pop-up dialog after you click on the selected template button on the dashboard. It is used to help users understand the content of the template. 
-It has to be the raw content of a markdown file. 
-</dd>
-</dl>
+- **`imageUrl`**
+    
+    Required.
+    
+    An image display on the template when it is deployed to the dashboard. It supports *JPG*, *JPEG*, *SVG* and *PNG* formats. It can link to any public image.
+
+- **`rawReadmeUrl`**
+      
+    Required.
+      
+    Textual content is displayed on the pop-up dialog after you click on the selected template button on the dashboard. It is used to help users understand the content of the template. It has to be the raw content of a markdown file.
 
 ## Customizing Templates
 
