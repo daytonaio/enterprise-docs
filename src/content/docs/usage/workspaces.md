@@ -122,7 +122,9 @@ Daytona allows you to delete one or more Workspaces, helping you manage your dev
 
 ## Workspace Classes
 
-The Workspace class allows you to select the amount of resources allocated to your Workspace. You can choose from different configurations depending on your requirements:
+Workspace classes are predefined configurations that allow users to select the amount of resources allocated to their workspace based on their specific requirements. The classes exist to simplify the process of resource allocation, ensuring that users can choose a setup that meets their requirements without manually specifying the details.
+
+Each Workspace class specifies the amount of CPU, RAM, disk storage, and optionally, GPU resources available to a Workspace. The appropriate selection of a Workspace class depends on the intensity and nature of the tasks to be performed within the Workspace.
 
 | **Workspace Class** | **CPU** | **RAM** | **GB** | **GPU** |
 |---------------------|---------|---------|--------|---------|
@@ -130,3 +132,39 @@ The Workspace class allows you to select the amount of resources allocated to yo
 | Large               | 8       | 32 GB   | 50 GB  |         |
 | Medium              | 4       | 16 GB   | 50 GB  |         |
 | Small               | 2       | 8 GB    | 50 GB  |         |
+
+- **GPU**
+
+  The GPU class is designed for workloads that require GPU acceleration, such as machine learning, deep learning, or other compute-intensive tasks. It ensures that the Workspace has access to a dedicated GPU, which significantly speeds up processing for such tasks.
+
+- **Large**
+
+  The Large class is suitable for large-scale processing tasks or applications that require significant computational power and memory, but do not need a GPU. This class is ideal for running multiple heavy applications simultaneously.
+
+- **Medium**
+
+  The Medium class balances performance and resource usage, making it suitable for general-purpose tasks that require moderate processing power and memory.
+
+- **Small**
+
+  The Small class is ideal for light workloads or development environments where minimal computational resources are needed. This class is the most resource-efficient, making it a good choice for simple applications and tasks.
+
+The resources available for each Workspace class are constrained by the hardware node availability within the cluster. Each node in the cluster has a finite amount of CPU, RAM, storage, and GPU resources. The maximum number of Workspaces that can be provisioned depends on these hardware limits.
+
+### Overprovisioning
+
+Overprovisioning is a technique used to increase the density of Workspaces per hardware node in the cluster. By setting an overprovisioning factor, the provisioner can create more Workspaces than would be possible if each Workspace was allocated resources strictly according to its "request" values.
+
+Each Workspace class defines both a "request" (the minimum guaranteed resources) and a "limit" (the maximum resources it can use). Overprovisioning works by lowering the "request" values below the actual "limits," allowing the provisioner to fit more Workspaces on a node than would be possible if resources were allocated strictly based on "limits."
+
+- **Pros**
+
+  Overprovisioning allows for more efficient utilization of hardware by packing more Workspaces onto a single node. By maximizing resource usage, overprovisioning can lead to cost savings, as fewer nodes may be needed to host the same number of Workspaces.
+
+- **Cons**
+
+  If all Workspaces attempt to use their full "limit" at the same time, the node may run out of resources. This can lead to performance degradation or even Workspace eviction.
+
+  In scenarios where Workspaces have unpredictable or highly variable workloads, overprovisioning can cause instability, making it challenging to ensure consistent performance.
+
+While overprovisioning can significantly increase the efficiency and cost-effectiveness of resource usage in a cluster, it must be carefully managed to avoid potential drawbacks, such as unexpected Workspace eviction or performance issues due to resource contention.
