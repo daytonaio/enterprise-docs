@@ -1,0 +1,161 @@
+---
+title: Getting Started
+description: Get started building your docs site with Starlight.
+template: doc
+head:
+  - tag: title
+    content: Documentation · Daytona
+  - tag: meta
+    attrs:
+        property: og:title
+        content: Documentation · Daytona
+  - tag: meta
+    attrs:
+        name: twitter:title
+        content: Documentation · Daytona
+tableOfContents: true
+---
+
+import Card from '@components/cards/Card.astro';
+import TitleCard from '@components/cards/TitleCard.astro';
+import ImageCard from '@components/cards/ImageCard.astro';
+import CardGrid from '@components/cards/CardGrid.astro';
+import DocumentList from '@components/DocumentList.astro'
+import DocumentListItem from '@components/DocumentListItem.astro'
+import VSlogo from '@assets/index/icons/VS.svg?url';
+import PClogo from '@assets/index/images/pycharm.png';
+import IJlogo from '@assets/index/images/intelliJ.png';
+import WSlogo from '@assets/index/images/webstorm.png';
+import GOlogo from '@assets/index/images/goLand.png';
+import CLlogo from '@assets/index/images/clion.png';
+import RDlogo from '@assets/index/images/rider.png';
+import RMlogo from '@assets/index/images/rubyMine.png';
+import bitbucketLogo from '@assets/index/icons/Bitbucket.svg?raw';
+import githubLogo from '@assets/index/icons/GitHub.svg?raw';
+import gitlabLogo from '@assets/index/icons/GitLab.svg?raw';
+import hostIllustration from '@assets/index/icons/BareMetal.svg?raw';
+import IPIllustration from '@assets/index/icons/LocalHost.svg?raw';
+
+This section will guide you through the steps required to install, configure, and use Daytona to manage your development environments.
+
+## Before you Begin
+
+Before installing and using Daytona, ensure that your operating system meets the necessary requirements and dependencies. 
+
+## Installing Daytona
+
+Follow the instructions provided in the installation guide to install Daytona on your operating system. The guide includes detailed steps for installing Daytona using Single Node, Cluster, and Identity Providers.
+
+The installation process may vary depending on your environment. Refer to the guide for comprehensive instructions tailored to your setup.
+
+<DocumentList>
+<DocumentListItem
+    title="Single Node Installation"
+    href="/installation/single-node"
+  />
+  <DocumentListItem
+    title="Cluster Installation"
+    href="/installation/cluster"
+  />
+  <DocumentListItem
+    title="Identity Providers Installation"
+    href="/installation/idps"
+  />
+</DocumentList>
+
+Once you have completed the installation, you will be ready to start using Daytona to manage and develop your development environments. If you encounter any issues during installation, consult by reaching out to Daytona's [Slack community](https://go.daytona.io/slack) for assistance.
+
+## Adding a Git Provider
+
+You can integrate Daytona with a Git Provider to manage version control operations and interact with your Git repositories.
+
+Daytona supports a variety of Git Providers, including [GitHub](/configuration/git-providers/#github), [GitLab](/configuration/git-providers/#gitlab), [Bitbucket](/configuration/git-providers/#bitbucket), and [Bitbucket Server](/configuration/git-providers/#bitbucket-server).
+
+This integration supports and enables interacting with your codebase, cloning repositories, and pushing changes directly from Daytona.
+
+<CardGrid gridNumber={3} mobileGridNumber={1} colsMinWidth='150px' colsMinWidthMobile='100px'>
+    <TitleCard icon={githubLogo} title="GitHub" link="/configuration/git-providers#github" imageAlt="'GitHub logo"/>
+    <TitleCard icon={gitlabLogo} title="GitLab" link="/configuration/git-providers#gitlab" imageAlt="GitLab logo"/>
+    <TitleCard icon={bitbucketLogo} title="Bitbucket" link="/configuration/git-providers#bitbucket" imageAlt="BitBucket logo"/>
+</CardGrid>
+
+<DocumentList>
+<DocumentListItem
+    title="Add a Git Provider"
+    subtitle="Learn how to add a Git Provider to Daytona and start managing your repositories effectively."
+    href="/configuration/git-providers#add-a-git-provider"
+    expanded
+  />
+</DocumentList>
+
+## Choosing the Default IDE
+
+Daytona allows you to connect to your development environment using a variety of [IDEs](/usage/ide/), including popular options like [Visual Studio Code (VSCode)](/usage/ide/#vs-code) and JetBrains IDEs.
+
+By setting the default IDE, you can automatically open your development environment in your preferred environment, optimizing your workflow and reducing setup time.
+
+1. In the Daytona dashboard, navigate to your profile account icon and select **`Settings`**.
+2. Click **`Default IDE`** dropdown menu to select your default IDE for opening development environments.
+
+<br />
+
+<CardGrid gridNumber={9} mobileGridNumber={2} colsMinWidth='16px' colsMinWidthMobile='98px'>
+  <ImageCard icon={VSlogo} link="/usage/ide#vs-code" imageAlt="Visual Studio logo" />
+  <ImageCard imageDark={PClogo} link="/usage/ide#jetbrains-pycharm-professional" imageAlt="PyCharm logo" />
+  <ImageCard imageDark={IJlogo} link="/usage/ide#jetbrains-intellij-idea-ultimate" imageAlt="IntelliJ logo" />
+  <ImageCard imageDark={WSlogo} link="/usage/ide#jetbrains-webstorm" imageAlt="WebStorm logo" />
+  <ImageCard imageDark={GOlogo} link="/usage/ide#jetbrains-goland" imageAlt="GoLand logo" />
+  <ImageCard imageDark={CLlogo} link="/usage/ide#jetbrains-clion" imageAlt="CLion logo" />
+  <ImageCard imageDark={RDlogo} link="/usage/ide#jetbrains-rider" imageAlt="Rider logo" />
+  <ImageCard imageDark={RMlogo} link="/usage/ide#jetbrains-rubymine" imageAlt="RubyMine logo"/>
+</CardGrid>
+
+Upon selecting, Daytona will set it as the default IDE. You can now automatically open your development environment with the selected IDE already connected.
+
+<DocumentList>
+<DocumentListItem
+    title="Set Default IDE"
+    subtitle="Learn how to set your default IDE to automatically open your development environment."
+    href="/usage/ide#set-the-default-ide"
+    expanded
+  />
+</DocumentList>
+
+## Creating your Workspace
+
+Creating a Workspace allows you to set up a new environment either by selecting a repository from a configured Git provider like GitHub, GitLab, Bitbucket, or Gitea, or by manually entering a Git repository URL.
+
+1. Click `Create +` to create a Workspace.
+
+2. Select the `Git repository` you want to use or enter a custom repository URL. Daytona provides two options for linking your repository:
+
+   - **Selecting from a List of Repositories**
+
+     If you select a Git repository (e.g., GitHub), you will be presented with a list of your repositories from which you can select the desired repository.
+
+   - **Entering a Custom Repository URL**
+
+     Alternatively, you can enter a custom repository URL manually if the repository is not listed under your Git Provider account or is from an external source.
+
+3. Select the `dev container configuration file` for your Workspace.
+
+4. Select the default `IDE` to use for your Workspace.
+
+5. Select `Workspace class` to allocate resources for your Workspace.
+
+6. Click `Continue` to proceed with the Workspace creation process.
+
+  ```text
+    ⠋ Warming up...
+  ```
+
+  Wait while Daytona sets up your Workspace. It handles all the initialization and configuration of your environment.
+
+<DocumentList>
+<DocumentListItem
+    title="Create a Workspace"
+    subtitle="Learn how to create your Workspace using Daytona."
+    href="/usage/workspaces#create-a-workspace"
+    expanded
+  />
+</DocumentList>

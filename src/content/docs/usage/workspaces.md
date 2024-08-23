@@ -1,80 +1,132 @@
 ---
-title: Workspaces Usage
+title: Workspaces
 description: Add a brief description of the Workspaces Usage page here
 sidebar:
   label: Workspaces
 ---
 
-## What are Workspaces?
-
 A workspace is a self-contained development environment, pre-configured with the project’s source code, required dependencies, necessary tools, and extensions to optimize workflow for your development team.
 
 Daytona workspaces simplify the setup and configuration of development environments, integrate various tools, automate repetitive tasks, and ensure a consistent experience across different teams and projects. By following established practices and automation, Development Environment Management ensures that all developers have access to a consistent, secure, and standardized environment, ultimately enhancing productivity and streamlining the software development process.
 
-### Workspaces Overview
+## Create a Workspace
 
-- **Location in Dashboard**: In the web dashboard, look for the `Workspaces` section on the left-hand side.
-- **Creating Workspaces**: Click the `Create` button in the workspaces section to start a new workspace.
-- **List of Workspaces**: View and manage your existing workspaces listed in this section.
+Creating your own Workspace in Daytona is a straightforward process that ensures you have a dedicated environment for your projects.
 
-### Accessing Daytona Workspaces
+Creating a Workspace allows you to set up a new environment either by selecting a repository from a configured Git provider like GitHub, GitLab, or Bitbucket, or by manually entering a Git repository URL.
 
-1. **Login**: Log in to your Daytona installation. If you don't have one, refer to the installation documentation to set up your Daytona instance.
-2. **Navigating to Dashboard**: Once logged in, navigate to the URL you set up to access the Daytona dashboard.
+1. Click `Create +` to create a Workspace.
 
-## Creating Workspaces
+2. Select the `Git repository` you want to use or enter a custom repository URL. Daytona provides two options for linking your repository:
 
-### Creation Process
+   - **Selecting from a List of Repositories**
 
-#### Dashboard Creation
+     If you select a Git repository (e.g., GitHub), you will be presented with a list of your repositories from which you can select the desired repository.
 
-1. **Starting Creation**: Click `Create` to import a project from a repository.
-2. **Importing Projects**: To set up a workspace using an existing repository in Daytona, will be prompted to import a project from your Git provider (GitHub, GitLab, Bitbucket) which you can select from the drop-down menu. You will find your own repositories as well as those from organizations you are part of.
-3. **Using Public Repositories**: Alternatively, enter a public URL to a repository you have access to.
-4. **Templates**: If you are starting a new project or prefer to use a template, Daytona provides a variety of templates in different programming languages, each with sample projects to help you kickstart your development.
-5. **Initiating Workspace**: After selecting the repository, clicking `Create` begins the workspace setup process.
+   - **Entering a Custom Repository URL**
 
-#### Web Browser Creation
+     Alternatively, you can enter a custom repository URL manually to find the repository is not listed under your Git Provider account or is from an external source.
 
-1. **Starting Creation**: In your Browser type in your prefix your GitHub or GitLab repository with your domain. For example,
+3. Select the dev container `configuration file` for your Workspace.
+
+4. Select the default `IDE` to use for your Workspace.
+
+5. Select the [**`Workspace class`**](#workspace-classes) to allocate resources for your Workspace.
+
+6. Click `Continue` to proceed with the Workspace creation process.
+
+  ```text
+    ⠋ Warming up...
+  ```
+
+  Wait while Daytona sets up your Workspace. It handles all the initialization and configuration of your environment.
+
+<!-- #### Web Browser Creation
+
+1. **Starting Creation** 
+
+  In your Browser type in your GitHub or GitLab repository prefix with your domain. For example,
 
 ```bash
 {{domain-name}}/#{{link-to-github-repo}}
-```
+``` -->
 
-2. **Initiating Workspace**: After selecting typing it in, clicking `Enter` begins the workspace setup process.
+## Open a Workspace
 
-#### CLI Creation
+Daytona allows you to open an existing Workspace in your [IDE](/usage/ide). This enables you to quickly access and work on your projects in your preferred development environment. With Daytona, you can effortlessly switch between different Workspaces and maintain an efficient workflow.
 
-1. **Starting Creation**: In your terminal use the following command:
+1. In the Daytona dashboard, click the IDE button of the Workspace you want to open. This will automatically launch your Workspace in the selected IDE.
 
-```bash
-daytona create
-```
+## Manage a Workspace
 
-2. **More Information**: Please refer to the [CLI documentation](/docs/tools/cli) for more information
+Daytona allows you to access and manage your Workspace, providing a detailed overview of the Workspace configuration.  
 
-### Creation States
+1. Click the top-right corner of the Workspace to expand the details.
 
-- **Warming Up**: The initial phase where the virtual machine (VM) for your workspace is being started.
-- **Initializing**: In this phase, Daytona clones the repository and starts installing necessary components based on your repository's configuration.
-- **Starting**: Finalizing the setup, this phase involves spinning up all the services required for your workspace.
-- **Opening IDE**: Depending on your settings, Daytona will open the workspace in the default or selected IDE.
+Once expanded, you will be presented with the following options and information:
 
-## Managing Workspaces
+- **Workspace ID**
 
-### Accessing Workspace
+  A unique identifier for your Workspace.
 
-- **Open in IDE** Click on the Workspace name to open it in the default IDE
-- **SSH Connection**: Securely connect to your workspace via SSH using a public key or an access token, by clicking on `Connect via SSH`
-- **Workspace Manipulation**: Clicking on the expanded menu of a workspace `...` Easily `Stop` or `Delete` workspaces. Deletion requires retyping the name to confirm for security.
-- **Workspace Status**:color-coded: green for started, purple for starting, red for stopped.
-- **Workspace Status**: Linked Git repository and branch information can be found below every Workspace's name
+  Example: `daytonaio-templates-base-abc123def`
 
-### Expanded Workspace Options
+- **Workspace Class**
 
-Information that can be found hitting the expanded view of a workspace
+  Describes the resource allocation and configuration of your Workspace. Read more about managing [Workspace classes](#workspace-class).
 
-- **Pin Workspaces**: Pin frequently used workspaces for quick access.
-- **Changing IDE**: IF you would like to open the Workspace in a different IDE that set by default, click `Open` to Switch between different IDEs for opening your workspace.
-- **Workspace Creation Date**: To find the time and date of creation, click on `Info`.
+- **Created At**
+
+  The timestamp showing when the Workspace was initially created.
+
+  Example: `01/08/2024, 02:30:00`
+
+- **Updated At**
+
+  The timestamp showing the last time the Workspace settings or configuration was modified.
+
+  Example: `05/08/2024, 03:45:00`
+
+- **`Start`**
+
+  Initiates the Workspace, making it active and ready for use.
+
+- **`Delete`**
+
+  Permanently removes the Workspace and all associated data.
+
+- **`Shared`**
+
+  Manages the sharing settings of the Workspace, allowing you to collaborate with others.
+
+- **Launch remote environment**
+
+  Starts the Workspace in a remote environment, allowing you to access it with the selected [IDE](/usage/ide).
+
+- **Connect via SSH**
+
+  Daytona allows secure remote access to your Workspace via SSH. You can connect using either a Public Key or an Access Token. Once selected, you will be provided with a command to with SSH to your Workspace.
+
+  <br />
+
+  :::caution
+  Anyone with the following command will be able to connect to this workspace. The command includes a generated access token that changes each time the Workspace restarts.
+  :::
+
+## Delete a Workspace
+
+Daytona allows you to delete one or more Workspaces, helping you manage your development environments by removing those that are no longer needed.
+
+1. Expand the selected Workspace to view its configuration and details.
+2. Click the **`Delete`** button to delete your Workspace. For security purposes, deleting a Workspace requires you to retype the Workspace name to confirm the action.
+
+## Workspace Classes
+
+The Workspace class allows you to select the amount of resources allocated to your Workspace. You can choose from different configurations depending on your requirements:
+
+| **Workspace Class** | **CPU** | **RAM** | **GB** | **GPU** |
+|---------------------|---------|---------|--------|---------|
+| GPU                 | 4       | 16 GB   | 50 GB  | 1       |
+| Large               | 8       | 32 GB   | 50 GB  |         |
+| Medium              | 4       | 16 GB   | 50 GB  |         |
+| Small               | 2       | 8 GB    | 50 GB  |         |

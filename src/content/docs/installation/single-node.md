@@ -1,114 +1,161 @@
 ---
 title: Single Node Installation
-description: Add a brief description of the Single Node Installation page here
+description: Learn how to install and configure Daytona using a Single Node.
 sidebar:
   label: Single Node
 ---
 
 ## Requirements
 
-Before starting the installation script, please go over all the necessary requirements.
+Before installing and using Daytona, ensure that your operating system meets the necessary requirements and dependencies.
 
-### Host where the environment will be installed
+### Environment Host Requirements
 
-* Host minimum hardware specification
-    * x86_64 architecture Linux OS
-    * min 4 vcpu
-    * min 16GB RAM
-    * min 200GB disk
-* The host needs to have public IP and TCP ports 80, 443, and 30000 opened (also TCP 6443 if you want to access the Kubernetes cluster from your local machine)
-* The script has been currently tested on Debian-based distros (Ubuntu 22.04/Ubuntu 23.04/Debian 12)
+| **Minimum Hardware Specifications** | **Requirement**                   |
+|-------------------------------------|-----------------------------------|
+| Architecture                        | x86_64 architecture with Linux OS |
+| vCPUs                               | Minimum 4 vCPUs                   |
+| RAM                                 | Minimum 16GB RAM                  |
+| Disk Space                          | Minimum 200GB disk space          |
+
+The host must have a public IP with TCP ports `80`, `443`, and `30000` open (TCP `6443` is required for local access to the Kubernetes cluster).
+
+The script has been tested on Debian-based distributions: Ubuntu 22.04, Ubuntu 23.04, and Debian 12.
 
 ### Valid domain
-Registered domain with base domain and wildcard pointed to your host IP where
+
+A registered domain is required with both base and wildcard DNS A records pointing to the host IP address:
+
 * domain name IN A host.ip
 * *.domain-name IN A host.ip
 
-### OAuth App created with one of the Identity providers
-One of the identity provider OAuth App set:
+### OAuth Application Configuration with Identity Providers
+
+Configure an OAuth application with one of the supported identity providers:
+
 * [GitHub OAuth App](https://docs.github.com/en/apps/oauth-apps/building-oauth-apps/creating-an-oauth-app)
 * [GitLab OAuth App](https://docs.gitlab.com/ee/integration/oauth_provider.html)
 * [Bitbucket OAuth](https://support.atlassian.com/bitbucket-cloud/docs/use-oauth-on-bitbucket-cloud/)
 
-Values to set in the identity provider:
-* Homepage URL: https://{{ domain-name }}
-* Authorization callback URL: https://id.{{ domain-name }}
+When setting up the OAuth application, ensure the following parameters are correctly configured within the identity provider:
+
+* **Homepage URL**
+
+The homepage URL should be set to the root of your domain. It defines where users are redirected after authentication.
+
+Example: `https://{{ domain-name }}`
+
+* **Authorization callback URL**
+
+The authorization callback URL is where the identity provider will send the user after successful authorization, along with an authorization code that your application will exchange for an access token.
+
+Example: `https://id.{{ domain-name }}`
 
 ## Setup
 
+Follow these steps to clone the installer repository and initiate the setup process:
+
+```shell
+    git clone https://github.com/daytonaio/installer
 ```
-git clone https://github.com/daytonaio/installer
-cd installer
-./setup.sh
+```shell
+    cd installer
+```
+```shell
+    ./setup.sh
 ```
 
-Here is the prompt you will receive if you choose Github IdP for example:
+During the setup process, you will be prompted to configure your application with the necessary details specific to your chosen Identity Provider (IdP). For example, if you select `GitHub` as your IdP, you will see the following prompts:
+
 ```
-./setup.sh
-...
-Enter app hostname (valid domain) [URL]: daytona.example.com
-Identity Providers (IdP) available [IDP]:
-1) github
-2) gitlab
-3) bitbucket
-4) gitlabSelfManaged
-5) githubEnterpriseServer
-Choose an IdP (type the number and press Enter): 1
-Enter IdP Client ID [IDP_ID]: changeme
-Enter IdP Client Secret (IDP_SECRET) (input hidden):
+    Enter app hostname (valid domain) [URL]: daytona.example.com
+
+    Identity Providers (IdP) available [IDP]:
+    1) github
+    2) gitlab
+    3) bitbucket
+    4) gitlabSelfManaged
+    5) githubEnterpriseServer
+
+    Choose an IdP (type the number and press Enter): 1
+    Enter IdP Client ID [IDP_ID]: changeme
+    Enter IdP Client Secret (IDP_SECRET) (input hidden):
 ```
 
-You will be prompted for the required values you need to set depending on the Identity provider chosen.
+You will need to provide several values depending on the Identity Provider selected:
 
-* `URL` - domain name you have set in your DNS provider and pointing to IP address of the machine where you are deploying Daytona
-* `IDP` - name of identity provider to use (available are: github, gitlab and bitbucket)
-* `IDP_URL` - (required if IDP is `gitlabSelfManaged` or `githubEnterpriseServer`) This is the base URL of your hosted Git provider.
-* `IDP_API_URL` - (required if IDP is `githubEnterpriseServer`) This is the API URL of GitHub Enterprise Server.
-* `IDP_ID` - client ID you get from your identity provider as stated in [Requirements](#requirements)
-* `IDP_SECRET` - client secret you get from your identity provider as stated in [Requirements](#requirements)
+* **URL**
+    
+    The domain name configured in your DNS provider, pointing to the IP address of the host where Daytona is being deployed.
+
+* **IDP** 
+
+    The name of the identity provider you intend to use (options: `github`, `gitlab`, or `bitbucket`).
+
+* **IDP_URL**
+
+    The base URL of your self-hosted Git provider. Required if IDP is `gitlabSelfManaged` or `githubEnterpriseServer`.
+
+* **IDP_API_URL**
+
+    The API URL of your GitHub Enterprise Server. Required if IDP is `githubEnterpriseServer`.
+
+* **IDP_ID**
+  
+    The Client ID obtained from your identity provider, as specified in the [requirements](#requirements) section.
+
+* **IDP_SECRET**
+  
+    The Client Secret obtained from your identity provider, as specified in the [requirements](#requirements) section.
 
 Number of variables you need to set ranges from 4 to 6, depending on the Identity provider chosen. Here is a table showing IdP and variables you need:
 
-<br>
+<div class="table-wrapper">
 
-| IdP                       | variables needed                                   |
-|---------------------------|----------------------------------------------------|
-| github, gitlab, bitbucket | URL, IDP, IDP_ID, IDP_SECRET                       |
-| gitlabSelfManaged         | URL, IDP, IDP_ID, IDP_SECRET, IDP_URL              |
-| githubEnterpriseServer    | URL, IDP, IDP_ID, IDP_SECRET, IDP_URL, IDP_API_URL |
+| **IdP**                  | **Variables Needed**                                    |
+|--------------------------|---------------------------------------------------------|
+| github, gitlab, bitbucket | `URL`, `IDP`, `IDP_ID`, `IDP_SECRET`                   |
+| gitlabSelfManaged         | `URL`, `IDP`, `IDP_ID`, `IDP_SECRET`, `IDP_URL`        |
+| githubEnterpriseServer    | `URL`, `IDP`, `IDP_ID`, `IDP_SECRET`, `IDP_URL`, `IDP_API_URL` |
 
-<br>
+</div>
 
-It is also possible to set all values via CLI when running the script:
-```
+All variables can be set directly via the CLI when running the setup script:
+
+```shell
 URL="daytona.example.com" IDP="github" IDP_ID="changeme" IDP_SECRET="changeme" ./setup.sh
 ```
 
-Refer to the table above to see what variables you need to set.
+Consult the table above to ensure all required variables are specified.
 
-After variables are set, the prompt will show you A records that need to be added to your DNS zone, and certbot will also show you information on how to edit your DNS zone in order to get a valid wildcard certificate, so please follow the instructions.
+Following the setup, the script will display the necessary A records for your DNS zone. Certbot will also provide instructions for obtaining a valid wildcard certificate by editing your DNS zone accordingly. Follow the instructions as prompted.
 
 ## Update
 
-To update existing setup you simply need to run script again on the same machine. Be sure to download latest `setup.sh` and run it again:
+To update the existing setup, run the setup script again on the same machine. Ensure that you download the latest version of `setup.sh` and run it with the following command:
 
-```
+```shell
 ./setup.sh
 ```
 
-If you used prompt to provide any of the variables you will need to input those values again. Certificate setup, if still valid, will be skiped.
+If you originally provided any configuration variables via prompts, you will be required to re-enter those values during the update process. The certificate setup will be bypassed if the existing certificate remains valid.
 
-If you used CLI with those 3 values set, you can simply repeat that command:
-```
+For updates using the CLI, if you initially specified the necessary variables, you can re-run the update with the same command:
+
+```shell
 URL="daytona.example.com" IDP_ID="changeme" IDP_SECRET="changeme" ./setup.sh
 ```
 
-Note that if you will not be required to validate certificate if its still valid.
+Note that certificate validation will not be required if the existing certificate is still valid.
 
 ## Restart/Cleanup
 
-If you want to remove and start all over, you can run the script with the `--remove` parameter, and it will delete k3s cluster with all the tools installed. Afterwards, you can create everything again with `--install`.
+To remove the current setup and start over, run the setup script with the `--remove` parameter. This will delete the k3s cluster along with all installed tools. After the cleanup, you can reinitialize the setup using the `--install` parameter.
 
-```
+```shell
 ./setup.sh --remove
+```
+
+```shell
+./setup.sh --install
 ```

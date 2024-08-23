@@ -1,0 +1,161 @@
+---
+title: IDEs
+description: Add a brief description of the IDEs Usage page here
+sidebar:
+  label: IDEs
+---
+
+import ImageCard from '@components/cards/ImageCard.astro';
+import CardGrid from '@components/cards/CardGrid.astro';
+import DocumentList from '@components/DocumentList.astro'
+import DocumentListItem from '@components/DocumentListItem.astro'
+import VSlogo from '@assets/index/icons/VS.svg?url';
+import PClogo from '@assets/index/images/pycharm.png';
+import IJlogo from '@assets/index/images/intelliJ.png';
+import WSlogo from '@assets/index/images/webstorm.png';
+import GOlogo from '@assets/index/images/goLand.png';
+import CLlogo from '@assets/index/images/clion.png';
+import RDlogo from '@assets/index/images/rider.png';
+import RMlogo from '@assets/index/images/rubyMine.png';
+
+Daytona allows you to connect to your Workspace using your default IDE.
+
+Out of the box, Daytona can be configured to open your Workspace in the following IDEs:
+
+- **Visual Studio Code (VSCode)**
+
+  - [Desktop (Linux, macOS, Windows)](#vs-code)
+  - [Browser](#vs-code-browser)
+
+- **JetBrains IDEs**
+  - [CLion](#jetbrains-clion)
+  - [GoLand](#jetbrains-goland)
+  - [IntelliJ IDEA Ultimate](#jetbrains-intellij-idea-ultimate)
+  - [PhpStorm](#jetbrains-phpstorm)
+  - [PyCharm Professional](#jetbrains-pycharm-professional)
+  - [Rider](#jetbrains-rider)
+  - [RubyMine](#jetbrains-rubymine)
+  - [WebStorm](#jetbrains-webstorm)
+
+## Set the Default IDE
+
+You can set the default IDE used by Daytona. Daytona allows you to connect to your development environment using a variety of IDEs, including popular options like Visual Studio Code (VSCode) and JetBrains IDEs.
+
+By setting the default IDE, you can automatically open your development environment in your preferred environment, optimizing your workflow and reducing setup time.
+
+1. In the Daytona dashboard, navigate to your profile account icon and select **`Settings`**.
+2. Click **`Default IDE`** dropdown menu to select your default IDE.
+
+<CardGrid gridNumber={9} mobileGridNumber={2} colsMinWidth='64px' colsMinWidthMobile='98px'>
+	<ImageCard icon={VSlogo} link="#vs-code" imageAlt="Visual Studio logo" />
+	<ImageCard  imageDark={PClogo} link="#jetbrains-pycharm-professional" imageAlt="PyCharm logo" />
+	<ImageCard  imageDark={IJlogo} link="#jetbrains-intellij-idea-ultimate" imageAlt="IntelliJ logo" />
+    <ImageCard  imageDark={WSlogo} link="#jetbrains-webstorm" imageAlt="WebStorm logo" />
+    <ImageCard  imageDark={GOlogo} link="#jetbrains-goland" imageAlt="GoLand logo" />
+    <ImageCard  imageDark={CLlogo} link="#jetbrains-clion" imageAlt="CLion logo" />
+    <ImageCard  imageDark={RDlogo} link="#jetbrains-rider" imageAlt="Rider logo" />
+    <ImageCard  imageDark={RMlogo} link="#jetbrains-rubymine" imageAlt="RubyMine logo"/>
+</CardGrid>
+
+Upon selecting, Daytona will set it as the default IDE  You can now automatically open Workspaces with the selected default IDE already connected.
+
+## Set the Workspace IDE
+
+You can set the default Workspace IDE used by Daytona. Daytona allows you to connect to your development environment using a variety of IDEs, including popular options like Visual Studio Code (VSCode) and JetBrains IDEs.
+
+By setting the default Workspace IDE, you can automatically open your development environment in your preferred environment, optimizing your workflow and reducing setup time.
+
+1. Expand the selected Workspace to view its configuration and details.
+2. Click the **`Launch remote environment`** dropdown menu to select your default IDE for the Workspace.
+
+Upon selecting, Daytona will set it as the default IDE for the selected Workspace. You can now automatically open the Workspace with the default IDE already connected.
+
+## VS Code
+
+Daytona allows you to connect to your Workspace using Visual Studio Code (VSCode) IDE.
+
+1. In the Daytona dashboard, navigate to your profile account icon and select **`Settings`**.
+2. Click **`Default IDE`** dropdown menu and select **`VS Code`** as your default IDe 
+
+Upon selecting, Daytona will set VS Code as the default IDE for opening Workspaces.s. You can now automatically open the Workspace with the VS Code IDE.
+
+## VS Code Browser
+
+Daytona allows you to connect to your Workspace using Visual Studio Code (VSCode) Browser IDE.
+
+1. In the Daytona dashboard, navigate to your profile account icon and select **`Settings`**.
+2. Click **`Default IDE`** dropdown menu and select **`VS Code Browser`** as your default IDe 
+
+Upon selecting, Daytona will set VS Code Browser as the default IDE for opening Workspaces.s. You can now automatically open the Workspace with the VS Code Browser IDE.
+
+## JetBrains CLion
+
+Daytona allows you to connect to your Workspace using JetBrains CLion IDE.
+
+1. In the Daytona dashboard, navigate to your profile account icon and select **`Settings`**.
+2. Click **`Default IDE`** dropdown menu and select **`CLion`** as your default IDe 
+
+Upon selecting, Daytona will set JetBrains CLion as the default IDE for opening Workspaces.s. You can now automatically open the Workspace with the JetBrains CLion IDE.
+
+## JetBrains GoLand
+
+Daytona allows you to connect to your Workspace using JetBrains GoLand IDE.
+
+1. In the Daytona dashboard, navigate to your profile account icon and select **`Settings`**.
+2. Click **`Default IDE`** dropdown menu and select **`GoLand`** as your default IDe 
+
+Upon selecting, Daytona will set JetBrains GoLand as the default IDE for opening Workspaces.s. You can now automatically open the Workspace with the JetBrains GoLand IDE.
+
+## JetBrains IntelliJ IDEA Ultimate
+
+Daytona allows you to connect to your Workspace using JetBrains IntelliJ IDEA Ultimate IDE.
+
+1. In the Daytona dashboard, navigate to your profile account icon and select **`Settings`**.
+2. Click **`Default IDE`** dropdown menu and select **`IntelliJ IDEA Ultimate`** as your default IDe 
+
+Upon selecting, Daytona will set JetBrains IntelliJ IDEA Ultimate as the default IDE for opening Workspaces.s. You can now automatically open the Workspace with the JetBrains IntelliJ IDEA Ultimate IDE.
+
+## JetBrains PhpStorm
+
+Daytona allows you to connect to your Workspace using JetBrains PhpStorm IDE.
+
+1. In the Daytona dashboard, navigate to your profile account icon and select **`Settings`**.
+2. Click **`Default IDE`** dropdown menu and select **`PhpStorm`** as your default IDe 
+
+Upon selecting, Daytona will set JetBrains PhpStorm as the default IDE for opening Workspaces.s. You can now automatically open the Workspace with the JetBrains PhpStorm IDE.
+
+## JetBrains PyCharm Professional
+
+Daytona allows you to connect to your Workspace using JetBrains PyCharm Professional IDE.
+
+1. In the Daytona dashboard, navigate to your profile account icon and select **`Settings`**.
+2. Click **`Default IDE`** dropdown menu and select **`PyCharm Professional`** as your default IDE 
+
+Upon selecting, Daytona will set JetBrains PyCharm Professional as the default IDE for opening Workspaces.s. You can now automatically open the Workspace with the JetBrains PyCharm Professional IDE.
+
+## JetBrains Rider
+
+Daytona allows you to connect to your Workspace using JetBrains Rider IDE.
+
+1. In the Daytona dashboard, navigate to your profile account icon and select **`Settings`**.
+2. Click **`Default IDE`** dropdown menu and select **`Rider`** as your default IDe 
+
+Upon selecting, Daytona will set JetBrains Rider as the default IDE for opening Workspaces.s. You can now automatically open the Workspace with the JetBrains Rider IDE.
+
+## JetBrains RubyMine
+
+Daytona allows you to connect to your Workspace using JetBrains RubyMine IDE.
+
+1. In the Daytona dashboard, navigate to your profile account icon and select **`Settings`**.
+2. Click **`Default IDE`** dropdown menu and select **`RubyMine`** as your default IDe 
+
+Upon selecting, Daytona will set JetBrains RubyMine as the default IDE for opening Workspaces.s. You can now automatically open the Workspace with the JetBrains RubyMine IDE.
+
+## JetBrains WebStorm
+
+Daytona allows you to connect to your Workspace using JetBrains WebStorm IDE.
+
+1. In the Daytona dashboard, navigate to your profile account icon and select **`Settings`**.
+2. Click **`Default IDE`** dropdown menu and select **`WebStorm`** as your default IDe 
+
+Upon selecting, Daytona will set JetBrains WebStorm as the default IDE for opening Workspaces.s. You can now automatically open the Workspace with the JetBrains WebStorm IDE.
