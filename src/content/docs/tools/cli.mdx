@@ -1,14 +1,18 @@
 ---
-title: CLI Tools and Resources
-description: Add a brief description of the CLI Tools and Resources page here
-sidebar:
-  label: CLI
+title: CLI Reference
+description: A reference of supported operations using the Daytona CLI.
 ---
 
+The `daytona` command-line tool provides access to Daytona's core features.
+You can use the `daytona` tool for the following operations:
 
-## General Flags
+*   Managing the lifecycle of the Daytona Server.
+*   Managing [Workspaces](/usage/workspaces) and other Daytona components.
 
-```bash
+This reference lists all commands supported by the `daytona` command-line tool complete with a description of their behavior, and any supported flags.
+You can access this documentation on a per-command basis by appending the `--help`/`-h` flag when invoking `daytona`.
+
+```text
 This is the Daytona CLI used to manipulate workspaces from the command line.
 
 Usage:
@@ -43,7 +47,17 @@ Flags:
 Use "daytona [command] --help" for more information about a command.
 ```
 
-## Command:  code
+## daytona
+
+```bash
+Usage:
+  daytona [flags]
+
+Flags:
+  -h, --help         help for daytona
+```
+
+## daytona code
 
 ```bash
 Starts the workspace in VS Code.
@@ -56,7 +70,7 @@ Flags:
   -i, --ide string   Specify the IDE (e.g., 'vscode' or 'browser')
 ```
 
-## Command:  create
+## daytona create
 
 ```bash
 Use 'daytona create <GIT_URL>' to instantiate a specific repository or 'daytona create' to select one of your own. Using 'daytona create template' lets you pick from a set of predefined templates.
@@ -69,11 +83,7 @@ Flags:
   -h, --help   help for create
 ```
 
-## Command:  daytona
-
-
-
-## Command:  delete
+## daytona delete
 
 ```bash
 Commands the workspace given by ID to be destroyed: 'daytona delete <WORKSPACE_ID>'. Use 'daytona delete --all' to destroy all workspaces in the current team.
@@ -86,7 +96,7 @@ Flags:
   -h, --help   help for delete
 ```
 
-## Command:  env
+## daytona env
 
 ```bash
 Use 'daytona env' to list environment variables or use 'daytona env <KEY>=<VALUE>' to set them.
@@ -104,7 +114,7 @@ Flags:
 Use "daytona env [command] --help" for more information about a command.
 ```
 
-## Command:  help
+## daytona help
 
 ```bash
 Help provides help for any command in the application.
@@ -117,7 +127,7 @@ Flags:
   -h, --help   help for help
 ```
 
-## Command:  ide
+## daytona ide
 
 ```bash
 Displays a list of available IDEs to pick as default for the current user
@@ -130,9 +140,9 @@ Flags:
   -n, --name string   Specify IDE by name
 ```
 
-## Command:  info
+## daytona info
 
-```
+```bash
 Retrieves the information of workspace given by ID
 
 Usage:
@@ -142,7 +152,7 @@ Flags:
   -h, --help   help for info
 ```
 
-## Command:  list
+## daytona list
 
 ```bash
 Shows a list of workspaces by the current user and team
@@ -157,9 +167,9 @@ Flags:
   -h, --help   help for list
 ```
 
-## Command:  login
+## daytona login
 
-```
+```bash
 Opens the default browser and redirects to login page
 
 Usage:
@@ -169,9 +179,9 @@ Flags:
   -h, --help   help for login
 ```
 
-## Command:  logout
+## daytona logout
 
-```
+```bash
 Logs the current user profile out of the Daytona CLI
 
 Usage:
@@ -181,9 +191,9 @@ Flags:
   -h, --help   help for logout
 ```
 
-## Command:  pin
+## daytona pin
 
-```
+```bash
 Commands the workspace given by ID to become pinned (never gets deleted): 'daytona pin <WORKSPACE_ID>'.
 
 Usage:
@@ -193,9 +203,9 @@ Flags:
   -h, --help   help for pin
 ```
 
-## Command:  profile
+## daytona profile
 
-```
+```bash
 Displays a list of available profiles to choose from.
 
 Usage:
@@ -217,9 +227,9 @@ Flags:
 Use "daytona profile [command] --help" for more information about a command.
 ```
 
-## Command:  share
+## daytona share
 
-```
+```bash
 Commands the workspace given by ID to become shared (grants public access): 'daytona share <WORKSPACE_ID>'. Use 'daytona share --all' to share all workspaces in the current team.
 
 Usage:
@@ -230,9 +240,9 @@ Flags:
   -h, --help   help for share
 ```
 
-## Command:  ssh
+## daytona ssh
 
-```
+```bash
 SSH
 
 Usage:
@@ -242,9 +252,9 @@ Flags:
   -h, --help   help for ssh
 ```
 
-## Command:  start
+## daytona start
 
-```
+```bash
 Commands the workspace given by ID to start: 'daytona start <WORKSPACE_ID>'. Use 'daytona start --all' to start all workspaces in the current team.
 
 Usage:
@@ -255,9 +265,9 @@ Flags:
   -h, --help   help for start
 ```
 
-## Command:  stop
+## daytona stop
 
-```
+```bash
 Commands the workspace given by ID to stop: 'daytona stop <WORKSPACE_ID>'. Use 'daytona stop --all' to stop all workspaces in the current team.
 
 Usage:
@@ -268,9 +278,9 @@ Flags:
   -h, --help   help for stop
 ```
 
-## Command:  team
+## daytona team
 
-```
+```bash
 Display list of available teams to choose from. Use flag '--name' to bypass prompt.
 
 Usage:
@@ -281,9 +291,9 @@ Flags:
   -n, --name string   Specify team name
 ```
 
-## Command:  unpin
+## daytona unpin
 
-```
+```bash
 Commands the workspace given by ID to become unpinned (will get deleted after being stopped for two weeks): 'daytona unpin <WORKSPACE_ID>'.
 
 Usage:
@@ -293,9 +303,9 @@ Flags:
   -h, --help   help for unpin
 ```
 
-## Command:  unshare
+## daytona unshare
 
-```
+```bash
 Commands the workspace given by ID to become unshared (removes public access): 'daytona unshare <WORKSPACE_ID>'. Use 'daytona unshare --all' to unshare all workspaces in the current team.
 
 Usage:
@@ -306,9 +316,9 @@ Flags:
   -h, --help   help for unshare
 ```
 
-## Command:  version
+## daytona version
 
-```
+```bash
 Returns the version of your Daytona CLI
 
 Usage:
