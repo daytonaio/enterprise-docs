@@ -110,11 +110,15 @@ You will need to provide several values depending on the Identity Provider selec
 
 Number of variables you need to set ranges from 4 to 6, depending on the Identity provider chosen. Here is a table showing IdP and variables you need:
 
+<div class="table-wrapper">
+
 | **IdP**                  | **Variables Needed**                                    |
 |--------------------------|---------------------------------------------------------|
 | github, gitlab, bitbucket | `URL`, `IDP`, `IDP_ID`, `IDP_SECRET`                   |
 | gitlabSelfManaged         | `URL`, `IDP`, `IDP_ID`, `IDP_SECRET`, `IDP_URL`        |
 | githubEnterpriseServer    | `URL`, `IDP`, `IDP_ID`, `IDP_SECRET`, `IDP_URL`, `IDP_API_URL` |
+
+</div>
 
 All variables can be set directly via the CLI when running the setup script:
 
