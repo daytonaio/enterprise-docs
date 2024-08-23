@@ -119,6 +119,18 @@ export default defineConfig({
           ]
         },
         {
+          label: 'Administration',
+          items: [
+            {
+              label: 'User Types',
+              link: '/administration/user-types',
+              attrs: {
+                icon: 'users.svg',
+              },
+            },
+          ],
+        },
+        {
           "label": "Tools and Resources",
           "items": [
             {
