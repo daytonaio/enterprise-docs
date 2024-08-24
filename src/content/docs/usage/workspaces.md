@@ -122,51 +122,8 @@ Daytona allows you to delete one or more Workspaces, helping you manage your dev
 
 ## Workspace Classes
 
-Workspace classes are customizable configurations that allow the administrator to define the amount of resources allocated to a Workspace. Users can then select from these configurations based on their specific requirements. 
+Workspace classes are configurations defined by the administrator that allocate resources to a Workspace. These configurations allow for the creation of one or more Workspace classes with varying capacities for CPU, GPU, RAM, and disk storage.
 
-This approach provides flexibility, enabling the creation of one or more Workspace classes with varying CPU, GPU, RAM, and disk storage depending on what the administrator has defined. The classes exist to simplify the process of resource allocation, ensuring that users can choose a setup that meets their requirements without manually specifying the details.
+Workspace classes simplify the resource allocation process, enabling users to select the predefined configurations that best meet their requirements, without the need to manually specify resource details.
 
-The appropriate selection of a Workspace class depends on the intensity and nature of the tasks to be performed within the Workspace.
-
-| **Workspace Class** | **CPU** | **RAM** | **GB** | **GPU** |
-|---------------------|---------|---------|--------|---------|
-| GPU                 | 4       | 16 GB   | 50 GB  | 1       |
-| Large               | 8       | 32 GB   | 50 GB  |         |
-| Medium              | 4       | 16 GB   | 50 GB  |         |
-| Small               | 2       | 8 GB    | 50 GB  |         |
-
-- **GPU**
-
-  The GPU class is designed for workloads that require GPU acceleration, such as machine learning, deep learning, or other compute-intensive tasks. It ensures that the Workspace has access to a dedicated GPU, which significantly speeds up processing for such tasks.
-
-- **Large**
-
-  The Large class is suitable for large-scale processing tasks or applications that require significant computational power and memory, but do not need a GPU. This class is ideal for running multiple heavy applications simultaneously.
-
-- **Medium**
-
-  The Medium class balances performance and resource usage, making it suitable for general-purpose tasks that require moderate processing power and memory.
-
-- **Small**
-
-  The Small class is ideal for light workloads or development environments where minimal computational resources are needed. This class is the most resource-efficient, making it a good choice for simple applications and tasks.
-
-The resources available for each Workspace class are constrained by the hardware node availability within the cluster. Each node in the cluster has a finite amount of CPU, RAM, storage, and GPU resources. The maximum number of Workspaces that can be provisioned depends on these hardware limits.
-
-### Overprovisioning
-
-Overprovisioning is a technique used to increase the density of Workspaces per hardware node in the cluster. By setting an overprovisioning factor, the provisioner can create more Workspaces than would be possible if each Workspace was allocated resources strictly according to its "request" values.
-
-Each Workspace class defines both a "request" (the minimum guaranteed resources) and a "limit" (the maximum resources it can use). Overprovisioning works by lowering the "request" values below the actual "limits," allowing the provisioner to fit more Workspaces on a node than would be possible if resources were allocated strictly based on "limits."
-
-- **Pros**
-
-  Overprovisioning allows for more efficient utilization of hardware by packing more Workspaces onto a single node. By maximizing resource usage, overprovisioning can lead to cost savings, as fewer nodes may be needed to host the same number of Workspaces.
-
-- **Cons**
-
-  If all Workspaces attempt to use their full "limit" at the same time, the node may run out of resources. This can lead to performance degradation or even Workspace eviction.
-
-  In scenarios where Workspaces have unpredictable or highly variable workloads, overprovisioning can cause instability, making it challenging to ensure consistent performance.
-
-While overprovisioning can significantly increase the efficiency and cost-effectiveness of resource usage in a cluster, it must be carefully managed to avoid potential drawbacks, such as unexpected Workspace eviction or performance issues due to resource contention.
+The creation and selection of an appropriate Workspace class depend on the intensity and nature of the tasks to be performed within a Workspace. The resources available for each Workspace class are limited by the hardware node availability within the cluster.
