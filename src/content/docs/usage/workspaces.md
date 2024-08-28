@@ -27,7 +27,7 @@ Creating a Workspace allows you to set up a new environment either by selecting 
 
      Alternatively, you can enter a custom repository URL manually to find the repository is not listed under your Git Provider account or is from an external source.
 
-In case you are creating a development container-based Workspace, you will be prompted to select the `configuration file` for your Workspace.
+If the selected Git repository includes a `devcontainer.json` configuration file, you will be prompted to select the `configuration file` for your Workspace.
 
 3. Select the default `IDE` to use for your Workspace.
 
