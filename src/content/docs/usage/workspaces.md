@@ -17,7 +17,7 @@ Creating a Workspace allows you to set up a new environment either by selecting 
 
 1. Click `Create +` to create a Workspace.
 
-2. Select the `Git repository` you want to use or enter a custom repository URL. Daytona provides two options for linking your repository:
+2. Link the `Git repository` to your Daytona Workspace by selecting one of the three provided options:
 
    - **Selecting from a List of Repositories**
 
@@ -26,6 +26,10 @@ Creating a Workspace allows you to set up a new environment either by selecting 
    - **Entering a Custom Repository URL**
 
      Alternatively, you can enter a custom repository URL manually to find the repository is not listed under your Git Provider account or is from an external source.
+
+   - **Creating from Sample**
+
+     If you do not have a repository ready, you can choose to create a Workspace from a sample project provided by the administrator. This option allows you to set up a new development environment using quick-start templates.
 
 3. Select the dev container `configuration file` for your Workspace.
 
