@@ -113,8 +113,6 @@ Administrators can set limits on the number of Workspaces that each user can pin
 1. Locate the Workspace you want to pin.
 2. Click the pin icon next to your Workspace name to pin a Workspace.
 
-Once pinned, the Workspace will be protected from deletion until you manually unpin it or reach the maximum number of pins allowed by your administrator.
-
 ## Manage a Workspace
 
 Daytona allows you to access and manage your Workspace, providing a detailed overview of the Workspace configuration.  
