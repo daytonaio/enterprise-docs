@@ -11,10 +11,6 @@ Our Daytona Enterprise Solution is a fully scalable and secure development envir
 
 Your Daytona instance will include access to the following features:
 
-- **All features from Daytona Core (Single Node)**
-
-    Includes all functionality available in the single-node version of Daytona.
-
 - **Identity and Access Management**
 
     Integrated solutions for managing user identities and controlling access to resources.
@@ -38,10 +34,6 @@ Your Daytona instance will include access to the following features:
 - **Teams Support**
 
     Facilitates collaboration by organizing users into teams.
-
-- **Team Projects**
-
-    Allows for the management and sharing of pre-built environments among team members.
 
 - **Github, Gitlab and Bitbucket - Enterprise and Self-hosted Versions Support**
 
