@@ -127,13 +127,22 @@ export default defineConfig({
               attrs: {
                 icon: 'terminal.svg'
               },
-            }, {
+            },
+            {
               "label": "VS Code Extension",
               "link": "/tools/vs-code-extension/",
               attrs: {
                 icon: 'vscode-alt.svg'
               },
-            }, {
+            },
+            {
+              "label": "Backstage Plugin",
+              "link": "/tools/backstage-plugin/",
+              attrs: {
+                icon: 'backstage.svg'
+              },
+            },
+            {
               "label": "JetBrains Gateway",
               "link": "/tools/jetbrains-gateway/",
               attrs: {
