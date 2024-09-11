@@ -1,267 +1,197 @@
 ---
-title: JetBrains Gateway Tools and Resources
-description: Using JetBrains Gateway with Daytona installation 
+title: Daytona JetBrains Gateway Plugin
+description: Using JetBrains Gateway Plugin with Daytona installation 
 sidebar:
   label: JetBrains Gateway
 ---
-import { Tabs, TabItem, LinkCard, CardGrid, Card } from '@astrojs/starlight/components';
+
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+
+The Daytona JetBrains Gateway Plugin allows you to seamlessly connect to your Daytona Workspaces directly from JetBrains Gateway.
+
+This integration enhances your development experience by providing streamlined workspace management, improved team collaboration, direct profile access, and simplified command handling - all within your familiar JetBrains environment.
+
+This guide will walk you through the entire process of installing and setting up the Daytona plugin for JetBrains Gateway, from prerequisites to advanced usage. By the end, you'll be able to leverage the full power of Daytona within your JetBrains workflow.
+
+## Prerequisites
+
+Before beginning the installation process, ensure you have the following:
+
+1. **Daytona Access** 
+
+    Either a hosted instance or a self-hosted demo from the [Daytona Enterprise Demo](https://github.com/daytonaio/enterprise-demo) GitHub repository.
+
+2. **Daytona Dashboard URL**
+
+    Obtain this from your Daytona installation.
+3. **JetBrains Gateway**
+
+    Download and install from the [official JetBrains Gateway website](https://www.jetbrains.com/remote-development/gateway/).
+
+4. **JetBrains IDE License**
+
+    An active license for your preferred IDE.
+
+The installation process consists of two main parts: installing the plugin package and establishing a connection between your Daytona installation and JetBrains Gateway.
+
+## Installation
+
+1. **Open JetBrains Gateway**
+    
+    Launch the JetBrains Gateway application on your local machine.
+
+2. **Install Daytona Plugin**
+    
+    Find Daytona on the start screen of the JetBrains Gateway under **`Install More Providers`** and click **`Install`** next to the Daytona option.
 
 
+## Connect to Daytona
 
+After the installation is complete, you can connect to your Daytona instance.
 
+1. Click **`Create New Profile`** in JetBrains Gateway.
+2. Enter a profile name and your Daytona instance URL.
+3. Click **`Create`** and authenticate in the browser window.
 
-Daytona's JetBrains Gateway plugin allows you to connect to your Daytona workspace from JetBrains Gateways; An application purpose-built for cloud-based development environments without needing to download the selected JetBrains IDE which drastically enhances your development experience. 
+After establishing the connection, you can access the various features of the Daytona plugin.
 
-To use Daytona's extension, you need to meet several requirements. In this guide, we'll walk you through the essential components: prerequisite checks, installation, connection setup (with two connection options), effective usage, and a clean uninstallation process. By the end of this guide, you will be able to use Daytona's JetBrains extension with ease. 
-
-
-## Prerequisites 
-
-Before you can start using Daytona's JetBrains Gateway Plugin, the following prerequisites are required to use Daytona's JetBrains extension:
-
-- **Daytona Installation**: If you haven't installed Daytona on your own infrastructure, please follow the [installation guide](https://github.com/daytonaio/installer) to install Daytona.
-
-- **Daytona Dashboard URL**: To complete the setup, you'll need the URL of your Daytona dashboard, which you can obtain from [installation](https://github.com/daytonaio/installer). 
-
-- **JetBrains Gateway**: You need to have a JetBrains Gateway installed on your local machine. If you haven't installed JetBrains Gateway, please navigate to the [JetBrains Gateway homepage](https://www.jetbrains.com/remote-development/gateway/), scroll down on the page, and find the `Download` button to install the JetBrains Gateway version that suits your local hardware condition.
-
-:::tip
-Although you don't have to install the IDE you intend to use, as JetBrains' Gateway will handle it for you, you still need to have an active JetBrains license to the respective IDE.
-:::
-
-
-
-## How to install
-
-The installation process is split into two parts. The first is the package installation, and the second part on how you establish the connection between your [Daytona installation](#prerequisites) and JetBrains Gateway. You will have to install the Daytona Gateway Plugin Package.
-
-
-1. **Daytona's JetBrains Plugin Installation**: Click on this link [Daytona Gateway Plugin Package](https://download.daytona.io/jetbrains/gateway/latest/jetbrains-gateway-daytona-plugin-latest.jar) to download the latest package (if the download didn't start automatically, navigate to [this link](https://download.daytona.io/) to find the latest JetBrains Gateway plugin version: Home page > JetBrains > gateway > latest). The download will start automatically. <u>Remember the location, or directory of where the package is downloaded to, as you will need it later.</u>
-
-
+## Workspace Creation
 
 :::note
-This package will help you connect with JetBrains Gateway. If you click on it directly, it won't respond. Because it will only work with JetBrains Gateway (within the application itself).
+Configure your Git Provider in the Daytona Dashboard under personal settings (menu under your avatar icon).
 :::
 
-
-
-2. **Select Managing Providers in JetBrains Gateway**: Open the JetBrains Gateway application, at the bottom left corner of the welcome screen, click on the settings button. At the dropdown menu after you click on the settings button, select `Managing Providers`.  
-
-3. **Install Plugin from Disk**: At the pop-up window `Plugins`(after you click on `Managing Providers`), click on the settings button on the top next to `Installed`. At the dropdown menu, click on `Install Plugin from Disk` right below the option `Manage Plugin Certificates`.
-
-4. **Select the Daytona Gateway Plugin Package**: After you click on `Install Plugin from Disk`, your default File Explorer will pop up. You will need to locate where the [Daytona JetBrains Gateway Plugin Package](https://download.daytona.io/jetbrains/gateway/latest/jetbrains-gateway-daytona-plugin-latest.jar) is to install it on to JetBrains Gateway Client. Find the Daytona Gateway Plugin Package you downloaded (in the pop-up file explorer) earlier to open it. JetBrains Gateway will install the package automatically.
-
-5. **Finish installation**: JetBrains Gateway will navigate you back to the `Plugins` screen. You will see the Daytona Gateway Plugin Package is installed (under the search bar `/downloaded`). Click on the blue `OK` button at the bottom right to close the plugin window. 
-
-_After you click on the `OK` button, JetBrains will bring you back to the `Welcome to JetBrains Gateway` screen. You are now ready to connect to your Daytona workspace._
-
-### Establishing a connection 
-
-Now you are on the welcome window of JetBrains Gateway where it shows `Welcome to JetBrains Gateway` on the top of the window. You will see several options to run IDE Remotely. `SSH Connection`, `JetBrains Space`, `Docker Dev Containers`, and `Daytona`. 
-
-There are three options you can use to connect to your Daytona [workspaces](/usage/workspace) when you are connecting for the first time. This connection will keep your workspaces, profiles and teams in-sync with your Daytona installation. In this section, we will walk you through each one of them.
+<br />
 
 <Tabs>
-<TabItem label="From Daytona dashboard">
+<TabItem label="Via Repository URL">
 
-1. **Log into your Daytona dashboard and select a [workspace](/usage/workspaces)**
-
-- Visit your Daytona dashboard URL and make sure you are on the `workspaces` tab.
-- Select one of the workspaces and click on the `𓈓` icon on it.
-- Under the dropdown menu, select `Open`.
-
-<div class="not-content">
- <details>
-  <summary> If you don't have any repositories imported in this workspace</summary>
-  <div class="content">
-  You will need to do it now by clicking `Create` in the <code>WORKSPACES</code> tab on your Daytona dashboard to import a repository from your Git provider.
-</div>
-</details>
-</div>
-
-
-2. **Configure default code editor**
-
-- On Daytona dashboard, click on `Settings` on the left-hand side menu. At the **Default Editor** section, select one of the JetBrains IDEs you want to work on. 
-
-:::tip
-You don't have to install the selected editor on your local machine if you are using JetBrains Gateway, but you will need to have an active license of the selected editor. 
-:::
-
-{/*TODO: Spacing in this section is wrong. ul > li should leave at least 10px spacing, blockquotes in here doesn't show as blockquote.*/}
-    
-- Click on the `Workspaces` tab and select one of the workspaces. On the right side of the workspace, click on `𓈓` and at the dropdown menu, select `Open`. 
-
-3. **Open Code Editor**
-- After you select `Open`, your default code editor will already be selected on the pop-up window with the title **Open \<your-selected-workspace-id\>**. Although you can still change it to another JetBrains IDE here (You may choose other options such as Theia or VS Code, but we will need one of the JetBrains IDEs in this guide). Then click on the green button `Open` at the bottom right corner of the pop-up window. 
-
-- A new pop-up window will show the instructions on how to use Daytona's JetBrains Gateway Plugin after you click on `Open`, with the title **Open workspace in a JetBrains IDE**. Since you are reading this guide, you can click on the `Open` at the bottom again to skip the instruction.
-
-4. **Granting access to your Daytona workspace**
-
-- After clicking on the green button `Open`, your browser will show a pop-up window asking you "\<your-daytona-url\> wants to open "JetBrains Gateway".", choose `Open "JetBrains Gateway"` to continue. After this step, your JetBrains Gateway application will open. 
-
-- Note that a new browser tab will also open, indicating that this workspace has started. When you click on the green button `Open in WebStorm`, it will redirect you to the JetBrains Gateway application (it won't open the code editor).
-
-- Please be patient as it may take a few minutes to load the workspace. You will see a pop-up window with the title "Trying to connect using the link". This is expected and don't click `Cancel` on the pop-up window. This window will close automatically once the connection is established.
-
+1. In the Daytona configuration screen of the plugin, start typing the name of your Git repository or paste the Git repository URL in the **enter a public repository URL** field.
+2. Click **`New Workspace`**
 
 </TabItem>
-<TabItem label="Via dashboard URL">
-1. **Select `Connect to Daytona`**
+<TabItem label="Via Dropdown Menu">
 
-- On JetBrains Gateway's welcome screen, you should be seeing Daytona with the Daytona logo, and the button `Connect to Daytona` (If you are not seeing it, head to [previous section](#how-to-install) to confirm if all the steps are configured correctly). Click on the button `Connect to Daytona` to continue.
-
-2. **Connect via dashboard URL**
-
-- In the next window, you will see a selection field for Profile with `<Create profile>`, a `Reconnect` button, and on the right side, a small, `Add profile` button. Click on the `Add profile` button to continue.
-
-- You will see a pop-up window with two input fields: `Name`and `Base Api URL`. In the `Name` field, you can name your profile as you wish (It is recommended to use your domain name for ease of recognition). In the `Base Api URL` field, you will need to enter your Daytona dashboard URL (kept from [prerequisites](#prerequisites), for example `https://your-domain-name`). After you enter the URL, click on the green button `New` at the bottom left corner of the pop-up window. 
-
-- After clicking on `New`, JetBrains Gateway and Daytona's connection will be established.
-
+1. Click the dropdown menu next to **Repository:**
+2. Select the **`Samples`** option, choose your preferred sample, and then click **`New Workspace`**
 
 </TabItem>
-<TabItem label="Via SSH Connection">
-
-If you wish to connect to Daytona via SSH without the plugin, please follow the steps below:
-
-
-1. **Start a workspace**
-
-- Visit your Daytona dashboard URL and make sure you are on the `workspaces` tab.
-- Select one of the workspaces and click on the `𓈓` icon on it.
-- Under the dropdown menu, select `Start`.
-
-2. **Find your public key**
-
-- On your local machine, open your terminal and type in the following command to find your public key:
-
-  ```bash
-  ls ~/.ssh/*.pub
-  ```
-- This command will return the path of your public key. Copy the path, it might be in the format of `~/.ssh/id_rsa.pub` or `~/.ssh/id_ed25519.pub`. Then within the terminal, type in the following command to find your public key: 
-
-  ```bash
-  cat <path-to-your-public-key>
-  ```
-- This command will return your public key. Copy the whole output including the prefix `ssh-rsa`, `ssh-ed25519`, and save it somewhere safe, then continue to the next part.
-
-3. **Add your public key to Daytona**
-
-- On your Daytona dashboard, click on the `SSH Keys` on the left-hand side menu. At the **SSH Keys** section, click on the `Add` button. A pop-up window with two input fields and one selection field will show up: 
-  
-    - **Name**: You can name your public key as you wish.
-    - **Public Key**: Paste your public key from the previous step here.
-  
-- After you enter the information, click on the green button `Add` at the bottom right corner of the pop-up window.
-
-4. **Obtain connection information**
-
-- After you added your public key, click on the `Workspaces` tab and select one of the workspaces you would like to connect to. On the right side of the workspace, click on `...` and at the dropdown menu, select `Start` and then click on the `...` button again, select `Connect via SSH`. 
-
-- A pop-up window will open in the browser with the title `Connect to \<your-workspace-name\>`. You will see two tabs with information for you to copy and paste. Select the `Public Key` tab and copy the information under the `Public Key` section, save it somewhere safe. The format would be:
-
-```bash
-ssh <username>@<host> -p <port-number> -o StrictHostKeyChecking=no
-```
-- Copy the whole line and continue to the next part.
-
-4. **Connect to Daytona via SSH**
-
-- Head back to JetBrains Gateway welcome screen, and click on the `New Connection` button under the `SSH Connection` section. A pop-up window with the title `Connect to SSH` will show up. 
-
-  - **Username**: Enter the \<username\> from connection string. It is everything after the white space after `ssh` and before the `@` symbol.
-  - **Host**: Enter the \<host\> from connection string. It is everything after the `@` symbol and before the white space in front of `-p` flag.
-  - **Port**: Enter the \<port-number\> from connection string. It is everything after the `-p` flag and before the white space in front of `-o` flag.
-  - **Specify private key**: Click on the 📁 folder button at the end of the selection field, it will pop up your native file explorer to your local SSH configuration folder. Select the private key that matches the public key you added to Daytona in the previous step. 
-    - For example, if you enter the value from `~/.ssh/id_rsa.pub` in the previous step, you will need to select the private key `~/.ssh/id_rsa` here.
-
-- After you enter all the information, click on the blue button `Check Connection and Continue` at the bottom right corner of the pop-up window. Your JetBrains Gateway will be connected with your Daytona installation from here. 
-
-
-</TabItem> 
 </Tabs>
 
-_After these steps, your Daytona installation with JetBrains Gateway is established. you will be navigated to Daytona's configuration screen on JetBrains Gateway, which includes your team name, GitHub username, etc. We will talk about them in the next section._
-
-## Features
-
-Now that you have established the connection between your Daytona installation and JetBrains Gateway, you can navigate to Daytona's configuration screen by clicking on the `Connect` button under Daytona on the welcome screen. In this section, we will walk you through the features of Daytona's JetBrains Gateway Plugin, including how to create, manage, and use your [workspace](/usage/workspaces), how to manage team, profile information, and more.
-
-### Creating workspaces
-
-Each [workspace](/usage/workspaces) created on Daytona is isolated in its own environment, even if it is based on the same repository. In the following two sub-sections, we will talk about how to create and manage your workspaces with Daytona in JetBrains Gateway. Workspaces created within the JetBrains Gateway via the Daytona plugin are synced with your Daytona installation. 
-
-{/*TODO: Second tier ordered list font colors are not correct, this spacing error will disappear if this comment is removed*/}
-
-- **Create a workspace** <br/>
-Within the Daytona configuration screen in JetBrains Gateway (the screen that shows up after you click on `Connect to Daytona` on the welcome screen), there are two ways to create a workspace:
-
-- 1. **Create via repository URL**: In the input field `or enter a public repository URL`, you can paste in a repository you have access to, be it a public repository or private repository you own. Then click on `New Workspace` to create a workspace.
-
-- 2. **Create via dropdown menu**: On the right side of the field `Repository:`, click on the dropdown menu and select a repository, then click on `New Workspace` to create a workspace. Note that <u>it may take a couple of seconds to create and start a workspace until it is loaded, appearing under `Recent Workspaces`</u>. If you click on it multiple times while the workspace is creating, or starting, you are <u>accidentally creating multiple workspace</u> with the same repository.
-
-
-### Managing workspaces
-
-- **Checking workspaces**: Workspaces that have been created on your Daytona dashboard will show up on the Daytona configuration screen under the section `Recent workspaces` with their status (whether it is started, created, or stopped). If a workspace has been started, a circle will be lighted up on the left side of the workspace, you can see the workspace with `started xxx time ago`. 
-
-- **Pinning a workspace**: You can also pin the workspace (by clicking on the pin button) if you have a lot of workspaces being created, and you want to keep them visible on the configuration screen. 
-
-- **Opening workspaces**: On the Daytona configuration screen, you can click on a workspace's name that has been created (the ones under `Recent workspace`) to open a workspace, or you can open it by clicking on `Open` (after clicking on the dots). On the next screen `Choose an IDE`, choose a JetBrains IDE you need to work on. It will take a couple of seconds to connect to the remote machine and local binary ready to open the workspace in your selected IDE. If you close the window that shows `Running` while it's getting ready, JetBrains Gateway will stop the remote connection. 
-
-- **Working in a workspace**
-
-- 1. **Linux terminal**: Once you are working on a workspace in an IDE and start a terminal session within the IDE, you can treat it like a Linux terminal (because it is one). You can install software, or use Docker within the terminal. 
-- 2. **Debugging**: On the top right side of the IDE, you can click on the debug button (on the top right) to debug your code. The debug panel at the bottom will show you the debugging log, the same as how you'd do it locally. If any extension is suggested to install within the IDE, you can also install them on the workspace and they will be persisted.
-- 3. **Live preview link**: If you are working on a web application (port forwarding is supported), you can run `npm run dev` (or other commands) to start the local development server. Once the server is up and running, you can either click on the URL that shows up in the terminal to see the application locally (you can only see live change if your application enabled hot module replacement([HMR](https://webpack.js.org/concepts/hot-module-replacement/)), if not, you can only see changes after restarting the server).
-
-{/*TODO: This feature isn't yet built, put this back after it is built*/}
-{/*- 4. **Sharing live preview link**: On the [tool window](https://www.jetbrains.com/help/webstorm/guided-tour-around-the-user-interface.html#tool-windows), you will see a message `Your application is running on port <port-number>` with a port number when the local development server is running. Click on the port number next to the <Icon icon="chevron-down-dark" class="icon-display"/> icon. From the dropdown menu, select `Forward Port and Open Browser`, you will see your default browser opened with a sharable link. Click on `Make public` to make sure the link is accessible to everyone on the internet. You can share this link for others to see live updates*/ }
-
-- **Stopping workspaces**: To stop a workspace, you can click on the dots `...` button and then click on `Stop`. Once a workspace is stopped, you can always bring it back by clicking on the `Open` button on the dropdown menu(after you click on the dots `...` button on one of the workspaces). 
-
-
-:::caution
-- **Destroying a workspace**: This action is irreversible. Once you destroy it, you will lose all the installation and previous environment setup, unless you have them specified in `.devcontainer.json`. You can do so by clicking on the dots `...` button on the selected workspace then select `Destroy`.
+:::note
+Creating a Workspace may take a few seconds. Avoid clicking multiple times to prevent creating duplicate Workspaces.
 :::
 
-- **Granting access to organization access**: Organization members can always request that an owner approve access to organization resources for Daytona, and organization owners receive notification of pending requests. For further information, check [here](/installation/idps#). 
+## Connect from Daytona Dashboard
 
+Alternatively, you can create and connect to the Workspace from the Daytona web dashboard and start the preferred JeBrains IDE.
 
-### Managing profiles
+1. **Access Your Daytona Dashboard**
 
-Different profiles are equivalent to different Daytona installations, which might associated with your organization, or be personal, identifiable by your Daytona URL. profile-related configuration is located next to `Profile:` on JetBrains Gateway's Daytona configuration screen. 
+    Open your web browser and navigate to your Daytona dashboard URL.
 
-- **Checking profiles**: Next to the `Profiles:`, click on the dropdown menu and you will see all of your available profiles. Note that workspaces are correlated to your Daytona installation (aka profile), if you switch your profile you won't see the same workspaces on the previously selected profile. 
+    Ensure you're on the **`Workspaces`** tab.
 
-- **Adding a profile**:
+2. **Select a Workspace**
 
-- 1. Click on the `Add profile` button next to the `Edit` button. On the pop-up window, you will need to input `Name`(being displayed on Daytona's JetBrains Gateway configuration page, use a domain name for ease of recognition) and `Base Api URL`(your Daytona dashboard URL, no subdomain required. For example: if your Daytona dashboard URL is `https://daytona.com`, the input for this field would be `daytona.com`). 
+    Choose a Workspace from the list.
 
-- 2. After inputting the information, click on `New`. You will then be redirected to your Daytona dashboard's signin page to select an identity provider to sign in. Depending on whether you have a session that exists(that you are signed in) with your identity provider, you may be redirected to your identity provider(Github, Gitlab, BitBucket) to sign in. 
+    Click the IDE button next to the workspace name.
 
-- 3. After signing in to your identity provider, you will be asked whether you'd like to grant access to JetBrains, click on `Yes` to continue. Once the profile (an installation) establishes a connection with JetBrains Gateway, you should be able to see your workspaces or create workspaces based on different identity providers associated with that profile. 
+    Optionally, you can select a different IDE from the dropdown menu.
 
-- **Editing a profile**: On the Daytona configuration screen (after you click on `Connect to Daytona` on JetBrains Gateway's welcome screen), you can click on the edit button next to profile dropdown menu to edit your profiles. Once you click on it, you will be able to see and edit the name, Base Api URL, Keycloak Realm, Keycloak URL and SSH Port on the pop-up window `Edit. After you finish editing your profile, you can click on `Store` to confirm editing, or cancel the current edit by clicking on `Cancel`. 
+:::note
+If you do not have any repositories, you will need to create a new Workspace by clicking `Create` in the **WORKSPACES** tab and create repository from your Git provider.
+:::
 
-- **Delete a profile**: You can click on the edit button on the Daytona configuration screen and then select `Delete` to delete a profile. 
+<br />
 
+3. **Grant Access to your Daytona Workspace**
 
-### Managing teams
+    Your browser will prompt you to open JetBrains Gateway. Choose `Open JetBrains Gateway`.
 
-At the moment, you can only manage team-related information on your Daytona dashboard. Note that your workspaces are correlated to your team. If you switch to another team (say Team B), you won't be seeing workspaces created on the previous team(say Team A).
+    JetBrains Gateway will open and attempt to connect to your workspace. This may take a few minutes.
 
-- **Switching team**: You can see all the teams on the Daytona configuration screen on JetBrains Gateway. Next to the field `Teams:`, click on the dropdown menu to check what team exists with your account, or switch to another team. 
+    Do not close the *Trying to connect using the link* pop-up window. It will close automatically once the connection is established.
 
+## Workspace Management
 
+### Workspaces Overview
 
-## Remove Daytona from JetBrains Gateway
+View your workspaces under **`Recent workspaces`**. A highlighted circle indicates a started Workspace.
 
-1. Open JetBrains Gateway, on the welcome screen, select the setting icon at the bottom left corner and choose `Manage Providers` from the dropdown menu. 
+### Pin a Workspace
 
-2. On the plugins screen, you should be able to see `Daytona Gateway` under the search result `/downloaded`, click on it. On the right side of the screen, you should see a down arrow button next to `Disable` (you can click on `Disable` to disable it). Click on the down arrow button and choose `Uninstall` from the dropdown menu. 
+Click the pin button to keep important Workspaces visible.
 
-3. A pop-up window `Uninstall Plugin` will show up asking you "Are you sure you want to uninstall the plugin 'Daytona Gateway'?", select `Yes`. After you click on `Yes`, you will be back to the plugins screen, click on the bottom right `OK`. Then JetBrains Gateway will ask you "Restart JetBrains Gateway to apply changes in plugins?", click on `Restart` to take effect of the uninstallation. 
+### Open a Workspace
+
+Click on a Workspace name or the `Open` button to launch it in your chosen IDE.
+
+### Work in a Workspace
+
+- Use the Linux terminal within the IDE.
+- Debug your code using the built-in debugger.
+- For web applications, use port forwarding to view live previews.
+
+### Stop a Workspace
+
+Click the `...` button and select `Stop`.
+
+### Delete a Workspace
+
+Click the `...` button and select `Destroy`. Note that this action is irreversible.
+
+## Profile Management
+
+### Profiles Overview
+
+Use the dropdown menu next to **Profiles** to view and switch between profiles.
+
+### Add a Profile
+
+1. Click **`Add profile`**.
+2. Enter a name and the Base API URL.
+3. Click **`New`** and follow the authentication process.
+
+### Edit a Profile
+
+Click the edit button next to the profile dropdown to modify profile details.
+
+### Delete a Profile
+
+In the edit menu, select **`Delete`**.
+
+## Team Management
+
+### Switch Teams
+
+Use the dropdown menu next to **Teams:** to switch between different teams.
+
+## Troubleshooting
+
+If you encounter issues:
+
+1. Ensure all [prerequisites](#prerequisites) are met.
+2. Check your internet connection.
+3. Verify that your Daytona installation is running correctly.
+4. Restart JetBrains Gateway and try the [connection process](#connect-to-daytona) again.
+5. If problems persist, [reach out to support](https://go.daytona.io/slack).
+
+## Uninstallation
+
+1. Open JetBrains Gateway and go to **`Manage Providers`**.
+2. Find **Daytona Gateway** under **`/downloaded`**.
+3. Click the down arrow next to **Disable** and choose **`Uninstall`**.
+4. Confirm the uninstallation and restart JetBrains Gateway.
+
+## Manual Installation (Optional)
+
+While the automatic installation through JetBrains Gateway suffices for most users, you might need to manually install a specific version of the Daytona plugin.
+
+1. Download the [Daytona Gateway Plugin Package](https://download.daytona.io/jetbrains/gateway/latest/jetbrains-gateway-daytona-plugin-latest.jar).
+2. Open JetBrains Gateway.
+3. Click the settings button in the bottom-left corner and select **`Managing Providers`**.
+4. In the **Plugins** window, click **`settings`** > **`Install Plugin from Disk`**.
+5. Select the downloaded **`.jar`** file.
+6. Confirm installation.
