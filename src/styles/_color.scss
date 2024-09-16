@@ -25,7 +25,7 @@ body {
   --blue-link: #59acff;
 }
 
-body.light {
+html[data-theme="light"] {
   --bg-color: #fff;
   --border-color: #dedede;
   --border-extra: #dedede;
