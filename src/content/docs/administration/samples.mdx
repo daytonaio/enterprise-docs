@@ -1,0 +1,148 @@
+---
+title: Samples
+description: Learn how to create and manage templates in Daytona.
+sidebar:
+  label: Samples
+---
+
+import Keyboard from "../../../components/Keyboard.astro"
+
+Samples can be used to create a Workspace with specific predefined configurations. You can create your own samples or use default samples provided by Daytona.
+
+A sample is a JSON file that contains an array of objects. Each object represents a sample that can be used to create a Workspace.
+
+## Daytona Samples
+
+Daytona provides [default samples](https://github.com/daytonaio/samples-index/blob/main/index.json) you can use to create a Workspace with specific predefined configurations.
+
+1. In **`Settings`**, enter the default samples URL in the **`Workspace templates`** field.
+
+```sh
+https://github.com/daytonaio/samples-index/blob/main/index.json
+```
+
+2. Click **`Save`** to apply the changes.
+
+The default samples will be available when creating a Workspace. The sample will be cloned and used to create the Workspace.
+
+### Available Daytona Samples
+
+- **Alpine**
+
+    A minimal Alpine Linux container with Git installed. Ideal for lightweight and efficient environments.
+
+- **Debian**
+
+    A Debian-based container preconfigured with Git. A great choice for users who prefer a robust, stable environment.
+
+- **Ubuntu**
+
+    An Ubuntu container equipped with Git and other common utilities for easy development.
+
+- **C/C++**
+
+    A container designed for C++ development, featuring Debian-based C++ build tools.
+
+- **C# (.NET)**
+
+    A .NET development environment with C# support, including all necessary SDKs and dependencies.
+
+- **Go**
+
+    A container tailored for Go development, including the Go runtime, common tools, and dependencies.
+
+- **Java**
+
+    A Java development container that comes with the JDK and relevant Java extensions.
+
+- **PHP**
+
+    A container for PHP development, complete with essential tools, extensions, and dependencies.
+
+- **Python**
+
+    A simple Python development container for building Python applications.
+
+- **Ruby**
+
+    A Ruby development container that includes everything needed to start building Ruby applications.
+
+- **Rust**
+
+    A container for Rust development with necessary runtime arguments and tools to get started.
+
+- **Node / TypeScript**
+
+    A TypeScript development container pre-configured with Node.js, eslint, nvm, yarn, and the TypeScript compiler for easy Node.js development.
+
+
+## Custom Samples
+
+Daytona provides an option to create custom samples that can be used to create a Workspace with specific predefined configurations. Custom samples can be created and hosted on a Git Provider or another platform.
+
+To create a custom sample, create a JSON file that contains an array of objects. Each object represents a sample that can be used to create a Workspace.
+
+1. Create a JSON file with an array of objects representing the samples.
+
+Each object should include the following properties:
+
+```json
+[
+    {
+        "name": "My Custom Sample",
+        "description": "This is a description of my custom sample.",
+        "gitUrl": "https://github.com/username/sample",
+        "imageUrl": "https://raw.githubusercontent.com/username/assets/image.png",
+        "rawReadmeUrl": "https://raw.githubusercontent.com/username/sample/main/README.md"
+    },
+]
+```
+
+- **`name`**
+
+    Required.
+
+    The name of the template being displayed on the Daytona dashboard.
+
+- **`description`**
+  
+    Required.
+    
+    The description of the template. This property won't be displayed it'd be helpful to take notes when you are creating them.
+
+- **`gitUrl`**
+  
+    Required.
+    
+    The content of the template.
+
+- **`imageUrl`**
+    
+    Required.
+    
+    An image display on the template when it is deployed to the dashboard. It supports *JPG*, *JPEG*, *SVG* and *PNG* formats. It can link to any public image.
+
+- **`rawReadmeUrl`**
+      
+    Required.
+      
+    Textual content is displayed on the pop-up dialog after you click on the selected template button on the dashboard. It is used to help users understand the content of the template. It has to be the raw content of a markdown file.
+
+2. In **`Settings`**, enter the custom samples URL in the **`Workspace templates`** field.
+
+```sh
+https://github.com/username/samples/blob/main/index.json
+```
+
+2. Click **`Save`** to apply the changes.
+
+The custom samples will be available when creating a Workspace. The sample will be cloned and used to create the Workspace. This repository will serve as the core content of your template and will be used to build your Workspace.
+
+:::note
+
+- The template must be hosted publicly, on a Git Provider or another platform.
+- An array of objects must be accessible as raw content.
+- Each object needs to include the required properties.
+- **`gitUrl`** field must be a public repository.
+
+:::
