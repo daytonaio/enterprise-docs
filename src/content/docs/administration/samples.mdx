@@ -9,8 +9,6 @@ import Keyboard from "../../../components/Keyboard.astro"
 
 Samples can be used to create a Workspace with specific predefined configurations. You can create your own samples or use default samples provided by Daytona.
 
-A sample is a JSON file that contains an array of objects. Each object represents a sample that can be used to create a Workspace.
-
 ## Daytona Samples
 
 Daytona provides [default samples](https://github.com/daytonaio/samples-index/blob/main/index.json) you can use to create a Workspace with specific predefined configurations.
@@ -93,8 +91,8 @@ Each object should include the following properties:
         "description": "This is a description of my custom sample.",
         "gitUrl": "https://github.com/username/sample",
         "imageUrl": "https://raw.githubusercontent.com/username/assets/image.png",
-        "rawReadmeUrl": "https://raw.githubusercontent.com/username/sample/main/README.md"
-    },
+        "rawReadmeUrl": "https://raw.githubusercontent.com/username/sample/blob/main/README.md"
+    }
 ]
 ```
 
@@ -102,33 +100,34 @@ Each object should include the following properties:
 
     Required.
 
-    The name of the template being displayed on the Daytona dashboard.
+    The name of the sample. This property will be used to identify the sample in the Workspace creation process.
 
 - **`description`**
   
     Required.
     
-    The description of the template. This property won't be displayed it'd be helpful to take notes when you are creating them.
+    The description of the sample. This property will not be displayed.
 
 - **`gitUrl`**
   
     Required.
     
-    The content of the template.
+    The link to the Git repository where the sample is hosted. This property will be used to clone the repository when creating a Workspace.
 
 - **`imageUrl`**
     
     Required.
-    
-    An image display on the template when it is deployed to the dashboard. It supports *JPG*, *JPEG*, *SVG* and *PNG* formats. It can link to any public image.
+
+    The URL to an image representing the sample. Supported values are *JPG*, *JPEG*, *SVG* and *PNG* formats.
 
 - **`rawReadmeUrl`**
       
     Required.
-      
-    Textual content is displayed on the pop-up dialog after you click on the selected template button on the dashboard. It is used to help users understand the content of the template. It has to be the raw content of a markdown file.
 
-2. In **`Settings`**, enter the custom samples raw URL in the **`Workspace templates`** field.
+    A direct link to the raw README file in the Git repository. It provides additional information or documentation related to the sample.
+
+
+2. In **`Settings`**, enter the custom samples raw URL in the **`Workspace samples`** field.
 
 ```sh
 https://raw.githubusercontent.com/username/samples/main/index.json
