@@ -118,7 +118,7 @@ export default defineConfig({
             label: "Samples",
             link: "/administration/samples/",
             attrs: {
-              icon: 'copy.svg'
+              icon: 'samples.svg'
             },
           },
           ]
