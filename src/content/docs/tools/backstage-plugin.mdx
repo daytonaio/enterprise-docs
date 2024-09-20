@@ -7,47 +7,26 @@ sidebar:
 
 The Daytona Backstage Plugin integrates Daytona services into Backstage, offering features like authentication, Workspace management, and seamless interaction with Daytona Workspaces via Daytona authentication directly within Backstage.
 
-## Features
+## Prerequisites
 
-- **One-Click Environment Launch**
+Before you begin using the Daytona Backstage Plugin, ensure you have the following prerequisites:
 
-  Start a fully configured Daytona workspace directly from a Backstage catalog item.
+- **[Backstage](https://backstage.io/docs/overview/what-is-backstage)**
 
-- **Single Interface**
+  A properly configured instance of Backstage is required.
 
-  Your team can now manage all their tools in include dev environments through Backstage.
+## How to Install
 
-- **Catalog Integration**
+The Daytona Backstage Plugin consists of three main components:
 
-  Automatically find existing or create Daytona Workspaces from Backstage catalog items.
+1. **[Daytona Backstage Auth Backend Plugin](#daytona-backstage-auth-backend-plugin)**
+  
+2. **[Daytona Backstage Plugin](#daytona-backstage-plugin)**
 
-- **Centralised Management**
+3. **[Daytona Web Plugin](#daytona-web-plugin)**
 
-  Using the Daytona sidebar item you can manage all you Daytona Workspaces without leaving Backstage.
 
-- **Streamlined Workflows**
-
-  Integrate Daytona actions into your existing Backstage workflows.
-
-- **Accelerated Onboarding**
-
-  Reduce new team member onboarding time from weeks to minutes.
-
-- **Improved Productivity**
-
-  Eliminate context switching between different tools and portals.
-
-- **Consistent Environments**
-
-  Ensure all developers are working with standardized, up-to-date environments.
-
-- **Enhanced Visibility**
-
-  Gain insights into resource usage and development activities across your organization.
-
-- **Simplified Management**
-
-  Manage development environments alongside other internal resources in one central location.
+Each component provides specific features to enable Daytona authentication, manage Daytona Workspaces, and interact with Daytona services directly from Backstage.
 
 ## Daytona Backstage Auth Backend Plugin
 
@@ -342,3 +321,45 @@ const app = createApp({
 ```
 
 This completes the setup for Daytona Backstage Plugin. You can now authenticate users via Daytona Keycloak, manage Daytona Workspaces, and interact with Daytona services directly from Backstage. 
+
+## Features
+
+- **One-Click Environment Launch**
+
+  Start a fully configured Daytona workspace directly from a Backstage catalog item.
+
+- **Single Interface**
+
+  Your team can now manage all their tools in include dev environments through Backstage.
+
+- **Catalog Integration**
+
+  Automatically find existing or create Daytona Workspaces from Backstage catalog items.
+
+- **Centralised Management**
+
+  Using the Daytona sidebar item you can manage all you Daytona Workspaces without leaving Backstage.
+
+- **Streamlined Workflows**
+
+  Integrate Daytona actions into your existing Backstage workflows.
+
+- **Accelerated Onboarding**
+
+  Reduce new team member onboarding time from weeks to minutes.
+
+- **Improved Productivity**
+
+  Eliminate context switching between different tools and portals.
+
+- **Consistent Environments**
+
+  Ensure all developers are working with standardized, up-to-date environments.
+
+- **Enhanced Visibility**
+
+  Gain insights into resource usage and development activities across your organization.
+
+- **Simplified Management**
+
+  Manage development environments alongside other internal resources in one central location.
