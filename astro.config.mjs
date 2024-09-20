@@ -136,19 +136,20 @@ export default defineConfig({
               },
             },
             {
+              "label": "JetBrains Gateway",
+              "link": "/tools/jetbrains-gateway/",
+              attrs: {
+                icon: 'jetbrains.svg'
+              },
+            },
+            {
               "label": "Backstage Plugin",
               "link": "/tools/backstage-plugin/",
               attrs: {
                 icon: 'backstage.svg'
               },
             },
-            {
-              "label": "JetBrains Gateway",
-              "link": "/tools/jetbrains-gateway/",
-              attrs: {
-                icon: 'jetbrains.svg'
-              },
-            }]
+          ]
         },
       ],
       tableOfContents: { minHeadingLevel: 2, maxHeadingLevel: 2 },
