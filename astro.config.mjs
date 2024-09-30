@@ -121,8 +121,8 @@ export default defineConfig({
         {
           label: "Administration",
           items: [{
-            label: "User Types",
-            link: "/administration/user-types/",
+            label: "Users",
+            link: "/administration/users/",
             attrs: {
               icon: 'users.svg'
             },
