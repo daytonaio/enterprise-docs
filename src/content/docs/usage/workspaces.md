@@ -122,11 +122,8 @@ Daytona allows you to delete one or more Workspaces, helping you manage your dev
 
 ## Workspace Classes
 
-The Workspace class allows you to select the amount of resources allocated to your Workspace. You can choose from different configurations depending on your requirements:
+Workspace classes are configurations defined by the administrator that allocate resources to a Workspace. These configurations allow for the creation of one or more Workspace classes with varying capacities for CPU, GPU, RAM, and disk storage.
 
-| **Workspace Class** | **CPU** | **RAM** | **GB** | **GPU** |
-|---------------------|---------|---------|--------|---------|
-| GPU                 | 4       | 16 GB   | 50 GB  | 1       |
-| Large               | 8       | 32 GB   | 50 GB  |         |
-| Medium              | 4       | 16 GB   | 50 GB  |         |
-| Small               | 2       | 8 GB    | 50 GB  |         |
+Workspace classes simplify the resource allocation process, enabling users to select the predefined configurations that best meet their requirements, without the need to manually specify resource details.
+
+The creation and selection of an appropriate Workspace class depend on the intensity and nature of the tasks to be performed within a Workspace. The resources available for each Workspace class are limited by the hardware node availability within the cluster.
