@@ -119,6 +119,18 @@ export default defineConfig({
           ]
         },
         {
+          "label": "Administration",
+          "items": [
+            {
+              "label": "License",
+              "link": "/administration/license/",
+              attrs: {
+                icon: 'license.svg'
+              },
+            },
+          ]
+        },
+        {
           "label": "Tools and Resources",
           "items": [
             {
