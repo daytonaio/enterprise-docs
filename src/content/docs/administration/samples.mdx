@@ -7,102 +7,108 @@ sidebar:
 
 import Keyboard from "../../../components/Keyboard.astro"
 
-Samples can be used to create a Workspace with predefined configurations, environments, and dependencies. 
+Samples are templates with predefined development configurations, environments, and dependencies used to create Workspaces.
 
-Daytona provides an option to use [default samples](#daytona-samples) or [create samples](#custom-samples) that can be used to create a Workspace.
+Samples are defined by a **`devcontainer.json`** file that specifies the development environment used to create a Workspace.
 
-## Daytona Samples
+## Samples Index
 
-Daytona provides [default samples](https://github.com/daytonaio/samples-index/blob/main/index.json) you can use to create a Workspace with various configurations, environments, and dependencies.
+Samples require a Sample Index (`index.json`) file that serves as a registry of available Samples to be used for creating Workspaces. 
 
-The default samples are be available while [creating a Workspace](/usage/workspaces). The sample will be cloned and used to create the Workspace.
+1. Create an **`index.json`** file representing the Samples Index.
 
-## Create Samples
+2. Define an array of JSON objects representing the Samples.
 
-Daytona provides an option to create custom samples that can be used to create a Workspace. Custom samples can be created and hosted on a Git Provider or another platform.
-
-1. Create a sample to define the development environment, dependencies, packages, and libraries that should be installed in the Workspace during creation.
-
-- Samples can include files or references to container images that define the development environment in which the Workspace will run.
-
-- Samples can define the dependencies, packages and libraries that should be installed in the Workspace during creation.
-
-- Samples can provide configuration files that define project-specific settings or environmental variables required by the application.
-
-View examples of custom sample structures in the Daytona [samples repositories](https://github.com/orgs/daytonaio/repositories?q=sample).
-
-2. Host the custom samples publicly on a Git Provider or another platform.
-
-3. Create a JSON file with an array of objects representing the samples.
-
-Each object represents a sample that can be used to create a Workspace. Each object must include the following properties:
+    Each JSON object in the array represents a Sample:
 
 ```json
 [
   {
     "name": "My Custom Sample",
-    "description": "This is a description of my custom sample.",
-    "gitUrl": "https://github.com/username/sample",
-    "imageUrl": "https://raw.githubusercontent.com/username/image.png",
-    "rawReadmeUrl": "https://raw.githubusercontent.com/username/sample/blob/main/README.md"
- }
+    "gitUrl": "https://github.com/username/sample"
+  }
 ]
 ```
 
 - **`name`**
 
-    Required.
-
-    The name of the sample. This property will be used to identify the sample in the Workspace creation process.
-
-- **`description`**
-  
-    Required.
-    
-    The description of the sample. This property will not be displayed.
+    Name of the Sample.
 
 - **`gitUrl`**
-  
-    Required.
     
-    The link to the Git repository where the sample is hosted. This property will be used to clone the repository when creating a Workspace.
+    Link to the publicly available Git repository containing the Sample.
 
-- **`imageUrl`**
-    
-    Required.
+2. Host the **`index.json`** file publicly on a Git repository or another platform.
 
-    The URL to an image representing the sample. Supported values are *JPG*, *JPEG*, *SVG* and *PNG* formats.
+3. Enter the raw URL of the **`index.json`** file in the **`Workspace samples`** field. 
 
-- **`rawReadmeUrl`**
-      
-    Required.
+Example of a Samples Index raw URL:
 
-    A direct link to the raw README file in the Git repository. It provides additional information or documentation related to the sample.
-
-4. Host the custom samples JSON file publicly on a Git Provider or another platform.
-
-After creating the custom samples and their corresponding JSON files, you can use the samples to create a Workspace. Follow the guide below to [use samples](#use-samples) in Daytona.
-
-:::note
-- The samples must be hosted publicly, on a Git Provider or another platform.
-- An array of objects must be accessible as raw content.
-- Each object needs to include the required properties.
-- **`gitUrl`** field must be a public repository.
-:::
-
-## Use Samples
-
-Daytona provides an option to use [default samples](#daytona-samples) or [custom samples](#custom-samples) when creating a Workspace.
-
-1. Enter the raw URL of the custom sample JSON file in the **`Workspace samples`** field.
-
-Example of a raw URL for samples:
-
-```sh
+```text
 https://raw.githubusercontent.com/username/samples/main/index.json
 ```
 
-2. Click **`Save`** to apply the changes.
+4. Click **`Save`** to apply the changes.
 
-The custom samples will be available while [creating a Workspace](/usage/workspaces). The sample will be cloned and used to create the Workspace. The repository will serve as the core content of your sample and will be used to build your Workspace.
+The Samples Index provided will be used to display the available Samples while [creating Workspaces](/usage/workspaces#create-a-workspace).
 
+The Sample will be cloned and used to create the Workspace. The repository will serve as the core content of your Sample and will be used to create your Workspace.
+
+## Daytona Samples Index
+
+[Daytona Samples Index](https://github.com/daytonaio/samples-index/blob/main/index.json) provides a collection of default Samples that can be used to create Workspaces with predefined development configurations, environments, and dependencies. 
+
+1. Copy the raw URL of the default Samples Index:
+
+```shell
+https://raw.githubusercontent.com/daytonaio/samples-index/main/index.json
+```
+
+2. Enter the raw URL of the default Samples Index in the **`Workspace samples`** field.
+
+3. Click **`Save`** to apply the changes.
+
+Daytona Samples Index will be used to display the available Samples when creating a Workspace. Proceed to use [Daytona Samples](#daytona-samples) to create Workspaces.
+
+## Custom Samples
+
+Daytona provides an option to use custom Samples to create a Workspace with predefined development configurations, environments, and dependencies.
+
+1. Create a Git repository representing the custom Sample.
+
+2. Define the custom Sample development configurations, environments, and dependencies.
+
+3. Create a **`devcontainer.json`** file that defines the development environment.
+
+- Use the [development container standard](https://containers.dev/) to define your development environment. Development containers vary based on the programming language, configurations, and tools used within the Sample.
+
+Example of a **`devcontainer.json`** file for development environment using Go programming language:
+
+```json
+{
+    "name": "Go",
+    "image": "mcr.microsoft.com/devcontainers/go:1-1.21-bookworm",
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "golang.Go"
+            ]
+        }
+    },
+    "postCreateCommand": "go test -v"
+}
+```
+
+4. Host the Samples publicly on a Git repository or another platform.
+
+5. Update the [Samples Index](#samples-index) with the properties of the custom Sample.
+
+You can now use the custom Samples to [create Workspaces](/usage/workspaces#create-a-workspace). Selecting a custom Sample will clone the repository and use it to create the Workspace. The repository will serve as the core content of the Sample and will be used to create your Workspace.
+
+[View examples](https://github.com/orgs/daytonaio/repositories?q=sample) of custom Samples repositories provided by Daytona.
+
+## Daytona Samples
+
+Daytona provides a collection of Samples that can be used to create a Workspace with predefined development configurations, environments, and dependencies.
+
+Daytona Samples will be available while [creating Workspaces](/usage/workspaces#create-a-workspace). The Sample will be cloned and used to create the Workspace. The Daytona repository with the Sample will serve as the core content of your Sample and will be used to create your Workspace.
