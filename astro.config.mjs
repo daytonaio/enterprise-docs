@@ -120,13 +120,21 @@ export default defineConfig({
         },
         {
           label: "Administration",
-          items: [{
-            label: "Users",
-            link: "/administration/users/",
-            attrs: {
-              icon: 'users.svg'
+          items: [
+            {
+              label: "Users",
+              link: "/administration/users/",
+              attrs: {
+                icon: 'users.svg'
+              },
             },
-          },
+            {
+              "label": "License",
+              "link": "/administration/license/",
+              attrs: {
+                icon: 'license.svg'
+              },
+            },
           ]
         },
         {
@@ -138,19 +146,29 @@ export default defineConfig({
               attrs: {
                 icon: 'terminal.svg'
               },
-            }, {
+            },
+            {
               "label": "VS Code Extension",
               "link": "/tools/vs-code-extension/",
               attrs: {
                 icon: 'vscode-alt.svg'
               },
-            }, {
+            },
+            {
               "label": "JetBrains Gateway",
               "link": "/tools/jetbrains-gateway/",
               attrs: {
                 icon: 'jetbrains.svg'
               },
-            }]
+            },
+            {
+              "label": "Backstage Plugin",
+              "link": "/tools/backstage-plugin/",
+              attrs: {
+                icon: 'backstage.svg'
+              },
+            },
+          ]
         },
       ],
       tableOfContents: { minHeadingLevel: 2, maxHeadingLevel: 2 },
