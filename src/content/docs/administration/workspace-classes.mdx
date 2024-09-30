@@ -15,7 +15,7 @@ The creation and selection of an appropriate Workspace class depend on the inten
 
 Overprovisioning is a technique used to increase the density of Workspaces per hardware node in the cluster. By setting an overprovisioning factor, the provisioner can create more Workspaces than would be possible if each Workspace was allocated resources strictly according to its "request" values.
 
-Each Workspace class defines both a "request" (the minimum guaranteed resources) and a "limit" (the maximum resources it can use). Overprovisioning works by lowering the "request" values below the actual "limits," allowing the provisioner to fit more Workspaces on a node than would be possible if resources were allocated strictly based on "limits."
+Each Workspace class defines a limit (the maximum resources it can use). Overprovisioning works by lowering the request values below the actual limits, allowing the provisioner to fit more Workspaces on a node than would be possible if resources were allocated strictly based on limits.
 
 - **Pros**
 
@@ -84,6 +84,12 @@ Daytona allows administrators to create and manage Workspace classes to allocate
 
     Example: `1`
 
+- **Resource**
+
+    Enter the name of the schedulable GPU resource.
+
+    Example: `nvidia.com/gpu`
+
 ## Remove a Workspace Class
 
 Daytona provides the option to remove a Workspace class if it is no longer required.
@@ -91,5 +97,5 @@ Daytona provides the option to remove a Workspace class if it is no longer requi
 1. Click the bin icon next to the Workspace class you want to remove.
 
 :::danger
-After removing the Workspace class, Workspaces associated with the class will be affected. Ensure that the Workspace class is no longer in use before proceeding with the removal.
+Removing the Workspace class will prevent the creation of new Workspaces within that class. Existing Workspaces will not be affected.
 :::
