@@ -27,13 +27,13 @@ Creating a Workspace allows you to set up a new environment either by selecting 
 
      Alternatively, you can enter a custom repository URL manually to find the repository is not listed under your Git Provider account or is from an external source.
 
-3. Select the dev container `configuration file` for your Workspace.
+If the selected Git repository includes a `devcontainer.json` configuration file, you will be prompted to select the `configuration file` for your Workspace.
 
-4. Select the default `IDE` to use for your Workspace.
+3. Select the default [**`IDE`**](/usage/ide) to use for your Workspace.
 
-5. Select the [**`Workspace class`**](#workspace-classes) to allocate resources for your Workspace.
+4. Select the [**`Workspace class`**](#workspace-classes) to allocate resources for your Workspace.
 
-6. Click `Continue` to proceed with the Workspace creation process.
+5. Click `Continue` to proceed with the Workspace creation process.
 
   ```text
     ⠋ Warming up...
