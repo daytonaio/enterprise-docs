@@ -161,7 +161,7 @@ Once expanded, you will be presented with the following options and information:
 
 - **Connect via SSH**
 
-  Daytona allows secure remote access to your Workspace via SSH. You can connect using either a Public Key or an Access Token. Once selected, you will be provided with a command to with SSH to your Workspace.
+  Daytona allows secure remote access to your Workspace via SSH. You can connect using either a Public Key or an Access Token. Once selected, you will be provided with a command to SSH into your Workspace.
 
 ## Delete a Workspace
 
