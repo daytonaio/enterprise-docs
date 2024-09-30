@@ -29,7 +29,7 @@ Creating a Workspace allows you to set up a new environment either by selecting 
 
    - **Creating from Sample**
 
-     If you do not have a repository ready, you can choose to create a Workspace from a sample project provided by Daytona. This option allows you to set up a new development environment using quick-start templates.
+     If you do not have a repository ready, you can choose to create a Workspace from a sample project provided by Daytona. This option allows you to set up a new development environment using quick-start sample repositories.
 
 3. Select the dev container `configuration file` for your Workspace.
 
