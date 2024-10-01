@@ -128,6 +128,13 @@ export default defineConfig({
                 icon: 'license.svg'
               },
             },
+            {
+              "label": "Settings",
+              "link": "/administration/settings/",
+              attrs: {
+                icon: 'settings.svg'
+              },
+            },
           ]
         },
         {

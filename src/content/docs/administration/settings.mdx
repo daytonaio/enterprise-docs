@@ -1,0 +1,68 @@
+---
+title: Settings
+description: Learn about the different settings available in Daytona and how to configure them.
+---
+
+import ImageCard from '@components/cards/ImageCard.astro';
+import CardGrid from '@components/cards/CardGrid.astro';
+import VSlogo from '@assets/index/icons/VS.svg?url';
+import PClogo from '@assets/index/images/pycharm.png';
+import IJlogo from '@assets/index/images/intelliJ.png';
+import WSlogo from '@assets/index/images/webstorm.png';
+import GOlogo from '@assets/index/images/goLand.png';
+import CLlogo from '@assets/index/images/clion.png';
+import RDlogo from '@assets/index/images/rider.png';
+import RMlogo from '@assets/index/images/rubyMine.png';
+
+Daytona administration settings page provides options to configure various settings and customize your Daytona instance. You can manage [IDEs](#enabled-ides), [Workspace Samples](#workspace-samples), [Workspace Retention Periods](#workspace-retention-period), and [Telemetry](#telemetry) settings.
+
+## Enabled IDEs
+
+Daytona provides an option to manage integrated development environments ([IDEs](/usage/ide/)) available for your Workspaces. You can enable or disable IDEs based on your requirements by selecting the checkboxes next to the IDEs.
+
+<CardGrid gridNumber={9} mobileGridNumber={2} colsMinWidth='16px' colsMinWidthMobile='98px'>
+  <ImageCard icon={VSlogo} link="/usage/ide#vs-code" imageAlt="Visual Studio logo" />
+  <ImageCard imageDark={PClogo} link="/usage/ide#jetbrains-pycharm-professional" imageAlt="PyCharm logo" />
+  <ImageCard imageDark={IJlogo} link="/usage/ide#jetbrains-intellij-idea-ultimate" imageAlt="IntelliJ logo" />
+  <ImageCard imageDark={WSlogo} link="/usage/ide#jetbrains-webstorm" imageAlt="WebStorm logo" />
+  <ImageCard imageDark={GOlogo} link="/usage/ide#jetbrains-goland" imageAlt="GoLand logo" />
+  <ImageCard imageDark={CLlogo} link="/usage/ide#jetbrains-clion" imageAlt="CLion logo" />
+  <ImageCard imageDark={RDlogo} link="/usage/ide#jetbrains-rider" imageAlt="Rider logo" />
+  <ImageCard imageDark={RMlogo} link="/usage/ide#jetbrains-rubymine" imageAlt="RubyMine logo"/>
+</CardGrid>
+
+## Workspace Samples
+
+Daytona provides an option to set Workspace Samples to streamline the process of setting up new Workspaces. You can create Samples with predefined configurations and settings, making it easier to create consistent Workspaces for your team.
+
+Enter the URL of the endpoint which returns the Workspace Samples info.
+
+Example of a Workspaces Samples endpoint provided by Daytona:
+
+```shell
+https://raw.githubusercontent.com/daytonaio-templates/index/main/templates.json
+```
+
+The input Samples will show up as suggested repositories when creating a new Workspace.
+
+## Workspace Retention Period
+
+Daytona provides an option to set a retention period for Workspaces. This feature automatically deletes Workspaces that have been inactive for a specified period, helping you manage Workspace resources effectively.
+
+Example of a retention period of 1 hour:
+
+```shell
+1h
+```
+
+Example of a retention period of 14 days:
+
+```shell
+14d
+```
+
+## Telemetry
+
+Daytona provides an option to enable or disable telemetry to collect usage data. Telemetry helps improve Daytona by identifying the most valuable features, prioritizing use cases, and addressing common issues.
+
+Click the toggle button to enable or disable telemetry.
