@@ -122,6 +122,13 @@ export default defineConfig({
           "label": "Administration",
           "items": [
             {
+              "label": "Workspace Classes",
+              "link": "/administration/workspace-classes/",
+              attrs: {
+                icon: 'workspace-classes.svg'
+              },
+            },
+            {
               "label": "License",
               "link": "/administration/license/",
               attrs: {
