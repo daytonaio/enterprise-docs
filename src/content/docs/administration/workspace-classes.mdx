@@ -1,0 +1,101 @@
+---
+title: Workspace Classes
+description: Learn how to create and manage Workspace Classes in Daytona.
+sidebar:
+  label: Workspace Classes
+---
+
+Workspace classes are configurations defined by the administrator that allocate resources to a Workspace. These configurations allow for the creation of one or more Workspace classes with varying capacities for CPU, GPU, RAM, and disk storage.
+
+Workspace classes simplify the resource allocation process, enabling users to select the predefined configurations that best meet their requirements, without the need to manually specify resource details.
+
+The creation and selection of an appropriate Workspace class depend on the intensity and nature of the tasks to be performed within a Workspace. The resources available for each Workspace class are limited by the hardware node availability within the cluster.
+
+## Overprovisioning
+
+Overprovisioning is a technique used to increase the density of Workspaces per hardware node in the cluster. By setting an overprovisioning factor, the provisioner can create more Workspaces than would be possible if each Workspace was allocated resources strictly according to its "request" values.
+
+Each Workspace class defines a limit (the maximum resources it can use). Overprovisioning works by lowering the request values below the actual limits, allowing the provisioner to fit more Workspaces on a node than would be possible if resources were allocated strictly based on limits.
+
+- **Pros**
+
+  Overprovisioning allows for more efficient utilization of hardware by packing more Workspaces onto a single node. By maximizing resource usage, overprovisioning can lead to cost savings, as fewer nodes may be needed to host the same number of Workspaces.
+
+- **Cons**
+
+  If all Workspaces attempt to use their full "limit" at the same time, the node may run out of resources. This can lead to performance degradation or even Workspace eviction.
+
+  In scenarios where Workspaces have unpredictable or highly variable workloads, overprovisioning can cause instability, making it challenging to ensure consistent performance.
+
+While overprovisioning can significantly increase the efficiency and cost-effectiveness of resource usage in a cluster, it must be carefully managed to avoid potential drawbacks, such as unexpected Workspace eviction or performance issues due to resource contention.
+
+## Create a Workspace Class
+
+Daytona allows administrators to create and manage Workspace classes to allocate resources to Workspaces.
+
+1. Click the **`New +`** button to create a Workspace Class.
+2. Enter the details for the Workspace Class.
+
+- **Name**
+
+    The name of the Workspace class.
+
+    Example: `My Workspace Class`
+
+- **CPU**
+
+    Specify the number of CPUs allocated to Workspaces within this class.
+
+    Example: `2`
+
+- **CPU Overprovisioning**
+
+    Optionally, specify the percentage of overprovisioning for the CPU resource request. Overprovisioning allows more resources to be allocated than available, relying on the assumption that not all resources will be used simultaneously.
+
+    Example: `200%`
+
+- **Memory**
+
+    Define the memory resource limit (in GB) for the Workspace.
+
+    Example: `4`
+
+- **Memory Overprovisioning**
+
+    Optionally, specify the percentage of overprovisioning for the memory resource request, similar to CPU overprovisioning.
+
+    Example: `200%`
+
+- **Storage**
+
+    Specify the storage resource limit (in GB) assigned to the Workspace.
+
+    Example: `50`
+
+- **Runtime Class**
+
+    Optionally, specify the container runtime configuration, such as `sysbox-runc`, which manages the execution environment of the Workspace.
+  
+    Example: `sysbox-runc`
+
+- **GPU**
+
+    Optionally, specify the GPU resource limit, used for Workspaces requiring GPU computation.
+
+    Example: `1`
+
+- **Resource**
+
+    Enter the name of the schedulable GPU resource.
+
+    Example: `nvidia.com/gpu`
+
+## Remove a Workspace Class
+
+Daytona provides the option to remove a Workspace class if it is no longer required.
+
+1. Click the bin icon next to the Workspace class you want to remove.
+
+:::danger
+Removing the Workspace class will prevent the creation of new Workspaces within that class. Existing Workspaces will not be affected.
+:::

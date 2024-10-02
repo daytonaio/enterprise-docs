@@ -116,10 +116,24 @@ export default defineConfig({
           label: "Administration",
           items: [
             {
-              label: "Samples",
-              link: "/administration/samples/",
+              label: "Users",
+              link: "/administration/users/",
+              attrs: {
+                icon: 'users.svg'
+              },
+            },
+            {
+              "label": "Samples",
+              "link": "/administration/samples/",
               attrs: {
                 icon: 'samples.svg'
+              },
+            },
+            {
+              "label": "Workspace Classes",
+              "link": "/administration/workspace-classes/",
+              attrs: {
+                icon: 'workspace-classes.svg'
               },
             },
             {
@@ -127,6 +141,13 @@ export default defineConfig({
               "link": "/administration/license/",
               attrs: {
                 icon: 'license.svg'
+              },
+            },
+            {
+              "label": "Settings",
+              "link": "/administration/settings/",
+              attrs: {
+                icon: 'settings.svg'
               },
             },
           ]
@@ -163,6 +184,18 @@ export default defineConfig({
               },
             },
           ]
+        },
+        {
+          label: 'Misc',
+          items: [
+            {
+              label: 'Telemetry',
+              link: '/misc/telemetry',
+              attrs: {
+                icon: 'pulse.svg',
+              },
+            },
+          ],
         },
       ],
       tableOfContents: { minHeadingLevel: 2, maxHeadingLevel: 2 },

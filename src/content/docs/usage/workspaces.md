@@ -17,7 +17,7 @@ Creating a Workspace allows you to set up a new environment either by selecting 
 
 1. Click `Create +` to create a Workspace.
 
-2. Select the `Git repository` you want to use or enter a custom repository URL. Daytona provides two options for linking your repository:
+2. Link the `Git repository` to your Daytona Workspace by selecting one of the three provided options:
 
    - **Selecting from a List of Repositories**
 
@@ -27,9 +27,15 @@ Creating a Workspace allows you to set up a new environment either by selecting 
 
      Alternatively, you can enter a custom repository URL manually to find the repository is not listed under your Git Provider account or is from an external source.
 
+   - **Creating from Sample**
+
+     If you do not have a repository ready, you can choose to create a Workspace from a sample project provided by Daytona. This option allows you to set up a new development environment using quick-start sample repositories.
+
 3. Select the dev container `configuration file` for your Workspace.
 
-4. Select the default `IDE` to use for your Workspace.
+If the selected Git repository includes a `devcontainer.json` configuration file, you will be prompted to select the `configuration file` for your Workspace.
+
+4. Select the default [**`IDE`**](/usage/ide) to use for your Workspace.
 
 5. Select the [**`Workspace class`**](#workspace-classes) to allocate resources for your Workspace.
 
@@ -161,7 +167,7 @@ Once expanded, you will be presented with the following options and information:
 
 - **Connect via SSH**
 
-  Daytona allows secure remote access to your Workspace via SSH. You can connect using either a Public Key or an Access Token. Once selected, you will be provided with a command to with SSH to your Workspace.
+  Daytona allows secure remote access to your Workspace via SSH. You can connect using either a Public Key or an Access Token. Once selected, you will be provided with a command to SSH into your Workspace.
 
 ## Delete a Workspace
 
