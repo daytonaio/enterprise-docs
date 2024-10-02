@@ -119,8 +119,15 @@ export default defineConfig({
           ]
         },
         {
-          "label": "Administration",
-          "items": [
+          label: "Administration",
+          items: [
+            {
+              label: "Users",
+              link: "/administration/users/",
+              attrs: {
+                icon: 'users.svg'
+              },
+            },
             {
               "label": "Workspace Classes",
               "link": "/administration/workspace-classes/",
