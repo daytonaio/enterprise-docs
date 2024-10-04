@@ -122,6 +122,13 @@ export default defineConfig({
           "label": "Administration",
           "items": [
             {
+              "label": "Quotas",
+              "link": "/administration/quotas/",
+              attrs: {
+                icon: 'quotas.svg'
+              },
+            },
+            {
               "label": "Workspace Classes",
               "link": "/administration/workspace-classes/",
               attrs: {

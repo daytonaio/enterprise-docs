@@ -1,0 +1,55 @@
+---
+title: Quotas
+description: Learn about the Daytona quotas and how to manage them.
+---
+
+Quotas define the resource limits and permissions assigned to Workspaces. Quotas can be set to include the amount of Workspace credits available, idle timeout settings, the number of parallel Workspaces, and allowed pinned Workspaces.
+
+## Create a Quota
+
+Daytona allows administrators to create and manage quotas to allocate resources per Workspace.
+
+1. Click the **`New +`** button to create a Quota.
+2. Enter the details for the Quota.
+
+- **Name**
+
+    The name of the Quota.
+
+    Example: `Basic`
+
+- **Workspace Credits**
+
+    Optionally, specify the limit for available Workspace minutes.
+
+    Example: `3000`
+
+- **Workspace Idle Timeout**
+
+    Optionally, define the idle timeout period for the Workspace. If specified, Workspaces that have remained inactive longer than the idle timeout will be automatically stopped.
+
+    Example: `1h 30min`
+
+- **Parallel Workspaces**
+
+    Optionally, specify the maximum number of Workspaces that can be active simultaneously.
+
+    Example: `5`
+
+- **Pinned Workspaces**
+
+    Optionally, specify the maximum number of Workspaces that can be pinned by the user.
+
+    Example: `3`
+
+3. Click **`Save`** to create a Quota.
+
+## Remove a Quota
+
+Daytona provides the option to remove a Quota if it is no longer required.
+
+1. Click **`Delete`** in the Quota card you want to remove.
+
+:::danger
+Removing the Quota will prevent the creation of new Workspaces within that Quota. Existing Workspaces will not be affected.
+:::
