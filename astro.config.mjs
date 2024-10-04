@@ -97,25 +97,34 @@ export default defineConfig({
           ]
         }, {
           "label": "Usage",
-          "items": [{
-            "label": "Workspaces",
-            "link": "/usage/workspaces/",
-            attrs: {
-              icon: 'computer.svg'
+          "items": [
+            {
+              "label": "Workspaces",
+              "link": "/usage/workspaces/",
+              attrs: {
+                icon: 'computer.svg'
+              },
             },
-          }, {
-            "label": "IDEs",
-            "link": "/usage/ide/",
-            attrs: {
-              icon: 'layout.svg'
+            {
+              "label": "Usage",
+              "link": "/usage/usage/",
+              attrs: {
+                icon: 'usage.svg'
+              },
             },
-          }, {
-            "label": "Account",
-            "link": "/usage/account/",
-            attrs: {
-              icon: 'user.svg'
+            {
+              "label": "IDEs",
+              "link": "/usage/ide/",
+              attrs: {
+                icon: 'layout.svg'
+              },
+            }, {
+              "label": "Account",
+              "link": "/usage/account/",
+              attrs: {
+                icon: 'user.svg'
+              },
             },
-          },
           ]
         },
         {
@@ -126,6 +135,13 @@ export default defineConfig({
               "link": "/administration/quotas/",
               attrs: {
                 icon: 'quotas.svg'
+              },
+            },
+            {
+              "label": "Teams",
+              "link": "/administration/teams/",
+              attrs: {
+                icon: 'users.svg'
               },
             },
             {
