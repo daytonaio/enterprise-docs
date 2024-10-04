@@ -1,16 +1,14 @@
 ---
-title: IDPs Installation
-description: How to add identity providers from Github, Bitbucket and Gitlab for your Daytona installation on Keycloak 
-sidebar:
-  label: IDPs
+title: Identity Providers Installation
+description: Learn how to install Identity Providers to your Daytona installation on Keycloak.
 ---
 import Keyboard from "../../../components/Keyboard.astro"
 
-To enable Identity Providers (IDPs) in your Daytona installation, we integrate [Keycloak](https://www.Keycloak.org/), an open-source identity and access management solution. Keycloak facilitates the addition of multiple IDPs, allowing users to authenticate to the Daytona dashboard through various identity providers. 
+To enable Identity Providers (IdPs) in your Daytona installation, we integrate [Keycloak](https://www.Keycloak.org/), an open-source identity and access management solution. Keycloak facilitates the addition of multiple IdPs, allowing users to authenticate to the Daytona dashboard through various identity providers. 
 
 This setup enables the creation of Workspaces from different [Git Providers](/configuration/git-providers), and allows for the management of access scopes, permissions, sessions, and events. Additionally, Daytona provides tools to monitor and manage user activities within your organization.
 
-This guide provides instructions on how to add, manage, configure, and disable Identity Providers (IDPs) using Keycloak.
+This guide provides instructions on how to add, manage, configure, and disable Identity Providers (IdPs) using Keycloak.
 
  :::note
 Keycloak comes as prepackaged with Daytona. You can access it via `https://id.domain`. 
@@ -99,7 +97,7 @@ In this section, we will guide you through the process of configuring GitHub as 
 <details id="github-and-keycloak-configuration-details" class="idp-details">
     <summary>Github and Keycloak configuration details</summary>
     <content>
-        <table class="table-color container">
+        <table class="container table-color">
             <tbody>
             <tr>
                 <th>Github VS. Keycloak</th>
@@ -130,7 +128,7 @@ In this section, we will guide you through the process of configuring GitHub as 
         </table>
 
         {/*TODO: Replace the on and off fields with real checkbox component + label for quick view*/}
-        <table class="table-color container">
+        <table class="container table-color">
             <tbody>
             <tr>
                 <th>Keycloak Advance Settings</th>
@@ -252,7 +250,7 @@ If you choose another identity provider during the installation stage, you can s
 <details id="gitlab-and-keycloak-configuration-details" class="idp-details">
     <summary>Gitlab and Keycloak configuration details</summary>
     <content>
-        <table class="table-color container">
+        <table class="container table-color">
             <tbody>
             <tr>
                 <th>Gitlab VS. Keycloak</th>
@@ -294,7 +292,7 @@ If you choose another identity provider during the installation stage, you can s
         </table>
 
         {/*TODO: Replace the on and off fields with real checkbox component + label for quick view*/}
-        <table class="table-color container">
+        <table class="container table-color">
             <tbody>
             <tr>
                 <th>Keycloak Advance Settings</th>
@@ -420,7 +418,7 @@ After you finish all the configuration, you can refer to the [BitBucket section]
 <details id="bitbucket-and-Keycloak-configuration-details" class="idp-details">
 <summary>BitBucket and Keycloak configuration details </summary>
 <content>
-<table class="table-color container">
+<table class="container table-color">
 <tbody>
 <tr>
 <th>BitBucket VS. Keycloak</th>
@@ -489,7 +487,7 @@ After you finish all the configuration, you can refer to the [BitBucket section]
 
 {/*TODO: Replace the on and off fields with real checkbox component + label for quick view*/}
 
-<table class="table-color container">
+<table class="container table-color">
 <tbody>
 <tr>
 <th>Keycloak Advance Settings</th>
@@ -611,7 +609,7 @@ read:user user:email repo
 <details id="github-enterprise-and-keycloak-configuration-details" class="idp-details">
     <summary>Github Enterprise and Keycloak configuration details</summary>
     <content>
-        <table class="table-color container">
+        <table class="container table-color">
             <tbody>
             <tr>
                 <th>Github Enterprise VS. Keycloak</th>
@@ -642,7 +640,7 @@ read:user user:email repo
         </table>
 
         {/*TODO: Replace the on and off fields with real checkbox component + label for quick view*/}
-        <table class="table-color container">
+        <table class="container table-color">
             <tbody>
             <tr>
                 <th>Keycloak Settings</th>
@@ -771,7 +769,7 @@ If you input `https://bitbucket-server.example.com/`, this step will fail.
 <details id="bitbucket-server-and-keycloak-configuration-details" class="idp-details">
     <summary>BitBucket server and Keycloak configuration details</summary>
     <content>
-        <table class="table-color container">
+        <table class="container table-color">
             <tbody>
             <tr>
                 <th>BitBucket Server VS. Keycloak</th>
@@ -807,7 +805,7 @@ If you input `https://bitbucket-server.example.com/`, this step will fail.
         </table>
 
         {/*TODO: Replace the on and off fields with real checkbox component + label for quick view*/}
-        <table class="table-color container">
+        <table class="container table-color">
             <tbody>
             <tr>
                 <th>Keycloak Advance Settings</th>
@@ -938,7 +936,7 @@ If you don't publish your OAuth application, you will only be able to use it wit
 <details id="google-and-keycloak-configuration-details" class="idp-details">
     <summary>Google OAuth and Keycloak configuration details</summary>
     <content>
-        <table class="table-color container">
+        <table class="container table-color">
             <tbody>
             <tr>
                 <th>Google VS. Keycloak</th>
@@ -974,7 +972,7 @@ If you don't publish your OAuth application, you will only be able to use it wit
 
         {/*TODO: Replace the on and off fields with real checkbox component + label for quick view*/}
 
-        <table class="table-color container">
+        <table class="container table-color">
             <tbody>
             <tr>
                 <th>Keycloak Advance Settings</th>
@@ -1081,7 +1079,7 @@ openid profile email user.read
 <details id="azure-and-keycloak-configuration-details" class="idp-details">
     <summary>Azure and Keycloak configuration details</summary>
     <content>
-        <table class="table-color container">
+        <table class="container table-color">
             <tbody>
             <tr>
                 <th>Azure VS. Keycloak</th>
@@ -1115,7 +1113,7 @@ openid profile email user.read
             </tr>
             </tbody>
         </table>
-        <table class="table-color container">
+        <table class="container table-color">
             <tbody>
             <tr>
                 <th>Keycloak Advance Settings</th>

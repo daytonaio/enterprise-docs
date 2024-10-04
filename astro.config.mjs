@@ -65,10 +65,10 @@ export default defineConfig({
               icon: 'cluster.svg'
             },
           }, {
-            "label": "IDPs",
-            "link": "/installation/idps/",
+            "label": "Identity Providers",
+            "link": "/installation/identity-providers/",
             attrs: {
-              icon: 'shield.svg'
+              icon: 'globe.svg'
             },
           }]
         },
@@ -126,6 +126,13 @@ export default defineConfig({
               "link": "/administration/workspace-classes/",
               attrs: {
                 icon: 'workspace-classes.svg'
+              },
+            },
+            {
+              "label": "Identity Providers",
+              "link": "/administration/identity-providers/",
+              attrs: {
+                icon: 'globe.svg'
               },
             },
             {
