@@ -181,6 +181,13 @@ export default defineConfig({
           label: 'Misc',
           items: [
             {
+              label: 'Secrets',
+              link: '/misc/secrets',
+              attrs: {
+                icon: 'shield.svg',
+              },
+            },
+            {
               label: 'Telemetry',
               link: '/misc/telemetry',
               attrs: {
