@@ -32,17 +32,21 @@ The Daytona settings profile section enables you to manage integrations, prefere
 
 In the dashboard, navigate to your profile account icon and select **`Settings`** to manage integrations, preferences, and account actions.
 
-- **Git Providers**
+- **Identity Providers**
 
-    Manage permissions and connections to Git providers. Options include connecting to external Git services (e.g., Not connected) or self-managed Git environments.
+    Manage your connected accounts for the supported Identity Provider integrations.
 
 - **Default IDE**
 
-    Select the preferred code editor (IDE) for opening Workspaces.
+    Select your default code editor for opening Workspaces.
+
+- **Default Workspace Class**
+
+    Select the default amount of resources for new Workspaces.
 
 - **Dotfiles**
 
-    Specify the URL of a repository containing dotfiles. These files will be automatically cloned and applied in every Workspace.
+    Enter the URL of a repository that includes dotfiles. These files will be automatically cloned and applied in every Workspace.
 
 - **Theme Preference**
 
