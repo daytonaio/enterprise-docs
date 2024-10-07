@@ -32,17 +32,21 @@ The Daytona settings profile section enables you to manage integrations, prefere
 
 In the dashboard, navigate to your profile account icon and select **`Settings`** to manage integrations, preferences, and account actions.
 
-- **Git Providers**
+- **Identity Providers**
 
-    Manage permissions and connections to Git providers. Options include connecting to external Git services (e.g., Not connected) or self-managed Git environments.
+    Manage your connected accounts for the supported Identity Provider integrations.
 
 - **Default IDE**
 
-    Select the preferred code editor (IDE) for opening Workspaces.
+    Select your default code editor for opening Workspaces.
+
+- **Default Workspace Class**
+
+    Select the default amount of resources for new Workspaces.
 
 - **Dotfiles**
 
-    Specify the URL of a repository containing dotfiles. These files will be automatically cloned and applied in every Workspace.
+    Enter the URL of a repository that includes dotfiles. These files will be automatically cloned and applied in every Workspace.
 
 - **Theme Preference**
 
@@ -56,15 +60,15 @@ In the dashboard, navigate to your profile account icon and select **`Settings`*
 
 The Daytona notifications section provides options to view alerts and updates related to your account activities.
 
-In the dashboard, navigate to your profile account icon and select **`Notifications`** to view alerts and updates related to your account activities.
+Navigate to your profile account icon and select **`Notifications`** to view alerts and updates related to your account activities.
 
 ## Environment Variables
 
 The Daytona environments variables section provides an option to add an environment variable to be available across your Workspaces.
 
-1. In the dashboard, navigate to your profile account icon and select **`Env Variables`** to add an environment variable.
+1. Navigate to your profile account icon and select **`Env Variables`** to add an environment variable.
 2. Select **`New +`** to add a new environment variable.
-3. Enter the environment variable `name` and `value`.
+3. Enter the environment variable **`name`** and **`value`**.
 
 :::note
 Environment variable names must consist solely of uppercase letters, digits and underscores, but must not start with a digit.
@@ -72,9 +76,10 @@ Environment variable names must consist solely of uppercase letters, digits and 
 While setting an expiration date for your key is optional, it is good practice to set this date and rotate SSH keys periodically.
 :::
 
+<br />
 
 :::tip
-To set configuration for your environment using dotfiles, see *[Configuring the default dotfiles repository for new workspaces](#configuring-the-default-dotfiles-repository-for-new-workspaces)*.
+View *[Adding Dotfiles](#adding-dotfiles)* to set the configuration for your environment using dotfiles.
 :::
 
 ## SSH Keys
@@ -83,7 +88,7 @@ The Daytona SSH keys section provides an option to add a new SSH key for authent
 
 1. In the dashboard, navigate to your profile account icon and select **`SSH Keys`** to add an SSH key.
 2. Select **`New +`** to add a new SSH key.
-3. Enter the SSH key `name`, `key`, and `expiration date`.
+3. Enter the SSH key **`name`**, **`key`**, and **`expiration date`**.
 
 :::caution
 Key names are publicly visible.
@@ -124,4 +129,4 @@ To set individual environment variables directly in the Daytona dashboard, see *
 
 1. Navigate to the *Settings* page under *Account* in the sidebar.
 2. Under *Dotfiles*, specify the URL of the Git repository containing your dotfiles.
-3. Click the `Update` button to save the configuration.
+3. Click the **`Update`** button to save the configuration.
