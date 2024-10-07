@@ -5,12 +5,17 @@ description: Learn how to configure and manage Identity Providers in Daytona.
 
 Identity Providers (IdPs) are services that manage user authentication and authorization. Daytona supports the integration of external Identity Providers, enabling users to authorize with Daytona using their existing credentials.
 
-## Add an Identity Provider
+## Installation
 
-Daytona provides the option to add multiple Identity Providers. 
+To configure and manage Identity Providers for your Daytona installation, ensure the following prerequisites are met:
 
-1. Click the **`New +`** button to add an Identity Provider.
-2. Select the Identity Provider from the dropdown list.
+1. **Daytona Installation**
+
+    [Download and install Daytona](https://github.com/daytonaio/installer) on your infrastructure. Upon completion, you will receive a URL to access your Daytona dashboard.
+
+2. **Registered Account with a supported Identity Provider:**
+
+    Ensure you have a registered account with one of the supported Identity Providers.
 
 - [**`Azure DevOps`**](#azure-devops)
 - [**`Bitbucket`**](#bitbucket)
@@ -19,8 +24,15 @@ Daytona provides the option to add multiple Identity Providers.
 - [**`GitHub Enterprise Server`**](#github-enterprise-server)
 - [**`GitLab`**](#gitlab)
 - [**`GitLab Self-Managed`**](#gitlab-self-managed)
-- [`Google`](#google) 
+- [**`Google`**](#google) 
 - [**`Microsoft`**](#microsoft)
+
+## Add an Identity Provider
+
+Daytona provides the option to add multiple Identity Providers. 
+
+1. Click the **`New +`** button to add an Identity Provider.
+2. Select the Identity Provider from the dropdown list.
 
 3. Enter the details of the selected Identity Provider.
 4. Click **`Save`** to add the Identity Provider.
@@ -48,6 +60,10 @@ Daytona provides the option to add Azure DevOps as an Identity Provider.
 2. Select **`Azure DevOps`** as the Identity Provider from the dropdown list.
 3. Enter the details of the **`Azure DevOps`** Identity Provider.
 
+- **Redirect URI**
+
+    The redirect URI to use when configuring the Identity Provider.
+
 - **Client ID**
 
     Enter the client identifier registered with the Identity Provider.
@@ -74,6 +90,10 @@ Daytona provides the option to add Bitbucket as an Identity Provider.
 2. Select **`Bitbucket`** as the Identity Provider from the dropdown list.
 3. Enter the details of the **`Bitbucket`** Identity Provider.
 
+- **Redirect URI**
+
+    The redirect URI to use when configuring the Identity Provider.
+
 - **Client ID**
 
     Enter the client identifier registered with the Identity Provider.
@@ -95,6 +115,10 @@ Daytona provides the option to add Bitbucket Server as an Identity Provider.
 1. Click the **`New +`** button to add an Identity Provider.
 2. Select **`Bitbucket Server`** as the Identity Provider from the dropdown list.
 3. Enter the details of the **`Bitbucket Server`** Identity Provider.
+
+- **Redirect URI**
+
+    The redirect URI to use when configuring the Identity Provider.
 
 - **Client ID**
 
@@ -122,6 +146,10 @@ Daytona provides the option to add GitHub as an Identity Provider.
 2. Select **`GitHub`** as the Identity Provider from the dropdown list.
 3. Enter the details of the **`GitHub`** Identity Provider.
 
+- **Redirect URI**
+
+    The redirect URI to use when configuring the Identity Provider.
+
 - **Client ID**
 
     Enter the client identifier registered with the Identity Provider.
@@ -143,6 +171,10 @@ Daytona provides the option to add GitHub Enterprise Server as an Identity Provi
 1. Click the **`New +`** button to add an Identity Provider.
 2. Select **`GitHub Enterprise Server`** as the Identity Provider from the dropdown list.
 3. Enter the details of the **`GitHub Enterprise Server`** Identity Provider.
+
+- **Redirect URI**
+
+    The redirect URI to use when configuring the Identity Provider.
 
 - **Client ID**
 
@@ -174,6 +206,10 @@ Daytona provides the option to add GitLab as an Identity Provider.
 2. Select **`GitLab`** as the Identity Provider from the dropdown list.
 3. Enter the details of the **`GitLab`** Identity Provider.
 
+- **Redirect URI**
+
+    The redirect URI to use when configuring the Identity Provider.
+
 - **Client ID**
 
     Enter the client identifier registered with the Identity Provider.
@@ -195,6 +231,10 @@ Daytona provides the option to add GitLab Self-Managed as an Identity Provider.
 1. Click the **`New +`** button to add an Identity Provider.
 2. Select **`GitLab Self-Managed`** as the Identity Provider from the dropdown list.
 3. Enter the details of the **`GitLab Self-Managed`** Identity Provider.
+
+- **Redirect URI**
+
+    The redirect URI to use when configuring the Identity Provider.
 
 - **Client ID**
 
@@ -222,6 +262,10 @@ Daytona provides the option to add Google as an Identity Provider.
 2. Select **`Google`** as the Identity Provider from the dropdown list.
 3. Enter the details of the **`Google`** Identity Provider.
 
+- **Redirect URI**
+
+    The redirect URI to use when configuring the Identity Provider.
+
 - **Client ID**
 
     Enter the client identifier registered with the Identity Provider.
@@ -247,6 +291,10 @@ Daytona provides the option to add Microsoft as an Identity Provider.
 1. Click the **`New +`** button to add an Identity Provider.
 2. Select **`Microsoft`** as the Identity Provider from the dropdown list.
 3. Enter the details of the **`Microsoft`** Identity Provider.
+
+- **Redirect URI**
+
+    The redirect URI to use when configuring the Identity Provider.
 
 - **Client ID**
 
