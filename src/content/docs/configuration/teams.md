@@ -91,7 +91,7 @@ A team name can be changed using the Daytona dashboard.
 
 ## Delete a Team
 
-You can delete a team from your Daytona instance. This allows you to free up resources used under your Daytona quota, or to recreate your team from scratch.
+You can delete a team from your Daytona instance. This allows you to free up resources used, or to recreate your team from scratch.
 
 :::danger
 This action will remove all Workspaces associated with the currently selected team irreversibly.
