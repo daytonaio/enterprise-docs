@@ -39,23 +39,15 @@ If the selected Git repository includes a `devcontainer.json` configuration file
 
 5. Select the [**`Workspace class`**](#workspace-classes) to allocate resources for your Workspace.
 
-6. Click `Continue` to proceed with the Workspace creation process.
+6. Enter a name for your Workspace. You can modify the Workspace name later by clicking the pencil icon `✎` on the selected Workspace.
+
+7. Click `Continue` to proceed with the Workspace creation process.
 
   ```text
     ⠋ Warming up...
   ```
 
   Wait while Daytona sets up your Workspace. It handles all the initialization and configuration of your environment.
-
-<!-- #### Web Browser Creation
-
-1. **Starting Creation** 
-
-  In your Browser type in your GitHub or GitLab repository prefix with your domain. For example,
-
-```bash
-{{domain-name}}/#{{link-to-github-repo}}
-``` -->
 
 ## Open a Workspace
 
