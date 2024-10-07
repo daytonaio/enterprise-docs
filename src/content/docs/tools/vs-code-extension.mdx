@@ -179,7 +179,7 @@ Whether you are creating a workspace in the Daytona dashboard(by pressing `+ Cre
 
 - **Opening workspaces**: You can hover on top of the selected workspace's name and click on the right arrow `->` button, or right-click on the workspace to select `Open` from the dropdown menu. It will take a minute to connect and set up the environment remotely. If you want to open this workspace in a new window, click on the folder button when you hover on top of a workspace, or right-click on a workspace and select `Open in New Window`. 
 
-- **Granting access to Git provider's organization access**: Organization members can always request that an owner approve access to organization resources for Daytona, and organization owners receive notification of pending requests. For further information, check [here](/installation/identity-providers). After additional organizations are authenticated, you can create workspaces based on repositories in organizations.
+- **Granting access to Git provider's organization access**: Organization members can always request that an owner approve access to organization resources for Daytona, and organization owners receive notification of pending requests. After additional organizations are authenticated, you can create workspaces based on repositories in organizations.
 
 - **Connecting via SSH**: Alternatively, if you want to connect to a workspace via SSH, you can start a workspace on the Daytona dashboard(select the workspace, click on `𓈓` and select `Start` on the dropdown menu), select the workspace and click on `Connect via SSH`. For more information, check the [Connect via SSH](#connect-via-ssh) section below.
 
@@ -319,7 +319,7 @@ type <path-from-preview-step>
 
 - In the previous step, if you happen to not have an SSH key on your local machine, you can generate a new SSH key on your local machine. 
 
-- Open your terminal and paste the text below, replacing the email used in the example with the same email address you used with the [identity provider](/installation/identity-providers) you have used for your Daytona installation.
+- Open your terminal and paste the text below, replacing the email used in the example with the same email address you used with the Identity Provider for your Daytona installation.
 
 ```bash
 ssh-keygen -t ed25519 -C "your_email@example.com"

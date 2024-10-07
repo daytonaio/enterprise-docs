@@ -64,12 +64,6 @@ export default defineConfig({
             attrs: {
               icon: 'cluster.svg'
             },
-          }, {
-            "label": "Identity Providers",
-            "link": "/installation/identity-providers/",
-            attrs: {
-              icon: 'globe.svg'
-            },
           }]
         },
         {
