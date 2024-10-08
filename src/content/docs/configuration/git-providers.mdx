@@ -9,9 +9,9 @@ Git Providers — sometimes known as software forges or Source Code Managers (SC
 
 Daytona allows you to integrate your preferred Git Provider, enhancing your development workflow. This integration enables you to access and manage your repositories directly within Daytona, simplifying Workspace creation from existing projects.
 
-By adding a Git Provider, your credentials are securely embedded into your Workspaces. This allows for seamless Git operations without repeated authentication.
+By connecting a Git Provider, your credentials are securely embedded into your Workspaces. This allows for seamless Git operations without repeated authentication.
 
-## Add a Git Provider
+## Connect a Git Provider
 
 You can integrate Daytona with a Git Provider to manage version control operations and interact with your Git repositories.
 
@@ -19,91 +19,133 @@ Daytona supports a variety of Git Providers, including [GitHub](/#github), [GitL
 
 This integration supports and enables interacting with your codebase, cloning repositories, and pushing changes directly from Daytona.
 
-1. In the dashboard, navigate to your profile account icon and select **`Settings`**.
-2. Under the Git Providers section, choose a Git Provider you want to integrate by selecting **`Connect`**.
-3. You will be prompted to authorize the OAuth application you created for Daytona. Click **`Authorize daytonaio`** to proceed.
+1. Navigate to your profile account and select **`Settings`**.
+2. In the Identity Providers section, select **`Connect`** next to the Git Provider you want to integrate.
+3. Click **`Authorize`** when prompted to authorize Daytona OAuth application.
 
-## Remove a Git provider
+## Disconnect a Git provider
 
-Daytona allows you to delete Git Providers, helping you manage and delete those that are no longer needed.
-1. In the dashboard, navigate to your profile account icon and select **`Settings`**.
-2. Under the Git Providers section, choose a Git Provider you want to remove by selecting the icon representing the **`remove`** action .
+Daytona allows you to disconnect Git Providers, helping you manage and delete those that are no longer required.
 
-Once a Git Provider is deleted, you will not be able to manage or deploy Workspaces without adding another Git Provider.
+1. Navigate to your profile account and select **`Settings`**.
+2. In the Identity Providers section, disconnect the Git Provider by selecting the **`disconnect`** icon.
+
+Once a Git Provider is disconnect, you will not be able to manage or deploy Workspaces without connecting another Git Provider.
 
 ## GitHub
 
-#### First-time sign-in
+Connect Daytona with GitHub to access your repositories and create Workspaces using your GitHub repositories.
 
-When signing in via GitHub for the first time, you will be redirected to GitHub's application authorization page. There, you will be prompted to authorize `<your-oauth-app-name>`. 
+1. Navigate to your profile account and select **`Settings`**.
+2. In the Identity Providers section, select **`Connect`** next to GitHub to integrate with Daytona.
 
-Click `Authorize <username>`. On the authorization page, you can choose to grant access to organizations you own or request access to organizations owned by others by clicking the respective `Grant` and `Request` buttons. If you prefer not to grant additional authorizations at this time, you can add them later.
+:::note
+When signing in via GitHub for the first time, you will be redirected to GitHub's authorization page. Click **`Authorize daytonaio`** to authorize the OAuth application. 
+:::
 
-After authorization, you will be redirected to the Daytona dashboard registration page to complete your profile setup, requiring a username, email, first name, and last name. Once submitted, you will be able to sign in to the Daytona dashboard using GitHub as an identity provider and create Workspaces using GitHub repositories.
+On the authorization page, you can choose to grant access to organizations you own or request access to organizations owned by others by clicking the respective `Grant` and `Request` options. If you prefer not to grant additional authorizations at this time, you can connect them later.
 
-#### Confirmation
+You can now sign in to Daytona using GitHub as an Identity Provider and create Workspaces using GitHub repositories.
 
-To verify that GitHub is properly integrated with Daytona, navigate to your Daytona dashboard URL and confirm that the `GitHub` sign-in button is visible on the sign-in page. Sign in using GitHub, then go to the Workspaces section (accessible from the left sidebar). Click `Create`, select a Workspace, and click `Create` again to ensure you can successfully create a Workspace using a GitHub repository.
+### Organization Access
 
-### Organisation access
+Connect Daytona to your GitHub organization to enable access to organization repositories. This allows you to create Workspaces using repositories from your organization.
 
-This section explains how to add and configure GitHub organization access for your Daytona installation.
-
-#### First-time sign-in
-
-During your first sign-in, you will have the option to `grant` or `request` access to the GitHub organizations you belong to, enabling your Daytona installation to access repositories within those organizations. If you do not select any organizations and directly click `Authorize <username>`, you will initially only have access to your own repositories (both public and private) and other public repositories owned by organizations or individuals. Additional access can be granted later as needed.
-
-#### Request organization access
-
-1. On the upper-right corner of any page, click on your profile and scroll down on the dropdown menu, select **`Settings`**.
-2. In the `Integration` section of the sidebar, click **`Application`**.
+1. Navigate to your profile account and select **`Settings`**.
+2. In the **`Integration`** section of the sidebar, click **`Application`**.
 3. On the top of the page, click the **`Authorized OAuth Apps`** tab.
 4. In the list of applications, click the name of the OAuth app you have set up Daytona access for.
 5. Next to the organization you'd like the OAuth app to access, click **`Request access`**.
 6. After you review the information about requesting OAuth app access, click **`Request approval from owners`**. If you are an admin in this organization, you can approve it by yourself, otherwise, you'll need to contact your admin to approve the authorization request.
 
+## GitHub Enterprise Server
+
+Connect Daytona with GitHub Enterprise Server to access your repositories and create Workspaces using your GitHub Enterprise Server repositories.
+
+1. Navigate to your profile account and select **`Settings`**.
+2. In the Identity Providers section, select **`Connect`** next to GitHub Enterprise Server to integrate with Daytona.
+
+:::note
+When signing in via GitHub Enterprise Server for the first time, you will be redirected to GitHub Enterprise Server's authorization page. Authorize the OAuth application.
+:::
+
+You can now sign in to Daytona using GitHub Enterprise Server as an Identity Provider and create Workspaces using GitHub Enterprise Server repositories.
+
 ## GitLab
 
-#### First-time sign-in
+Connect Daytona with GitLab to access your repositories and create Workspaces using your GitLab repositories.
 
-During your first sign-in, you will be redirected to the *User Settings* page on GitLab, where you will see a banner indicating that the application was created successfully. You will be prompted to authorize `<application-name>` to use your account, with details about who created the application and the authorized scope. Review the access scopes, and if they are correct, click `Authorize` at the bottom of the page.
+1. Navigate to your profile account and select **`Settings`**.
+2. In the Identity Providers section, select **`Connect`** next to GitLab to integrate with Daytona.
 
-After confirming the access scope, you will be redirected to the Daytona dashboard registration page to complete your profile setup. You will need to provide a username, email, first name, and last name. Once submitted, you can sign in to the Daytona dashboard using GitLab as an identity provider and create Workspaces using GitLab repositories.
+:::note
+When signing in via GitLab for the first time, you will be redirected to GitLab's user settings page. Click **`Authorize`** to authorize the OAuth application.
+:::
 
-#### Confirmation
+You can now sign in to Daytona using GitLab as an Identity Provider and create Workspaces using GitLab repositories.
 
-To verify that the GitLab identity provider is functioning correctly, navigate to your Daytona dashboard URL and ensure the GitLab sign-in button is visible on the login page. Sign in using GitLab, then go to the **Workspaces** section (accessible from the left sidebar). Click `Create`, select a Workspace, and click `Create` again to confirm that you can successfully create a Workspace using a GitLab repository.
+### Organization Access
 
-### Organisation access
+Connect Daytona to your GitLab organization to enable access to organization repositories. This allows you to create Workspaces using repositories from your organization.
 
-In GitLab, organizations are referred to as *Groups* where users manage members with shared repositories. When using Daytona, no extra steps are necessary to access Groups in GitLab. Once signed in to your Daytona dashboard via your GitLab account, you will have access to all associated Groups.
+In GitLab, organizations are referred to as *Groups*, where users manage members with shared repositories. When using Daytona, no additional steps are necessary to access *Groups* in GitLab. Once sign in to your Daytona dashboard via your GitLab account, you will have access to all associated *Groups*.
 
+## GitLab Self-Managed
+
+Connect Daytona with GitLab Self-Managed to access your repositories and create Workspaces using your GitLab Self-Managed repositories.
+
+1. Navigate to your profile account and select **`Settings`**.
+2. In the Identity Providers section, select **`Connect`** next to GitLab Self-Managed to integrate with Daytona.
+
+:::note
+When signing in via GitLab Self-Managed for the first time, you will be redirected to GitLab Self-Managed's user settings page. Authorize the OAuth application.
+:::
+
+You can now sign in to Daytona using GitLab Self-Managed as an Identity Provider and create Workspaces using GitLab Self-Managed repositories.
 
 ## Bitbucket
 
-#### First-time sign-in
+Connect Daytona with GitHub to access your repositories and create Workspaces using your GitHub repositories.
 
-During your first sign-in,, you will be redirected to Bitbucket's OAuth authorization page to confirm your access rights. The page will be titled `Confirm access to your account` and will display the OAuth consumer application name you created. To proceed with using Bitbucket as your identity provider, click on `Grant access`.
-
-After clicking `Grant access`, you will be redirected to the Workspaces page of your Daytona dashboard, indicating that the configuration has been successfully completed.
+1. Navigate to your profile account and select **`Settings`**.
+2. In the Identity Providers section, select **`Connect`** next to GitHub to integrate with Daytona.
 
 :::note
-If your Bitbucket account shares the same email address with other identity providers, you may encounter a prompt stating `User with email <your-email> already exists. How do you want to continue?`. Click on `Add to existing account` to proceed. On the next page, select the account (e.g., GitHub or GitLab) you want to link to your Bitbucket account.
+When signing in via Bitbucket for the first time, you will be redirected to Bitbucket's application authorization page. Click `Grant Access` authorize the OAuth application.
 :::
 
-#### Confirmation
+In case your Bitbucket account shares the same email address with other Identity Providers, you may encounter a prompt stating: *User with email "your-email" already exists. How do you want to continue?*. 
 
-To confirm Bitbucket is working properly with Daytona, open your Daytona dashboard URL and check if you can see the button `Bitbucket` on the sign-in page, sign in via Bitbucket and on the `Workspaces` page (select on the left sidebar), click on `Create`. Select a Workspace and click on their right side, `Create`, to see if you can create a Workspace based on the repository in Bitbucket and then work on it in Theia or [other IDEs](/usage/ide)
+Click on `Add to existing account` to proceed. On the next page, select the account (e.g., GitHub or GitLab) you want to link to your Bitbucket account.
 
-### Organisation access
+You can now sign in to Daytona using Bitbucket as an Identity Provider and create Workspaces using Bitbucket repositories.
 
-In Bitbucket, organizations are referred to as `Workspaces`, and members are managed through `Access Management` within the Workspace settings. When you sign in to your Bitbucket account and work on a repository, you are operating within a Workspace by default. After adding Bitbucket as an identity provider and completing the configuration as described above, your Daytona installation will have access to all your Bitbucket Workspaces.
+### Organization access
 
+In Bitbucket, organizations are referred to as `Workspaces`, and members are managed through `Access Management` within the Workspace settings. When you sign in to your Bitbucket account and work on a repository, you are operating within a Workspace by default. After connecting Bitbucket as an identity provider and completing the configuration as described above, your Daytona installation will have access to all your Bitbucket Workspaces.
 
 ## Bitbucket Server
 
-#### First-time sign-in
+Connect Daytona with Bitbucket Server to access your repositories and create Workspaces using your Bitbucket Server repositories.
 
-When you sign in for the first time, you will be redirected to Bitbucket Server's OAuth authorization page to confirm your access rights (the page with the title `<your-app-name> would like to access your Bitbucket account`). After confirming all the access rights, click on `Allow`.
+1. Navigate to your profile account and select **`Settings`**.
+2. In the Identity Providers section, select **`Connect`** next to Bitbucket Server to integrate with Daytona.
 
-After you click on `Allow`, you will be redirected to your Daytona dashboard's `Workspaces` page (You can confirm configurations are set up correctly now). If you click on `Settings` on the left sidebar, you will see your Bitbucket Server and your account is under the `Git Providers` section.
+:::note
+When signing in via Bitbucket Server for the first time, you will be redirected to Bitbucket Server's Bitbucket Server's OAuth authorization page. Click **`Allow`** to authorize the OAuth application.
+:::
+
+You can now sign in to Daytona using Bitbucket Server as an Identity Provider and create Workspaces using Bitbucket Server repositories.
+
+## Azure DevOps
+
+Connect Daytona with Azure DevOps to access your repositories and create Workspaces using your Azure DevOps repositories.
+
+1. Navigate to your profile account and select **`Settings`**.
+2. In the Identity Providers section, select **`Connect`** next to Azure DevOps to integrate with Daytona.
+
+:::note
+When signing in via Azure DevOps for the first time, you will be redirected to Azure DevOps's authorization page. Click Authorize the OAuth application.
+:::
+
+You can now sign in to Daytona using Azure DevOps as an Identity Provider and create Workspaces using Azure DevOps repositories.
