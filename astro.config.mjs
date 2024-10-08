@@ -87,12 +87,6 @@ export default defineConfig({
               attrs: {
                 icon: 'users.svg'
               },
-            }, {
-              "label": "Templates",
-              "link": "/configuration/templates/",
-              attrs: {
-                icon: 'copy.svg'
-              },
             },
           ]
         }, {
@@ -126,6 +120,13 @@ export default defineConfig({
               link: "/administration/users/",
               attrs: {
                 icon: 'users.svg'
+              },
+            },
+            {
+              "label": "Samples",
+              "link": "/administration/samples/",
+              attrs: {
+                icon: 'samples.svg'
               },
             },
             {
