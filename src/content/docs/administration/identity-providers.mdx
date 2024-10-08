@@ -33,7 +33,6 @@ Daytona provides the option to add multiple Identity Providers.
 
 1. Click the **`New +`** button to add an Identity Provider.
 2. Select the Identity Provider from the dropdown list.
-
 3. Enter the details of the selected Identity Provider.
 4. Click **`Save`** to add the Identity Provider.
 
@@ -108,6 +107,40 @@ Daytona provides the option to add Bitbucket as an Identity Provider.
 
 4. Click **`Save`** to add **`Bitbucket`** as the Identity Provider.
 
+Upon adding Bitbucket as an Identity Provider, you can configure Bitbucket OAuth to enable users to authenticate with Daytona using their Bitbucket account.
+
+### Bitbucket OAuth
+
+Configure Bitbucket OAuth to enable users to authenticate with Daytona using their Bitbucket account.
+
+1. Open [Bitbucket](https://bitbucket.com) and navigate to **`Settings`** > **`Workspace Settings`**.
+2. Select the **`OAuth consumers`** tab from the sidebar, and click **`Add consumer`**.
+3. Enter the details for the OAuth App.
+
+    - `Name`
+
+    - `Homepage URL` must be set to the URL of your Daytona installation.
+
+    - `Callback URL` must be set to the `Redirect URI` used when connecting Bitbucket as an Identity Provider.
+
+    - `URL` must be set to the URL of your Daytona installation.
+
+    - `This is a private consumer` toggle must be set to disabled.
+
+    - `Permissions` must be set to include: 
+    
+        Account: `Email`, `Read`
+
+        Workspace membership: `Read`, `Write`
+
+        Projects: `Read`, `Write`, `Admin`
+        
+        Repositories: `Read`, `Write`, `Admin`
+        
+        Pull requests: `Read`
+
+4. Click **`Save`** to create the Bitbucket OAuth App.
+
 ## Bitbucket Server
 
 Daytona provides the option to add Bitbucket Server as an Identity Provider.
@@ -138,6 +171,27 @@ Daytona provides the option to add Bitbucket Server as an Identity Provider.
 
 4. Click **`Save`** to add **`Bitbucket Server`** as the Identity Provider.
 
+Upon adding Bitbucket as an Identity Provider, you can configure Bitbucket OAuth to enable users to authenticate with Daytona using their Bitbucket account.
+
+### Bitbucket Server OAuth
+
+Configure Bitbucket Server OAuth to enable users to authenticate with Daytona using their Bitbucket Server account.
+
+1. Open [Bitbucket Server](https://bitbucket.com) and navigate to **`Settings`** > **`Application Links`**.
+2. Click **`Create link`** to add a new application link.
+3. Under **`Application type`**, select **`External application`**.
+4. Under **`Direction`** setting, select **`Incoming`**.
+5. Click **`Continue`** to proceed.
+6. Enter the details for the OAuth App.
+
+    - `Application name`
+
+    - `Application details` must be set to the `Redirect URI` used when connecting Bitbucket Server as an Identity Provider.
+
+    - `Application permissions` must be set to `Read and Write under repositories`. 
+
+7. Click **`Save`** to create the Bitbucket Server OAuth App.
+
 ## GitHub
 
 Daytona provides the option to add GitHub as an Identity Provider.
@@ -163,6 +217,24 @@ Daytona provides the option to add GitHub as an Identity Provider.
     Toggle to enable the Identity Provider for logging in to existing accounts only.
 
 4. Click **`Save`** to add **`GitHub`** as the Identity Provider.
+
+Upon adding GitHub as an Identity Provider, you can configure GitHub OAuth to enable users to authenticate with Daytona using their GitHub account.
+
+### GitHub OAuth
+
+Configure GitHub OAuth to enable users to authenticate with Daytona using their GitHub account.
+
+1. Open [GitHub](https://github.com) and navigate to **`Settings`** > **`Developer settings`**.
+2. Select the **`OAuth Apps`** tab from the sidebar, and click **`New OAuth App`**.
+3. Enter the details for the OAuth App.
+
+    - `Application name`
+
+    - `Homepage URL` must be set to the URL of your Daytona installation.
+
+    - `Authorization callback URL` must be set to the `Redirect URI` used when connecting GitHub as an Identity Provider.
+
+4. Click **`Register application`** to create the GitHub OAuth App.
 
 ## GitHub Enterprise Server
 
@@ -198,6 +270,24 @@ Daytona provides the option to add GitHub Enterprise Server as an Identity Provi
 
 4. Click **`Save`** to add **`GitHub Enterprise Server`** as the Identity Provider.
 
+Upon adding GitHub Enterprise Server as an Identity Provider, you can configure GitHub Enterprise Server OAuth to enable users to authenticate with Daytona using their GitHub Enterprise Server account.
+
+### GitHub Enterprise Server OAuth
+
+Configure GitHub Enterprise Server OAuth to enable users to authenticate with Daytona using their GitHub Enterprise Server account.
+
+1. Open [GitHub Enterprise Server](https://github.com) and navigate to **`Settings`** > **`Developer settings`**.
+2. Select the **`OAuth Apps`** tab from the sidebar, and click **`New OAuth App`**.
+3. Enter the details for the OAuth App.
+
+    - `Application name`
+
+    - `Homepage URL` must be set to the URL of your Daytona installation.
+
+    - `Authorization callback URL` must be set to the `Redirect URI` used when connecting GitHub as an Identity Provider.
+
+4. Click **`Register application`** to create the GitHub Enterprise Server OAuth App.
+
 ## GitLab
 
 Daytona provides the option to add GitLab as an Identity Provider.
@@ -223,6 +313,26 @@ Daytona provides the option to add GitLab as an Identity Provider.
     Toggle to enable the Identity Provider for logging in to existing accounts only.
 
 4. Click **`Save`** to add **`GitLab`** as the Identity Provider.
+
+Upon adding GitLab as an Identity Provider, you can configure GitLab OAuth to enable users to authenticate with Daytona using their GitLab account.
+
+### GitLab OAuth
+
+Configure GitLab OAuth to enable users to authenticate with Daytona using their GitLab account.
+
+1. Open [GitLab](https://gitlab.com) and navigate to **`Preferences`**.
+2. Select the **`Applications`** tab from the sidebar, and click **`Add new application`**.
+3. Enter the details for the OAuth App.
+
+    - `Name`
+
+    - `Redirect URI` must be set to the `Redirect URI` used when connecting GitHub as an Identity Provider.
+
+    - `Confidential` toggle must be set to enabled.
+
+    - `Scope` must be set to include `api`, `read_api`, `read_user`, `read_repository`, `openid`, `write_repository`, `profile`, and `email`.
+
+4. Click **`Save application`** to create the GitLab OAuth App.
 
 ## GitLab Self-Managed
 
@@ -254,6 +364,26 @@ Daytona provides the option to add GitLab Self-Managed as an Identity Provider.
 
 4. Click **`Save`** to add **`GitLab Self-Managed`** as the Identity Provider.
 
+Upon adding GitLab Self-Managed as an Identity Provider, you can configure GitLab Self-Managed OAuth to enable users to authenticate with Daytona using their GitLab Self-Managed account.
+
+### GitLab Self-Managed OAuth
+
+Configure GitLab Self-Managed OAuth to enable users to authenticate with Daytona using their GitLab Self-Managed account.
+
+1. Open [GitLab Self-Managed](https://gitlab.com) and navigate to **`Preferences`**.
+2. Select the **`Applications`** tab from the sidebar, and click **`Add new application`**.
+3. Enter the details for the OAuth App.
+
+    - `Name`
+
+    - `Redirect URI` must be set to the `Redirect URI` used when connecting GitHub as an Identity Provider.
+
+    - `Confidential` toggle must be set to enabled.
+
+    - `Scope` must be set to include `api`, `read_api`, `read_user`, `read_repository`, `openid`, `write_repository`, `profile`, and `email`.
+
+4. Click **`Save application`** to create the GitLab Self-Managed OAuth App.
+
 ## Google
 
 Daytona provides the option to add Google as an Identity Provider.
@@ -283,6 +413,41 @@ Daytona provides the option to add Google as an Identity Provider.
     If specified, it will be validated that the returned identity token has a claim for this domain
 
 4. Click **`Save`** to add **`Google`** as the Identity Provider.
+
+Upon adding Google as an Identity Provider, you can configure Google OAuth to enable users to authenticate with Daytona using their Google account.
+
+### Google OAuth
+
+Configure Google OAuth to enable users to authenticate with Daytona using their Google account.
+
+1. Open [Google Cloud Console](https://console.cloud.google.com) and navigate to **`APIs & Services`** > **`Credentials`**.
+2. Click **`OAuth consent screen`** and select **`External`**.
+3. Click **`Create`** to create a new OAuth consent screen.
+4. Enter the details for the OAuth consent screen.
+
+    - `App name`
+
+    - `User support email` must be set to the email address of your IT support contact.
+
+5. Click **`SAVE AND CONTINUE`** to proceed with creating your Google OAuth App.
+6. Click **`ADD OR REMOVE SCOPES`** to add the required scopes.
+
+    - `email` must be set to `https://www.googleapis.com/auth/userinfo.email`.
+
+    - `profile` must be set to `https://www.googleapis.com/auth/userinfo.profile`.
+
+    - `openid` must be set to `openid`.
+
+7. Click **`UPDATE`** and then **`SAVE AND CONTINUE`**.
+8. Click **`CREDENTIALS`** > **`CREATE CREDENTIALS`**.
+9. Select **`OAuth client ID`** and select **`Web application`** as the application type.
+10. Enter the details for the OAuth App.
+
+    - `Name`
+
+    - `Authorized redirect URIs` must be set to the `Redirect URI` used when connecting Google as an Identity Provider.
+
+11. Click **`CREATE`** to create the Google OAuth App.
 
 ## Microsoft
 
