@@ -1,0 +1,63 @@
+---
+title: Quotas
+description: Learn about the Daytona quotas and how to manage them.
+---
+
+Quotas define the resource limits and permissions assigned to Workspaces. Quotas can be set to include the amount of Workspace credits available, idle timeout settings, the number of parallel Workspaces, and allowed pinned Workspaces.
+
+## Create a Quota
+
+Daytona allows administrators to create and manage quotas to allocate resources per Workspace.
+
+1. Click the **`New +`** button to create a Quota.
+2. Enter the details for the Quota.
+
+- **Name**
+
+    The name of the Quota.
+
+    Example: `Basic`
+
+- **Workspace Credits**
+
+    Optionally, specify the limit for available Workspace minutes. If left empty, the Workspace credits will not be limited by the Quota.
+
+    Example: `3000`
+
+- **Workspace Idle Timeout**
+
+    Optionally, define the idle timeout period for the Workspace. If specified, Workspaces that have remained inactive longer than the idle timeout will be automatically stopped.
+
+    Example: `1h 30min`
+
+- **Parallel Workspaces**
+
+    Optionally, specify the maximum number of Workspaces that can be active simultaneously. If left empty, the number of parallel Workspaces will not be limited by the Quota.
+
+    Example: `5`
+
+- **Pinned Workspaces**
+
+    Optionally, specify the maximum number of Workspaces that can be pinned by the user. If left empty, the number of pinned Workspaces will not be limited by the Quota.
+
+    Example: `3`
+
+3. Click **`Save`** to create a Quota.
+
+## Edit a Quota
+
+Daytona provides the option to edit a Quota if changes are required.
+
+1. Click **`Edit`** in the Quota card you want to modify.
+2. Update the Quota details.
+3. Click **`Save`** to apply the changes.
+
+## Remove a Quota
+
+Daytona provides the option to remove a Quota if it is no longer required.
+
+1. Click **`Delete`** in the Quota card you want to remove.
+
+:::danger
+Removing the Quota will affect the teams to which the Quota is applied. The teams will lose access to resources until a new Quota is assigned.
+:::
