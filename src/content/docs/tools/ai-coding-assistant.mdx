@@ -1,0 +1,159 @@
+---
+title: AI Coding Assistant
+description: Information about the AI coding assistant in Daytona.
+---
+
+import Keyboard from '@components/Keyboard.astro';
+
+The AI coding assistant in Daytona is a feature that provides code suggestions, completions, and chat functionality for your Workspace code editor. The AI coding assistant uses Mistral Codestral to provide code suggestions and completions, and OpenAI ChatGPT to provide chat functionality in the code editor.
+
+The AI coding assistant in Daytona provides the following features:
+
+- [**Chat**](#chat)
+
+    Chat with the AI to understand and iterate your code.
+
+- [**Autocomplete**](#autocomplete)
+
+    Receive inline autocomplete and code suggestions as you type your code.
+
+- [**Edit**](#edit)
+
+    Modify your code without leaving the current file.
+
+- [**Actions**](#actions)
+
+    Establish shortcuts for common use cases, such as code review, writing comments, generating unit tests, or refactoring methods.
+
+## Chat
+
+Chat provides a conversational interface to interact with the AI by asking questions about your code, getting suggestions, and receiving feedback.
+
+1. Highlight a code section you want to chat about.
+2. Press <Keyboard shortcuts={["cmd/ctrl", "L"]} slot="html"/> (VS Code) or <Keyboard shortcuts={["cmd/ctrl", "J"]} slot="html"/> (JetBrains) to open the chat.
+3. Ask questions about your code or request changes.
+3. Click **`Apply`** to apply the AI suggestions to your code.
+
+Upon applying the suggestions, the chat will close, and the changes will be reflected in your code.
+
+## Autocomplete
+
+Autocomplete provides inline code suggestions and completions as you type your code. The autocomplete feature uses Mistral Codestral to provide suggestions based on the context of your code.
+
+1. Enable the **`Enable Tab Autocomplete`** option in your IDE settings, or click the **`Continue`** button in the status bar at the bottom right of your IDE.
+2. Start typing your code.
+3. Accept the suggestion by pressing <Keyboard shortcuts={["Tab"]} slot="html"/> or reject the suggestion by pressing <Keyboard shortcuts={["Esc"]} slot="html"/>.
+
+Upon accepting the suggestion, the code will be completed inline in your editor. Rejecting the suggestion will dismiss the autocomplete suggestion.
+
+:::note
+Use <Keyboard shortcuts={["cmd/ctrl", "→"]} slot="html"/> to accept partial autocomplete suggestions word by word.
+:::
+
+## Edit
+
+Edit provides modifying capabilities to your code without leaving the current file. Describe or request changes to make in your code, and the AI will generate inline diffs with the proposed changes.
+
+1. Highlight a code section you want to edit.
+2. Press <Keyboard shortcuts={["cmd/ctrl", "i"]} slot="html"/> to open the edit dialog.
+2. Describe and request changes you want to make in your code.
+3. Changes will be generated as inline diffs within your code selection.
+3. A diff will be generated inline to your code with the proposed changes.
+4. Navigate through the proposed changes and press <Keyboard shortcuts={["cmd/ctrl", "opt", "y"]} slot="html"/> to accept the changes, or <Keyboard shortcuts={["cmd/ctrl", "opt", "n"]} slot="html"/> to reject the changes.
+
+Upon accepting the changes, the proposed changes will be applied to your code. Rejecting the changes will dismiss the proposed changes.
+
+For longer and more complex tasks, use the [Chat](#chat) option to interact with the AI.
+
+:::note
+Apply all changes at once by pressing <Keyboard shortcuts={["cmd/ctrl", "shift", "enter"]} slot="html"/> to accept the changes, or <Keyboard shortcuts={["cmd/ctrl", "shift", "delete"]} slot="html"/> to reject the changes.
+
+Request new suggestions by pressing <Keyboard shortcuts={["cmd/ctrl", "i"]} slot="html"/>.
+:::
+
+## Actions
+
+Actions provide shortcuts for common use cases, such as code review, writing comments, generating unit tests, or refactoring methods. Use Actions to create custom actions that automate repetitive tasks, speed up your workflow, and improve your productivity.
+
+Actions provide two methods to perform actions by using:
+
+- [**Default and Built-in Actions**](#default-and-built-in-actions)
+- [**Custom Actions**](#custom-actions)
+- [**Quick Actions**](#quick-actions)
+
+### Default and Built-in Actions
+
+Default actions include **`/edit`**, **`/comment`**, **`/share`**, or **`/test`**. 
+    
+Built-in actions can be enabled in the **`config.json`** file as **`slashCommands`** objects. Follow the [built-in actions guide](https://docs.continue.dev/customize/slash-commands#built-in-slash-commands) to enable built-in actions in your code editor.
+
+1. Highlight a code section you want to perform an action on.
+2. Press <Keyboard shortcuts={["cmd/ctrl", "L"]} slot="html"/> (VS Code) or <Keyboard shortcuts={["cmd/ctrl", "J"]} slot="html"/> (JetBrains) to open the chat.
+3. Use the slash command **`/`** to invoke an action. 
+4. Describe and request an action to perform in your code.
+
+```sh
+/edit refactor the code to use a for loop
+```
+
+5. Accept the changes or reject the changes.
+
+Upon accepting the suggestion, the action will be performed in your editor. Rejecting the suggestion will dismiss the action.
+
+### Custom Actions
+
+Custom actions can be created to automate repetitive tasks, speed up your workflow, and improve your productivity. Custom actions are used by defining a `.prompt` file in your development environment. Prompt files can be defined to perform simple actions or complex actions using templates.
+
+Follow the [custom actions guide](https://docs.continue.dev/customize/deep-dives/prompt-files#quick-start) to create custom actions for your development environment.
+
+1. Highlight a code section you want to perform an action on.
+2. Press <Keyboard shortcuts={["cmd/ctrl", "L"]} slot="html"/> (VS Code) or <Keyboard shortcuts={["cmd/ctrl", "J"]} slot="html"/> (JetBrains) to open the chat.
+3. Use the custom slash command **`/`** to invoke an action. 
+4. Describe and request an action to perform in your code.
+
+```sh
+/custom this is a custom action
+```
+
+5. Accept the changes or reject the changes.
+
+Upon accepting the suggestion, the action will be performed in your editor. Rejecting the suggestion will dismiss the action.
+
+### Quick Actions
+
+Quick actions are displayed as buttons above top-level classes and functions in your source code. Quick actions provide two types of actions:
+
+- [**Right-click Actions**](#right-click-actions)
+- [**Debug Action**](#debug-action)
+- [**Quick Fixes (VS Code)**](#quick-fixes-vs-code)
+
+Customize your Quick actions by defining a by defining a `.prompt` file in your development environment.
+
+Follow the [prompt files guide](https://docs.continue.dev/customize/deep-dives/prompt-files) to create quick actions for your development environment.
+
+#### Right-click Actions
+
+Right-click actions provide a context menu to perform actions in your code.
+
+1. Highlight a code section you want to perform an action on.
+2. Right click to open the context menu.
+3. Select an action from the context dropdown menu to perform the action.
+
+Upon accepting the suggestion, the action will be performed in your editor. Rejecting the suggestion will dismiss the action.
+
+#### Debug Action
+
+Debug action is a built-in keyboard shortcut to debug your code.
+
+1. Press <Keyboard shortcuts={["cmd/ctrl", "shift", "r"]} slot="html"/> to copy the contents of the current terminal into the chat sidebar and debug your code.
+
+#### Quick Fixes (VS Code)
+
+Quick fixes provide suggestions to fix issues in your code by underlining the issue in yellow or red to indicate errors.
+
+1. Place your cursor near the underlined issue in your code.
+2. VS Code will display a lightbulb icon next to the issue.
+3. Click the lightbulb icon or press <Keyboard shortcuts={["cmd/ctrl", "."]} slot="html"/> to view a dropdown menu with quick fixes.
+4. Select **`Ask Continue`** to apply the suggested fix to your code.
+
+Upon accepting the suggestion, the quick fix will be applied to your code. Rejecting the suggestion will dismiss the quick fix.
