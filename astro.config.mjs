@@ -207,10 +207,10 @@ export default defineConfig({
               },
             },
             {
-              label: 'AI Coding Assistant',
-              link: '/tools/ai-coding-assistant',
+              label: 'AI Code Assistant',
+              link: '/tools/ai-code-assistant',
               attrs: {
-                icon: '',
+                icon: 'continue.svg',
               },
             },
           ]
