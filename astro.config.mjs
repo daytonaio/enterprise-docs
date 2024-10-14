@@ -73,55 +73,6 @@ export default defineConfig({
           }]
         },
         {
-          "label": "Configuration",
-          "items": [
-            {
-              "label": "Git Providers",
-              "link": "/configuration/git-providers/",
-              attrs: {
-                icon: 'git-branch.svg'
-              },
-            }, {
-              "label": "Teams",
-              "link": "/configuration/teams/",
-              attrs: {
-                icon: 'users.svg'
-              },
-            },
-          ]
-        }, {
-          "label": "Usage",
-          "items": [
-            {
-              "label": "Workspaces",
-              "link": "/usage/workspaces/",
-              attrs: {
-                icon: 'computer.svg'
-              },
-            },
-            {
-              "label": "Usage",
-              "link": "/usage/usage/",
-              attrs: {
-                icon: 'usage.svg'
-              },
-            },
-            {
-              "label": "IDEs",
-              "link": "/usage/ide/",
-              attrs: {
-                icon: 'layout.svg'
-              },
-            }, {
-              "label": "Account",
-              "link": "/usage/account/",
-              attrs: {
-                icon: 'user.svg'
-              },
-            },
-          ]
-        },
-        {
           label: "Administration",
           items: [
             {
@@ -171,6 +122,55 @@ export default defineConfig({
               "link": "/administration/settings/",
               attrs: {
                 icon: 'settings.svg'
+              },
+            },
+          ]
+        },
+        {
+          "label": "Configuration",
+          "items": [
+            {
+              "label": "Git Providers",
+              "link": "/configuration/git-providers/",
+              attrs: {
+                icon: 'git-branch.svg'
+              },
+            }, {
+              "label": "Teams",
+              "link": "/configuration/teams/",
+              attrs: {
+                icon: 'users.svg'
+              },
+            },
+          ]
+        }, {
+          "label": "Usage",
+          "items": [
+            {
+              "label": "Workspaces",
+              "link": "/usage/workspaces/",
+              attrs: {
+                icon: 'computer.svg'
+              },
+            },
+            {
+              "label": "Usage",
+              "link": "/usage/usage/",
+              attrs: {
+                icon: 'usage.svg'
+              },
+            },
+            {
+              "label": "IDEs",
+              "link": "/usage/ide/",
+              attrs: {
+                icon: 'layout.svg'
+              },
+            }, {
+              "label": "Account",
+              "link": "/usage/account/",
+              attrs: {
+                icon: 'user.svg'
               },
             },
           ]
