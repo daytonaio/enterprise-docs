@@ -206,6 +206,13 @@ export default defineConfig({
                 icon: 'backstage.svg'
               },
             },
+            {
+              label: 'AI Code Assistant',
+              link: '/tools/ai-code-assistant',
+              attrs: {
+                icon: 'continue.svg',
+              },
+            },
           ]
         },
         {
