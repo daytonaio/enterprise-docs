@@ -16,7 +16,7 @@
     "@astrojs/starlight": "^0.20.1",
     "@astrojs/starlight-tailwind": "^2.0.1",
     "@astrojs/tailwind": "5.1.0",
-    "astro": "4.4.6",
+    "astro": "4.16.1",
     "astro-expressive-code": "^0.33.4",
     "dotenv": "^16.4.5",
     "envalid": "^8.0.0",
