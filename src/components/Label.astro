@@ -1,0 +1,18 @@
+---
+interface Props {
+  title?: string
+  value?: string
+}
+
+const { title, value } = Astro.props
+---
+
+<aside aria-label="tip" class="starlight-aside starlight-aside--tip">
+  <p class="starlight-aside__title" aria-hidden="true">
+    {title}
+  </p>
+  {value && <p class="starlight-aside__value">{value}</p>}
+  <section class="starlight-aside__content">
+    <slot />
+  </section>
+</aside>
