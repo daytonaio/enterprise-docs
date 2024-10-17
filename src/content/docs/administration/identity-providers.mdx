@@ -65,11 +65,11 @@ Daytona provides the option to add Azure DevOps as an Identity Provider.
 
 - **Client ID**
 
-    Enter the client identifier registered with the Identity Provider.
+    The client identifier registered with the Identity Provider.
 
 - **Client Secret**
 
-    Enter the client secret registered with the Identity Provider.
+    The client secret registered with the Identity Provider.
 
 - **Account Linking Only**
 
@@ -80,6 +80,29 @@ Daytona provides the option to add Azure DevOps as an Identity Provider.
     If specified, `single-tenant` auth endpoints are used, otherwise `common` multi-tenant endpoints are used.
 
 4. Click **`Save`** to add **`Azure DevOps`** as the Identity Provider.
+
+Upon adding Azure DevOps as an Identity Provider, you can configure Azure DevOps OAuth to enable users to authenticate with Daytona using their Azure DevOps account.
+
+### Azure DevOps OAuth
+
+Configure Azure DevOps OAuth to enable users to authenticate with Daytona using their Azure DevOps account.
+
+1. Open [Azure DevOps](https://portal.azure.com/) and navigate to **`Azure Services`** > **`Azure DevOps`**.
+2. Select **`Create new organization`** to create a new organization.
+3. Enter the details for the new organization.
+
+    - `Organization name` must be unique.
+
+    - `Region` must be set to the desired region.
+
+4. Click **`Create`** to create the organization.
+5. Enter the details for the new project.
+
+    - `Project name` must be unique.
+
+    - `Visibility` must be set to `Private` or `Public`.
+
+6. Click **`Create`** to create the project.
 
 ## Bitbucket
 
@@ -95,11 +118,11 @@ Daytona provides the option to add Bitbucket as an Identity Provider.
 
 - **Client ID**
 
-    Enter the client identifier registered with the Identity Provider.
+    The client identifier registered with the Identity Provider.
 
 - **Client Secret**
 
-    Enter the client secret registered with the Identity Provider.
+    The client secret registered with the Identity Provider.
 
 - **Account Linking Only**
 
@@ -155,11 +178,11 @@ Daytona provides the option to add Bitbucket Server as an Identity Provider.
 
 - **Client ID**
 
-    Enter the client identifier registered with the Identity Provider.
+    The client identifier registered with the Identity Provider.
 
 - **Client Secret**
 
-    Enter the client secret registered with the Identity Provider.
+    The client secret registered with the Identity Provider.
 
 - **Account Linking Only**
 
@@ -167,7 +190,7 @@ Daytona provides the option to add Bitbucket Server as an Identity Provider.
 
 - **Base URL**
 
-    Enter the base URL of the Identity Provider.
+    The base URL of the Identity Provider.
 
 4. Click **`Save`** to add **`Bitbucket Server`** as the Identity Provider.
 
@@ -206,11 +229,11 @@ Daytona provides the option to add GitHub as an Identity Provider.
 
 - **Client ID**
 
-    Enter the client identifier registered with the Identity Provider.
+    The client identifier registered with the Identity Provider.
 
 - **Client Secret**
 
-    Enter the client secret registered with the Identity Provider.
+    The client secret registered with the Identity Provider.
 
 - **Account Linking Only**
 
@@ -254,7 +277,7 @@ Daytona provides the option to add GitHub Enterprise Server as an Identity Provi
 
 - **Client Secret**
 
-    Enter the client secret registered with the Identity Provider.
+    The client secret registered with the Identity Provider.
 
 - **Account Linking Only**
 
@@ -262,7 +285,7 @@ Daytona provides the option to add GitHub Enterprise Server as an Identity Provi
 
 - **Base URL**
 
-    Enter the base URL of the Identity Provider.
+    The base URL of the Identity Provider.
 
 - **API URL**
 
@@ -302,11 +325,11 @@ Daytona provides the option to add GitLab as an Identity Provider.
 
 - **Client ID**
 
-    Enter the client identifier registered with the Identity Provider.
+    The client identifier registered with the Identity Provider.
 
 - **Client Secret**
 
-    Enter the client secret registered with the Identity Provider.
+    The client secret registered with the Identity Provider.
 
 - **Account Linking Only**
 
@@ -348,11 +371,11 @@ Daytona provides the option to add GitLab Self-Managed as an Identity Provider.
 
 - **Client ID**
 
-    Enter the client identifier registered with the Identity Provider.
+    The client identifier registered with the Identity Provider.
 
 - **Client Secret**
 
-    Enter the client secret registered with the Identity Provider.
+    The client secret registered with the Identity Provider.
 
 - **Account Linking Only**
 
@@ -398,11 +421,11 @@ Daytona provides the option to add Google as an Identity Provider.
 
 - **Client ID**
 
-    Enter the client identifier registered with the Identity Provider.
+    The client identifier registered with the Identity Provider.
 
 - **Client Secret**
 
-    Enter the client secret registered with the Identity Provider.
+    The client secret registered with the Identity Provider.
 
 - **Account Linking Only**
 
@@ -463,11 +486,11 @@ Daytona provides the option to add Microsoft as an Identity Provider.
 
 - **Client ID**
 
-    Enter the client identifier registered with the Identity Provider.
+    The client identifier registered with the Identity Provider.
 
 - **Client Secret**
 
-    Enter the client secret registered with the Identity Provider.
+    The client secret registered with the Identity Provider.
 
 - **Account Linking Only**
 
@@ -478,3 +501,43 @@ Daytona provides the option to add Microsoft as an Identity Provider.
     If specified, `single-tenant` auth endpoints are used, otherwise `common` multi-tenant endpoints are used.
 
 4. Click **`Save`** to add **`Microsoft`** as the Identity Provider.
+
+Upon adding Microsoft as an Identity Provider, you can configure Microsoft OAuth to enable users to authenticate with Daytona using their Microsoft account.
+
+## OpenID Connect
+
+Daytona provides the option to add OpenID Connect as an Identity Provider.
+
+1. Click the **`New +`** button to add an Identity Provider.
+2. Select **`OpenID Connect`** as the Identity Provider from the dropdown list.
+3. Enter the details of the **`OpenID Connect`** Identity Provider.
+
+- **Alias**
+
+    Unique identifier for the Identity Provider.
+
+- **Display Name**
+
+    The display name of the Identity Provider.
+
+- **Discovery Endpoint**
+
+    The URL of the discovery document for the Identity Provider. Entering the URL will automatically populate the new fields presented below.
+
+- **Client ID**
+
+    The client identifier registered with the Identity Provider.
+
+- **Client Secret**
+
+    The client secret registered with the Identity Provider.
+
+- **Account Linking Only**
+
+    Toggle to enable the Identity Provider for logging in to existing accounts only.
+
+- **Redirect URI**
+
+    The redirect URI to use when configuring the Identity Provider.
+
+Upon adding OpenID Connect as an Identity Provider, you can configure OpenID Connect OAuth to enable users to authenticate with Daytona using their OpenID Connect account.
