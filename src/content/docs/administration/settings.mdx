@@ -5,6 +5,7 @@ description: Learn about the different settings available in Daytona and how to 
 
 import ImageCard from '@components/cards/ImageCard.astro';
 import CardGrid from '@components/cards/CardGrid.astro';
+import Label from '@components/Label.astro';
 import VSlogo from '@assets/index/icons/VS.svg?url';
 import PClogo from '@assets/index/images/pycharm.png';
 import IJlogo from '@assets/index/images/intelliJ.png';
@@ -13,6 +14,10 @@ import GOlogo from '@assets/index/images/goLand.png';
 import CLlogo from '@assets/index/images/clion.png';
 import RDlogo from '@assets/index/images/rider.png';
 import RMlogo from '@assets/index/images/rubyMine.png';
+
+<Label>
+  Distribution: **Cloud**, **Self-Managed**
+</Label>
 
 Daytona administration settings page provides options to configure various settings and customize your Daytona instance. You can manage [IDEs](#enabled-ides), [Workspace Samples](#workspace-samples), [Workspace Retention Period](#workspace-retention-period), and [Telemetry](#telemetry) settings.
 

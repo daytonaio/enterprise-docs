@@ -9,15 +9,15 @@ import { Tabs, TabItem, LinkCard, CardGrid, Card } from '@astrojs/starlight/comp
 import Keyboard from "../../../components/Keyboard.astro"
 import Table from "../../../components/table/Table.astro"
 import TableRow from "../../../components/table/TableRow.astro"
+import Label from '@components/Label.astro'
 
-
-
+<Label>
+  Distribution: **Open Source**, **Cloud**, **Self-Managed**
+</Label>
 
 Daytona's VS Code extension integrates Visual Studio Code, appearing as a tab on the left-hand side alongside your default tabs in VS Code like File Explorer, Search, Source Control, etc,  to streamline your workflow and boost productivity.
 
 The extension allows you to have a frictionless experience of opening a standardized development environment, creating and accessing your [Daytona Workspaces](/usage/workspaces) based on git repositories. It offers convenient [workspace](/usage/workspaces) management, profile control, and instant team information access -- all directly within VS Code, removing the hassle of going to a web browser, opening the Daytona URL and creating projects upon initial configuration. 
-
-
 
 ## Prerequisites
 
@@ -519,5 +519,4 @@ This command will remove the directory in which we store your profile, default c
    
 
 _After these two steps, you will have a clean setup and have removed all files that are related to Daytona on your computer. However, if you are looking to uninstall and clean up your Daytona deployment, check [this uninstallation guide](/installation/uninstall)._
-
 
