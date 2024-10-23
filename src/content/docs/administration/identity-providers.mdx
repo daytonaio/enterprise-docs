@@ -1,0 +1,554 @@
+---
+title: Identity Providers
+description: Learn how to configure and manage Identity Providers in Daytona.
+---
+
+Identity Providers (IdPs) are services that manage user authentication and authorization. Daytona supports the integration of external Identity Providers, enabling users to authorize with Daytona using their existing credentials.
+
+## Installation
+
+To configure and manage Identity Providers for your Daytona installation, ensure the following prerequisites are met:
+
+1. **Daytona Installation**
+
+    [Download and install Daytona](https://github.com/daytonaio/installer) on your infrastructure. Upon completion, you will receive a URL to access your Daytona dashboard.
+
+2. **Registered account with a supported Identity Provider:**
+
+    Ensure you have a registered account with one of the supported Identity Providers.
+
+- [**`Azure DevOps`**](#azure-devops)
+- [**`Bitbucket`**](#bitbucket)
+- [**`Bitbucket Server`**](#bitbucket-server)
+- [**`GitHub`**](#github)
+- [**`GitHub Enterprise Server`**](#github-enterprise-server)
+- [**`GitLab`**](#gitlab)
+- [**`GitLab Self-Managed`**](#gitlab-self-managed)
+- [**`Google`**](#google) 
+- [**`Microsoft`**](#microsoft)
+
+## Add an Identity Provider
+
+Daytona provides the option to add multiple Identity Providers. 
+
+1. Click the **`New +`** button to add an Identity Provider.
+2. Select the Identity Provider from the dropdown list.
+3. Enter the details of the selected Identity Provider.
+4. Click **`Save`** to add the Identity Provider.
+
+## Edit an Identity Provider
+
+Daytona provides the option to edit the details of an existing Identity Provider.
+
+1. Click the pencil icon **`✎`** next to the Identity Provider to edit it.
+2. Modify the details of the Identity Provider.
+3. Click **`Save`** to update the Identity Provider.
+
+## Remove an Identity Provider
+
+Daytona provides the option to remove an Identity Provider.
+
+1. Click the bin icon next to the Identity Provider to remove it.
+
+    For security purposes, removing an Identity Provider requires you to confirm the action.
+
+2. Click **`Delete`** to confirm the removal of the Identity Provider.
+
+## Azure DevOps
+
+Daytona provides the option to add Azure DevOps as an Identity Provider.
+
+1. Click the **`New +`** button to add an Identity Provider.
+2. Select **`Azure DevOps`** as the Identity Provider from the dropdown list.
+3. Enter the details of the **`Azure DevOps`** Identity Provider.
+
+- **Redirect URI**
+
+    The redirect URI to use when configuring the Identity Provider.
+
+- **Client ID**
+
+    The client identifier registered with the Identity Provider.
+
+- **Client Secret**
+
+    The client secret registered with the Identity Provider.
+
+- **Account Linking Only**
+
+    Toggle to enable the Identity Provider for logging in to existing accounts only.
+
+- **Tenant ID**
+
+    If specified, `single-tenant` auth endpoints are used, otherwise `common` multi-tenant endpoints are used.
+
+4. Click **`Save`** to add **`Azure DevOps`** as the Identity Provider.
+
+Before adding Azure DevOps as an Identity Provider, register an Azure DevOps OAuth client to enable users to authenticate to Daytona using their Azure DevOps account.
+
+### Azure DevOps OAuth Client
+
+Configure Azure DevOps OAuth to enable users to authenticate with Daytona using their Azure DevOps account.
+
+1. Open [Azure DevOps](https://portal.azure.com/) and navigate to **`Azure Services`** > **`Azure DevOps`**.
+2. Select **`Create new organization`** to create a new organization.
+3. Enter the details for the new organization.
+
+    - `Organization name` must be unique.
+
+    - `Region` must be set to the desired region.
+
+4. Click **`Create`** to create the organization.
+5. Enter the details for the new project.
+
+    - `Project name` must be unique.
+
+    - `Visibility` must be set to `Private` or `Public`.
+
+6. Click **`Create`** to create the project.
+7. Copy the `Client ID`, `Client Secret`, and `Tenant ID` values to use when configuring the Azure DevOps Identity Provider.
+
+## Bitbucket
+
+Daytona provides the option to add Bitbucket as an Identity Provider.
+
+1. Click the **`New +`** button to add an Identity Provider.
+2. Select **`Bitbucket`** as the Identity Provider from the dropdown list.
+3. Enter the details of the **`Bitbucket`** Identity Provider.
+
+- **Redirect URI**
+
+    The redirect URI to use when configuring the Identity Provider.
+
+- **Client ID**
+
+    The client identifier registered with the Identity Provider.
+
+- **Client Secret**
+
+    The client secret registered with the Identity Provider.
+
+- **Account Linking Only**
+
+    Toggle to enable the Identity Provider for logging in to existing accounts only.
+
+4. Click **`Save`** to add **`Bitbucket`** as the Identity Provider.
+
+Before adding Bitbucket as an Identity Provider, register a Bitbucket OAuth client to enable users to authenticate to Daytona using their Bitbucket account.
+
+### Bitbucket OAuth Client
+
+Configure Bitbucket OAuth to enable users to authenticate with Daytona using their Bitbucket account.
+
+1. Open [Bitbucket](https://bitbucket.com) and navigate to **`Settings`** > **`Workspace Settings`**.
+2. Select the **`OAuth consumers`** tab from the sidebar, and click **`Add consumer`**.
+3. Enter the details for the OAuth App.
+
+    - `Name`
+
+    - `Homepage URL` must be set to the URL of your Daytona installation.
+
+    - `Callback URL` must be set to the `Redirect URI` value found in the form while adding Bitbucket as an Identity Provider.
+
+    - `URL` must be set to the URL of your Daytona installation.
+
+    - `This is a private consumer` toggle must be set to disabled.
+
+    - `Permissions` must be set to include: 
+    
+        Account: `Email`, `Read`
+
+        Workspace membership: `Read`, `Write`
+
+        Projects: `Read`, `Write`, `Admin`
+        
+        Repositories: `Read`, `Write`, `Admin`
+        
+        Pull requests: `Read`
+
+4. Click **`Save`** to create the Bitbucket OAuth App.
+5. Copy the `Client ID` and `Client Secret` values to use when configuring the Bitbucket Identity Provider.
+
+## Bitbucket Server
+
+Daytona provides the option to add Bitbucket Server as an Identity Provider.
+
+1. Click the **`New +`** button to add an Identity Provider.
+2. Select **`Bitbucket Server`** as the Identity Provider from the dropdown list.
+3. Enter the details of the **`Bitbucket Server`** Identity Provider.
+
+- **Redirect URI**
+
+    The redirect URI to use when configuring the Identity Provider.
+
+- **Client ID**
+
+    The client identifier registered with the Identity Provider.
+
+- **Client Secret**
+
+    The client secret registered with the Identity Provider.
+
+- **Account Linking Only**
+
+    Toggle to enable the Identity Provider for logging in to existing accounts only.
+
+- **Base URL**
+
+    The base URL of the Identity Provider.
+
+4. Click **`Save`** to add **`Bitbucket Server`** as the Identity Provider.
+
+Before adding Bitbucket Server as an Identity Provider, register a Bitbucket Server OAuth client to enable users to authenticate to Daytona using their Bitbucket Server account.
+
+### Bitbucket Server OAuth Client
+
+Configure Bitbucket Server OAuth to enable users to authenticate with Daytona using their Bitbucket Server account.
+
+1. Open [Bitbucket Server](https://bitbucket.com) and navigate to **`Settings`** > **`Application Links`**.
+2. Click **`Create link`** to add a new application link.
+3. Under **`Application type`**, select **`External application`**.
+4. Under **`Direction`** setting, select **`Incoming`**.
+5. Click **`Continue`** to proceed.
+6. Enter the details for the OAuth App.
+
+    - `Application name`
+
+    - `Application details` must be set to the `Redirect URI` value found in the form while adding Bitbucket Server as an Identity Provider.
+
+    - `Application permissions` must be set to `Read and Write under repositories`. 
+
+7. Click **`Save`** to create the Bitbucket Server OAuth App.
+8. Copy the `Client ID` and `Client Secret` values to use when configuring the Bitbucket Server Identity Provider.
+
+## GitHub
+
+Daytona provides the option to add GitHub as an Identity Provider.
+
+1. Click the **`New +`** button to add an Identity Provider.
+2. Select **`GitHub`** as the Identity Provider from the dropdown list.
+3. Enter the details of the **`GitHub`** Identity Provider.
+
+- **Redirect URI**
+
+    The redirect URI to use when configuring the Identity Provider.
+
+- **Client ID**
+
+    The client identifier registered with the Identity Provider.
+
+- **Client Secret**
+
+    The client secret registered with the Identity Provider.
+
+- **Account Linking Only**
+
+    Toggle to enable the Identity Provider for logging in to existing accounts only.
+
+4. Click **`Save`** to add **`GitHub`** as the Identity Provider.
+
+Before adding GitHub as an Identity Provider, register an OAuth client to enable users to authenticate to Daytona using their GitHub account.
+
+### GitHub OAuth Client
+
+Configure GitHub OAuth to enable users to authenticate with Daytona using their GitHub account.
+
+1. Open [GitHub](https://github.com) and navigate to **`Settings`** > **`Developer settings`**.
+2. Select the **`OAuth Apps`** tab from the sidebar, and click **`New OAuth App`**.
+3. Enter the details for the OAuth App.
+
+    - `Application name`
+
+    - `Homepage URL` must be set to the URL of your Daytona installation.
+
+    - `Authorization callback URL` must be set to the `Redirect URI` value found in the form while adding GitHub as an Identity Provider.
+
+4. Click **`Register application`** to create the GitHub OAuth App.
+5. Copy the `Client ID` and `Client Secret` values to use when configuring the GitHub Identity Provider.
+
+## GitHub Enterprise Server
+
+Daytona provides the option to add GitHub Enterprise Server as an Identity Provider.
+
+1. Click the **`New +`** button to add an Identity Provider.
+2. Select **`GitHub Enterprise Server`** as the Identity Provider from the dropdown list.
+3. Enter the details of the **`GitHub Enterprise Server`** Identity Provider.
+
+- **Redirect URI**
+
+    The redirect URI to use when configuring the Identity Provider.
+
+- **Client ID**
+
+    Enter the client identifier registered with the Identity Provider.
+
+- **Client Secret**
+
+    The client secret registered with the Identity Provider.
+
+- **Account Linking Only**
+
+    Toggle to enable the Identity Provider for logging in to existing accounts only.
+
+- **Base URL**
+
+    The base URL of the Identity Provider.
+
+- **API URL**
+
+    Override the default API URL for this Identity Provider.
+
+4. Click **`Save`** to add **`GitHub Enterprise Server`** as the Identity Provider.
+
+Before adding GitHub Enterprise Server as an Identity Provider, register a GitHub Enterprise Server OAuth client to enable users to authenticate to Daytona using their GitHub Enterprise Server account.
+
+### GitHub Enterprise Server OAuth Client
+
+Configure GitHub Enterprise Server OAuth to enable users to authenticate with Daytona using their GitHub Enterprise Server account.
+
+1. Open [GitHub Enterprise Server](https://github.com) and navigate to **`Settings`** > **`Developer settings`**.
+2. Select the **`OAuth Apps`** tab from the sidebar, and click **`New OAuth App`**.
+3. Enter the details for the OAuth App.
+
+    - `Application name`
+
+    - `Homepage URL` must be set to the URL of your Daytona installation.
+
+    - `Authorization callback URL` must be set to the `Redirect URI` value found in the form while adding GitHub Enterprise Server as an Identity Provider.
+
+4. Click **`Register application`** to create the GitHub Enterprise Server OAuth App.
+5. Copy the `Client ID` and `Client Secret` values to use when configuring the GitHub Enterprise Server Identity Provider.
+
+## GitLab
+
+Daytona provides the option to add GitLab as an Identity Provider.
+
+1. Click the **`New +`** button to add an Identity Provider.
+2. Select **`GitLab`** as the Identity Provider from the dropdown list.
+3. Enter the details of the **`GitLab`** Identity Provider.
+
+- **Redirect URI**
+
+    The redirect URI to use when configuring the Identity Provider.
+
+- **Client ID**
+
+    The client identifier registered with the Identity Provider.
+
+- **Client Secret**
+
+    The client secret registered with the Identity Provider.
+
+- **Account Linking Only**
+
+    Toggle to enable the Identity Provider for logging in to existing accounts only.
+
+4. Click **`Save`** to add **`GitLab`** as the Identity Provider.
+
+Before adding GitLab as an Identity Provider, register a GitLab OAuth client to enable users to authenticate to Daytona using their GitLab account.
+
+### GitLab OAuth Client
+
+Configure GitLab OAuth to enable users to authenticate with Daytona using their GitLab account.
+
+1. Open [GitLab](https://gitlab.com) and navigate to **`Preferences`**.
+2. Select the **`Applications`** tab from the sidebar, and click **`Add new application`**.
+3. Enter the details for the OAuth App.
+
+    - `Name`
+
+    - `Redirect URI` must be set to the `Redirect URI` used when connecting GitHub as an Identity Provider.
+
+    - `Confidential` toggle must be set to enabled.
+
+    - `Scope` must be set to include `api`, `read_api`, `read_user`, `read_repository`, `openid`, `write_repository`, `profile`, and `email`.
+
+4. Click **`Save application`** to create the GitLab OAuth App.
+5. Copy the `Client ID` and `Client Secret` values to use when configuring the GitLab Identity Provider.
+
+## GitLab Self-Managed
+
+Daytona provides the option to add GitLab Self-Managed as an Identity Provider.
+
+1. Click the **`New +`** button to add an Identity Provider.
+2. Select **`GitLab Self-Managed`** as the Identity Provider from the dropdown list.
+3. Enter the details of the **`GitLab Self-Managed`** Identity Provider.
+
+- **Redirect URI**
+
+    The redirect URI to use when configuring the Identity Provider.
+
+- **Client ID**
+
+    The client identifier registered with the Identity Provider.
+
+- **Client Secret**
+
+    The client secret registered with the Identity Provider.
+
+- **Account Linking Only**
+
+    Toggle to enable the Identity Provider for logging in to existing accounts only.
+
+- **Base URL**
+
+    Enter the base URL of the Identity Provider.
+
+4. Click **`Save`** to add **`GitLab Self-Managed`** as the Identity Provider.
+
+Before adding GitLab Self-Managed as an Identity Provider, register a GitLab Self-Managed OAuth client to enable users to authenticate to Daytona using their GitLab Self-Managed account.
+
+### GitLab Self-Managed OAuth Client
+
+Configure GitLab Self-Managed OAuth to enable users to authenticate with Daytona using their GitLab Self-Managed account.
+
+1. Open [GitLab Self-Managed](https://gitlab.com) and navigate to **`Preferences`**.
+2. Select the **`Applications`** tab from the sidebar, and click **`Add new application`**.
+3. Enter the details for the OAuth App.
+
+    - `Name`
+
+    - `Redirect URI` must be set to the `Redirect URI` used when connecting GitHub as an Identity Provider.
+
+    - `Confidential` toggle must be set to enabled.
+
+    - `Scope` must be set to include `api`, `read_api`, `read_user`, `read_repository`, `openid`, `write_repository`, `profile`, and `email`.
+
+4. Click **`Save application`** to create the GitLab Self-Managed OAuth App.
+5. Copy the `Client ID` and `Client Secret` values to use when configuring the GitLab Self-Managed Identity Provider.
+
+## Google
+
+Daytona provides the option to add Google as an Identity Provider.
+
+1. Click the **`New +`** button to add an Identity Provider.
+2. Select **`Google`** as the Identity Provider from the dropdown list.
+3. Enter the details of the **`Google`** Identity Provider.
+
+- **Redirect URI**
+
+    The redirect URI to use when configuring the Identity Provider.
+
+- **Client ID**
+
+    The client identifier registered with the Identity Provider.
+
+- **Client Secret**
+
+    The client secret registered with the Identity Provider.
+
+- **Account Linking Only**
+
+    Toggle to enable the Identity Provider for logging in to existing accounts only.
+
+- **Hosted Domain**
+
+    If specified, it will be validated that the returned identity token has a claim for this domain
+
+4. Click **`Save`** to add **`Google`** as the Identity Provider.
+
+Before adding Google as an Identity Provider, register a Google OAuth client to enable users to authenticate to Daytona using their Google account.
+
+### Google OAuth Client
+
+Configure Google OAuth to enable users to authenticate with Daytona using their Google account.
+
+1. Open [Google Cloud Console](https://console.cloud.google.com) and navigate to **`APIs & Services`** > **`Credentials`**.
+2. Click **`OAuth consent screen`** and select **`External`**.
+3. Click **`Create`** to create a new OAuth consent screen.
+4. Enter the details for the OAuth consent screen.
+
+    - `App name`
+
+    - `User support email` must be set to the email address of your IT support contact.
+
+5. Click **`SAVE AND CONTINUE`** to proceed with creating your Google OAuth App.
+6. Click **`ADD OR REMOVE SCOPES`** to add the required scopes.
+
+    - `email` must be set to `https://www.googleapis.com/auth/userinfo.email`.
+
+    - `profile` must be set to `https://www.googleapis.com/auth/userinfo.profile`.
+
+    - `openid` must be set to `openid`.
+
+7. Click **`UPDATE`** and then **`SAVE AND CONTINUE`**.
+8. Click **`CREDENTIALS`** > **`CREATE CREDENTIALS`**.
+9. Select **`OAuth client ID`** and select **`Web application`** as the application type.
+10. Enter the details for the OAuth App.
+
+    - `Name`
+
+    - `Authorized redirect URIs` must be set to the `Redirect URI` value found in the form while adding Google as an Identity Provider.
+
+11. Click **`CREATE`** to create the Google OAuth App.
+12. Copy the `Client ID` and `Client Secret` values to use when configuring the Google Identity Provider.
+
+## Microsoft
+
+Daytona provides the option to add Microsoft as an Identity Provider.
+
+1. Click the **`New +`** button to add an Identity Provider.
+2. Select **`Microsoft`** as the Identity Provider from the dropdown list.
+3. Enter the details of the **`Microsoft`** Identity Provider.
+
+- **Redirect URI**
+
+    The redirect URI to use when configuring the Identity Provider.
+
+- **Client ID**
+
+    The client identifier registered with the Identity Provider.
+
+- **Client Secret**
+
+    The client secret registered with the Identity Provider.
+
+- **Account Linking Only**
+
+    Toggle to enable the Identity Provider for logging in to existing accounts only.
+
+- **Tenant ID**
+
+    If specified, `single-tenant` auth endpoints are used, otherwise `common` multi-tenant endpoints are used.
+
+4. Click **`Save`** to add **`Microsoft`** as the Identity Provider.
+
+Before adding Microsoft as an Identity Provider, register a Microsoft OAuth client to enable users to authenticate to Daytona using their Microsoft account.
+
+## OpenID Connect
+
+Daytona provides the option to add OpenID Connect as an Identity Provider.
+
+1. Click the **`New +`** button to add an Identity Provider.
+2. Select **`OpenID Connect`** as the Identity Provider from the dropdown list.
+3. Enter the details of the **`OpenID Connect`** Identity Provider.
+
+- **Alias**
+
+    Unique identifier for the Identity Provider.
+
+- **Display Name**
+
+    The display name of the Identity Provider.
+
+- **Discovery Endpoint**
+
+    The URL of the discovery document for the Identity Provider. Entering the URL will automatically populate the new fields presented below.
+
+- **Client ID**
+
+    The client identifier registered with the Identity Provider.
+
+- **Client Secret**
+
+    The client secret registered with the Identity Provider.
+
+- **Account Linking Only**
+
+    Toggle to enable the Identity Provider for logging in to existing accounts only.
+
+- **Redirect URI**
+
+    The redirect URI to use when configuring the Identity Provider.
+
+Before adding OpenID Connect as an Identity Provider, register an OpenID Connect OAuth client to enable users to authenticate to Daytona using their OpenID Connect account.
