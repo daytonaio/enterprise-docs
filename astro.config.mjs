@@ -211,13 +211,13 @@ export default defineConfig({
         {
           label: 'Misc',
           items: [
-            {
-              label: 'Subscription',
-              link: '/misc/subscription',
-              attrs: {
-                icon: 'daytona.svg',
-              },
-            },
+            // {
+            //   label: 'Subscription',
+            //   link: '/misc/subscription',
+            //   attrs: {
+            //     icon: 'daytona.svg',
+            //   },
+            // },
             {
               label: 'Telemetry',
               link: '/misc/telemetry',
