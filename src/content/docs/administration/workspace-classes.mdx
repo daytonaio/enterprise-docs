@@ -78,6 +78,12 @@ Daytona allows administrators to create and manage Workspace classes to allocate
 
     Example: `50`
 
+- [**Display Order**](#display-order)
+
+    Optionally, specify the order in which the Workspace class appears in the list.
+
+    Example: `1`
+
 - **Usage Multiplier**
 
     Optionally, specify the Workspace credits usage multiplier.
@@ -104,6 +110,13 @@ Daytona allows administrators to create and manage Workspace classes to allocate
 
     Example: `nvidia.com/gpu`
 
+## Edit a Workspace Class
+
+Daytona provides the option to edit a Workspace class name or its [display order](#display-order).
+
+1. Click the edit icon next to the Workspace class you want to modify.
+2. Update the details for the Workspace class.
+
 ## Remove a Workspace Class
 
 Daytona provides the option to remove a Workspace class if it is no longer required.
@@ -113,3 +126,9 @@ Daytona provides the option to remove a Workspace class if it is no longer requi
 :::danger
 Removing the Workspace class will prevent the creation of new Workspaces within that class. Existing Workspaces will not be affected.
 :::
+
+## Display Order
+
+The display order of the Workspace classes determines the order in which they appear in the list. The Workspace classes are sorted based on the display order, with the highest priority value displayed first. If two Workspace classes have the same display order, they are sorted by using their Usage Multiplier value. The Workspace class with the higher Usage Multiplier is displayed first. The lowest sorting priority value is the alphabetical order of the Workspace class name.
+
+The display order of the Workspace classes can be adjusted by changing the value in the `Display Order` field when [creating](#create-a-workspace-class) or [editing](#edit-a-workspace-class) a Workspace class.
