@@ -149,9 +149,9 @@ Once expanded, you will be presented with the following options and information:
 
   Permanently removes the Workspace and all associated data.
 
-- **`Shared`**
+- **`Share`**
 
-  Manages the sharing settings of the Workspace, allowing you to collaborate with others.
+  Manages the [sharing settings of the Workspace](/administration/settings#workspace-sharing-policy), allowing you to collaborate with others. Available options are `Everyone`, `Team`, and `Private`.
 
 - **Launch remote environment**
 
